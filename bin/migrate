@@ -1,0 +1,173 @@
+#!/usr/bin/env ruby
+
+require "rexml/document"
+
+require "rubygems"
+require "nanoc3"
+require "sequel"
+require "pathname"
+
+def write_tag_page(dir, tag, count)
+  meta = {}
+  meta[:title] = "Tag: #{tag}"
+  meta[:type] = 'page'
+  meta[:filters_pre] = ['erb']
+  meta[:feed] = "/tags/#{tag}/"
+  meta[:feed_title] = "Tag '#{tag}'"
+  meta[:permalink] = tag
+  pl = (count == 1) ? ' is' : 's are'
+  contents = %{
+<p>#{count} item#{pl} tagged with <em>#{tag}</em>:</p>
+<ul>
+ <% articles_tagged_with('#{tag}').each do |a| %>
+  <%= render 'dated_article', :article => a %>
+ <% end %>
+</ul>
+  }
+  # Write html page
+  write_item dir/"#{tag}.textile", meta, contents
+end
+
+def write_tag_feed_page(dir, tag, format)
+  f = format.downcase
+  meta = {}
+  meta[:title] = "H3RALD - Tag '#{tag}' (#{format} Feed)"
+  meta[:type] = 'feed'
+  meta[:permalink] = "tags/#{tag}/#{f}"
+  contents = %{<%= #{f}_feed(:articles => articles_tagged_with('#{tag}'))%>}
+  write_item dir/"#{tag}-#{f}.xml", meta, contents
+end
+
+def write_archive_page(dir, name, count)
+  meta = {}
+  meta[:title] = "Archive: #{name}"
+  meta[:type] = 'page'
+  meta[:filters_pre] = ['erb']
+  meta[:permalink] = name.downcase.gsub /\s/, '-'
+  pl = (count == 1) ? ' was' : 's were'
+  contents = %{
+<p>#{count} item#{pl} written in <em>#{name}</em>:</p>
+<ul>
+ <% articles_by_month.select{|i| i[0] == "#{name}"}[0][1].each do |a|%>
+  <%= render 'dated_article', :article => a %>
+ <% end %>
+</ul>
+  }
+  # Write file
+  write_item dir/"#{meta[:permalink]}.textile", meta, contents
+end
+
+def write_item(path, meta, contents)
+  path.parent.mkpath
+  (path).open('w+') do |f|
+    f.print "--"
+    f.puts meta.to_yaml
+    f.puts "-----"
+    f.puts contents
+  end
+end
+
+# Ignored by Nanoc 3
+def get_filter(db, fid)
+  filter = db[:text_filters].where("id = ?", fid).get(:name).downcase
+  # Multiple filters are not handled (e.g. markdown smartypants)
+  filter = filter.split(' ')[0]
+  # Prepare metadata
+  case filter
+  when 'textile' then
+    return ['redcloth'], 'textile'
+  when 'markdown' then
+    return ['bluecloth'], 'markdown'
+  when 'bbcode' then
+    return ['bbcode'], 'bbcode'
+  else
+    return [], 'txt'
+  end
+end
+
+def filter_content(content)
+  content.gsub(/<ul>/, "\n").
+    gsub(/<\/ul>/, '').
+    gsub(/<p[^>]+>/, "").
+    gsub(/<br\s*\/>/, "\n").
+    gsub(/<\/p>/, "\n").
+    gsub(/<span .+?>(.+?)<\/span>/, '\1').
+    gsub(/<h1>(.+?)<\/h1>/, '# \1').
+    gsub(/<h2>(.+?)<\/h2>/, '## \1').
+    gsub(/<h3>(.+?)<\/h3>/, '### \1').
+    gsub(/<h4>(.+?)<\/h4>/, '#### \1').
+
+    gsub(/^\s*<li>(.*)<\/li>/, '*  \1').
+    gsub(/<a [^>]+>[^<]+<\/a>/) do |link|
+      elem = REXML::Document.new(link).first
+      attrs = elem.attributes
+      title = attrs['title'] ? " #{attrs['title']}" : ''
+      "[#{elem.text}](#{attrs['href']}#{title})"
+    end.
+    gsub(/<i>([^<]+)<\/i>/, '_\1_').
+    gsub(/<em>([^<]+)<\/em>/, '_\1_').
+    gsub(/<b>([^<]+)<\/b>/, '*\1*').
+    gsub(/<strong>([^<]+)<\/strong>/, '*\1*').
+    gsub(/<img .+?\/>/) do |img|
+      elem = REXML::Document.new(img).first
+      attrs = elem.attributes
+      src = attrs['src'].sub(%r[http://(blog.livollmers.net|alexvollmer.com)/wp-content/], '/')
+      "![#{attrs['alt']}](#{src})"
+    end.
+    gsub(/<code>([^<]+)<\/code>/, '`\1`')
+end
+
+def get_tags(db, post_id)
+  tags = db[:wp_terms].
+    join_table(:inner, :wp_term_taxonomy,
+               :term_id => :term_id,
+               :taxonomy => 'post_tag').
+    join_table(:inner, :wp_term_relationships,
+               :term_taxonomy_id => :term_taxonomy_id).
+    where(:object_id => post_id).first[:name] rescue ""
+end
+
+def get_comments(db, post_id)
+  db[:wp_comments].where(:comment_post_ID => post_id).map do |c|
+    {
+      :id     => c[:id],
+      :author => c[:comment_author].to_s,
+      :body   => c[:comment_content].to_s,
+      :url    => c[:comment_author_url].to_s,
+      :date   => c[:comment_date_gmt]
+    }
+  end
+end
+
+def write_page(meta, contents, extension)
+  path = Pathname.new(Dir.pwd) + "content/posts"
+  name = "#{meta['permalink']}.#{extension}"
+  write_item path + name, meta, contents
+end
+
+db = Sequel.mysql("wordpress")
+
+# Remove all existing pages!
+dir = Pathname.new(Dir.pwd) + "content/posts"
+dir.rmtree if dir.exist?
+dir.mkpath
+
+# Prepare page data
+dataset = db[:wp_posts].where(:post_status => "publish", :post_type => "post")
+total = dataset.count
+total_tags = []
+dataset.each_with_index do |a, i|
+  puts "Migrating [#{i}/#{total}]: '#{a[:post_title]}'..."
+  meta = {
+    'tags'        => get_tags(db, a[:ID]),
+    'comments'    => get_comments(db, a[:ID]),
+    'permalink'   => a[:post_name],
+    'title'       => a[:post_title].to_s,
+    'date'        => a[:post_date_gmt],
+    'toc'         => true,
+    'filters_pre' => 'markdown',
+    'layout'      => 'post',
+    'excerpt'     => a[:post_excerpt].to_s
+  }
+  write_page(meta, filter_content(a[:post_content].to_s), "md")
+end
