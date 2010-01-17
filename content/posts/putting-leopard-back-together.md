@@ -30,14 +30,15 @@ After trolling around it appears that once you&#8217;ve taken the step to upgrad
 
 My `environment.plist` looks like this:
 
-
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <dict>
-        ...
-        <string>/opt/local/lib/libtidy</string>
-        <key>GEM_HOME</key>
-        <string>/Library/Ruby/Gems/1.8</string>
-        <key>GEM_PATH</key>
-        <string>/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8</string>
-      </dict>
-    </plist>
+<% highlight :xml do %>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+  <dict>
+    ...
+    <string>/opt/local/lib/libtidy</string>
+    <key>GEM_HOME</key>
+    <string>/Library/Ruby/Gems/1.8</string>
+    <key>GEM_PATH</key>
+    <string>/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8</string>
+  </dict>
+</plist>
+<% end %>

@@ -7,7 +7,8 @@ module Nanoc3::Helpers::Filtering
     # Reconvert
     data.gsub! /<%/, ''
     # Filter captured data
-    filtered_data = "\n<notextile>"+Albino.colorize(data, syntax)+"</notextile>\n" rescue data
+    filtered_data = "\n" + Albino.colorize(data, syntax) +
+      "\n" rescue data
     # Append filtered data to buffer
     buffer = eval('_erbout', block.binding)
     buffer << filtered_data

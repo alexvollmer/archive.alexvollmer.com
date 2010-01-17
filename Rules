@@ -1,8 +1,21 @@
 #!/usr/bin/env ruby
 
+compile '/css/*' do
+  filter :sass, {
+    :load_paths => [Dir.pwd + "/content/css"],
+    :full_exception => true,
+    :line_numbers => true
+  }
+end
+
 compile '*' do
+  rep.filter :erb
   rep.filter :bluecloth
   rep.layout 'default'
+end
+
+route 'css/*' do
+  item.identifier.gsub(/\/$/, '') + '.css'
 end
 
 route '*' do

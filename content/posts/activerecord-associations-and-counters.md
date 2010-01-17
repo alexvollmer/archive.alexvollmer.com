@@ -21,27 +21,29 @@ In moochbot, a `User` model object has multiple `Transaction` records. Each `Tra
 
 In ActiveRecord-land we express these relationships in the model with _three_ `has_many` relations for the `User`: one for items they are lending, one for items they are borrowing and all closed transactions. The first two are fairly straight-ahead:
 
-      class User < ActiveRecord::Base
-      
-        has_many(:lent_items,
-                 :class_name => "Transaction",
-                 :foreign_key => "lender_id",
-                 :conditions => ["state IN (?)",
-                                 %w(started lent returned overdue disputed)])
-      
-        has_many(:borrowed_items,
-                 :class_name => "Transaction",
-                 :foreign_key => "borrower_id",
-                 :conditions => ["state IN (?)",
-                                 %w(started lent returned overdue disputed)])
-      
-        has_many(:completed_items,
-                 :class_name => "Transaction",
-                 :finder_sql => 'SELECT * ' +
-                 'FROM transactions ' +
-                 'WHERE state IN (\'aborted\', \'finished\') AND ' +
-                 '(borrower_id = #{id} OR lender_id = #{id})')
-      end
+<% highlight :ruby do %>
+class User < ActiveRecord::Base
+
+  has_many(:lent_items,
+           :class_name => "Transaction",
+           :foreign_key => "lender_id",
+           :conditions => ["state IN (?)",
+                           %w(started lent returned overdue disputed)])
+
+  has_many(:borrowed_items,
+           :class_name => "Transaction",
+           :foreign_key => "borrower_id",
+           :conditions => ["state IN (?)",
+                           %w(started lent returned overdue disputed)])
+
+  has_many(:completed_items,
+           :class_name => "Transaction",
+           :finder_sql => 'SELECT * ' +
+           'FROM transactions ' +
+           'WHERE state IN (\'aborted\', \'finished\') AND ' +
+           '(borrower_id = #{id} OR lender_id = #{id})')
+end
+<% end %>
 
 However the third relationship requires some custom SQL because we want all records that are in either the "finished" or "aborted" state _and_ where the user is _either_ the lender or the borrower. I looked into doing this with a simple `:conditions` option on the `has_many` relationship, but couldn't figure out how to specify the ID of the user.
 
@@ -49,46 +51,50 @@ One _really important_ thing to recognize here is that the SQL is quoted with si
 
 To add a counter cache to the User record, you declare a `:counter_cache` option on the reciprocal `belongs_to` relationship. This seemed counter-intuitive to me since if I didn't already have one in place, I'd have to add one. It seemed more obvious to me to put it in the `has_many` relationship but that ain't the way ActiveRecord rolls. So the next step was to update the `belongs_to` mappings in the `Transaction` class:
 
-      class Transaction < ActiveRecord::Base
-      
-        belongs_to(:lender,
-                   :class_name => "User",
-                   :foreign_key => "lender_id",
-                   :counter_cache => :lent_items_count)
-      
-        belongs_to(:borrower,
-                   :class_name => "User",
-                   :foreign_key => "borrower_id",
-                   :counter_cache => :borrowed_items_count)
-      end
+<% highlight :ruby do %>
+class Transaction < ActiveRecord::Base
+
+  belongs_to(:lender,
+             :class_name => "User",
+             :foreign_key => "lender_id",
+             :counter_cache => :lent_items_count)
+
+  belongs_to(:borrower,
+             :class_name => "User",
+             :foreign_key => "borrower_id",
+             :counter_cache => :borrowed_items_count)
+end
+<% end %>
 
 The final step was to create a migration that would add the counter cache columns to the `USERS` table. Note that not only do we add the columns, but we also update everyone's counters.
 
-      class AddCounterCacheToUsers < ActiveRecord::Migration
-        COLUMNS = [:lent_items_count,
-                   :borrowed_items_count,
-                   :completed_items_count]
-      
-        def self.up
-          COLUMNS.each do |c|
-            add_column :users, c, :integer, :default => 0
-          end
-      
-          User.reset_column_information
-      
-          User.find(:all).each do |user|
-            User.update_counters(user.id,
-                                 :lent_items_count => user.lent_items.length,
-                                 :borrowed_items_count => user.borrowed_items.length,
-                                 :completed_items_count => user.completed_items.length)
-          end
-        end
-      
-        def self.down
-          COLUMNS.each do |c|
-            remove_column :users, c
-          end
-        end
-      end
+<% highlight :ruby do %>
+class AddCounterCacheToUsers < ActiveRecord::Migration
+  COLUMNS = [:lent_items_count,
+             :borrowed_items_count,
+             :completed_items_count]
+
+  def self.up
+    COLUMNS.each do |c|
+      add_column :users, c, :integer, :default => 0
+    end
+
+    User.reset_column_information
+
+    User.find(:all).each do |user|
+      User.update_counters(user.id,
+                           :lent_items_count => user.lent_items.length,
+                           :borrowed_items_count => user.borrowed_items.length,
+                           :completed_items_count => user.completed_items.length)
+    end
+  end
+
+  def self.down
+    COLUMNS.each do |c|
+      remove_column :users, c
+    end
+  end
+end
+<% end %>
 
 So there it is. Hopefully that helps the next poor sod that runs into that same problem.

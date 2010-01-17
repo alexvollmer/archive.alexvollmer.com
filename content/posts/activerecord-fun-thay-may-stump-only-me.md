@@ -25,52 +25,58 @@ Now STI may appear to be total overkill for this problem, but here are my reason
 
 Whew. Okay, clear so far? So my initial code looked something like this:
 
-      require "digest/sha1"
-      
-      class Action < ActiveRecord::Base
-      
-        belongs_to :transaction
-        before_save :create_guid
-      
-        def create_guid
-          sha1 = Digest::SHA1.new
-          sha1.update transaction_id.to_s
-          sha1.update type.downcase
-          sha1.update DateTime.to_s
-          self.guid = sha1.hexdigest
-        end
-      end
-      
-      class ReturnAction < Action
-        def execute
-          transaction.return!
-        end
-      end
-      
-      class AbortAction < Action
-        def execute
-          transaction.abort!
-        end
-      end
-      
-      class DisputeAction < Action
-        def execute
-          transaction.abort!
-        end
-      end
+<% highlight :ruby do %>
+require "digest/sha1"
+
+class Action < ActiveRecord::Base
+
+  belongs_to :transaction
+  before_save :create_guid
+
+  def create_guid
+    sha1 = Digest::SHA1.new
+    sha1.update transaction_id.to_s
+    sha1.update type.downcase
+    sha1.update DateTime.to_s
+    self.guid = sha1.hexdigest
+  end
+end
+
+class ReturnAction < Action
+  def execute
+    transaction.return!
+  end
+end
+
+class AbortAction < Action
+  def execute
+    transaction.abort!
+  end
+end
+
+class DisputeAction < Action
+  def execute
+    transaction.abort!
+  end
+end
+<% end %>
 
 It seemed like a good idea at the time, but the strange thing was that no matter which incantation I tried, I simply couldn't create a new `Action` instance and have it write a record to the database. This simply didn't work:
 
-    ReturnAction.create! :transaction_id => 1
+<% highlight :ruby do %>
+ReturnAction.create! :transaction_id => 1
+<% end %>
 
 There were no errors on the returned object. No exceptions were thrown. No queries to the database and certainly no insert statements executed. Just complete and utter silence. Out of desperation, as much as anything else, I removed the `belongs_to` declaration from the `Action` class and instead declared a `has_many` on the `Transaction` class. Voila! It worked like a champ.
 
 After a bit of thought, the `has_many` association makes complete sense to me in the case where we want to create new `Action` instances for a particular `Transaction`. However, if you look in the code above, the `execute` methods of each sub-class are referring to a `transaction` object/method&mdash;which I no longer have. However I don't necessarily need the full-blown `belongs_to` association here. I can just fake the bits I want in the parent `Action` class like so:
 
-      class Action < ActiveRecord::Base
-        def transaction
-          @transaction ||= Transaction.find(self.transaction_id)
-        end
-      end
+<% highlight :ruby do %>
+class Action < ActiveRecord::Base
+  def transaction
+    @transaction ||= Transaction.find(self.transaction_id)
+  end
+end
+<% end %>
 
 So none if this is particularly earth-shattering. Sorry folks, no great gems of philosophical wisdom today. Just one man's small accomplishment blown completely out of proportion.

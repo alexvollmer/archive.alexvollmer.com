@@ -11,11 +11,13 @@ At [work](http://www.evri.com Evri!!), we do a lot of scheduled tasks in which w
 
 We have a RubyGem written to handle registration and renewal that hides the HTTP and XML message bodies away from the user. You simply create a client, setup your initial registration and tell it to keep you registered.
 
-    require "rubygems"
-    require "radar_love"
-    client = Radar::Client.new("http://radar-dev")
-    service = client.create('foobar', 'http://foobar:1234')
-    service.keep_registered # fires up background thread
+<% highlight :ruby do %>
+require "rubygems"
+require "radar_love"
+client = Radar::Client.new("http://radar-dev")
+service = client.create('foobar', 'http://foobar:1234')
+service.keep_registered # fires up background thread
+<% end %>
 
 That last line is implemented with a Ruby thread that loops indefinitely, sleeping and then renewing the registration lease. But a funny thing happened while implementing this. When we just fired up `irb` and tried to run this part (without doing any other work), the re-registration thread _never_ executed. Man, I had heard that MRI threads were "broken", but this is completely non-functioning!
 
@@ -23,10 +25,12 @@ Then I remembered a [very handy page](http://spec.ruby-doc.org/wiki/Ruby_Threadi
 
 In the case of our little `irb` session, the re-registration thread only began executing when we did something in the main thread. We weren't executing anything in the main thread that triggered one of these context-switches (remember, we're merely sitting at an irb prompt waiting for the next line). So getting the runtime to execute a context-switch merely required us to do _something_ in the main thread:
 
-    loop do
-      puts "Howdy!"  
-      sleep 5
-    end
+<% highlight :ruby do %>
+loop do
+  puts "Howdy!"  
+  sleep 5
+end
+<% end %>
 
 You may shake your head and mutter something derisive about this "hack". However, in reality, requiring your main thread to do something isn't terribly burdensome. If you didn't have any work to do in your main thread, you'd have to ask yourself why you created a separate thread in the first place!
 
@@ -34,14 +38,16 @@ You may also think that since MRI threads don't provide true concurrency, they'r
 
 However, that doesn't mean threads don't have their place in MRI environments. In the first example I mentioned (tailing logs and publishing summaries) we use a separate thread for the publishing activity. We _could_ have done this entire action in a single loop, but the major downside is that we would essentially be relying on new lines in our log to appear to "crank" the mechanism forward. If we go a long time before we see another log line, our summary task will fail to execute.
 
-    IO.popen("tail -F /var/log/some.log").each do |line|
-      update_statistics(line)
-      if Time.now >= next_report_time
-        # we might not get here for a while unless the
-        # log lines keep coming
-        report_statistics
-      end
-    end
+<% highlight :ruby do %>
+IO.popen("tail -F /var/log/some.log").each do |line|
+  update_statistics(line)
+  if Time.now >= next_report_time
+    # we might not get here for a while unless the
+    # log lines keep coming
+    report_statistics
+  end
+end
+<% end %>
 
 It would certainly be possible to read from the file with a timeout that is based on how much time is left before the next reporting period. However at that point the code starts to get a little cluttered, so we go with the threaded approach only to take advantage of its context-switching properties. In our case, this is a perfect solution for what we're trying to accomplish.
 

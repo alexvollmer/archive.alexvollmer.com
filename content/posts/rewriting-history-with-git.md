@@ -16,25 +16,26 @@ The most basic kind of re-writing you can do is simply amending your last commit
 
 The control file (a term I just made up) looks kinda like this:
 
-    pick 1cea777 Initial introduction of Merb.
-    pick 5fe7a19 Favor XML over HTML as the "default" content-type.
-    pick 6791134 Cleaned up the 'views' directory, out with the old, in with the new.
-    pick ae6adac Put lots of back-navigation links to make it nice 'n' easy to use.
-    pick 1da31ca Removed last vestiges of the RestServlet-related configuration and code.
-    pick b9fe3b9 Added error views, updated error-handling and improvised content dispatch.
-    pick bf92292 Routing cleanup. This is much more pleasant to read.
-    pick ec74c63 An attempt to get RSpec working with Maven and JRuby.
-    
-    # Rebase 92ddc87..ec74c63 onto 92ddc87
-    #
-    # Commands:
-    #  p, pick = use commit
-    #  e, edit = use commit, but stop for amending
-    #  s, squash = use commit, but meld into previous commit
-    #
-    # If you remove a line here THAT COMMIT WILL BE LOST.
-    # However, if you remove everything, the rebase will be aborted.
-    #
+<% highlight :sh do %>
+pick 1cea777 Initial introduction of Merb.
+pick 5fe7a19 Favor XML over HTML as the "default" content-type.
+pick 6791134 Cleaned up the 'views' directory, out with the old, in with the new.
+pick ae6adac Put lots of back-navigation links to make it nice 'n' easy to use.
+pick 1da31ca Removed last vestiges of the RestServlet-related configuration and code.
+pick b9fe3b9 Added error views, updated error-handling and improvised content dispatch.
+pick bf92292 Routing cleanup. This is much more pleasant to read.
+pick ec74c63 An attempt to get RSpec working with Maven and JRuby.
+
+# Rebase 92ddc87..ec74c63 onto 92ddc87
+#
+# Commands:
+#  p, pick = use commit
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+# However, if you remove everything, the rebase will be aborted.
+<% end %>
 
 The top section lists all of your patches, one per line. You can edit this section to do any of the following:
 *  Reorder the commits (just move lines up or down)

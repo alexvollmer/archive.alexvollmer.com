@@ -11,14 +11,15 @@ I've spent the bulk of this week trying to dig myself out of Ruby/Leopard hell. 
 
 At first things seemed to go well. But as I was spooling up again on my ["Programming Collective Intelligence"](http://svn.livollmers.net/public/pci/ /pci) project, [autotest](http://www.zenspider.com/ZSS/Products/ZenTest/ ZenTest: Automated test scaffolding for Ruby) with [rspec](http://rspec.rubyforge.org/ RSpec-1.0.8: Home) was just flat-out broken. When I ran `autotest` I would get an error like the following:
 
-
-    /Library/Ruby/Gems/1.8/gems/rspec-1.0.8/lib/autotest/rspec.rb:80:in spec_command': No spec command could be found! (RspecCommandError)
-        from /Library/Ruby/Gems/1.8/gems/rspec-1.0.8/lib/autotest/rspec.rb:10:in initialize'
-        from /Library/Ruby/Gems/1.8/gems/ZenTest-3.6.1/lib/autotest.rb:123:in new'
-        from /Library/Ruby/Gems/1.8/gems/ZenTest-3.6.1/lib/autotest.rb:123:in run'
-        from /Library/Ruby/Gems/1.8/gems/ZenTest-3.6.1/bin/autotest:48
-        from /usr/bin/autotest:16:in `load'
-        from /usr/bin/autotest:16
+<% highlight :irb do %>
+/Library/Ruby/Gems/1.8/gems/rspec-1.0.8/lib/autotest/rspec.rb:80:in spec_command': No spec command could be found! (RspecCommandError)
+    from /Library/Ruby/Gems/1.8/gems/rspec-1.0.8/lib/autotest/rspec.rb:10:in initialize'
+    from /Library/Ruby/Gems/1.8/gems/ZenTest-3.6.1/lib/autotest.rb:123:in new'
+    from /Library/Ruby/Gems/1.8/gems/ZenTest-3.6.1/lib/autotest.rb:123:in run'
+    from /Library/Ruby/Gems/1.8/gems/ZenTest-3.6.1/bin/autotest:48
+    from /usr/bin/autotest:16:in `load'
+    from /usr/bin/autotest:16
+<% end %>
 
 After _lots_ of digging, I figured out that `autotest` uses the built-in `Config` class which defines a `bindir` that rspec (with autotest) uses to derive possible locations for the `spec` command. On Leopard the default 'bindir' for Leopard was `/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin` which was _not_ where the `spec` command was installed. With a little help from [a blog post](http://www.rubybyraeli.org/blog/articles/2007/11/28/262-hacking-at-the-heads-of-a-hydra-ruby-install Hacking at the heads of a Hydra Ruby install) I simply symlinked `spec` into that impossibly long path and things seemed to work.
 

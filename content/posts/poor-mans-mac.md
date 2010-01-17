@@ -37,33 +37,36 @@ Currently the only files I sync through S3 are all in my `~/Documents` directory
 
 So here are the scripts. The first is `sync_to_s3`:
 
-
-    #!/bin/sh
-    rsync --recursive --size-only \\
-      --files-from ~/Documents/sync_files \\
-      ~/Documents/ /Volumes/JungleDisk/documents/
+<% highlight :sh do %>
+#!/bin/sh
+rsync --recursive --size-only \\
+  --files-from ~/Documents/sync_files \\
+  ~/Documents/ /Volumes/JungleDisk/documents/
+<% end %>
 
 The `sync_files` file is simply a list of matching files and directories to sync. Mine looks like this:
 
-
-    books
-    cheatsheets
-    markdown
-    OmniFocus.ofocus
-    presentations
-    resume
-    screencasts
-    specifications
-    whitepapers
-    work
-    sync_files
+<% highlight :sh do %>
+books
+cheatsheets
+markdown
+OmniFocus.ofocus
+presentations
+resume
+screencasts
+specifications
+whitepapers
+work
+sync_files
+<% end %>
 
 Next is the `sync_from_s3` which goes the other way.
 
-
-    #!/bin/sh
-    rsync  --recursive --size-only \\
-      /Volumes/JungleDisk/documents/ ~/Documents/
+<% highlight :sh do %>
+#!/bin/sh
+rsync  --recursive --size-only \\
+  /Volumes/JungleDisk/documents/ ~/Documents/
+<% end %>
 
 Note that in the second script I don't refer to the `sync_files` file. That's because the only way files end up on S3 is via the `sync_to_s3` script which already limits what files get uploaded. I could use the `sync_files` file to sync _from_ S3, but if the `sync_files` were updated on S3 I wouldn't get the changes until my second sync.
 

@@ -21,32 +21,33 @@ When an object registers for notifications, it specifies a notification to liste
 
 Consider the example below:
 
-    @implementation Foo
-    - (void)init {
-      if (self = [super init]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didReceiveNote:)
-                                                     name:@"TheBigNotification"
-                                                   object:nil];
-      }
-      return self;
-    }
-    
-    - (void)didReceiveNote:(NSNotification *)notification {
-      NSLog(@"Hey, I got a notification with user info: %@", [notification userInfo]);
-    }
-    @end
+<% highlight :objc do %>
+@implementation Foo
+- (void)init {
+  if (self = [super init]) {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveNote:)
+                                                 name:@"TheBigNotification"
+                                               object:nil];
+  }
+  return self;
+}
 
-    @implementation Bar
-    - (void)doSomething {
-      NSLog(@"I'm up to something!");
-      NSDictionary *stuff = [NSDictionary dictionaryWithObjectsAndKeys:@"foo", @"bar", nil];
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"TheBigNotification"
-                                                          object:nil
-                                                        userInfo:stuff];
-    }
-    @end
+- (void)didReceiveNote:(NSNotification *)notification {
+  NSLog(@"Hey, I got a notification with user info: %@", [notification userInfo]);
+}
+@end
 
+@implementation Bar
+- (void)doSomething {
+  NSLog(@"I'm up to something!");
+  NSDictionary *stuff = [NSDictionary dictionaryWithObjectsAndKeys:@"foo", @"bar", nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"TheBigNotification"
+                                                      object:nil
+                                                    userInfo:stuff];
+}
+@end
+<% end %>
 
 Here the `Foo` class registers itself as a notification receiver for the notification named "TheBigNotification" on _any_ object. The `Bar` class will post the same notification when the `doSomething` method is invoked. 
 
@@ -66,11 +67,13 @@ When I first read about, and used Key-Value Observation (KVO) it seemed like mag
 
 KVO also allows you to use a special syntax when specifying the attributes you want to observe so that you can register with an object and traverse its object graph. Let's look at the classic customer/orders/line items example. If you want to know when changes are made to any line items in an order you would observe changes in the order like so:
 
-    Order *order = [self anyOrder];
-    [order addObserver:self
-            forKeyPath:@"lineItems"
-               options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
-               context:nil];
+<% highlight :objc do %>
+Order *order = [self anyOrder];
+[order addObserver:self
+        forKeyPath:@"lineItems"
+           options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+           context:nil];
+<% end %>
 
 
 Whenever you register for KVO, you _must_ implement the method `- observeValueForKeyPath:ofObject:change:context:`. Unlike notifications, you don't get to specify a selector. This means that if you're object is observing several other objects, you will have to inspect the object given in the callback method and dispatch appropriately.

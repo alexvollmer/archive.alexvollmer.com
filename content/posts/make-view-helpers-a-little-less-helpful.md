@@ -13,28 +13,26 @@ This was causing all sorts of grief for me in some JavaScript I was trying to wr
 
 In actionpack-2.1.0 there is a Proc attached to the `ActionView::Base.field_error_proc` class attribute. It's not documented in the RDoc, but this is also a _writable_ attribute which means I can shut the damn thing up. Here's what it looks like in the original file, `GEM_HOME/actionpack-2.1.0/lib/action_view/helpers/active_record_helper.rb`:
 
+<% highlight :ruby do %>
+require 'cgi'
+require 'action_view/helpers/form_helper'
 
-    require 'cgi'
-    require 'action_view/helpers/form_helper'
-    
-    module ActionView
-      class Base
-        @@field_error_proc = Proc.new{ |html_tag, instance| "<div class=\"fieldWithErrors\">#{html_tag}</div>" }
-        cattr_accessor :field_error_proc
-      end
-      ...
-    end
-
-
+module ActionView
+  class Base
+    @@field_error_proc = Proc.new{ |html_tag, instance| "<div class=\"fieldWithErrors\">#{html_tag}</div>" }
+    cattr_accessor :field_error_proc
+  end
+  ...
+end
+<% end %>
 
 My solution was to create a little file in `config/initializers` named `field_errors.rb` with this text:
 
-
-    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-      html_tag
-    end
-
-
+<% highlight :ruby do %>
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+  html_tag
+end
+<% end %>
 
 Et voila! Just a simple pass-through with no more fancy-pants markup. Putting stuff like this in separate files in the `initializers` directory keeps your config and environment files from getting out of hand.
 

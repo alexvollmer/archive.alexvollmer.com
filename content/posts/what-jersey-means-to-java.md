@@ -19,15 +19,17 @@ It's a reasonable first solution, but it breaks down quickly. The primary issue 
 
 As an example, consider the case where you want to return a response with a non-200 response code, an entity body and some headers. The order in which you set these on the response object is important because of how it's implemented. You need to set the status and headers _before_ you write any output to the stream. This make sense because you want a stream-oriented interface which means not storing the entire response in memory and then flushing. But, due to the strict order of HTTP response messages, you need to flush the header information prior to sending the body. It's not a particularly difficult thing to remember, but it is unnecessary mental overhead that is an artifact of the implementation.
 
-The request object is its own special brand of fun to deal with. Again its broad coverage makes for a rather clunky API to deal with. You want request parameters? You have to grovel through `String` arrays if you want to capture all of them. When implementing a Servlet, often what you want is some combination of request parameters, cookies and header; rarely do you need all of them at once. However what you get is one big über-object that has everything. Enjoy!
+The request object is its own special brand of fun to deal with. Again its broad coverage makes for a rather clunky API to deal with. You want request parameters? You have to grovel through `String` arrays if you want to capture all of them. When implementing a Servlet, often what you want is some combination of request parameters, cookies and header; rarely do you need all of them at once. However what you get is one big &uuml;ber-object that has everything. Enjoy!
 
 One final beef with the `ServletRequest` class is that getting path parameters out is an absolute nightmare. If you're building REST resources you really really care about the path as it is _the_ way to identify resources. The poor support the `ServletRequest` class provides for this is simply shocking. Here's a `String` &mdash; you parse it and figure out what the hell the segments are.
 
 In contrast, Jersey has a much looser philosophy with how requests and responses are handled. First, the monolithic request and response objects go away. Instead your methods provide the narrowest possible interface, expressing only what they need in exacting terms. This is done by making extensive use of Java annotations to mark up simple method parameters. For example, if you have a resource that needs a request parameter, use the `@QueryParam` annotation. Need a header? Just use `@HeaderParam`. Interested in cookies? Use the `@CookieParam` annotation. Here's an example:
 
-    public MyResult getMyResult(@QueryParam("name") String name) {
-        ...
-    }
+<% highlight :java do %>
+public MyResult getMyResult(@QueryParam("name") String name) {
+    ...
+}
+<% end %>
 
 This does away with a tremendous amount of "busy-work". You want the "name" parameter? By god you're going to get it&mdash;no intermediate objects to reach into and pull stuff out of.
 
@@ -41,25 +43,27 @@ What if you need to fiddle with the response some more? Maybe set some headers o
 
 In the Servlet API you might have to set a moderately complicated response like this:
 
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) {
-      // do some stuff
-      resp.addHeader("Expires", computeExpires());
-      resp.setStatus(201);
-      writeResponse(resp.getWriter(), new MyStuff());
-    }
-    
-    private void writeResponse(Writer writer, MyStuff stuff) {
-      // do whatever you have to do to serialize your object
-    }
-    
+<% highlight :java do %>
+public void doGet(HttpServletRequest req, HttpServletResponse resp) {
+  // do some stuff
+  resp.addHeader("Expires", computeExpires());
+  resp.setStatus(201);
+  writeResponse(resp.getWriter(), new MyStuff());
+}
+
+private void writeResponse(Writer writer, MyStuff stuff) {
+  // do whatever you have to do to serialize your object
+}
+<% end %>    
 
 In Jersey it looks like this:
 
-    public Response getMyStuff() {
-      MyStuff stuff = new MyStuff();
-      return Response.created(stuff).expires(computeExpires()).build();
-    }
-
+<% highlight :java do %>
+public Response getMyStuff() {
+  MyStuff stuff = new MyStuff();
+  return Response.created(stuff).expires(computeExpires()).build();
+}
+<% end %>
 
 The amount of code probably comes out to be the same, but the fact that you can build the response in a single line feels really good to me. The amount of vertical space dedicated to response-building is much more proportional to it's conceptual space in the method in Jersey than the Servlet API.
 

@@ -14,7 +14,6 @@ Let's say that the processing of writing your program is like launching spacecra
 ![Atlantis (STS-125)](http://farm4.static.flickr.com/3173/2958037544_26e7973f17_m.jpg)
 However, here on earth, our primitive space craft need a tremendous amount of disposable apparatus to reach escape-velocity. The proportion of useful vehicle (the shuttle) to the orbit-busting mechanism (the rocket boosters and fuel tanks) is a staggering 5.4:1 (based on liftoff weight).
 
-
 Command-line parsing in code exhibits a similar disproportion. The interesting part of your app isn't the command-line parsing. Why should it take up such a disproportionate amount of space in your code? Those boosters quickly become "space-junk", once the launch vehicle has left Earth; expensive trash that is never to be used again.
 
 Space-junk is dangerous for the next guy that wants to launch into space. It's also dangerous for the folks on the ground as it may decide to come crashing back down to earth. And those boosters have also been responsible for one of the worst disasters in NASA's history. If we could only get rid of those damn things the whole space program just might be a little better off. Unfortunately physics, and our current space-flight capabilities currently require them.
@@ -29,30 +28,34 @@ This is one of the things I like about Ruby. The language is extremely flexible 
 
 This is also something I find challenging to do in Java. In languages like Java, even just creating a collection of objects requires quite a bit of code:
 
-    import java.util.*;
-    
-    public class Designer {
-      public void makeItWork(List<Trash> trash) {
-        // today's challenge: convert trash to wearable garments
-        List<Garment> garments = new ArrayList<Garment>(trash.size());
-        for (Trash t : trash) {
-          Garment g = new Garment(t.getName());
-          garments.add(g);
-        }
-    
-        submitToJudges(garments);
-      }
+<% highlight :java do %>
+import java.util.*;
+
+public class Designer {
+  public void makeItWork(List<Trash> trash) {
+    // today's challenge: convert trash to wearable garments
+    List<Garment> garments = new ArrayList<Garment>(trash.size());
+    for (Trash t : trash) {
+      Garment g = new Garment(t.getName());
+      garments.add(g);
     }
+
+    submitToJudges(garments);
+  }
+}
+<% end %>
 
 In Java we often solve this by pushing all of that code into a private method that is named something meaningful. This works pretty well, but does tend to result in an explosion of "helper methods". Sometimes folks take the "cheap" route and simply prefix these riffs with explanatory comments like "convert each Trash into a Garment". I'm not a real big fan of this. Generally I don't care about the object conversion in the first place because the rest of the code is presumably doing something interesting with the _Garments_ and I don't give a damn about the _Trash_.
 
 So let's look at it in Ruby:
 
-    class Designer
-      def make_it_work(trash)
-        submit_to_judges(trash.map { |t| Garment.new(t.name) })
-      end
-    end
+<% highlight :ruby do %>
+class Designer
+  def make_it_work(trash)
+    submit_to_judges(trash.map { |t| Garment.new(t.name) })
+  end
+end
+<% end %>
 
 By my count there are five lines in the Java example (including the comment) just to convert trash to garments. In contrast I boiled that down to one line in Ruby. OK I could have done this in two lines if you think that's too much of a long-train. But I think there are couple of important points here:
 *  The importance of the concept being expressed diminishes from left to right
