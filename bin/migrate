@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
-require "rexml/document"
+require "pathname"
 
 require "rubygems"
 require "nanoc3"
+require "nokogiri"
 require "sequel"
-require "pathname"
+
 
 def write_tag_page(dir, tag, count)
   meta = {}
@@ -87,33 +88,45 @@ end
 
 def filter_content(content)
   content.
+    gsub("\015", "").
+    gsub("\342\200\234", '"').
+    gsub("\342\200\235", '"').
+    gsub("\342\200\230", "'").
+    gsub("\342\200\231", "'").
+    gsub("\211\333\252", "'").
+    gsub("\342\200\246", "&hellip;").
+    gsub("\342\200\224", "&mdash;").
+    gsub("\211\333\317", '"').
+    gsub("\211\333\235", '"').
+    gsub("\303\257", "&iuml;").
+    gsub("&lt;", "<").
+    gsub("&gt;", ">").
     gsub(/<ul>/, '').
     gsub(/<\/ul>/, '').
     gsub(/<p[^>]*>/, "").
     gsub(/<br\s*\/>/, "\n").
     gsub(/<\/p>/, "\n").
-    gsub(/<span .+?>(.+?)<\/span>/, '\1').
+    gsub(/<span .+?>/, "").
+    gsub("</span>", "").
+    gsub("</pre>", "").
     gsub(/<h1.*?>(.+?)<\/h1>/, '# \1' + "\n").
     gsub(/<h2.*?>(.+?)<\/h2>/, '## \1' + "\n").
     gsub(/<h3.*?>(.+?)<\/h3>/, '### \1'  + "\n").
     gsub(/<h4.*?>(.+?)<\/h4>/, '#### \1' + "\n").
-
     gsub(/^\s*<li>(.*)<\/li>/, '*  \1').
     gsub(/<a [^>]+>[^<]+<\/a>/) do |link|
-      elem = REXML::Document.new(link).first
-      attrs = elem.attributes
-      title = attrs['title'] ? " #{attrs['title']}" : ''
-      "[#{elem.text}](#{attrs['href']}#{title})"
+      elem = Nokogiri(link).children.first
+      title = elem['title'] ? " #{elem['title']}" : ''
+      "[#{elem.text}](#{elem['href']}#{title})"
     end.
     gsub(/<i>([^<]+)<\/i>/, '_\1_').
     gsub(/<em>([^<]+)<\/em>/, '_\1_').
     gsub(/<b>([^<]+)<\/b>/, '*\1*').
     gsub(/<strong>([^<]+)<\/strong>/, '*\1*').
     gsub(/<img .+?\/>/) do |img|
-      elem = REXML::Document.new(img).first
-      attrs = elem.attributes
-      src = attrs['src'].sub(%r[http://(blog.livollmers.net|alexvollmer.com)/wp-content/uploads], '/images')
-      "![#{attrs['alt']}](#{src})"
+      elem = Nokogiri(img).children.first
+      src = elem['src'].sub(%r[http://(blog.livollmers.net|alexvollmer.com)/wp-content/uploads], '/images')
+      "![#{elem['alt']}](#{src})"
     end.
     gsub(/<code>([^<]+)<\/code>/, '`\1`')
 end
@@ -160,15 +173,13 @@ total_tags = []
 dataset.each_with_index do |a, i|
   puts "Migrating [#{i}/#{total}]: '#{a[:post_title]}'..."
   meta = {
-    'tags'        => get_tags(db, a[:ID]),
-    # 'comments'    => get_comments(db, a[:ID]),
-    'permalink'   => a[:post_name],
-    'title'       => a[:post_title].to_s,
-    'date'        => a[:post_date_gmt],
-    'toc'         => true,
-    # 'filters_pre' => ['bluecloth'],
-    # 'layout'      => 'post',
-    'excerpt'     => a[:post_excerpt].to_s
+    'tags'             => get_tags(db, a[:ID]),
+    'permalink'        => a[:post_name],
+    'title'            => a[:post_title].to_s,
+    'date'             => a[:post_date_gmt],
+    'toc'              => true,
+    'original_post_id' => a[:ID],
+    'excerpt'          => a[:post_excerpt].to_s
   }
   write_page(meta, filter_content(a[:post_content].to_s), "md")
 end
