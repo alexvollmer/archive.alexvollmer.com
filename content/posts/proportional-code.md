@@ -1,9 +1,10 @@
 ----- 
 permalink: proportional-code
 title: Proportional Code
-excerpt: ""
 date: 2008-10-26 23:53:14 -07:00
-tags: Design
+tags: ""
+excerpt: ""
+original_post_id: 118
 toc: true
 -----
 Few things are less sexy than command-line parsing. It is one of the most mundane tasks a programmer has to execute in their career. But, it surprises just how much code is required to do basic command-line parsing in a lot of languages, including Ruby. So I got to thinking, _why does this bug me so much?_ I think the answer is that requiring so much code for such a relatively trivial task violates my sense of _proportionality_ in the code. I hate having to say so much more about this teeny little task than I do about the "theme" of my code. I think it distorts the narrative of the code.
@@ -57,7 +58,7 @@ By my count there are five lines in the Java example (including the comment) jus
 *  The importance of the concept being expressed diminishes from left to right
 *  The attention-span of the reader diminishes from top to bottom
 
-The Ruby example beats Java on both counts. I don't waste a lot of the reader's attention span up-front on book-keeping details (in the vertical space) and I state the important thing I'm trying do (submit my top Foos) quickly (on the left). The details of _which _Garments I'm dealing with are merely a qualification of _what_ I'm trying to do.
+The Ruby example beats Java on both counts. I don't waste a lot of the reader's attention span up-front on book-keeping details (in the vertical space) and I state the important thing I'm trying do (submit my top Foos) quickly (on the left). The details of _which _Garments I'm dealing with are merely a qualification of _what_ I'm trying to do.
 
 How you handle these two dimensions is greatly affected by both the language you use and the APIs you deal with. This is one of the reasons that I do _not_ find the use of scripting languages for Java's Swing API all that compelling. Scripting languages like JRuby or Jython help me with the horizontal space, but don't do a damn thing for the vertical requirements. With an awful API like Swing I have to say a _lot_ of words to make it go, regardless of the language I do it with.
 
@@ -68,4 +69,4 @@ At great peril to my own geek cred, I will say that this is why I find _The Lord
 Now I realize that a lot of folks _love_ the Tolkien books for the very reasons I criticize it. That's fine, _that_ is an argument about aesthetics, not facts. However I would strongly argue that "world-building" in your code is a _bad idea_. I think you're much more likely to build a decent piece of software if you pack your ideas tightly like a William Gibson novel than as a sprawling "trilogy" of epic code. Go ahead, prove me wrong. I double dog-dare ya.
 
 OK, so by this point any credibility I may have had is gone. Look at the size of a post about saying more with less. In the hope that you might be lazy and like to skip to the end:
-*Do as much as you can, with as little as possible.*
+*Do as much as you can&hellip;with as little as possible.*

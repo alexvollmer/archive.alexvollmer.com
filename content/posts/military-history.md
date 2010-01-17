@@ -1,9 +1,10 @@
 ----- 
 permalink: military-history
 title: Military History
-excerpt: ""
 date: 2008-06-28 16:15:19 -07:00
-tags: Reading
+tags: ""
+excerpt: ""
+original_post_id: 102
 toc: true
 -----
 In addition to technical geekery and social commentary, one of my favorite intellectual pursuits is the study of military history. It's one of my many interests that makes me so very thankful that I met my wife when I did or I would never have had a date in my adult life.
@@ -32,12 +33,12 @@ One final reward of the study of military history is to recognize how leadership
 
 It's rare that at the end of a good military history read I don't feel the need to weep. Maybe I'm a sucker for heartache but I can't help but feel just a teeny bit smarter after turning the last page of a well-written piece of military history. So before parting, let me leave you with a short list of great military reads (in no particular order) that I've come across over the years:
 
-*  _The Peloponnesian War_  Thucydides
-*  _The Civil War (Trilogy)_  Shelby Foote
-*  _At Dawn We Slept_  Gordon Prange
+*  _The Peloponnesian War_ &mdash; Thucydides
+*  _The Civil War (Trilogy)_ &mdash; Shelby Foote
+*  _At Dawn We Slept_ &mdash; Gordon Prange
 *  Just about anything by John Keegan
-*  _The Best and the Brightest_  David Halberstam
-*  _We Were Soldiers Once...And Young_  Harold G. Moore
-*  _The Rise and Fall of the Great Powers_  Paul Kennedy
-*  _Diplomacy_  Henry Kissinger
+*  _The Best and the Brightest_ &mdash; David Halberstam
+*  _We Were Soldiers Once...And Young_ &mdash; Harold G. Moore
+*  _The Rise and Fall of the Great Powers_ &mdash; Paul Kennedy
+*  _Diplomacy_ &mdash; Henry Kissinger
 

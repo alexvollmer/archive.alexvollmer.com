@@ -1,9 +1,10 @@
 ----- 
 permalink: introducing-the-evriverse
 title: Introducing the EvriVerse
-excerpt: ""
 date: 2009-05-12 17:28:15 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 336
 toc: true
 -----
 ![graph.jpg](/images/2009/05/graph.jpg)After several months of work, I'm pleased to announce the release of Evri's EvriVerse for the iPhone. We've tried to capture the unique things we do at Evri into the awesomeness that is the iPhone. I won't spill all the details here, so check out out the "official" company [post](http://blog.evri.com/index.php/2009/05/11/welcome-to-the-evriverse-evris-iphone-app/).
@@ -12,4 +13,4 @@ I've been working on this thing for a few months, mostly on a part-time basis. W
 
 This was a ton of fun to work on and I have five or six posts on some things I discovered while working on it. 
 
-It's free in the [App Store](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=312716560&mt=8) now. We'd love to hear any feedback you may have, which you can post on the [Evri Support Page](http://blog.evri.com/index.php/iphone-application-support/).
+It's free in the [App Store](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=312716560=8) now. We'd love to hear any feedback you may have, which you can post on the [Evri Support Page](http://blog.evri.com/index.php/iphone-application-support/).

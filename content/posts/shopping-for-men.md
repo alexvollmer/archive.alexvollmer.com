@@ -1,9 +1,10 @@
 ----- 
 permalink: shopping-for-men
 title: Shopping for Men
-excerpt: ""
 date: 2008-02-11 17:37:15 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 64
 toc: true
 -----
 ![Photo 2](/images/2008/02/photo-2.jpg)

@@ -1,9 +1,10 @@
 ----- 
 permalink: daughters-in-computing
 title: Daughters in Computing
-excerpt: ""
 date: 2007-07-04 23:59:19 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 27
 toc: true
 -----
 I'm a big podcast fan. There aren't many I listen to, but the few I enjoy accompany me and my dog on a near-daily basis. One of my favorites is Geoffrey Grossenbach's excellent [Ruby On Rails Podcast](http://podcast.rubyonrails.org/). In particular the last [two](http://podcast.rubyonrails.org/programs/1/episodes/roundtable-women-in-open-source) [episodes](http://podcast.rubyonrails.org/programs/1/episodes/roundtable-women-in-development-ii), about women in computing, really got me thinking about education and technology. If you haven't had a chance to check them out, they are worth listening to.
@@ -18,7 +19,6 @@ So what can we do? I may get hate-posts for this but I'm not sure there is much 
 
 We are obligated to remove the cult of priesthood, masculinity and mystery from computing and put these wonderful tools in front of kids as soon as we can. So here's my proposal: since the field of computing is so male-dominated right now, fathers who work with computers owe it to their daughters to make extra-sure that they get exposed to computers. This means when you're working at home on some deathly-important thing and your little girl wants to type on the keyboard you stop what you're doing and let her type in a word-processor or text editor. This means that you let them play around with and click on things without telling them what to do. This means you don't scare them out of interacting with it. This means when they ask questions you try to answer them the best way you can.
 
-My four-year-old daughter likes to "type some letters" and "play the
-drums that I like" (her phrases) on my MacBook. This translates to saying and typing letters into TextMate and playing drums via the keyboard in GarageBand. I never say no. I always haul her up in my lap, close whatever else I'm doing and let her play, explore and ask questions. Yes, this once resulted in crashing the window manager on my Linux box, but that was okay. Just the simple tactile experience of touching the machine is important.
+My four-year-old daughter likes to "type some letters" and "play the drums that I like" on my MacBook. This translates to saying and typing letters into TextMate and playing drums via the keyboard in GarageBand. I never say no. I always haul her up in my lap, close whatever else I'm doing and let her play, explore and ask questions. Yes, this once resulted in crashing the window manager on my Linux box, but that was okay. Just the simple tactile experience of touching the machine is important.
 
 Do I hope she follows in dad's footsteps? Not necessarily. I only hope that she's as fortunate as I am to have discovered what I like to do and can make a career out of it. What I certainly _don't_ want is to have this avenue closed off to her as was the common experience of my wife and most of my female friends. It's going to take some time and effort to get girls engaged. We (computer nerds) desperately need them if we're to continue to innovate, learn and grow.

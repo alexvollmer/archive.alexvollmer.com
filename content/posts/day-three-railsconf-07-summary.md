@@ -1,17 +1,20 @@
 ----- 
 permalink: day-three-railsconf-07-summary
 title: Day Three RailsConf '07 -- Summary
-excerpt: ""
 date: 2007-05-20 19:05:28 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 8
 toc: true
 -----
 The day opened with a disappointing keynote speech from Tim Bray. He was upfront about the fact that Sun wrote a big check to big a sponsor and proceeded to launch, unapologetically, into a forty-five minute advertisement of Sun and just how great their servers and JRuby are.
 
 
-In contrast the opening act, Cyndi Mitchell of ThoughtWorks, had a much better presentation that called out to the Ruby and Rails community to ["take back the enterprise"](http://conferences.oreillynet.com/cs/rails2007/view/e_sess/14493). Her slide deck and presentation were fantastic. Anyone who crosses John Travolta&#8217;s awful &#8220;Battlefied Earth&#8221; with Dick Cheney gets big points in my book. I hope they post them somewhere.
+In contrast the opening act, Cyndi Mitchell of ThoughtWorks, had a much better presentation that called out to the Ruby and Rails community [to "take back the enterprise"](http://conferences.oreillynet.com/cs/rails2007/view/e_sess/14493). Her slide deck and presentation were fantastic. Anyone who crosses John Travolta&#8217;s awful &#8220;Battlefied Earth&#8221; with Dick Cheney gets big points in my book. I hope they post them somewhere.
+
 
 # Memcache
+
 
 This feels like the year the conference has gotten more &#8220;serious&#8221;. To that end, a consistent underlying theme of the whole conference has been scalability and performance. I&#8217;ll walk away from this conference with a new and, hopefully, enlightened view of the whole software/hardware ecosystem. It ain&#8217;t just about Rails folks. A real production app has a lot more moving parts than what&#8217;s on your dev box.
 
@@ -27,7 +30,9 @@ Chris showed off the <a href="http://require.errtheblog.com/plugins/browser/cach
 
 What&#8217;s brilliant about memcache is just how dumb it is. That dumbness keeps it simple to manage and deploy. That means though, that there is a back-pressure in your system to use the tool wisely. However it seems like a fair trade-off, especially when you consider that any decent performance-enhancing tool should force you to think about what the hell you&#8217;re doing.
 
+
 # Getting Real Numbers
+
 
 The next session was put on by Julian Boot of ThoughtWorks, a hyper-active guy who was clearly more enthusiastic about his talk than about 90% of the presenters at the conference. He started his presentation of with a bang by making the claim that no off-the-shelf testing framework or product would be able to do proper performance testing for your application. Because setting up a test harness is (relatively) cheap and each team/environment/application is different, this is the one case where rolling-your-own makes more sense.
 
@@ -50,7 +55,7 @@ One of his key points is that writing a test harness is relatively simple. That 
 In between the morning keynote and the first session, I had a thirty minute window to get caffeinated and catch up on email. I only had to do the first, didn&#8217;t want to bother with second, and needed to find something to entertain myself until the next session. In the main foyer I noticed that DHH was chatting with a few folks. After a drive-by skulk realized that they were talking about one of my favorite topics, REST.
 
 
-During the conference I&#8217;ve been noodling around with the resources and URLs in a little side project I&#8217;m working on and I was getting really stuck on a satisfying way to apply REST-ful modeling to sessions and credentials. Since sessions are really managed by cookies, it&#8217;s kind of a round-peg-in-a-square-hole problem when applied to REST. So I walked up and posed this question to DHH directly. He hipped me to the `[map.resource](http://api.rubyonrails.org/classes/ActionController/Resources.html#M000177)` call in the routing configuration and the concept of &#8216;singleton resources&#8217;. We chatted a little bit more, I thanked him and headed off to my next session.
+During the conference I&#8217;ve been noodling around with the resources and URLs in a little side project I&#8217;m working on and I was getting really stuck on a satisfying way to apply REST-ful modeling to sessions and credentials. Since sessions are really managed by cookies, it&#8217;s kind of a round-peg-in-a-square-hole problem when applied to REST. So I walked up and posed this question to DHH directly. He hipped me to the [`map.resource`](http://api.rubyonrails.org/classes/ActionController/Resources.html#M000177) call in the routing configuration and the concept of &#8216;singleton resources&#8217;. We chatted a little bit more, I thanked him and headed off to my next session.
 
 
 Later, I started going over the Rails docs to get hip to this singleton resource concept. I realized that my question was on the edge of warranting a RTFM answer, but David was gracious enough to take the time to describe his solution and what the mechanism was. I have to say that I was really impressed with how helpful and gracious he was. I know that people sometimes want to treat DHH as a rockstar, but I think part of what has made Rails successful is the lack of a deeply-nested hierarchy that separates the ivory-tower types from the great unwashed masses. It&#8217;s comforting to know that you can pose a n00b question to someone like David and get a polite, helpful answer. I have great hope for this platform and this community.
@@ -59,7 +64,7 @@ Later, I started going over the Rails docs to get hip to this singleton resource
 # RejectConf 2007
 
 
-Living in Seattle I&#8217;m really fortunate to have access to such an [active group of Rubyists](http://www.zenspider.com/Languages/Ruby/Seattle/index.html). One fellow Seattle-ite, Ryan Davis, put on [RejectConf](http://blog.zenspider.com/archives/2007/05/rejectconf_2007_final_details.html) which was described as a &#8220;gong show&#8221; style presentation forum where people get up and give very short (&lt; 5min) presentations on things they&#8217;ve been working on. 
+Living in Seattle I&#8217;m really fortunate to have access to such an [active group of Rubyists](http://www.zenspider.com/Languages/Ruby/Seattle/index.html). One fellow Seattle-ite, Ryan Davis, put on [RejectConf](http://blog.zenspider.com/archives/2007/05/rejectconf_2007_final_details.html) which was described as a &#8220;gong show&#8221; style presentation forum where people get up and give very short (< 5min) presentations on things they&#8217;ve been working on. 
 
 
 The near-anarchic atmosphere (fueled by beer and snacks graciously donated by Addison-Wesley) gave a great energy to the gathering. Most of the ideas were pretty interesting, some were fringey, but it was a great forum to see what the rest of the community is up to. Oh yeah, a big shout-out to [Free Geek](http://freegeek.org/) for providing the space.

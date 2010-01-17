@@ -1,12 +1,13 @@
 ----- 
 permalink: book-review-information-dashboard-design
 title: "Book Review: Information Dashboard Design"
-excerpt: ""
 date: 2008-03-07 22:15:32 -08:00
-tags: Book review
+tags: ""
+excerpt: ""
+original_post_id: 67
 toc: true
 -----
-<a href="http://www.amazon.com/Information-Dashboard-Design-Effective-Communication/dp/0596100167%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596100167">![](http://ecx.images-amazon.com/images/I/41ApkRnZGTL._SL160_.jpg)</a>Stephen Few's _Information Dashboard Design_ is the latest in a series of books I've been reading about visual design and the display of quantitative information. It's a surprisingly heavy book for being relatively skinny (~200 pp), but is printed on gorgeous high-quality paper. This O'Reilly book feels much more like a coffee-table book than the usual animal-cover books for which they are famous.
+<a href="http://www.amazon.com/Information-Dashboard-Design-Effective-Communication/dp/0596100167%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596100167">![](http://ecx.images-amazon.com/images/I/41LloJMC4UL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg)</a>Stephen Few's _Information Dashboard Design_ is the latest in a series of books I've been reading about visual design and the display of quantitative information. It's a surprisingly heavy book for being relatively skinny (~200 pp), but is printed on gorgeous high-quality paper. This O'Reilly book feels much more like a coffee-table book than the usual animal-cover books for which they are famous.
 
 Dashboards are one of those phrases that the synergy-loving, tassle-loafer, khaki-loving business-types really like. I was worried at first that this book would be targeted more toward the executive officer crowd and less about helping designers. The first two chapters didn't ease my concerns with lots of discussion around designing for executive goals and summaries. However once we got past the introductory chapters, the book really picks up...
 
@@ -40,7 +41,7 @@ The begins by showing a dashboard the author designed designed for a competition
 
 The chapter ends with three more dashboards targeted to other audiences: the CIO, tele-sales and marketing. Each shows off the other motifs highlighted in earlier chapters. However they all have a consistent style--one that is clear, concise, dense but uncluttered. The prospective designer would be well-advised to spend some quality time studying these examples to distill them into principles for their own designs. This chapter really caps the book off well.
 
-## Finally... ##
+_Finally..._
 
 _Information Dashboard Design_ is a well-written book full of useful information. The high-level principles are well-described and the catalog of details motifs make this book worth having.
 

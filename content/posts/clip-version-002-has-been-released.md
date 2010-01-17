@@ -1,9 +1,10 @@
 ----- 
 permalink: clip-version-002-has-been-released
 title: clip version 0.0.2 has been released!
-excerpt: ""
 date: 2008-05-21 04:35:32 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 81
 toc: true
 -----
 You like command-line parsing, but you hate all of the bloat. Why

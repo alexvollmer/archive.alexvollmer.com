@@ -1,12 +1,13 @@
 ----- 
 permalink: using-git-as-a-safety-net
 title: Using Git as a Safety Net
-excerpt: ""
 date: 2009-03-14 18:11:32 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 313
 toc: true
 -----
-I spent the last week on a top-secret iPhone application at work. It has been a blast, in part, because it's been so fun to learn so much new information so quickly. That has meant trying out lots of ideas and, more often than not, rolling them back and trying again. The problem is that doing this kind of experimentation can be an absolute productivity-killer in terms of managing your changes—unless you have a good tool to manage large chunks of changes, you can spend a lot of time trying to do it manually (and probably screwing it up in the process).
+I spent the last week on a top-secret iPhone application at work. It has been a blast, in part, because it's been so fun to learn so much new information so quickly. That has meant trying out lots of ideas and, more often than not, rolling them back and trying again. The problem is that doing this kind of experimentation can be an absolute productivity-killer in terms of managing your changes&mdash;unless you have a good tool to manage large chunks of changes, you can spend a lot of time trying to do it manually (and probably screwing it up in the process).
 
 While doing Java development, I've often used Eclipse's file history feature to roll things back. The downside is that it's file-by-file and not easy to tag the current state of your entire project in one go. It appears that Xcode has this feature, but since I'm using Git for my SCM, I figured why not use that instead? 
 

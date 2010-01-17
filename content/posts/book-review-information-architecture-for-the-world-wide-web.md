@@ -1,9 +1,10 @@
 ----- 
 permalink: book-review-information-architecture-for-the-world-wide-web
 title: "Book Review: Information Architecture for the World Wide Web"
-excerpt: ""
 date: 2007-07-08 02:50:51 -07:00
-tags: Book review
+tags: ""
+excerpt: ""
+original_post_id: 28
 toc: true
 -----
 _Peter Morville &amp; Louis Rosenfeld_
@@ -14,7 +15,7 @@ _504 pages_
 
 _2006 O&#8217;Reilly Press_
 
-<a href="http://www.amazon.com/Information-Architecture-World-Wide-Web/dp/0596527349%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596527349">![](http://ecx.images-amazon.com/images/I/51-8JMElMbL._SL160_.jpg)</a>I&#8217;ve recently become fascinated with some of the &#8220;softer&#8221; edges of my profession such as user interaction, visual design and information architecture. These are difficult topics to write about because their abstract nature makes it hard to provide useful, tangible information while not treating the subject as a simple set of boiled-down &#8220;how-tos&#8221;. A couple of weeks ago I picked up this book as a way to delve into more formalized information structure and theory. By and large this book did a good job of rounding-out those areas of knowledge for me.
+<a href="http://www.amazon.com/Information-Architecture-World-Wide-Web/dp/0596527349%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596527349">![](http://ecx.images-amazon.com/images/I/41Sy6lzMOGL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg)</a>I&#8217;ve recently become fascinated with some of the &#8220;softer&#8221; edges of my profession such as user interaction, visual design and information architecture. These are difficult topics to write about because their abstract nature makes it hard to provide useful, tangible information while not treating the subject as a simple set of boiled-down &#8220;how-tos&#8221;. A couple of weeks ago I picked up this book as a way to delve into more formalized information structure and theory. By and large this book did a good job of rounding-out those areas of knowledge for me.
 
 This book is in its third edition and I couldn&#8217;t help feeling at times like the authors were trying to justify that. While the table of contents lists six &#8220;parts&#8221;, I really felt the book was broken up into three major sections: the first is essentially a multi-chapter treatise on what IA is and why it&#8217;s important. The second section is some of the nuts-and-bolts theory, and the third section is about implementing IA with a couple of case studies. Of the three sections, the middle one was the most useful to me and, in my opinion, carried the others.
 

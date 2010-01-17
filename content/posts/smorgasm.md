@@ -1,9 +1,10 @@
 ----- 
 permalink: smorgasm
 title: Smorgasm!
-excerpt: ""
 date: 2008-06-21 04:13:31 -07:00
-tags: Food
+tags: ""
+excerpt: ""
+original_post_id: 97
 toc: true
 -----
 While on vacation last week, my wife and some friends of ours solved the age-old problem of melting the chocolate _and_ the marshmallow in a s'more. You stuff a chunk of chocolate (we prefer good old-fashioned Hershey's waxy American milk chocolate) _inside_ the mallow and then toast the entire unit.

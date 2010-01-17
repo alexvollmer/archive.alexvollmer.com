@@ -1,9 +1,10 @@
 ----- 
 permalink: day-one-afternoon-railsconf-2007-patterns-to-dry-up-your-views
 title: Day One, Afternoon RailsConf 2007 -- Patterns to DRY Up Your Views
-excerpt: ""
 date: 2007-05-18 04:20:35 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 5
 toc: true
 -----
 Update: 2007-05-19 -- Bruce and Marcel posted a PDF of their talk [here](http://codefluency.com/assets/2007/5/18/VisForVexing.pdf).
@@ -26,6 +27,6 @@ You can use helpers as the "glue" between your view templates and these newly-em
 
 So, perhaps a way to consider the evolution of view layer encapsulation is like so:
 
-ERB in templates &gt; Helper methods &gt; first-class Objects
+ERB in templates > Helper methods > first-class Objects
 
 You need to use your past experience and your sense of smell to figure out when to evolve. Picking some complicated Object strategy up front is probably doomed to not meet future needs and will require even more re-work to replace it with something else.

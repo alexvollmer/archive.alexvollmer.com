@@ -1,12 +1,13 @@
 ----- 
 permalink: why-cant-web-apps-be-rest-ful
 title: Why Can't Web Apps Be REST-ful?
-excerpt: ""
 date: 2007-06-27 02:55:14 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 26
 toc: true
 -----
-In case the recent posts haven&#8217;t made it obvious, I&#8217;ve been on a bit of a tear about REST lately. In large part this is due to [Leonard Richardson’s and Sam Ruby’s “RESTful Web Services”](http://www.oreilly.com/catalog/9780596529260/) book that I picked up at RailsConf. One of the thoughts that has been bouncing around in my head is how web service-oriented the book was and, besides a chapter about Ajax, said very little about how REST applied to user-facing _web applications_.
+In case the recent posts haven&#8217;t made it obvious, I&#8217;ve been on a bit of a tear about REST lately. In large part this is due to [Leonard Richardson's and Sam Ruby's "RESTful Web Services"](http://www.oreilly.com/catalog/9780596529260/) book that I picked up at RailsConf. One of the thoughts that has been bouncing around in my head is how web service-oriented the book was and, besides a chapter about Ajax, said very little about how REST applied to user-facing _web applications_.
 
 
 I wondered to myself, &#8220;are browsers so broken that we can&#8217;t make REST-ful web applications?&#8221; I know that in the last year there have been times that I have really struggled with applying REST consistently to web applications. Things like the sign-up and sign-in process seem like square pegs trying to go into round holes. Should I have just given up on REST?
@@ -30,7 +31,7 @@ The second technique is essentially a hack, but one that allows to code our reso
 OK, we&#8217;ve got our nouns squared away with a consistent set of verbs. Well-factored nouns implies a good URI design (how else will we identify resources?) What else do we need to have in place to be REST-ful? Hmmm, how about proper state responsibility? You will often hear people say that REST-ful applications are stateless. I think this misses the point. The _HTTP protocol_ is stateless, but your applications undoubtedly have state. Any app with a shopping cart has state. So the question then becomes, do user-facing web applications have different needs that necessitate a violation of REST regarding state?
 
 
-The short answer is probably not. By and large your application state is usually server-driven and ideally done via [“hypermedia as the engine of application state”](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm). In practice this means that the current state of a user&#8217;s shopping cart is probably persisted in a shared store allowing any application node to serve the client&#8217;s request. Yes folks, a good bit of why REST guys harp on statelessness is for the sake of scalability.
+The short answer is probably not. By and large your application state is usually server-driven and ideally done via ["hypermedia as the engine of application state"](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm). In practice this means that the current state of a user&#8217;s shopping cart is probably persisted in a shared store allowing any application node to serve the client&#8217;s request. Yes folks, a good bit of why REST guys harp on statelessness is for the sake of scalability.
 
 
 Things get a little grayer when we want to have small bits of saved state on the client for things like &#8220;remember me&#8221; features or other quick, token-based identification schemes. I won&#8217;t lie to you, I&#8217;ve used cookies a lot. I know the strict REST approach decries their use and characterizes them as the root of all internet evil, but if they weren&#8217;t so damn useful I&#8217;d be in complete agreement. Like real-life, having cookies often is probably not a good thing, but once in a while isn&#8217;t going to do any long-term damage.

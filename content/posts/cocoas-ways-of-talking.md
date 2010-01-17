@@ -1,9 +1,10 @@
 ----- 
 permalink: cocoas-ways-of-talking
 title: Cocoa's Ways of Talking
-excerpt: ""
 date: 2009-06-25 01:53:32 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 386
 toc: true
 -----
 Getting objects to talk to one another in Objective-C is a easy as passing a message from one to the other. These messages are typically passed through the message-invocation mechanism of using the square-braces to bind a message and arguments to a receiver. Most of the time this is a perfectly reasonable way to communicate. However there are times when you need objects to communicate _without having explicit knowledge of one another._
@@ -46,6 +47,7 @@ Consider the example below:
     }
     @end
 
+
 Here the `Foo` class registers itself as a notification receiver for the notification named "TheBigNotification" on _any_ object. The `Bar` class will post the same notification when the `doSomething` method is invoked. 
 
 We could have been much more specific about which object to observe, but I think this violates one of the key features of notifications which is that the sender and receiver are decoupled. To me if the receiver is going to go to the trouble of listening for notifications from a specific object, you'd be better off declaring a custom protocol and using the delegate pattern (explained below).
@@ -70,6 +72,7 @@ KVO also allows you to use a special syntax when specifying the attributes you w
                options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                context:nil];
 
+
 Whenever you register for KVO, you _must_ implement the method `- observeValueForKeyPath:ofObject:change:context:`. Unlike notifications, you don't get to specify a selector. This means that if you're object is observing several other objects, you will have to inspect the object given in the callback method and dispatch appropriately.
 
 Key paths have a ton of flexibility including the ability to traverse deep object graphs and observe aggregate functions on a collection (e.g. observe the max date of all of a customer's orders). Check out the [Key-Value Programming Guide](http://developer.apple.com/documentation/Cocoa/Conceptual/KeyValueCoding/KeyValueCoding.html) for details, which is an indispensable reference.
@@ -84,7 +87,7 @@ Consider the simple case of managing a tabular view of line items in an order. W
 
 ### Delegates
 
-If you've spent any time with the Cocoa docs you'll run across The Delegate Pattern. This thing is like the quark—it is the fundamental building block of the Cocoa APIs. Conceptually, it's really pretty simple. A delegate is simply an object that provides custom behavior for another object, often by implementing a specific protocol.
+If you've spent any time with the Cocoa docs you'll run across The Delegate Pattern. This thing is like the quark&mdash;it is the fundamental building block of the Cocoa APIs. Conceptually, it's really pretty simple. A delegate is simply an object that provides custom behavior for another object, often by implementing a specific protocol.
 
 Let's return to our running example. A table view of line items in an order has to handle a lot of things such as rendering each cell, handling scrolling, managing user-generated events and so on. These features are common enough that they are simply part of the table view class itself. What is specific to your application is the _data_ that goes in those cells and _the actions_ to be taken for user-generated events. Cocoa solves this by providing protocols for delegating that behavior to custom classes. In the case of providing data, a data-oriented delegate would be queried by the table view for the total number of rows, appropriate object to put in each row, the column headers, etc. In the case of event-handling, the table view will forward events to the event-handling delegate.
 

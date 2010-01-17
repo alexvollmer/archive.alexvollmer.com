@@ -1,9 +1,10 @@
 ----- 
 permalink: high-resolution
 title: High Resolution
-excerpt: ""
 date: 2008-02-02 19:44:26 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 45
 toc: true
 -----
 ![IMG_0172.JPG](/images/2008/02/img-01721.jpg)

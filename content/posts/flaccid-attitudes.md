@@ -1,9 +1,10 @@
 ----- 
 permalink: flaccid-attitudes
 title: Flaccid Attitudes
-excerpt: ""
 date: 2008-12-23 05:47:54 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 197
 toc: true
 -----
 Today I had an impromptu conversation with a total stranger at my local caf&#233; that got me thinking. He saw that I was working on some code and asked me what I was doing. I gave him the thirty-second whirlwind tour of Ruby and briefly explained what I was working on.

@@ -1,9 +1,10 @@
 ----- 
 permalink: yet-more-rspec-fun-with-textmate
 title: Yet More RSpec Fun With TextMate!
-excerpt: ""
 date: 2007-12-16 03:08:38 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 39
 toc: true
 -----
 Why is it that I just can&#8217;t leave well enough alone? Here, after several weeks for forehead-impact conditioning, I _finally_ get a working setup with Ruby on Leopard with RSpec and TextMate. Life is good, I have my pretty spec runner window back, I&#8217;m a BDD&#8217;ing fool. But oh no, I have to keep fiddling with stuff.
@@ -18,22 +19,19 @@ After a little digging around (including the OS X equivalent of `printf` debuggi
 So I go back to the [RSpec bundle that the RSpec folks put out](http://rspec.rubyforge.org/tools/extensions/editors/textmate.html TextMate) and lo and behold it works like a champ for my Rails app&#8230;but not so much for the standalone project. Oh dear. Now what? Like [Doug Flutie vs. Miami](http://www.youtube.com/watch?v=r-qkpsygNYo YouTube - Flutie Hail Mary) I chuck a Hail Mary and run `sudo gem update rspec`&#8230;
 
 
-`Updating installed gems...
-Attempting remote update of rspec
-Successfully installed rspec-1.1.0
-1 gem installed
-Installing ri documentation for rspec-1.1.0...
-Installing RDoc documentation for rspec-1.1.0...
-Gems: [rspec] updated
-`</pre>
+    Updating installed gems...
+    Attempting remote update of rspec
+    Successfully installed rspec-1.1.0
+    1 gem installed
+    Installing ri documentation for rspec-1.1.0...
+    Installing RDoc documentation for rspec-1.1.0...
+    Gems: [rspec] updated
 
 Yayyy! A new version! Now the RSpec bundle for TextMate works in both projects. So, the final recipe goes a little something like this:
 
 
-<ol>
-*  Install the latest bleeding-edge RSpec plugin for Rails
-*  Install the RSpec version of the TextMate bundle
-*  Make sure the latest gem (1.1.0) is installed.
-</ol>
+1.  Install the latest bleeding-edge RSpec plugin for Rails
+2.  Install the RSpec version of the TextMate bundle
+3.  Make sure the latest gem (1.1.0) is installed.
 
 OK, now has anyone seen my productivity around here? I&#8217;d swear I saw it just before Halloween&#8230;

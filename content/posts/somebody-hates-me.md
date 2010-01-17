@@ -1,9 +1,10 @@
 ----- 
 permalink: somebody-hates-me
 title: Somebody Hates Me
-excerpt: ""
 date: 2008-06-19 22:43:49 -07:00
-tags: WTF
+tags: ""
+excerpt: ""
+original_post_id: 93
 toc: true
 -----
 When I see a forecast like this, I gotta think that life just isn't fair sometimes...

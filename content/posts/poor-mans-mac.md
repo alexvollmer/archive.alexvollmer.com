@@ -1,9 +1,10 @@
 ----- 
 permalink: poor-mans-mac
 title: Poor Man's .mac
-excerpt: ""
 date: 2008-01-21 20:47:32 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 41
 toc: true
 -----
 The discontent with Apple's .mac service seems to be [growing](http://www.43folders.com/2008/01/18/mac-future-sleeping-giant .Mac: Future of a sleeping giant? | 43 Folders) and [growing](http://www.43folders.com/2006/09/28/dot-mac-lameness LifeClever: Dot Mac needs more than a paint job | 43 Folders). I've looked at .mac a couple of times but couldn't really find a good reason to get on board. Oh sure it has some nice features like syncing contacts, but honestly most of the features .mac offers I don't or can get in other ways. In short it's hard to imagine ponying up $99 for this service when it can be beaten with other tools.
@@ -20,11 +21,11 @@ Let's start by looking at what features .mac offers. According to the [.mac webs
 
 OK, the first two I can handle easily with my little Linux box. IMAP isn't a compelling feature as I've had a GMail address since its inception and really don't need another email to watch. Back To My Mac is kind of interesting, but honestly I really haven't had a need to do this.
 
-Now the Sync feature is very interesting. Right now my contacts sync (some of the time) between my work and home machines via my iPhone plugging into iTunes. I didn't intend for this to be a solution to syncing calendars and contacts so I'm not too bummed when it does odd things. Regardless, .mac wouldn't help me with calendars where the ultimate source of authority for my schedule is Google's Calendar system. More on this in a bit…
+Now the Sync feature is very interesting. Right now my contacts sync (some of the time) between my work and home machines via my iPhone plugging into iTunes. I didn't intend for this to be a solution to syncing calendars and contacts so I'm not too bummed when it does odd things. Regardless, .mac wouldn't help me with calendars where the ultimate source of authority for my schedule is Google's Calendar system. More on this in a bit&hellip;
 
 Groups. Uh, unless I don't get this correctly, isn't this what Yahoo! and Google offer _for free_? No thanks Apple, not interested.
 
-iDisk is completely uninteresting to me. I use Amazon's S3 along with the brilliant [JungleDisk tool](http://jungledisk.com/ JungleDisk - Reliable online storage powered by Amazon S3 - Jungle Disk) and, even with a license for JungleDisk, is seriously cheaper (and much bigger) than .mac's storage options. 10MB is a paltry amount. So let's start with how I solved this problem…
+iDisk is completely uninteresting to me. I use Amazon's S3 along with the brilliant [JungleDisk tool](http://jungledisk.com/ JungleDisk - Reliable online storage powered by Amazon S3 ™ - Jungle Disk) and, even with a license for JungleDisk, is seriously cheaper (and much bigger) than .mac's storage options. 10MB is a paltry amount. So let's start with how I solved this problem&hellip;
 
 ## File Storage
 
@@ -35,6 +36,7 @@ I have two scripts to sync files: one to sync from my machine to S3 and one to s
 Currently the only files I sync through S3 are all in my `~/Documents` directory, though it would be easy to sync other files. However the `~/Documents` directories on my two machines have some differences between them. For example my Quicken data is on my home machine which is something I don't need to sync back and forth between my two machines. So to lock down exactly which files I want sync, I create a little file named `sync_files` that enumerates which files I want to sync. Additionally the `sync_files` is also synchronized so that I only have to update it one place.
 
 So here are the scripts. The first is `sync_to_s3`:
+
 
     #!/bin/sh
     rsync --recursive --size-only \\
@@ -58,13 +60,14 @@ The `sync_files` file is simply a list of matching files and directories to sync
 
 Next is the `sync_from_s3` which goes the other way.
 
+
     #!/bin/sh
     rsync  --recursive --size-only \\
       /Volumes/JungleDisk/documents/ ~/Documents/
 
 Note that in the second script I don't refer to the `sync_files` file. That's because the only way files end up on S3 is via the `sync_to_s3` script which already limits what files get uploaded. I could use the `sync_files` file to sync _from_ S3, but if the `sync_files` were updated on S3 I wouldn't get the changes until my second sync.
 
-One thing to be aware of is a new feature in JungleDisk that, if enabled, will wreak havoc on this setup. Under the ‘Jungle Disk Plus' settings, be sure to disable the checkbox marked ‘Only upload changed portions of large files'. This absolutely wrecked the sync-ing process for my [OmniFocus](http://www.omnigroup.com/applications/omnifocus/ The Omni Group - OmniFocus) document. Given how cheap S3 is, this is an utter non-concern for me.
+One thing to be aware of is a new feature in JungleDisk that, if enabled, will wreak havoc on this setup. Under the 'Jungle Disk Plus' settings, be sure to disable the checkbox marked 'Only upload changed portions of large files'. This absolutely wrecked the sync-ing process for my [OmniFocus](http://www.omnigroup.com/applications/omnifocus/ The Omni Group - OmniFocus) document. Given how cheap S3 is, this is an utter non-concern for me.
 
 ## Calendars
 

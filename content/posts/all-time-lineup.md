@@ -1,9 +1,10 @@
 ----- 
 permalink: all-time-lineup
 title: All-Time Lineup
-excerpt: ""
 date: 2009-12-15 06:14:09 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 418
 toc: true
 -----
 A little while ago, I was encouraged to put together my "All-Time" baseball lineup. Now, personally I think the game is more difficult to compete in now than ever before. While the old-timers love to gripe about players in the Steroid Era, I don't think those guys had to play with such a uniformly strong level of competition under such high pressure. But that's just my gut feeling. I don't really have the evidence to back that up. I also think that baseball fans have a tendency to romanticize the players of baseball's so-called "Golden Era", making any rational debate even tougher.
@@ -22,12 +23,12 @@ Great all-around athlete, hit the crap out of the ball, threw runners out and wo
 ### First Base: Lou Gehrig
 
 
-OK, I cheated a little bit here and dipped back in time further than I said I would go. But c'mon—it's _Lou Gehrig_.
+OK, I cheated a little bit here and dipped back in time further than I said I would go. But c'mon&mdash;it's _Lou Gehrig_.
 
 ### Second Base: Jackie Robinson
 
 
-They retired the number 42 for lots of reasons—those are the same reasons he's my starting second baseman.
+They retired the number 42 for lots of reasons&mdash;those are the same reasons he's my starting second baseman.
 
 ### Third Base: George Brett
 

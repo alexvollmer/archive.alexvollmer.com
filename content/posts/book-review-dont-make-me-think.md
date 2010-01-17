@@ -1,9 +1,10 @@
 ----- 
 permalink: book-review-dont-make-me-think
 title: "Book Review: Don't Make Me Think"
-excerpt: ""
 date: 2007-06-23 02:58:34 -07:00
-tags: Usability
+tags: ""
+excerpt: ""
+original_post_id: 24
 toc: true
 -----
 _Steve Krug_

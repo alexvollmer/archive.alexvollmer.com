@@ -1,9 +1,10 @@
 ----- 
 permalink: evriverse-2-0
 title: EvriVerse 2.0
-excerpt: ""
 date: 2009-08-19 16:27:18 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 399
 toc: true
 -----
 ![photo 5.jpg](/images/2009/08/photo-5.jpg)

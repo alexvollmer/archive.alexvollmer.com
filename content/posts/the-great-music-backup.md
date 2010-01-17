@@ -1,9 +1,10 @@
 ----- 
 permalink: the-great-music-backup
 title: The Great Music Backup
-excerpt: ""
 date: 2008-04-24 03:58:41 -07:00
-tags: Geekery
+tags: ""
+excerpt: ""
+original_post_id: 79
 toc: true
 -----
 My to-do list is a mile-long and never ends. That thought can be quite depressing at times, but sometimes you finally get to tick something off of the list that has sat there so long that you can briefly enjoy a fleeting moment of smug self-satisfaction. I had just such a moment this week when my Great Big Music Backup to S3 finally completed.

@@ -1,9 +1,10 @@
 ----- 
 permalink: just-having-fun
 title: Just Having Fun
-excerpt: ""
 date: 2008-12-16 06:04:28 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 190
 toc: true
 -----
 After spending nearly all of my spare hours on [moochbot](http://moochbot.com moochbot — track what you lend and borrow), it was fun to take a lighter turn this week. Today I put up [http://isthatfreedomrock.com](http://isthatfreedomrock.com Freedom Rock!!). If you are lucky enough to have watched cable in the late 80's you might remember a TV ad in which two hippies sit in front of a VW bus doing their best Cheech &amp; Chong routine. One hippy says to another, "is that freedom rock? Then turn it up!" I don't know why, but that has _always_ been funny to me. It's just so&#8230;stupid. Can you imagine the ad execs sitting around the table thinking this one up?

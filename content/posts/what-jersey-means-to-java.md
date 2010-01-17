@@ -1,9 +1,10 @@
 ----- 
 permalink: what-jersey-means-to-java
 title: What Jersey Means To Java
-excerpt: ""
 date: 2009-03-04 18:42:49 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 305
 toc: true
 -----
 In the last few days at [work](http://evri.com) I've been migrating a home-grown REST framework over to the [Jersey project](https://jersey.dev.java.net/) (the reference implementation of JSR-311 or, JAX-RS). Previously I had done some work moving JRuby into the VM and launching Merb. It was satisfying to figure out how to do that, but involved an awful lot of wiring and special-casing.
@@ -20,46 +21,45 @@ As an example, consider the case where you want to return a response with a non-
 
 The request object is its own special brand of fun to deal with. Again its broad coverage makes for a rather clunky API to deal with. You want request parameters? You have to grovel through `String` arrays if you want to capture all of them. When implementing a Servlet, often what you want is some combination of request parameters, cookies and header; rarely do you need all of them at once. However what you get is one big über-object that has everything. Enjoy!
 
-One final beef with the `ServletRequest` class is that getting path parameters out is an absolute nightmare. If you're building REST resources you really really care about the path as it is _the_ way to identify resources. The poor support the `ServletRequest` class provides for this is simply shocking. Here's a `String` — you parse it and figure out what the hell the segments are.
+One final beef with the `ServletRequest` class is that getting path parameters out is an absolute nightmare. If you're building REST resources you really really care about the path as it is _the_ way to identify resources. The poor support the `ServletRequest` class provides for this is simply shocking. Here's a `String` &mdash; you parse it and figure out what the hell the segments are.
 
 In contrast, Jersey has a much looser philosophy with how requests and responses are handled. First, the monolithic request and response objects go away. Instead your methods provide the narrowest possible interface, expressing only what they need in exacting terms. This is done by making extensive use of Java annotations to mark up simple method parameters. For example, if you have a resource that needs a request parameter, use the `@QueryParam` annotation. Need a header? Just use `@HeaderParam`. Interested in cookies? Use the `@CookieParam` annotation. Here's an example:
 
-public MyResult getMyResult(@QueryParam("name") String name) {
-  …
-}
-</pre>
+    public MyResult getMyResult(@QueryParam("name") String name) {
+        ...
+    }
 
-This does away with a tremendous amount of "busy-work". You want the "name" parameter? By god you're going to get it—no intermediate objects to reach into and pull stuff out of.
+This does away with a tremendous amount of "busy-work". You want the "name" parameter? By god you're going to get it&mdash;no intermediate objects to reach into and pull stuff out of.
 
 A really nice side-effect of this is that writing tests for your resources become _so much_ cleaner than using the more general Servlet API. Instead of setting up the monolithic request and response objects, you simply pass in the bits you want.
 
 What about the response side? I think that it's in this area that we really see a fundamental philosophical shift emerge. In an earlier time the textbook answer to how to design an API like this would be to have each request method return some kind of superclass or interface. This would allow us to use polymorphism to vary the response, but keep our type-safety.
 
-Jersey takes a different approach based on real-world needs. Whereas the Servlet API is intended to keep everyone equally happy by making sure everyone suffers the same amount of pain, Jersey lets you vary what you return—no special markers, no special configuration. If you have a simple case where you want to serialize an object as the entity response, just return the object.
+Jersey takes a different approach based on real-world needs. Whereas the Servlet API is intended to keep everyone equally happy by making sure everyone suffers the same amount of pain, Jersey lets you vary what you return&mdash;no special markers, no special configuration. If you have a simple case where you want to serialize an object as the entity response, just return the object.
 
 What if you need to fiddle with the response some more? Maybe set some headers or alter the status code? In this case your method returns a `Response` instance. Now this may sound monolithic and perhaps, under the covers, it is. What saves it from degenerating into the Servlet API is the fact that you build a `Response` object with only as much as you need.
 
 In the Servlet API you might have to set a moderately complicated response like this:
 
-public void doGet(HttpServletRequest req, HttpServletResponse resp) {
-  // do some stuff
-  resp.addHeader("Expires", computeExpires());
-  resp.setStatus(201);
-  writeResponse(resp.getWriter(), new MyStuff());
-}
-
-private void writeResponse(Writer writer, MyStuff stuff) {
-  // do whatever you have to do to serialize your object
-}
-</pre>
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) {
+      // do some stuff
+      resp.addHeader("Expires", computeExpires());
+      resp.setStatus(201);
+      writeResponse(resp.getWriter(), new MyStuff());
+    }
+    
+    private void writeResponse(Writer writer, MyStuff stuff) {
+      // do whatever you have to do to serialize your object
+    }
+    
 
 In Jersey it looks like this:
 
-public Response getMyStuff() {
-  MyStuff stuff = new MyStuff();
-  return Response.created(stuff).expires(computeExpires()).build();
-}
-</pre>
+    public Response getMyStuff() {
+      MyStuff stuff = new MyStuff();
+      return Response.created(stuff).expires(computeExpires()).build();
+    }
+
 
 The amount of code probably comes out to be the same, but the fact that you can build the response in a single line feels really good to me. The amount of vertical space dedicated to response-building is much more proportional to it's conceptual space in the method in Jersey than the Servlet API.
 

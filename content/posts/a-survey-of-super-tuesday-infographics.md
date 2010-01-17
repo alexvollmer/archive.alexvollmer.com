@@ -1,9 +1,10 @@
 ----- 
 permalink: a-survey-of-super-tuesday-infographics
 title: A Survey of Super Tuesday Infographics
-excerpt: ""
 date: 2008-02-06 05:23:46 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 59
 toc: true
 -----
 On Super Tuesday, I forwent attending the usual Seattle Ruby Brigade meeting and stayed at home glued to the radio and TV keeping up on the primary and caucus results across the nation. I love the Public Radio/TV talking heads, but I was really lacking the overall picture. So I warmed up the Internet tubes and started searching for some helpful at-a-glance snapshot of the state of Super Tuesday.
@@ -54,8 +55,7 @@ This is the table from the front page of National Public Radio's page. This tabl
 This table was a nice compact little sidebar on NPR's Super Tuesday coverage page. This is probably the best delegate information I found out of any of the sites surveyed here.
 
 ![Picture 8.png](/images/2008/02/picture-8.png)
-
-## CNN
+*CNN*
 
 I have to come clean and admit that I simply can't stand CNN. It's always on and has so little useful content. The election coverage I've seen to-date has some of the glitziest, lowest-density graphics in their live broadcasts of any I've seen. The touch displays are merely a cover up for the fact that the content is empty and newscasters cannot improv. However, I have to give CNN credit with this tabular display. Not fantastic, but at least no wasted space on graphics.
 

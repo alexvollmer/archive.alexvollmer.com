@@ -1,9 +1,10 @@
 ----- 
 permalink: the-end-of-an-era
 title: The End of an Era
-excerpt: ""
 date: 2008-06-07 04:58:07 -07:00
-tags: Geekery
+tags: ""
+excerpt: ""
+original_post_id: 89
 toc: true
 -----
 Well, okay maybe that title is a bit misleading. I mean, we're not talking about a transition from when dinosaurs ruled the earth to the Ice Age or the introduction of the combustible engine. But today I shut down my remaining home Linux server which ran this blog since its inception.

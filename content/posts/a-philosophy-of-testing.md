@@ -1,9 +1,10 @@
 ----- 
 permalink: a-philosophy-of-testing
 title: A Philosophy of Testing
-excerpt: ""
 date: 2008-10-02 16:44:27 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 116
 toc: true
 -----
 Did you hear that? Did you feel it? I did. Agile just took another punch to the gut. The Agile Backlash is picking up a full head of steam. Rather than becoming a term to embrace, it's become a term of ridicule. I think it's probably deserved. As a guy who picked up the first [Extreme Programming](http://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0321278658%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0321278658) book as soon as it was released and is a long-time practitioner, I feel qualified to comment on this.

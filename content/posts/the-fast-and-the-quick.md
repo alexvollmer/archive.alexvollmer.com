@@ -1,9 +1,10 @@
 ----- 
 permalink: the-fast-and-the-quick
 title: The Fast and the Quick
-excerpt: ""
 date: 2009-01-01 16:39:38 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 199
 toc: true
 -----
 ![Walter Payton](http://media-2.web.britannica.com/eb-media/91/95591-004-36D62DDD.jpg)
@@ -14,7 +15,7 @@ Running backs however, need a combination of strength and the ability to move th
 
 Hall of Fame running backs rarely survive on pure speed alone. Heck, most backs that were "burners" in college are usually forced to play another position at the professional level. Those that try to rely on pure brawn to break tackles generally don't last long (see, Eddie George, Priest Holmes or any back that has played in Denver in the last decade). The really great ones have that ethereal quality known as "quickness".
 
-So, I was thinking lately about "agile" in the software world and what it really means. The term _agile_, isn't clear enough—it could be fast or it could be quick. But which really matters? Which is the quality you really want to have?
+So, I was thinking lately about "agile" in the software world and what it really means. The term _agile_, isn't clear enough&mdash;it could be fast or it could be quick. But which really matters? Which is the quality you really want to have?
 
 My answer? You want the agility associated with _quickness_, not raw speed. Being "quick" in software might look like:
 *  New requirements are handled in-stride and rarely, if ever, with The Big Re-Write
@@ -22,7 +23,7 @@ My answer? You want the agility associated with _quickness_, not raw speed. Bein
 *  The time to produce a meaningful _release_ is measured in days or weeks, not months
 *  The system almost _never_ looks like the original design
 
-OK, so what would "fast" look like? Well…
+OK, so what would "fast" look like? Well&hellip;
 *  Releases are buggy
 *  Few if any tests
 *  Code diarrhea

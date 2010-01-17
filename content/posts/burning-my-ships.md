@@ -1,13 +1,15 @@
 ----- 
 permalink: burning-my-ships
 title: Burning My Ships
-excerpt: ""
 date: 2008-12-21 03:40:56 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 192
 toc: true
 -----
->  When Columbus reached the New World, he burned his ships. As a result his men were well-motivated.
-
+<blockquote>
+  When Columbus reached the New World, he burned his ships. As a result his men were well-motivated.
+</blockquote>
 <a href="http://www.amazon.com/Hunt-Red-October-Blu-ray/dp/B001AII4SQ%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001AII4SQ">![](http://ecx.images-amazon.com/images/I/51x%2B1Yxrb9L._SL160_.jpg)</a>
 
 This quote comes from the character of Marko Ramius, as played by Sean Connery, from one of my all-time favorite films, "The Hunt for Red October". I love that quote in particular because I always think of it whenever I decide to tweak my process, my work environment or my tools. For all but the most trivial changes, you usually have to immerse yourself in it. So I usually "burn my ships" by leaving behind the old way of doing things to really burn the new way into my brain.

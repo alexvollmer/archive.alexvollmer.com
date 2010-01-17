@@ -1,9 +1,10 @@
 ----- 
 permalink: fat-proxies-and-the-danger-of-reuse
 title: Fat Proxies and the Danger of Reuse
-excerpt: ""
 date: 2008-02-19 01:50:25 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 65
 toc: true
 -----
 UIs are, essentially, collections of widgets. These widgets act as visual and manipulative proxies between the user and the underlying conceptual model. If we think of the ultimate UI as being one which minimizes the mental distance between what the user wants to do and what they have to do to accomplish it, perhaps the ideal interface would be like the fictional jet-fighter, [Firefox](http://imdb.com/title/tt0083943/). What could possibly be more direct than thinking, fire that missile, and seeing that missile burst forth from under the wing? Unfortunately, since most of us work on slightly less fantastic technologies than those portrayed in the movie, we have to figure how to work best within our milieu. This is the real challenge of what we do. How can we take the crude medium of computer software and diminish the distance between thinking and doing?

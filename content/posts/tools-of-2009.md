@@ -1,9 +1,10 @@
 ----- 
 permalink: tools-of-2009
 title: Tools of 2009
-excerpt: ""
 date: 2010-01-07 04:35:42 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 424
 toc: true
 -----
 I suppose if I were really on the ball I would have posted this right after New Year's Day, but I needed to ruminate a bit on what was worth summarizing for 2009. In the end I decided to talk about the tools I found in 2009 that really made a difference in my life.
@@ -24,7 +25,7 @@ However, once I dropped my last IMAP-only account I was ready to switch back. Th
 
 ## zsh completion
 
-My introduction to zsh came many years ago from a co-worker who boot-strapped my entrée into zsh-land with his configuration files. For the longest time I treated them like mystic, sacred tablets to be worshipped, but never to be understood. But over time I found little gaps I wanted to fill in with my zsh setup, especially with command auto-completion.
+My introduction to zsh came many years ago from a co-worker who boot-strapped my entr&eacute;e into zsh-land with his configuration files. For the longest time I treated them like mystic, sacred tablets to be worshipped, but never to be understood. But over time I found little gaps I wanted to fill in with my zsh setup, especially with command auto-completion.
 
 I'm a keyboard kind of guy. I like the command prompt. I also like going fast, so anything that makes me faster in the command prompt is like gold to me. I love shell auto-completion and found lots of things I wanted completion for, like [RubyGems](http://gist.github.com/164465). So this year I finally pounded through enough documentation and samples to put together a few home-grown completion bits. I still don't understand most of the incantations that make it go (guilty as charged of cargo-culting) but it has made my command-line work-flow that much better.
 
@@ -32,7 +33,7 @@ I'm a keyboard kind of guy. I like the command prompt. I also like going fast, s
 
 Since switching to the Mac, I've always had at least two machines that I needed to share files between. For the longest time I used to store files in S3 then sync them back and forth. This worked, but it sucked because I had to do it manually and I had to get the order right so I didn't clobber any files.
 
-When [Dropbox](http://www.dropbox.com) came along, the clouds parted and the golden light of heaven shown down from above. Dropbox makes sharing files super-duper, idiotically simple. Combined with tools like [1Password](http://agilewebsolutions.com/products/1Password), having consistent data across multiple machines is like magic on a daily basis—it just works and I don't even have to think about it.
+When [Dropbox](http://www.dropbox.com) came along, the clouds parted and the golden light of heaven shown down from above. Dropbox makes sharing files super-duper, idiotically simple. Combined with tools like [1Password](http://agilewebsolutions.com/products/1Password), having consistent data across multiple machines is like magic on a daily basis&mdash;it just works and I don't even have to think about it.
 
 ## One Bus Away
 

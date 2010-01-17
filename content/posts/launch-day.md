@@ -1,9 +1,10 @@
 ----- 
 permalink: launch-day
 title: Launch Day!!!
-excerpt: ""
 date: 2008-06-24 04:17:58 -07:00
-tags: Work
+tags: ""
+excerpt: ""
+original_post_id: 99
 toc: true
 -----
 I've spilled a lot of (virtual) ink in this blog, but almost none of it about what I do all day. That's because I've been working at a startup in "stealth mode" for darn near two years and haven't been able to really say much about it. Until today.<a href="http://evri.com" title="Evri" target="_blank"></a>

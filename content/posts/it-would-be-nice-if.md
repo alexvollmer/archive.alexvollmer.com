@@ -1,9 +1,10 @@
 ----- 
 permalink: it-would-be-nice-if
 title: It Would Be Nice If...
-excerpt: ""
 date: 2008-06-14 22:00:02 -07:00
-tags: Design
+tags: ""
+excerpt: ""
+original_post_id: 91
 toc: true
 -----
 When talking about building software, few sentences set off more red flags than those beginning with "it would be nice if..". I don't mean some variation of this phrase, I mean exactly this phrase. It's like those words are a specific code-phrase for "speculative features coming your way!"
@@ -38,7 +39,7 @@ And finally, let's remember the most common trait that nearly all IWBNI features
 
 
 
-*YAGNI**
+<div style="font-size: 72px; font-weight: bold;">YAGNI*</div>
 
 * Ya ain't gonna need it
 

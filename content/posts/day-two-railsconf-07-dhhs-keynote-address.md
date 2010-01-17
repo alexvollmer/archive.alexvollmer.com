@@ -1,9 +1,10 @@
 ----- 
 permalink: day-two-railsconf-07-dhhs-keynote-address
 title: Day Two RailsConf '07 -- DHH's Keynote Address
-excerpt: ""
 date: 2007-05-18 21:43:06 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 6
 toc: true
 -----
 This is my first RailsConf so I can only say this given second-hand information. But it seems that I've arrive just as the interest and popularity in the framework has hit the bend in the hockey-stick. The enthusiasm at the morning keynote address by David Heinemeir Hanssson was equals parts technology preview, religious revival and idol worship.
@@ -60,10 +61,10 @@ REST-ful routing is getting a bit of a makeover, adding some more flexibility wi
     # /admin/products/5/seller
     map.namespace(:admin) do |admin|
       admin.resources :products,
-        :collection =&gt; { :inventory =&gt; :get },
-        :member =&gt; { :duplicate =&gt; :post },
-        :has_many =&gt; { :tags, :images, :variants },
-        :has_one =&gt; :seller
+        :collection => { :inventory => :get },
+        :member => { :duplicate => :post },
+        :has_many => { :tags, :images, :variants },
+        :has_one => :seller
     end
 
 # 9 other things to like about Rails 2.0
@@ -99,14 +100,15 @@ Thanks to the inclusion of the [ruby-debug](http://rubyforge.org/forum/forum.php
 There is a tension between segmenting JS and CSS into separate files and HTTP performance. As a developer you want to separate our Javascript and CSS to keep your head straight. But the performance of downloading those assets suffers given the de-facto two-connections per site limitation in browsers. Rails 2.0 will have a way to send a single request to Rails for a collection of JS and CSS at once and it will returned as a single gzipped bundle.
 
 
-`&lt;%= javascript_include_tag :all, :cache =&gt; true %&gt;
-&lt;%= stylesheet_link_tag :all, :cache =&gt; true %&gt;
-`</pre>
+    <%= javascript_include_tag :all, :cache => true %>
+    <%= stylesheet_link_tag :all, :cache => true %>
+
 
 ### Connection limits
 
 
 JavaScript and CSS aren&#8217;t the only assets where you run into the two-connection limit. Any other static assets (particularly images) can kill you here. Rails 2.0 will have support for a type of name-based virtual hosting for your assets so that you can &#8221;trick&#8221; the browser into using more simultaneous connections to download content. You can set this in your config:
+
 
     config.action_controller.asset_host = 'asset%d.example.com'
 
@@ -123,11 +125,10 @@ In the past the means to generate content and its format were mixed into the nam
 
 
 Now view files look like [template].[format].[rendering]. For example:
-
-*  people/index.html.erb  # Use ERB to generate HTML
-*  people/index.xml.builder  # Use builder to generate XML
-*  people/index.rss.erb  # Use ERB to generate RSS
-*  people/index.atom.builder  # Use builder to generate Atom
+    * people/index.html.erb  # Use ERB to generate HTML
+    * people/index.xml.builder  # Use builder to generate XML
+    * people/index.rss.erb  # Use ERB to generate RSS
+    * people/index.atom.builder  # Use builder to generate Atom
 
 
 ## Configuration initializers
@@ -141,11 +142,12 @@ Application-specific configuration that used to go into `config/environment.rb` 
 
 A typical migration looks something like this:
 
+
     create_table :users do |u|
-      u.user_name :type =&gt; :text, :null =&gt; false
-      u.first_name :type =&gt; :text
-      u.last_name :type =&gt; :text
-      u.age :type = &gt;:integer
+      u.user_name :type => :text, :null => false
+      u.first_name :type => :text
+      u.last_name :type => :text
+      u.age :type = >:integer
     end
 
 See all the redundancies? Why keep specifying the `:type` parameter. Why not reverse it like this?
@@ -153,7 +155,7 @@ See all the redundancies? Why keep specifying the `:type` parameter. Why not rev
 
     create_table :people do |t|
       t.integer :account_id
-      t.string :first_name, :last_name, :null =&gt; false
+      t.string :first_name, :last_name, :null => false
     end
 
 ## HTTP Authentication

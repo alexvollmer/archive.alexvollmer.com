@@ -1,9 +1,10 @@
 ----- 
 permalink: a-tale-of-sandwiches-and-happiness
 title: A Tale of Sandwiches and Happiness
-excerpt: ""
 date: 2008-12-18 18:44:11 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 191
 toc: true
 -----
 ![Seattle2008-87](http://farm4.static.flickr.com/3228/3096590905_8ccb3341e4_m.jpg)

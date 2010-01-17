@@ -1,9 +1,10 @@
 ----- 
 permalink: putting-leopard-back-together
 title: Putting Leopard Back Together
-excerpt: ""
 date: 2007-12-15 05:50:01 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 38
 toc: true
 -----
 ## RSpec and TextMate
@@ -31,13 +32,12 @@ My `environment.plist` looks like this:
 
 
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      ...
+      <dict>
+        ...
         <string>/opt/local/lib/libtidy</string>
         <key>GEM_HOME</key>
         <string>/Library/Ruby/Gems/1.8</string>
         <key>GEM_PATH</key>
         <string>/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8</string>
-    </dict>
+      </dict>
     </plist>

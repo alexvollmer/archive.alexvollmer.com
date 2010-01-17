@@ -1,9 +1,10 @@
 ----- 
 permalink: clip-version-004-has-been-released
 title: clip version 0.0.4 has been released!
-excerpt: ""
 date: 2008-06-07 04:34:01 -07:00
-tags: clip
+tags: ""
+excerpt: ""
+original_post_id: 87
 toc: true
 -----
 You like command-line parsing, but you hate all of the bloat. Why
@@ -20,4 +21,4 @@ Changes:
 
 === 0.0.3 / 2008-06-05
 
-* Merged technomancy's patches for simple 1 LOC parsing -&gt; hash
+* Merged technomancy's patches for simple 1 LOC parsing -> hash

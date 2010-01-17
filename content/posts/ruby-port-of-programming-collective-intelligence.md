@@ -1,12 +1,13 @@
 ----- 
 permalink: ruby-port-of-programming-collective-intelligence
 title: Ruby Port of "Programming Collective Intelligence"
-excerpt: ""
 date: 2007-12-01 23:49:08 -08:00
 tags: ""
+excerpt: ""
+original_post_id: 35
 toc: true
 -----
-Thanks to a quick comment from Toby Seagaran, the author of ["Programming Collective Intelligence"](http://www.oreilly.com/catalog/9780596529321/ O'Reilly Media | Programming Collective Intelligence), my motivation finally exceeded my laziness in getting the porting code available in a public place. So I&#8217;m proud to announce that you can take a look at the ongoing porting effort at [http://svn.livollmers.net/public/pci](http://svn.livollmers.net/public/pci Ruby port of Programming Collective Intelligence). I'm in the midst of Chapter 4 right now, so I still have a long way to go.
+Thanks to a quick comment from Toby Seagaran, the author of ["Programming Collective Intelligence"](http://www.oreilly.com/catalog/9780596529321/ O'Reilly Media | Programming Collective Intelligence), my motivation finally exceeded my laziness in getting the porting code available in a public place. So I&#8217;m proud to announce that you can take a look at the ongoing porting effort at [my Ruby port of Programming Collective Intelligence](http://github.com/alexvollmer/pci4r). I'm in the midst of Chapter 4 right now, so I still have a long way to go.
 
 
 There are number of things in the code that make me cringe (it always amazes me how a better solution to something occurs usually about five minutes after I commit), but if nothing else it&#8217;s a monument to the effort I&#8217;ve made thus far. Hopefully the thought of public shame will motivate me to get in there and clean some of that stuff up.

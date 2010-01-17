@@ -1,9 +1,10 @@
 ----- 
 permalink: back-to-myemacs
 title: Back To My...Emacs
-excerpt: ""
 date: 2008-10-07 03:36:51 -07:00
-tags: Programming
+tags: ""
+excerpt: ""
+original_post_id: 117
 toc: true
 -----
 Emacs. Love it or hate it, it is undeniably a monument of software engineering. At best it's an amazingly customizable work environment that can be shaped to your every whim. At worst it's a giant time-sink where productivity is skewered by endless "fiddling".

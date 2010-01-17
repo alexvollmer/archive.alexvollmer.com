@@ -1,9 +1,10 @@
 ----- 
 permalink: day-two-rails-conf-07-summary
 title: Day Two Rails Conf '07 -- Summary
-excerpt: ""
 date: 2007-05-19 16:55:26 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 7
 toc: true
 -----
 After the keynote speech by David Heinemeier Hansson, I attended several session that felt disparate at the time, but magically coalesced into a meaningful takeaway by day's end. In short the day was about testing, REST and Amazon's suite of Web Services.
@@ -42,7 +43,7 @@ I had about ten minutes to kill between sessions and I was desperate for a free 
 
 Most of the booths held no interest until I stumbled across the Powell's Books stand. There before my eyes were stack of geek books. The night before I made the trek out to Powell's via Portland's delightful MAX transit system. If you've never been to Powell's do yourself a favor and go. For geeks, the Technical Bookstore simply can't be beat.
 
-Anyway, I figured there wouldn't be anything new there that I hadn't seen the night before at the Mothership. Of course, I was wrong. There before my eyes was shiny new O'Reilly book titled “REST Web Services”. I had been aware that Leonard Richardson and Sam Ruby were working on this book, but had lost track of when they were actually going to publish. I spent a little quality time with the chapter on S3 and my hopes were confirmed—this is going to be a good book.
+Anyway, I figured there wouldn't be anything new there that I hadn't seen the night before at the Mothership. Of course, I was wrong. There before my eyes was shiny new O'Reilly book titled "REST Web Services". I had been aware that Leonard Richardson and Sam Ruby were working on this book, but had lost track of when they were actually going to publish. I spent a little quality time with the chapter on S3 and my hopes were confirmed&mdash;this is going to be a good book.
 
 REST has gotten a lot of press lately, but I think a lot of people really don't have a good grasp of the concepts. To this point the only literature has either been Roy Fielding's original dissertation and a few derivatives of that paper. I think Fielding's paper is definitely with reading. It's very dense and repays the reader with each read. However, for REST to truly take hold the community really needs a thoughtful source that boils down the essence of the architectural style in a consumable format. Given the eagerness with which REST is being embraced and the dearth of practical resources on this topic, I would expect this book to be a well-loved, dog-eared volume on a lot of desks.
 # Amazon Web Services

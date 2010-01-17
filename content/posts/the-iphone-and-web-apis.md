@@ -1,9 +1,10 @@
 ----- 
 permalink: the-iphone-and-web-apis
 title: The iPhone and Web APIs
-excerpt: ""
 date: 2009-05-27 03:57:39 -07:00
 tags: ""
+excerpt: ""
+original_post_id: 366
 toc: true
 -----
 # The iPhone Ecosystem
@@ -24,7 +25,7 @@ There are some things you can do to mitigate the latency costs, if you control t
 
 Coming from a Java background, using threads seemed like a pretty natural approach and after reading the docs on the `NSThread`class I felt pretty confident I knew how to make it work. However, I was surprised by how quickly the code complicated. There is a lot to like about Objective-C, but I sorely miss Ruby's blocks and even Java's inner-classes. In Objective-C you connect methods together dynamically by handing objects selectors. The problem with this is that it's difficult to tell the high-level methods from the low-level callback methods just by looking at your class definition. Yes, you can use special comments and the like, but if you've worked in a language that has _structural_ support for this differentiation, moving to a language without it feels like losing an arm.
 
-So instead of managing your own threads, let Cocoa Touch do the work for you. The `NSURLConnection` class is inherently asynchronous—you can fire a request and immediately move one with your life. Now you just need a little structure for handling the response and getting it back into your views.
+So instead of managing your own threads, let Cocoa Touch do the work for you. The `NSURLConnection` class is inherently asynchronous&mdash;you can fire a request and immediately move one with your life. Now you just need a little structure for handling the response and getting it back into your views.
 
 # The EvriApi
 
@@ -49,65 +50,65 @@ When the request completes, the body of the response is parsed using the `NSXMLP
 The EvriVerse app is primarily a "productivity" style application. In [Interface Guidelines](http://developer.apple.com/iPhone/library/documentation/UserExperience/Conceptual/MobileHIG/Introduction/Introduction.html)-parlance this means that we use a lot of hierarchical navigation. In general we have no more than one or two API calls associated with a particular view controller. 
 
 The common pattern for handling a user-initiated action that requires an API call is:
-<ol>
-*  A new view-controller is instantiated and displayed, typically with an activity indicator visible
-*  User-interaction is disabled on the new view controller
-*  The new view controller is displayed (usually by pushing it on the navigation controller stack).
-*  A request is submitted to the `EvriApi`, setting the new view controller as the target and some special method as the target selector.
-*  The request ID from the `EvriApi` is given to the newly-created view-controller
-*  When the API request finishes, the handler method on the new view-controller executes, handling both success and failure cases. It also re-enabled user interaction on the view.
-  <li>If the user navigates back before the request has completed, any outstanding requests are cancelled. This is usually handled in the `viewWillDisapper:(BOOL)animated` method of the view controller.
-</ol>
+
+1.  A new view-controller is instantiated and displayed, typically with an activity indicator visible
+2.  User-interaction is disabled on the new view controller
+3.  The new view controller is displayed (usually by pushing it on the navigation controller stack).
+4.  A request is submitted to the `EvriApi`, setting the new view controller as the target and some special method as the target selector.
+5.  The request ID from the `EvriApi` is given to the newly-created view-controller
+6.  When the API request finishes, the handler method on the new view-controller executes, handling both success and failure cases. It also re-enabled user interaction on the view.
+7.  If the user navigates back before the request has completed, any outstanding requests are cancelled. This is usually handled in the `viewWillDisapper:(BOOL)animated` method of the view controller.
 
 Stepping back, the actors and interactions look something like this:
+
 ![evri-api.png](/images/2009/05/evri-api.png)
 
 In code (snippets) it might look something like this:
 
-// our parent view controller
-@implementation ParentViewController
-- (void)didSelectEntity {
-  ChildViewController *cvc = [[[ChildViewController alloc] init] autorelease];
+    // our parent view controller
+    @implementation ParentViewController
+    - (void)didSelectEntity {
+      ChildViewController *cvc = [[[ChildViewController alloc] init] autorelease];
+    
+      [self.navigationController pushController:cvc animated:NO];
+    
+      NSString *requestId = [EvriApi fetchEntityByURI:entity.uri
+                                      performSelector:@(didReceiveEntityResponse:)
+                                             onTarget:cvc];
+    }
+    @end
 
-  [self.navigationController pushController:cvc animated:NO];
-
-  NSString *requestId = [EvriApi fetchEntityByURI:entity.uri
-                                  performSelector:@(didReceiveEntityResponse:)
-                                         onTarget:cvc];
-}
-@end
-</pre>
 
 
-@interface ChildViewController : UITableViewController {
-  NSString *requestId;
-}
+    @interface ChildViewController : UITableViewController {
+      NSString *requestId;
+    }
+    
+    @property (nonatomic, retain) NSString *requestId;
+    @end
+    
+    @implementation ChildViewController
+    
+    @synthesize requestId;
+    
+    - (void)didReceiveEntityResponse:(EvriAPIResponse *)response {
+      // TODO: hide the activity indicator
+      // TODO: re-enable user interaction
+    
+      if ([response success]) {
+        Entity *e = (Entity *)[success result];
+    	 // TODO: redisplay as necessary
+      }
+      else {
+        // TODO: show an alert
+      }
+    }
+    
+    - (void)viewWillDisappear {
+      [EvriApi cancelRequest:requestId];
+    }
+    
+    @end
 
-@property (nonatomic, retain) NSString *requestId;
-@end
-
-@implementation ChildViewController
-
-@synthesize requestId;
-
-- (void)didReceiveEntityResponse:(EvriAPIResponse *)response {
-  // TODO: hide the activity indicator
-  // TODO: re-enable user interaction
-
-  if ([response success]) {
-    Entity *e = (Entity *)[success result];
-	 // TODO: redisplay as necessary
-  }
-  else {
-    // TODO: show an alert
-  }
-}
-
-- (void)viewWillDisappear {
-  [EvriApi cancelRequest:requestId];
-}
-
-@end
-</pre>
 
 So there you have it, one developer's way of integrating the iPhone with web APIs. More to come. Stay tuned.

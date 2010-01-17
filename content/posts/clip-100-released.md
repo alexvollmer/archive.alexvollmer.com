@@ -1,9 +1,10 @@
 ----- 
 permalink: clip-100-released
 title: Clip 1.0.0 Released!
-excerpt: ""
 date: 2008-09-19 19:17:33 -07:00
-tags: clip
+tags: ""
+excerpt: ""
+original_post_id: 114
 toc: true
 -----
 Command-line parsing made short and sweet.

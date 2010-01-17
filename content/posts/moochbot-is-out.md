@@ -1,14 +1,15 @@
 ----- 
 permalink: moochbot-is-out
 title: moochbot is out
-excerpt: ""
 date: 2008-12-10 06:29:02 -08:00
-tags: moochbot
+tags: ""
+excerpt: ""
+original_post_id: 185
 toc: true
 -----
 ![localhost.png](http://moochbot.com/images/logo.png)
 
-The secret side-project that I've been referring to in various posts finally reached its Version One milestone tonight. I closed out the remaining V1 issues off of my to-do list and suddenly realized that I could turn it loose on the world. So, without further ado, I present to you: [moochbot](http://moochbot.com moochbot "track what you lend and borrow"). Check it out and see what I've been up to all this time.
+The secret side-project that I've been referring to in various posts finally reached its Version One milestone tonight. I closed out the remaining V1 issues off of my to-do list and suddenly realized that I could turn it loose on the world. So, without further ado, I present to you: [moochbot](http://moochbot.com moochbot  track what you lend and borrow). Check it out and see what I've been up to all this time.
 
 I'd love to hear any feedback folks have; what you love and what you hate. I have a ton of V2 features planned so moochbot will certainly continue to evolve. It's running on a single Slicehost slice so it's not real high-powered. Your patience is appreciated.
 

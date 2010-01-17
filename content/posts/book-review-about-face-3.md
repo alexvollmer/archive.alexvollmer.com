@@ -1,9 +1,10 @@
 ----- 
 permalink: book-review-about-face-3
 title: "Book Review: About Face 3"
-excerpt: ""
 date: 2008-07-30 04:35:18 -07:00
-tags: Design
+tags: ""
+excerpt: ""
+original_post_id: 108
 toc: true
 -----
 <a href="http://www.amazon.com/About-Face-Essentials-Interaction-Design/dp/0470084111%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470084111">![](http://ecx.images-amazon.com/images/I/41PoEitkH1L._SL160_.jpg)</a>Alan Cooper's _About Face_ is one of those pillars of UI/UX design, the reading of which is a rite of passage. I figured few books would be more appropriate as a capstone to my long list of design-oriented reads. It is nearly an institution in and of itself. Last night I turned the final page and ticked a pretty big 560-page book off of my reading list.
@@ -16,7 +17,7 @@ There was enough material in this book that I adopted a new habit of using small
 
 You may have noticed that the post-its don't really kick in until about 2/5 of the way through the book (Chapter 10 to be specific). I'll be honest and admit that the first nine chapters felt like a rehash to me. That's not to say they are without value, but they are a bit long-winded and, at times, excruciating in detail.
 
-So let me go ahead and get my beefs with the book out of the way. If you guessed that a book on its third edition that is nearly three inches thick would have some opinions you would be right. I don't have a problem with opinions—that's why I bought the book. But I did find the tone a bit much. Haughty, imperious, self-righteous and overbearing might be good descriptions too. There is a definite Moses-coming-down-from-the-mountain-with-fresh-tablets feel to this book. Mr. Cooper and his cohorts are here to set you straight. Don't let it turn you off. Think of these guys as that cranky-but-humorous guy you work with. He's a riot as long as you don't take what he says _too_ seriously.
+So let me go ahead and get my beefs with the book out of the way. If you guessed that a book on its third edition that is nearly three inches thick would have some opinions you would be right. I don't have a problem with opinions&mdash;that's why I bought the book. But I did find the tone a bit much. Haughty, imperious, self-righteous and overbearing might be good descriptions too. There is a definite Moses-coming-down-from-the-mountain-with-fresh-tablets feel to this book. Mr. Cooper and his cohorts are here to set you straight. Don't let it turn you off. Think of these guys as that cranky-but-humorous guy you work with. He's a riot as long as you don't take what he says _too_ seriously.
 
 Secondly this is a _long_ book. I'm not convinced it really needed to be this long. There's an awful lot of repetition spread throughout the chapters. All of that is nit-picking really. This was an incredibly informative book. Again, the number of stickies you see should give you some idea of the value that I got from it. There is a _lot_ a person can learn here.
 
