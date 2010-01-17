@@ -1,11 +1,7 @@
 #!/usr/bin/env ruby
 
-compile '/posts/*' do
-  rep.filter :bluecloth
-end
-
 compile '*' do
-  rep.filter :haml
+  rep.filter :bluecloth
   rep.layout 'default'
 end
 
