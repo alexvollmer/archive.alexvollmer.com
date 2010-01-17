@@ -1,10 +1,6 @@
 ----- 
 permalink: typeahead-search-on-the-iphone
-layout: post
-filters_pre: markdown
 title: Incremental Find on the iPhone
-comments: []
-
 excerpt: ""
 date: 2009-05-15 04:55:38 -07:00
 tags: ""
@@ -14,11 +10,11 @@ This is the first in a series of posts I'll be writing about my experiences deve
 
 I wanted to kick this off with a little appetizer. We're going to look at how we implemented incremental find in EvriVerse. Evri has a huge database of structured entity data (people, places and things) and our users want to be able to search for any of them. After putting the initial prototype for EvriVerse on a few folks' phones, a lot of them wanted a search feature that worked more like our website.
 
-![Picture 5.png](/uploads/2009/05/picture-5.png)
+![Picture 5.png](/images/2009/05/picture-5.png)
 
 In the original implementation a user would type in the search field, then hit the "Search" button and then get their results back in the table view. This takes too many steps, and we wanted something that felt faster and more responsive.
 
-![Picture 6.png](/uploads/2009/05/picture-6.png)
+![Picture 6.png](/images/2009/05/picture-6.png)
 
 So our incremental find solution needed the following properties:
 *  It should only send a search request when there is a measurable pause in input

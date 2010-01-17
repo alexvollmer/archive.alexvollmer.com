@@ -1,0 +1,58 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+
+HERE = '~/Documents'
+THERE = '/Volumes/JungleDisk/documents'
+
+def rsync(args, verbose=false, dry_run=false)
+  cmd = "rsync --inplace --size-only"
+  cmd << " --verbose" if verbose
+  cmd << " --dry-run" if dry_run
+  cmd << " #{args}"
+  puts "Executing: #{cmd}"
+  puts %x(#{cmd})
+  exit(1) unless $? == 0
+end
+
+options = {
+  :verbose => false,
+  :dry_run => false
+}
+
+op = OptionParser.new do |o|
+  o.banner = "#{$0} [options] [action]"
+  o.separator "Actions:"
+  o.separator "    here  -- Sync from S3 -> here"
+  o.separator "    there -- Sync from here -> S3"
+  o.separator "Options:"
+  o.on('-v', '--verbose', 'Turn on verbose output') do |v|
+    options[:verbose] = true
+  end
+  o.on('-d', '--dry-run', 'Fake it') do |d|
+    options[:dry_run] = true
+  end
+end
+op.parse!(ARGV)
+
+action = ARGV.shift
+case action
+when "here"
+  rsync("#{THERE}/sync_files #{HERE}", options[:verbose], options[:dry_run])
+  rsync("--delete --recursive --files-from #{HERE}/sync_files #{THERE} #{HERE}",
+        options[:verbose],
+        options[:dry_run])
+when "there"
+  rsync(<<-EOF, options[:verbose], options[:dry_run])
+    --delete \
+    --inplace \
+    --size-only \
+    --recursive \
+    --files-from #{HERE}/sync_files \
+    #{HERE} #{THERE}
+    EOF
+else
+  $stderr.puts "Unrecognized action '#{action}', choose 'here' or 'there'"
+  exit 1
+end
+

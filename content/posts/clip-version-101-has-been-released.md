@@ -1,10 +1,6 @@
 ----- 
 permalink: clip-version-101-has-been-released
-layout: post
-filters_pre: markdown
 title: clip version 1.0.1 has been released!
-comments: []
-
 excerpt: ""
 date: 2009-01-07 02:58:13 -08:00
 tags: ""

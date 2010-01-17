@@ -1,14 +1,6 @@
 ----- 
 permalink: leading-off
-layout: post
-filters_pre: markdown
 title: Leading Off
-comments: 
-- :author: computorist
-  :date: 2007-05-17 16:54:59 -07:00
-  :body: I'm expecting a full multi-media experience.  Photos AND video dammit!!
-  :url: ""
-  :id: 
 excerpt: ""
 date: 2007-05-15 19:45:33 -07:00
 tags: ""

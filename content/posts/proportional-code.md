@@ -1,10 +1,6 @@
 ----- 
 permalink: proportional-code
-layout: post
-filters_pre: markdown
 title: Proportional Code
-comments: []
-
 excerpt: ""
 date: 2008-10-26 23:53:14 -07:00
 tags: Design
@@ -26,38 +22,41 @@ But our code is a different story. We don't have such physical barriers that han
 
 Command-line parsing is a stupid, menial task that should require very little attention. By extension, it should only be given a stupid, menial amount of code to make it work. We have big ideas! They shouldn't get bogged down by handling command-line options!
 
-This is why I wrote [Clip](https://github.com/alexvollmer/clip/tree Clip on GitHub). Clip is an expression of the need to make the simple things simple, but no simpler. If you have modest command-line parsing needs, Clip rewards you with minimal investment. If you need something trickier, Clip allows you to say a little more to it and gain more benefits from it. You get to decide how much you want to engage—not the library.
+This is why I wrote [Clip](https://github.com/alexvollmer/clip/tree Clip on GitHub). Clip is an expression of the need to make the simple things simple, but no simpler. If you have modest command-line parsing needs, Clip rewards you with minimal investment. If you need something trickier, Clip allows you to say a little more to it and gain more benefits from it. You get to decide how much you want to engage&mdash;not the library.
 
 This is one of the things I like about Ruby. The language is extremely flexible which gives me a lot of ways to "pack" ideas into code in a variety of ways. Having more than one way to do things isn't all that useful by itself. But it's _essential_ when you want to write _expressive_ code. Things like object literals, or one-line control-structure alternatives help me keep the lines of code proportional to the ideas they express.
 
 This is also something I find challenging to do in Java. In languages like Java, even just creating a collection of objects requires quite a bit of code:
-    1 <span class="meta meta_import meta_import_java"><span class="keyword keyword_other keyword_other_class-fns keyword_other_class-fns_java">import java.util.*;</span>
-    2
-    3 <span class="storage storage_modifier storage_modifier_java">public class Designer </span>{
-    4   <span class="storage storage_modifier storage_modifier_java">public void makeItWork(<span class="support support_type support_type_built-ins support_type_built-ins_java">List&lt;Trash&gt; trash</span>) </span>{
-    5     <span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_java">// today's challenge: convert trash to wearable garments
-</span>    6     List&lt;Garment&gt; garments = new ArrayList&lt;Garment&gt;(trash.size());
-    7     for (Trash t : trash) {
-    8       Garment g = new Garment(t.getName());
-    9       garments.add(g);
-   10     }
-   11
-   12     submitToJudges(garments);
-   13   }
-   14 }</span></pre>
+
+    import java.util.*;
+    
+    public class Designer {
+      public void makeItWork(List<Trash> trash) {
+        // today's challenge: convert trash to wearable garments
+        List<Garment> garments = new ArrayList<Garment>(trash.size());
+        for (Trash t : trash) {
+          Garment g = new Garment(t.getName());
+          garments.add(g);
+        }
+    
+        submitToJudges(garments);
+      }
+    }
+
 In Java we often solve this by pushing all of that code into a private method that is named something meaningful. This works pretty well, but does tend to result in an explosion of "helper methods". Sometimes folks take the "cheap" route and simply prefix these riffs with explanatory comments like "convert each Trash into a Garment". I'm not a real big fan of this. Generally I don't care about the object conversion in the first place because the rest of the code is presumably doing something interesting with the _Garments_ and I don't give a damn about the _Trash_.
 
 So let's look at it in Ruby:
-    1 <span class="meta meta_class meta_class_ruby"><span class="keyword keyword_control keyword_control_class keyword_control_class_ruby">class Designer</span>
-    2   <span class="keyword keyword_control keyword_control_def keyword_control_def_ruby">def make_it_work(trash)</span>
-    3     submit_to_judges(trash.map { |t| Garment.new(t.name) })
-    4   end
-    5 end</span></pre>
+
+    class Designer
+      def make_it_work(trash)
+        submit_to_judges(trash.map { |t| Garment.new(t.name) })
+      end
+    end
+
 By my count there are five lines in the Java example (including the comment) just to convert trash to garments. In contrast I boiled that down to one line in Ruby. OK I could have done this in two lines if you think that's too much of a long-train. But I think there are couple of important points here:
-<ol>
 *  The importance of the concept being expressed diminishes from left to right
 *  The attention-span of the reader diminishes from top to bottom
-</ol>
+
 The Ruby example beats Java on both counts. I don't waste a lot of the reader's attention span up-front on book-keeping details (in the vertical space) and I state the important thing I'm trying do (submit my top Foos) quickly (on the left). The details of _which _Garments I'm dealing with are merely a qualification of _what_ I'm trying to do.
 
 How you handle these two dimensions is greatly affected by both the language you use and the APIs you deal with. This is one of the reasons that I do _not_ find the use of scripting languages for Java's Swing API all that compelling. Scripting languages like JRuby or Jython help me with the horizontal space, but don't do a damn thing for the vertical requirements. With an awful API like Swing I have to say a _lot_ of words to make it go, regardless of the language I do it with.
@@ -69,4 +68,4 @@ At great peril to my own geek cred, I will say that this is why I find _The Lord
 Now I realize that a lot of folks _love_ the Tolkien books for the very reasons I criticize it. That's fine, _that_ is an argument about aesthetics, not facts. However I would strongly argue that "world-building" in your code is a _bad idea_. I think you're much more likely to build a decent piece of software if you pack your ideas tightly like a William Gibson novel than as a sprawling "trilogy" of epic code. Go ahead, prove me wrong. I double dog-dare ya.
 
 OK, so by this point any credibility I may have had is gone. Look at the size of a post about saying more with less. In the hope that you might be lazy and like to skip to the end:
-*Do as much as you can…with as little as possible.*
+*Do as much as you can, with as little as possible.*

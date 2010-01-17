@@ -1,10 +1,6 @@
 ----- 
 permalink: clip-version-002-has-been-released
-layout: post
-filters_pre: markdown
 title: clip version 0.0.2 has been released!
-comments: []
-
 excerpt: ""
 date: 2008-05-21 04:35:32 -07:00
 tags: ""

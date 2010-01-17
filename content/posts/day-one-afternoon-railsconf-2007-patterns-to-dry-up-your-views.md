@@ -1,10 +1,6 @@
 ----- 
 permalink: day-one-afternoon-railsconf-2007-patterns-to-dry-up-your-views
-layout: post
-filters_pre: markdown
 title: Day One, Afternoon RailsConf 2007 -- Patterns to DRY Up Your Views
-comments: []
-
 excerpt: ""
 date: 2007-05-18 04:20:35 -07:00
 tags: ""

@@ -1,10 +1,6 @@
 ----- 
 permalink: gemdoc-completion-in-zsh
-layout: post
-filters_pre: markdown
 title: gemdoc completion in zsh
-comments: []
-
 excerpt: ""
 date: 2008-06-25 16:30:24 -07:00
 tags: ruby shell gtd zsh
@@ -14,16 +10,17 @@ This week I stumbled upon Stephen Celis' awesome bit of shell-fu, [gemdoc](http:
 
 My setup is little-bit complicated, but I believe the following, stripped-down, recipe should work:
 
-GEMDIR=$(gem env gemdir)
-OPEN=$(whence xdg-open || whence open)
+    GEMDIR=$(gem env gemdir)
+    OPEN=$(whence xdg-open || whence open)
+    
+    gemdoc() {
+      ${OPEN} $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
+    }
+    
+    _gemdocomplete() {
+      reply=( `$(which ls) $GEMDIR/doc` )
+    }
+    
+    compctl -K _gemdocomplete gemdoc</pre>
 
-gemdoc() {
-  ${OPEN} $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
-}
-
-_gemdocomplete() {
-  reply=( `$(which ls) $GEMDIR/doc` )
-}
-
-compctl -K _gemdocomplete gemdoc</pre>
 _Update 6/25/08-10:30_: Updated to work for both Penguins and Macs.

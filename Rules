@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
 
+compile '/posts/*' do
+  rep.filter :bluecloth
+end
+
 compile '*' do
-  filter :erb
-  layout 'default'
+  rep.filter :haml
+  rep.layout 'default'
 end
 
 route '*' do

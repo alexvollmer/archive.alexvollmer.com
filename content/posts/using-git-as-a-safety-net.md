@@ -1,10 +1,6 @@
 ----- 
 permalink: using-git-as-a-safety-net
-layout: post
-filters_pre: markdown
 title: Using Git as a Safety Net
-comments: []
-
 excerpt: ""
 date: 2009-03-14 18:11:32 -07:00
 tags: ""

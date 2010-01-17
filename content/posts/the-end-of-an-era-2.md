@@ -1,19 +1,6 @@
 ----- 
 permalink: the-end-of-an-era-2
-layout: post
-filters_pre: markdown
 title: The End of an Era
-comments: 
-- :author: David Knoernschild
-  :date: 2009-10-09 19:59:52 -07:00
-  :body: Dude, can I have that mug?  I have the same one, its my favorite and I am always afraid it will break and I don't have a backup.  Some of us still love Java (the drink and the language)!
-  :url: ""
-  :id: 
-- :author: alex
-  :date: 2009-10-09 20:03:15 -07:00
-  :body: "Yeah I think you were the one that got me that mug back in the day. Hard to believe it's held up all these years\xE2\x80\x94it's one tough SOB. I guess there's probably a parable in that somewhere."
-  :url: http://livollmers.net
-  :id: 
 excerpt: ""
 date: 2009-10-02 21:55:55 -07:00
 tags: ""
@@ -27,7 +14,7 @@ OK, I haven't given up software to become a sous-chef or to take troubled kids o
 
 I've been with that language for a long time. Lately I've made a sport of complaining about it a lot, but honestly that's simply contempt bred from familiarity. There is a lot of good about the language and, despite my railings, the baby needn't be thrown out with the bath-water. What it comes down to is that I simply don't _enjoy_ it anymore. It used to be fun to put those pieces together, but not any longer. So I'm trading in my Java hat for my two new loves: Ruby and Objective-C.
 
-![IMG_1047.JPG](/uploads/2009/10/IMG_1047.JPG)
+![IMG_1047.JPG](/images/2009/10/IMG_1047.JPG)
 
 I may be stupid, but I'm not foolish enough to think that these languages will be the only remaining languages of my career. First of all, I'm not in the habit of defining my identity from the particular technologies I work with. Secondly, these are simply the environments I'm in love with now. I'm a dedicated family-man when it comes to people, but when it comes to programming languages, tools and environments I'm as bad as Liz Taylor. But jeez, why not embrace change? I don't do this for the paycheck. I do it because I love it. Why spend my time on things that aren't making me happy anymore?
 

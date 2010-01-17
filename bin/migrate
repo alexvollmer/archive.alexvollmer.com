@@ -86,16 +86,17 @@ def get_filter(db, fid)
 end
 
 def filter_content(content)
-  content.gsub(/<ul>/, "\n").
+  content.
+    gsub(/<ul>/, '').
     gsub(/<\/ul>/, '').
-    gsub(/<p[^>]+>/, "").
+    gsub(/<p[^>]*>/, "").
     gsub(/<br\s*\/>/, "\n").
     gsub(/<\/p>/, "\n").
     gsub(/<span .+?>(.+?)<\/span>/, '\1').
-    gsub(/<h1>(.+?)<\/h1>/, '# \1').
-    gsub(/<h2>(.+?)<\/h2>/, '## \1').
-    gsub(/<h3>(.+?)<\/h3>/, '### \1').
-    gsub(/<h4>(.+?)<\/h4>/, '#### \1').
+    gsub(/<h1.*?>(.+?)<\/h1>/, '# \1' + "\n").
+    gsub(/<h2.*?>(.+?)<\/h2>/, '## \1' + "\n").
+    gsub(/<h3.*?>(.+?)<\/h3>/, '### \1'  + "\n").
+    gsub(/<h4.*?>(.+?)<\/h4>/, '#### \1' + "\n").
 
     gsub(/^\s*<li>(.*)<\/li>/, '*  \1').
     gsub(/<a [^>]+>[^<]+<\/a>/) do |link|
@@ -111,7 +112,7 @@ def filter_content(content)
     gsub(/<img .+?\/>/) do |img|
       elem = REXML::Document.new(img).first
       attrs = elem.attributes
-      src = attrs['src'].sub(%r[http://(blog.livollmers.net|alexvollmer.com)/wp-content/], '/')
+      src = attrs['src'].sub(%r[http://(blog.livollmers.net|alexvollmer.com)/wp-content/uploads], '/images')
       "![#{attrs['alt']}](#{src})"
     end.
     gsub(/<code>([^<]+)<\/code>/, '`\1`')
@@ -160,13 +161,13 @@ dataset.each_with_index do |a, i|
   puts "Migrating [#{i}/#{total}]: '#{a[:post_title]}'..."
   meta = {
     'tags'        => get_tags(db, a[:ID]),
-    'comments'    => get_comments(db, a[:ID]),
+    # 'comments'    => get_comments(db, a[:ID]),
     'permalink'   => a[:post_name],
     'title'       => a[:post_title].to_s,
     'date'        => a[:post_date_gmt],
     'toc'         => true,
-    'filters_pre' => 'markdown',
-    'layout'      => 'post',
+    # 'filters_pre' => ['bluecloth'],
+    # 'layout'      => 'post',
     'excerpt'     => a[:post_excerpt].to_s
   }
   write_page(meta, filter_content(a[:post_content].to_s), "md")

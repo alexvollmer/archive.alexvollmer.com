@@ -1,16 +1,12 @@
 ----- 
 permalink: evriverse-2-0
-layout: post
-filters_pre: markdown
 title: EvriVerse 2.0
-comments: []
-
 excerpt: ""
 date: 2009-08-19 16:27:18 -07:00
 tags: ""
 toc: true
 -----
-![photo 5.jpg](/uploads/2009/08/photo-5.jpg)
+![photo 5.jpg](/images/2009/08/photo-5.jpg)
 
 I just wanted to make a quick announcement that the [iPhone app](http://evriverse.evri.com) I've been building at [work](http://evri.com) just released a major update today. It's in the App Store and it's free. Check it out.
 

@@ -1,14 +1,6 @@
 ----- 
 permalink: iphone-screencasts
-layout: post
-filters_pre: markdown
 title: iPhone Screencasts
-comments: 
-- :author: Jin Twisdale
-  :date: 2010-01-04 15:26:35 -08:00
-  :body: Well every blog owner deserve a little admiration. Nice post, grazie.
-  :url: http://www.iphoneapples.com
-  :id: 
 excerpt: ""
 date: 2009-09-15 04:13:03 -07:00
 tags: ""

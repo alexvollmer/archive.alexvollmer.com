@@ -1,19 +1,6 @@
 ----- 
 permalink: building-a-knowledge-base
-layout: post
-filters_pre: markdown
 title: Building a Knowledge Base
-comments: 
-- :author: kjosydekgke
-  :date: 2009-12-31 21:43:21 -08:00
-  :body: CSZn9g  <a href="http://chisnxzlmdeh.com/" rel="nofollow">chisnxzlmdeh</a>, [url=http://koesqnttjvih.com/]koesqnttjvih[/url], [link=http://jpbqdiquedmu.com/]jpbqdiquedmu[/link], http://kkvxvhphcidw.com/
-  :url: http://tvecqojddgos.com/
-  :id: 
-- :author: Sabrina Fies
-  :date: 2009-12-31 11:15:15 -08:00
-  :body: Hola, mi nombre es Sabrina y estube buscando por internet, fue entonces que encontre tu blog, el cual me gusto mucho, el cual es bastante agradable para leer. Regreso la proxima semana para leerte de nuevo. Saludos Sabrina
-  :url: http://www.spamluder.de/
-  :id: 
 excerpt: ""
 date: 2009-12-11 16:39:09 -08:00
 tags: ""

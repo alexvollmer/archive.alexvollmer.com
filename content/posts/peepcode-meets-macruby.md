@@ -1,10 +1,6 @@
 ----- 
 permalink: peepcode-meets-macruby
-layout: post
-filters_pre: markdown
 title: Peepcode meets MacRuby
-comments: []
-
 excerpt: ""
 date: 2009-05-15 21:38:30 -07:00
 tags: ""

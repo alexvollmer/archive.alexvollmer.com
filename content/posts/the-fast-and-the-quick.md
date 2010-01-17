@@ -1,10 +1,6 @@
 ----- 
 permalink: the-fast-and-the-quick
-layout: post
-filters_pre: markdown
 title: The Fast and the Quick
-comments: []
-
 excerpt: ""
 date: 2009-01-01 16:39:38 -08:00
 tags: ""

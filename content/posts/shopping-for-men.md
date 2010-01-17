@@ -1,16 +1,12 @@
 ----- 
 permalink: shopping-for-men
-layout: post
-filters_pre: markdown
 title: Shopping for Men
-comments: []
-
 excerpt: ""
 date: 2008-02-11 17:37:15 -08:00
 tags: ""
 toc: true
 -----
-![Photo 2](/uploads/2008/02/photo-2.jpg)
+![Photo 2](/images/2008/02/photo-2.jpg)
 
 This is all I walked out of the local Apple Store with today. No unnecessary bag. No receipt I have to dispose of securely. Just the product I wanted and a friendly little "Thank you" sticker. If all stores were like this, I might actually like to shop.
 

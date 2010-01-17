@@ -1,10 +1,6 @@
 ----- 
 permalink: military-history
-layout: post
-filters_pre: markdown
 title: Military History
-comments: []
-
 excerpt: ""
 date: 2008-06-28 16:15:19 -07:00
 tags: Reading
@@ -35,13 +31,13 @@ The other valuable outcome of studying military history to come to a better unde
 One final reward of the study of military history is to recognize how leadership within a corporate, in the purest sense of the word,  setting can work. I don't mean the famous generals such as Grant, Lee or Washington. Rather, a kind of leadership that few successfully execute consciously. Instead it is the [Joshua Chamberlains](http://en.wikipedia.org/wiki/Joshua_Chamberlain The Hero of Little Rount Top) of the world that provide insightful, meaningful case studies of what true leadership is. Most of us don't work in groups of one thousand or more, but instead in "squads" of ten or less people. Learning how Captains and Sergeants command, push and prod their troops and maintain esprit de corps is worth the time of anyone who is interested in exercising any form of leadership.
 
 It's rare that at the end of a good military history read I don't feel the need to weep. Maybe I'm a sucker for heartache but I can't help but feel just a teeny bit smarter after turning the last page of a well-written piece of military history. So before parting, let me leave you with a short list of great military reads (in no particular order) that I've come across over the years:
-<ol>
-*  _The Peloponnesian War_ – Thucydides
-*  _The Civil War (Trilogy)_ – Shelby Foote
-*  _At Dawn We Slept_ – Gordon Prange
+
+*  _The Peloponnesian War_  Thucydides
+*  _The Civil War (Trilogy)_  Shelby Foote
+*  _At Dawn We Slept_  Gordon Prange
 *  Just about anything by John Keegan
-*  _The Best and the Brightest_ – David Halberstam
-*  _We Were Soldiers Once...And Young_ – Harold G. Moore
-*  _The Rise and Fall of the Great Powers_ – Paul Kennedy
-*  _Diplomacy_ – Henry Kissinger
-</ol>
+*  _The Best and the Brightest_  David Halberstam
+*  _We Were Soldiers Once...And Young_  Harold G. Moore
+*  _The Rise and Fall of the Great Powers_  Paul Kennedy
+*  _Diplomacy_  Henry Kissinger
+

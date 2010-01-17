@@ -1,19 +1,6 @@
 ----- 
 permalink: the-ache-of-swing-programming
-layout: post
-filters_pre: markdown
 title: The Ache of Swing Programming
-comments: 
-- :author: Gregg Bolinger
-  :date: 2007-09-07 16:01:36 -07:00
-  :body: I don't totally disagree but rather than blaming the API for everything I'd blame documentation and the lack of good books.  Tutorials always show newbies how to do things and that's going to be the easiest route 99% of the time which is also not the correct route.  Someone needs to write a book and use something like Intellij IDEA as the sample application.
-  :url: http://greggbolinger.blogspot.com
-  :id: 
-- :author: Edward Ocampo-Gooding
-  :date: 2007-09-19 18:58:44 -07:00
-  :body: Have you taken a look at <a href="http://ihate.rubyforge.org/profligacy/sample.html" rel="nofollow">Profligacy</a> by Zed Shaw? You'd have to use JRuby, but it might a nice alternative.
-  :url: http://edwardog.net
-  :id: 
 excerpt: ""
 date: 2007-09-07 15:45:42 -07:00
 tags: ""

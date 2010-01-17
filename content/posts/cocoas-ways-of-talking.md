@@ -1,34 +1,6 @@
 ----- 
 permalink: cocoas-ways-of-talking
-layout: post
-filters_pre: markdown
 title: Cocoa's Ways of Talking
-comments: 
-- :author: Mario
-  :date: 2009-08-05 21:03:16 -07:00
-  :body: |-
-    Great article!
-    
-    I was unsure about the pros/ cons of this options, and you article made it clear.
-    
-    Thank you
-  :url: ""
-  :id: 
-- :author: Chris
-  :date: 2009-08-17 12:25:34 -07:00
-  :body: Thanks, enjoyed the post :)
-  :url: ""
-  :id: 
-- :author: marcio
-  :date: 2009-09-08 19:47:51 -07:00
-  :body: Thanks, gr8 article.  I would have liked to see the same code you used in NSNotification in the KVO and Delegate example.  Im about to try your NSNotification code but id like to know, is the NSDictionary necessary?
-  :url: http://quique123.wordpress.com
-  :id: 
-- :author: alex
-  :date: 2009-09-09 15:01:09 -07:00
-  :body: "No, the NSDictionary isn't stricly necessary\xE2\x80\x94you can pass <code>nil</code>. But it is handy when you have some extra state or parameters you want to pass around."
-  :url: http://livollmers.net
-  :id: 
 excerpt: ""
 date: 2009-06-25 01:53:32 -07:00
 tags: ""
@@ -39,40 +11,40 @@ Getting objects to talk to one another in Objective-C is a easy as passing a mes
 In this post we'll look at three ways to allow your objects to communicate with each other in a highly-decoupled manner using the Cocoa frameworks. Cocoa provides three common ways of connecting objects for messaging: Notifications, Key-Value Observation and delegate pattern.
 
 ### Notifications
+
 Both Cocoa and Cocoa Touch provide a notifications framework built on two classes: `NSNotificationCenter` and `NSNotification`. The former contains a singleton instance, (via the `defaultCenter` method) with which observers register themselves and observables post notifications. The latter is the "envelope" for the notification which can contain an `NSDictionary` instance of customized data as its payload.
 
-![NSNotificationCenter.png](/uploads/2009/06/nsnotificationcenter.png)
+![NSNotificationCenter.png](/images/2009/06/nsnotificationcenter.png)
 
 When an object registers for notifications, it specifies a notification to listen for (as a `NSString`) and, optionally, a target object. If the target is set to an object, only notifications posted by that object will be received. If the target object is set to `nil`, _any_ object posting that notification will be sent to the receiver. Senders can optionally include a `NSDictionary` instance filled with domain-specific objects. You can use this as a way to further parameterize a notification, or eschew it altogether.
 
 Consider the example below:
 
-@implementation Foo
-- (void)init {
-  if (self = [super init]) {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveNote:)
-                                                 name:@"TheBigNotification"
-                                               object:nil];
-  }
-  return self;
-}
+    @implementation Foo
+    - (void)init {
+      if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveNote:)
+                                                     name:@"TheBigNotification"
+                                                   object:nil];
+      }
+      return self;
+    }
+    
+    - (void)didReceiveNote:(NSNotification *)notification {
+      NSLog(@"Hey, I got a notification with user info: %@", [notification userInfo]);
+    }
+    @end
 
-- (void)didReceiveNote:(NSNotification *)notification {
-  NSLog(@"Hey, I got a notification with user info: %@", [notification userInfo]);
-}
-@end
-…
-@implementation Bar
-- (void)doSomething {
-  NSLog(@"I'm up to something!");
-  NSDictionary *stuff = [NSDictionary dictionaryWithObjectsAndKeys:@"foo", @"bar", nil];
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"TheBigNotification"
-                                                      object:nil
-                                                    userInfo:stuff];
-}
-@end
-</pre>
+    @implementation Bar
+    - (void)doSomething {
+      NSLog(@"I'm up to something!");
+      NSDictionary *stuff = [NSDictionary dictionaryWithObjectsAndKeys:@"foo", @"bar", nil];
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"TheBigNotification"
+                                                          object:nil
+                                                        userInfo:stuff];
+    }
+    @end
 
 Here the `Foo` class registers itself as a notification receiver for the notification named "TheBigNotification" on _any_ object. The `Bar` class will post the same notification when the `doSomething` method is invoked. 
 
@@ -87,16 +59,16 @@ Maybe it's my long track-record with Java, but I pay attention to the classes I 
 There's one final thing worth knowing about the `NSNotificationCenter`, and that is how it works with threads. When one object posts a notification, that call blocks while the notification is delivered to _all_ targets. This means that you want your notification-handling code in the receiving object to be as quick as possible. If you can live with deferred notifications and want to avoid the synchronous nature of notification delivery, you can use the `NSNotificationQueue` instead.
 
 ### Key-Value Observation
+
 When I first read about, and used Key-Value Observation (KVO) it seemed like magic. You simply point one object at another and say "I'd like to know when this attribute changes" and Cocoa handles all of the notifications and threading automatically. Genius!
 
 KVO also allows you to use a special syntax when specifying the attributes you want to observe so that you can register with an object and traverse its object graph. Let's look at the classic customer/orders/line items example. If you want to know when changes are made to any line items in an order you would observe changes in the order like so:
 
-Order *order = [self anyOrder];
-[order addObserver:self
-        forKeyPath:@"lineItems"
-           options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
-           context:nil];
-</pre>
+    Order *order = [self anyOrder];
+    [order addObserver:self
+            forKeyPath:@"lineItems"
+               options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+               context:nil];
 
 Whenever you register for KVO, you _must_ implement the method `- observeValueForKeyPath:ofObject:change:context:`. Unlike notifications, you don't get to specify a selector. This means that if you're object is observing several other objects, you will have to inspect the object given in the callback method and dispatch appropriately.
 
@@ -111,6 +83,7 @@ KVO is structurally similar to notifications, but is really intended for fine-gr
 Consider the simple case of managing a tabular view of line items in an order. When a user adds a line item, removes a line item or updates the quantity of a line item we want a field showing the total price to be updated. Without KVO we would need to add extra logic in our event-handing for the table view to also update the total field. With KVO our event-handling logic can simply focus on updating the underlying model. The total field will simply observe the total cost of the order and be updated appropriately. Now if we want to remove the total field or perhaps add another view of total information, we don't have to touch the original event-handing code.
 
 ### Delegates
+
 If you've spent any time with the Cocoa docs you'll run across The Delegate Pattern. This thing is like the quark—it is the fundamental building block of the Cocoa APIs. Conceptually, it's really pretty simple. A delegate is simply an object that provides custom behavior for another object, often by implementing a specific protocol.
 
 Let's return to our running example. A table view of line items in an order has to handle a lot of things such as rendering each cell, handling scrolling, managing user-generated events and so on. These features are common enough that they are simply part of the table view class itself. What is specific to your application is the _data_ that goes in those cells and _the actions_ to be taken for user-generated events. Cocoa solves this by providing protocols for delegating that behavior to custom classes. In the case of providing data, a data-oriented delegate would be queried by the table view for the total number of rows, appropriate object to put in each row, the column headers, etc. In the case of event-handling, the table view will forward events to the event-handling delegate.

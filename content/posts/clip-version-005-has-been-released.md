@@ -1,14 +1,6 @@
 ----- 
 permalink: clip-version-005-has-been-released
-layout: post
-filters_pre: markdown
 title: clip version 0.0.5 has been released!
-comments: 
-- :author: Phil
-  :date: 2008-06-23 20:02:35 -07:00
-  :body: It's OK; you can use my real name. I'm not trying to maintain a mystical Ruby aura like _why. =)
-  :url: http://technomancy.us
-  :id: 
 excerpt: ""
 date: 2008-06-13 22:06:04 -07:00
 tags: ""

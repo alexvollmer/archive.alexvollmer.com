@@ -1,14 +1,6 @@
 ----- 
 permalink: the-end-of-an-era
-layout: post
-filters_pre: markdown
 title: The End of an Era
-comments: 
-- :author: Arun Jacob
-  :date: 2008-06-09 03:36:18 -07:00
-  :body: Please, please post your Eclipse Fu online. I need a place in the cloud to get it from. My super powers do not include memorizing key combinations (they do, however, include the ability to make annoying noises and a propensity for bowel issues at high altitude, but I suspect _that_ was TMI)
-  :url: ""
-  :id: 
 excerpt: ""
 date: 2008-06-07 04:58:07 -07:00
 tags: Geekery

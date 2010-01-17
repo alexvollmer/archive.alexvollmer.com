@@ -1,10 +1,6 @@
 ----- 
 permalink: day-one-rails-conf-2007-morning-session
-layout: post
-filters_pre: markdown
 title: Day One, Rails Conf 2007 -- Morning Session
-comments: []
-
 excerpt: ""
 date: 2007-05-17 20:22:16 -07:00
 tags: ""

@@ -1,22 +1,6 @@
 ----- 
 permalink: ten-things-i-think-i-think
-layout: post
-filters_pre: markdown
 title: Ten Things I Think I Think
-comments: 
-- :author: alex
-  :date: 2007-10-18 04:05:05 -07:00
-  :body: Hey Ted, thanks for the pointer! GANT certainly looks interesting. I haven't yet felt the need to learn Groovy, so that's kind of holding me back from getting too excited about this. However I am starting to play with <a href="http://buildr.rubyforge.org" rel="nofollow">buildr</a> which is an intriguing mix of Ruby and Java. It seems like a nice mix of the good parts of Maven2 and Rake. We shall see...
-  :url: http://livollmers.net
-  :id: 
-- :author: Ted Naleid
-  :date: 2007-10-18 00:57:59 -07:00
-  :body: |-
-    Regarding #10 (Maven), I've been pretty happy recently using <a href="http://groovy.codehaus.org/Gant" rel="nofollow">GANT (groovy + ant)</a>  which includes <a href="http://www.jaya.free.fr/ivy/" rel="nofollow">Ivy</a> support for managing dependencies.
-    
-    It lets you code Ant tasks in Groovy syntax, and lets you mix and match with existing Ant infrastructure without having to write code in XML.
-  :url: ""
-  :id: 
 excerpt: ""
 date: 2007-10-17 04:24:41 -07:00
 tags: ""

@@ -1,10 +1,6 @@
 ----- 
 permalink: you-put-merb-in-my-jetty
-layout: post
-filters_pre: markdown
 title: You Put Merb In My Jetty!
-comments: []
-
 excerpt: In the latest update of The Chronicles of Stuff Alex Figures out at Work, our intrepid hero figures out how to run Merb inside an embedded Jetty instance!
 date: 2009-02-11 23:31:53 -08:00
 tags: merb
@@ -16,6 +12,7 @@ Now you may ask yourself, "for the love of God, why would you want to do somethi
 
 You may also be asking yourself, "why not use the [jruby-rack](http://blog.nicksieger.com/articles/2008/05/08/introducing-jruby-rack JRuby-Rack) gem directly?" The answer is that the jruby-rack gem makes a lot of assumptions about how you want to run your application. First it assumes that you're cool with packaging things up as a WAR (which I'm not) and, secondly, that your application is _primarily_ a Rails/Merb application. In my case, for better or worse, our app is really a BDB application with a Merb app glommed onto the side for web visibility.
 # The Solution
+
 I can't take complete credit for this solution. If I hadn't found [Jan Berkel's post on putting Rails in Jetty](http://www.trampolinesystems.com/blog/machines/2008/11/27/rails-22-jruby-jetty-win/ rails 2.2 + jruby + jetty = win) I would have _never_ figured out how to stuff Merb in there. To give yourself some context, take a look at that post first. Then take a look at the "Merb-ified" version of the same recipe below. Both solutions assume that you're configuring Jetty within JRuby.
 server = org.mortbay.jetty.Server.new
 thread_pool = org.mortbay.thread.QueuedThreadPool.new
@@ -36,6 +33,7 @@ context.add_servlet(ServletHolder.new(DefaultServlet.new), "/")
 server.set_handler(context)
 server.start</pre>
 # Tweaking
+
 At first blush our performance seemed to be pretty lacking. This required two tweaks: putting Merb in "production" mode and dealing with poor I/O due to logging. In the previous snippet you will notice that we set the <tt>merb.environment</tt> to <tt>production</tt>. Yes we lose the quick dev turnaround, but since there is a lot of Java in this project we usually have to recompile anyway which requires a restart anyway (phooey).
 
 As for the I/O issue, a [little digging](http://www.nabble.com/JRuby-vs-MRI---Petstore-shootout-td12211276.html JRuby vs MRI) revealed that shutting up Merb as much as possible would help reduce the amount of JRuby-level IO. In our <tt>config/init.rb</tt> we configure logging like so:

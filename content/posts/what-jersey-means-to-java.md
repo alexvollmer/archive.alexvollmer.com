@@ -1,10 +1,6 @@
 ----- 
 permalink: what-jersey-means-to-java
-layout: post
-filters_pre: markdown
 title: What Jersey Means To Java
-comments: []
-
 excerpt: ""
 date: 2009-03-04 18:42:49 -08:00
 tags: ""

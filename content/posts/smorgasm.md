@@ -1,10 +1,6 @@
 ----- 
 permalink: smorgasm
-layout: post
-filters_pre: markdown
 title: Smorgasm!
-comments: []
-
 excerpt: ""
 date: 2008-06-21 04:13:31 -07:00
 tags: Food
