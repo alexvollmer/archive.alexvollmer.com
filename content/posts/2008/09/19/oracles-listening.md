@@ -1,6 +1,6 @@
 ----- 
 permalink: oracles-listening%e2%80%a6
-title: "Oracle's Listening\xE2\x80\xA6"
+title: "Oracle's Listening&hellip;"
 excerpt: ""
 date: 2008-09-19 16:17:51 -07:00
 tags: ""
