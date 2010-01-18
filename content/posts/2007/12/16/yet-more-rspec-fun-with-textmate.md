@@ -2,7 +2,9 @@
 permalink: yet-more-rspec-fun-with-textmate
 title: Yet More RSpec Fun With TextMate!
 date: 2007-12-16 03:08:38 -08:00
-tags: ""
+tags:
+- ruby
+- TDD
 excerpt: ""
 original_post_id: 39
 toc: true

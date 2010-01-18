@@ -2,7 +2,8 @@
 permalink: cocoas-ways-of-talking
 title: Cocoa's Ways of Talking
 date: 2009-06-25 01:53:32 -07:00
-tags: ""
+tags:
+- cocoa
 excerpt: ""
 original_post_id: 386
 toc: true

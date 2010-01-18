@@ -2,7 +2,8 @@
 permalink: military-history
 title: Military History
 date: 2008-06-28 16:15:19 -07:00
-tags: ""
+tags:
+- philosophy
 excerpt: ""
 original_post_id: 102
 toc: true

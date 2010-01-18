@@ -1,14 +1,5 @@
 require "nanoc3/tasks"
 
-task :copy_assets do
-  system "rsync -gprt --partial --exclude='.svn' assets/ output"
-end
+Dir['tasks/**/*.rake'].sort.each { |rakefile| load rakefile}
 
-task :compile do
-  system "nanoc3 co"
-end
-
-task :build => [ :compile, :copy_assets ]
-
-task :default => :build
-
+task :default => "site:build"

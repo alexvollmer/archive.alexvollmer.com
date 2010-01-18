@@ -2,7 +2,8 @@
 permalink: ruby-threads-suckjust-not-the-way-you-think-they-do
 title: Ruby Threads Suck&#8230;Just Not The Way You Think They Do
 date: 2009-01-26 01:47:24 -08:00
-tags: ""
+tags:
+- ruby
 excerpt: ""
 original_post_id: 219
 toc: true

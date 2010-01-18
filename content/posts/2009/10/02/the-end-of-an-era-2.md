@@ -2,7 +2,8 @@
 permalink: the-end-of-an-era-2
 title: The End of an Era
 date: 2009-10-02 21:55:55 -07:00
-tags: ""
+tags:
+- personal
 excerpt: ""
 original_post_id: 404
 toc: true

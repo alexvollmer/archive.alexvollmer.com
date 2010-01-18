@@ -2,7 +2,8 @@
 permalink: my-first-rubygem
 title: My first RubyGem!
 date: 2007-06-09 17:41:58 -07:00
-tags: ""
+tags:
+- ruby
 excerpt: ""
 original_post_id: 18
 toc: true

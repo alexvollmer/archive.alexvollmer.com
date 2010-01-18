@@ -2,7 +2,8 @@
 permalink: why-rest-matters
 title: Why REST Matters
 date: 2007-06-13 02:42:58 -07:00
-tags: ""
+tags:
+- REST
 excerpt: ""
 original_post_id: 21
 toc: true

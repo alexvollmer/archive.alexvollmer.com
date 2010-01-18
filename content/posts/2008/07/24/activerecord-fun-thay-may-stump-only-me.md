@@ -2,7 +2,9 @@
 permalink: activerecord-fun-thay-may-stump-only-me
 title: ActiveRecord Fun Thay May Stump Only Me
 date: 2008-07-24 04:52:15 -07:00
-tags: ""
+tags:
+- ruby
+- rails
 excerpt: ""
 original_post_id: 106
 toc: true

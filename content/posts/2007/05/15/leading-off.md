@@ -2,7 +2,8 @@
 permalink: leading-off
 title: Leading Off
 date: 2007-05-15 19:45:33 -07:00
-tags: ""
+tags:
+- blog
 excerpt: ""
 original_post_id: 3
 toc: true

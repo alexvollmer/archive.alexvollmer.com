@@ -2,7 +2,10 @@
 permalink: the-fast-and-the-quick
 title: The Fast and the Quick
 date: 2009-01-01 16:39:38 -08:00
-tags: ""
+tags:
+- software
+- philosophy
+- sports
 excerpt: ""
 original_post_id: 199
 toc: true

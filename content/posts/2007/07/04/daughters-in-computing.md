@@ -2,7 +2,8 @@
 permalink: daughters-in-computing
 title: Daughters in Computing
 date: 2007-07-04 23:59:19 -07:00
-tags: ""
+tags:
+- philosophy
 excerpt: ""
 original_post_id: 27
 toc: true

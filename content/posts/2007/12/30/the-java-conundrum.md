@@ -2,7 +2,8 @@
 permalink: the-java-conundrum
 title: The Java Conundrum
 date: 2007-12-30 20:41:22 -08:00
-tags: ""
+tags:
+- java
 excerpt: ""
 original_post_id: 40
 toc: true

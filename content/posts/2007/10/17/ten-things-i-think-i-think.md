@@ -2,7 +2,12 @@
 permalink: ten-things-i-think-i-think
 title: Ten Things I Think I Think
 date: 2007-10-17 04:24:41 -07:00
-tags: ""
+tags:
+- software
+- java
+- ruby
+- erlang
+- cocoa
 excerpt: ""
 original_post_id: 31
 toc: true

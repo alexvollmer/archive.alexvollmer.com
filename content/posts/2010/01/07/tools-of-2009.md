@@ -2,7 +2,8 @@
 permalink: tools-of-2009
 title: Tools of 2009
 date: 2010-01-07 04:35:42 -08:00
-tags: ""
+tags:
+- mac
 excerpt: ""
 original_post_id: 424
 toc: true

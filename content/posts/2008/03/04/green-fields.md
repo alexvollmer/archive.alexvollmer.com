@@ -2,7 +2,8 @@
 permalink: green-fields
 title: Green Fields
 date: 2008-03-04 15:44:07 -08:00
-tags: ""
+tags:
+- geekery
 excerpt: ""
 original_post_id: 66
 toc: true

@@ -2,7 +2,8 @@
 permalink: using-git-as-a-safety-net
 title: Using Git as a Safety Net
 date: 2009-03-14 18:11:32 -07:00
-tags: ""
+tags:
+- git
 excerpt: ""
 original_post_id: 313
 toc: true

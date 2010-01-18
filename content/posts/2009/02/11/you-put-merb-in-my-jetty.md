@@ -2,7 +2,9 @@
 permalink: you-put-merb-in-my-jetty
 title: You Put Merb In My Jetty!
 date: 2009-02-11 23:31:53 -08:00
-tags: ""
+tags:
+- java
+- ruby
 excerpt: In the latest update of The Chronicles of Stuff Alex Figures out at Work, our intrepid hero figures out how to run Merb inside an embedded Jetty instance!
 original_post_id: 287
 toc: true
@@ -16,24 +18,26 @@ You may also be asking yourself, "why not use the [jruby-rack](http://blog.nicks
 
 I can't take complete credit for this solution. If I hadn't found [Jan Berkel's post on putting Rails in Jetty](http://www.trampolinesystems.com/blog/machines/2008/11/27/rails-22-jruby-jetty-win/ rails 2.2 + jruby + jetty = win) I would have _never_ figured out how to stuff Merb in there. To give yourself some context, take a look at that post first. Then take a look at the "Merb-ified" version of the same recipe below. Both solutions assume that you're configuring Jetty within JRuby.
 
-    server = org.mortbay.jetty.Server.new
-    thread_pool = org.mortbay.thread.QueuedThreadPool.new
-    thread_pool.min_threads  = 5  # adjust as needed
-    thread_pool.max_threads  = 50
-    server.set_thread_pool(thread_pool)
-    context = Context.new(nil, "/", Context::NO_SESSIONS)
-    context.add_filter("org.jruby.rack.RackFilter", "/*", Handler::DEFAULT)
-    context.set_resource_base(Environment.resolve)
-    context.add_event_listener(MerbServletContextListener.new)
-    context.set_init_params(java.util.HashMap.new('merb.root'=>; Environment.resolve,
-        'merb.environment' => 'production',
-        'public.root' => Environment.resolve('public'),
-        'gem.path' => Environment.resolve('gems'),
-        'org.mortbay.jetty.servlet.Default.relativeResourceBase' => '/public',
-        'jruby.max.runtimes' => '1'))
-    context.add_servlet(ServletHolder.new(DefaultServlet.new), "/")
-    server.set_handler(context)
-    server.start
+<% highlight :ruby do %>
+server = org.mortbay.jetty.Server.new
+thread_pool = org.mortbay.thread.QueuedThreadPool.new
+thread_pool.min_threads  = 5  # adjust as needed
+thread_pool.max_threads  = 50
+server.set_thread_pool(thread_pool)
+context = Context.new(nil, "/", Context::NO_SESSIONS)
+context.add_filter("org.jruby.rack.RackFilter", "/*", Handler::DEFAULT)
+context.set_resource_base(Environment.resolve)
+context.add_event_listener(MerbServletContextListener.new)
+context.set_init_params(java.util.HashMap.new('merb.root'=>; Environment.resolve,
+    'merb.environment' => 'production',
+    'public.root' => Environment.resolve('public'),
+    'gem.path' => Environment.resolve('gems'),
+    'org.mortbay.jetty.servlet.Default.relativeResourceBase' => '/public',
+    'jruby.max.runtimes' => '1'))
+context.add_servlet(ServletHolder.new(DefaultServlet.new), "/")
+server.set_handler(context)
+server.start
+<% end %>
 
 # Tweaking
 
@@ -41,19 +45,21 @@ At first blush our performance seemed to be pretty lacking. This required two tw
 
 As for the I/O issue, a [little digging](http://www.nabble.com/JRuby-vs-MRI---Petstore-shootout-td12211276.html JRuby vs MRI) revealed that shutting up Merb as much as possible would help reduce the amount of JRuby-level IO. In our <tt>config/init.rb</tt> we configure logging like so:
 
-    Merb::Config.use { |c|
-      c[:environment]         = 'production',
-      c[:framework]           = {},
-      c[:log_level]           = :warn,
-      c[:log_file]            = Merb.root / "logs" / "merb.log",
-      c[:use_mutex]           = false,
-      c[:session_store]       = 'cookie',
-      c[:session_id_key]      = '_facet-store_session_id',
-      c[:session_secret_key]  = '49411912879b879e13f89a9280c0f6aaa2e3ab58',
-      c[:exception_details]   = true,
-      c[:reload_classes]      = false,
-      c[:reload_templates]    = false
-    }
+<% highlight :ruby do %>
+Merb::Config.use { |c|
+  c[:environment]         = 'production',
+  c[:framework]           = {},
+  c[:log_level]           = :warn,
+  c[:log_file]            = Merb.root / "logs" / "merb.log",
+  c[:use_mutex]           = false,
+  c[:session_store]       = 'cookie',
+  c[:session_id_key]      = '_facet-store_session_id',
+  c[:session_secret_key]  = '49411912879b879e13f89a9280c0f6aaa2e3ab58',
+  c[:exception_details]   = true,
+  c[:reload_classes]      = false,
+  c[:reload_templates]    = false
+}
+<% end %>
 
 Here we set the environment to "production" again (yes, you need to do both). Also we upped the log level to "warn" which significantly reduced the amount of logging merb does. With these tweaks in place we found that the Merb port of our service was operating within about 80% of the level of performance we were getting from our pure-Java solution.
 

@@ -2,7 +2,9 @@
 permalink: meet-magit
 title: Meet Magit!
 date: 2009-01-18 20:58:06 -08:00
-tags: ""
+tags:
+- emacs
+- git
 excerpt: ""
 original_post_id: 215
 toc: true

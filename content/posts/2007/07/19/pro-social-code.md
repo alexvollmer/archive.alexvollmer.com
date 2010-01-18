@@ -2,7 +2,9 @@
 permalink: pro-social-code
 title: Pro-Social Code
 date: 2007-07-19 03:48:29 -07:00
-tags: ""
+tags:
+- software
+- philosophy
 excerpt: ""
 original_post_id: 29
 toc: true

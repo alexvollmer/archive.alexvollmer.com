@@ -2,7 +2,8 @@
 permalink: s3-sync-update
 title: S3 Sync Update
 date: 2008-04-05 15:49:18 -07:00
-tags: ""
+tags:
+- geekery
 excerpt: ""
 original_post_id: 77
 toc: true

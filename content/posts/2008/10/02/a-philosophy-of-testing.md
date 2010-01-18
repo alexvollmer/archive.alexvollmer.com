@@ -2,7 +2,10 @@
 permalink: a-philosophy-of-testing
 title: A Philosophy of Testing
 date: 2008-10-02 16:44:27 -07:00
-tags: ""
+tags:
+- software
+- TDD
+- philosophy
 excerpt: ""
 original_post_id: 116
 toc: true

@@ -2,7 +2,9 @@
 permalink: book-review-information-architecture-for-the-world-wide-web
 title: "Book Review: Information Architecture for the World Wide Web"
 date: 2007-07-08 02:50:51 -07:00
-tags: ""
+tags:
+- book review
+- information architecture
 excerpt: ""
 original_post_id: 28
 toc: true

@@ -2,7 +2,8 @@
 permalink: geek-manners
 title: Geek Manners
 date: 2008-02-01 17:44:56 -08:00
-tags: ""
+tags:
+- software
 excerpt: ""
 original_post_id: 42
 toc: true

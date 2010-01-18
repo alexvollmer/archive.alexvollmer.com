@@ -2,7 +2,10 @@
 permalink: one-geeks-aesthetics
 title: One Geek's Aesthetics
 date: 2008-03-13 15:36:01 -07:00
-tags: ""
+tags:
+- geekery
+- information design
+- UX
 excerpt: ""
 original_post_id: 73
 toc: true

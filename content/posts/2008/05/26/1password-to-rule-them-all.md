@@ -2,7 +2,9 @@
 permalink: 1password-to-rule-them-all
 title: 1Password To Rule Them All...
 date: 2008-05-26 23:31:21 -07:00
-tags: ""
+tags:
+- software
+- mac
 excerpt: ""
 original_post_id: 85
 toc: true

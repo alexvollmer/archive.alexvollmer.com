@@ -2,7 +2,10 @@
 permalink: peepcode-meets-macruby
 title: Peepcode meets MacRuby
 date: 2009-05-15 21:38:30 -07:00
-tags: ""
+tags:
+- peepcode
+- ruby
+- mac
 excerpt: ""
 original_post_id: 358
 toc: true

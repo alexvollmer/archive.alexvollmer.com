@@ -2,7 +2,8 @@
 permalink: moochbot-is-out
 title: moochbot is out
 date: 2008-12-10 06:29:02 -08:00
-tags: ""
+tags:
+- moochbot
 excerpt: ""
 original_post_id: 185
 toc: true

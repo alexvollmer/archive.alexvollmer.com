@@ -2,7 +2,8 @@
 permalink: happy-mac-day-to-me-happy-mac-day-to-me
 title: Happy Mac Day To Me, Happy Mac Day To Me
 date: 2007-10-29 04:30:54 -07:00
-tags: ""
+tags:
+- apple
 excerpt: ""
 original_post_id: 33
 toc: true

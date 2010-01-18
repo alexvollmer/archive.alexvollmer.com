@@ -2,7 +2,8 @@
 permalink: the-cleverest-git-maneuver-i-ever-pulled-off
 title: The Cleverest Git Maneuver I Ever Pulled Off
 date: 2009-10-09 15:44:04 -07:00
-tags: ""
+tags:
+- git
 excerpt: ""
 original_post_id: 411
 toc: true

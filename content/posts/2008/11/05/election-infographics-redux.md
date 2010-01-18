@@ -2,7 +2,8 @@
 permalink: election-infographics-redux
 title: Election Infographics Redux
 date: 2008-11-05 05:43:36 -08:00
-tags: ""
+tags:
+- information design
 excerpt: ""
 original_post_id: 133
 toc: true

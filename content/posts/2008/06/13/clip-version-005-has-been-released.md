@@ -2,7 +2,9 @@
 permalink: clip-version-005-has-been-released
 title: clip version 0.0.5 has been released!
 date: 2008-06-13 22:06:04 -07:00
-tags: ""
+tags:
+- ruby
+- clip
 excerpt: ""
 original_post_id: 90
 toc: true

@@ -2,7 +2,8 @@
 permalink: ruby-port-of-programming-collective-intelligence
 title: Ruby Port of "Programming Collective Intelligence"
 date: 2007-12-01 23:49:08 -08:00
-tags: ""
+tags:
+- ruby
 excerpt: ""
 original_post_id: 35
 toc: true

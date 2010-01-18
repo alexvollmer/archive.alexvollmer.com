@@ -2,7 +2,9 @@
 permalink: code-personification
 title: Code Personification
 date: 2008-12-09 04:31:19 -08:00
-tags: ""
+tags:
+- software
+- philosophy
 excerpt: ""
 original_post_id: 184
 toc: true

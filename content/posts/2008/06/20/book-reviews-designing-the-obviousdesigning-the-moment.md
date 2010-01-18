@@ -2,7 +2,10 @@
 permalink: book-reviews-designing-the-obviousdesigning-the-moment
 title: "Book Reviews: Designing the Obvious/Designing the Moment"
 date: 2008-06-20 04:55:00 -07:00
-tags: ""
+tags:
+- book review
+- UX
+- information design
 excerpt: ""
 original_post_id: 96
 toc: true

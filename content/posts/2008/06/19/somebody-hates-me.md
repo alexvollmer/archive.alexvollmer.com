@@ -2,7 +2,8 @@
 permalink: somebody-hates-me
 title: Somebody Hates Me
 date: 2008-06-19 22:43:49 -07:00
-tags: ""
+tags:
+- personal
 excerpt: ""
 original_post_id: 93
 toc: true

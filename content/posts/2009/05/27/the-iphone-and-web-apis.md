@@ -2,7 +2,11 @@
 permalink: the-iphone-and-web-apis
 title: The iPhone and Web APIs
 date: 2009-05-27 03:57:39 -07:00
-tags: ""
+tags:
+- iphone
+- cocoa
+- REST
+- evri
 excerpt: ""
 original_post_id: 366
 toc: true

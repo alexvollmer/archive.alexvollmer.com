@@ -2,7 +2,9 @@
 permalink: burning-my-ships
 title: Burning My Ships
 date: 2008-12-21 03:40:56 -08:00
-tags: ""
+tags:
+- geekery
+- philosophy
 excerpt: ""
 original_post_id: 192
 toc: true

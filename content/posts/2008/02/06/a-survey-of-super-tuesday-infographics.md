@@ -2,7 +2,8 @@
 permalink: a-survey-of-super-tuesday-infographics
 title: A Survey of Super Tuesday Infographics
 date: 2008-02-06 05:23:46 -08:00
-tags: ""
+tags:
+- information design
 excerpt: ""
 original_post_id: 59
 toc: true

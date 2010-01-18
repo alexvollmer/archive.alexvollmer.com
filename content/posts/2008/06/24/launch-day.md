@@ -2,7 +2,8 @@
 permalink: launch-day
 title: Launch Day!!!
 date: 2008-06-24 04:17:58 -07:00
-tags: ""
+tags:
+- evri
 excerpt: ""
 original_post_id: 99
 toc: true

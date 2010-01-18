@@ -2,7 +2,9 @@
 permalink: make-view-helpers-a-little-less-helpful
 title: Make View Helpers a Little Less "Helpful"
 date: 2008-09-23 15:41:27 -07:00
-tags: ""
+tags:
+- ruby
+- rails
 excerpt: ""
 original_post_id: 115
 toc: true

@@ -2,7 +2,10 @@
 permalink: railsconf-08-wrapup
 title: RailsConf '08 Wrapup
 date: 2008-06-03 16:56:46 -07:00
-tags: ""
+tags:
+- ruby
+- rails
+- railsconf
 excerpt: ""
 original_post_id: 86
 toc: true

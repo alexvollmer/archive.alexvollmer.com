@@ -2,7 +2,8 @@
 permalink: shopping-for-men
 title: Shopping for Men
 date: 2008-02-11 17:37:15 -08:00
-tags: ""
+tags:
+- apple
 excerpt: ""
 original_post_id: 64
 toc: true

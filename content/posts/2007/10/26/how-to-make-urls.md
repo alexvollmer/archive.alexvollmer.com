@@ -2,7 +2,8 @@
 permalink: how-to-make-urls
 title: How To Make URLs
 date: 2007-10-26 22:05:18 -07:00
-tags: ""
+tags:
+- REST
 excerpt: ""
 original_post_id: 32
 toc: true

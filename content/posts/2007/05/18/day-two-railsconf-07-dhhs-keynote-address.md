@@ -2,7 +2,10 @@
 permalink: day-two-railsconf-07-dhhs-keynote-address
 title: Day Two RailsConf '07 -- DHH's Keynote Address
 date: 2007-05-18 21:43:06 -07:00
-tags: ""
+tags:
+- ruby
+- rails
+- railsconf
 excerpt: ""
 original_post_id: 6
 toc: true

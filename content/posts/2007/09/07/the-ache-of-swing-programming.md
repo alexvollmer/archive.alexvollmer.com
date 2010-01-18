@@ -2,7 +2,8 @@
 permalink: the-ache-of-swing-programming
 title: The Ache of Swing Programming
 date: 2007-09-07 15:45:42 -07:00
-tags: ""
+tags:
+- java
 excerpt: ""
 original_post_id: 30
 toc: true

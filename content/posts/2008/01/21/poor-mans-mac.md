@@ -2,7 +2,9 @@
 permalink: poor-mans-mac
 title: Poor Man's .mac
 date: 2008-01-21 20:47:32 -08:00
-tags: ""
+tags:
+- mac
+- apple
 excerpt: ""
 original_post_id: 41
 toc: true
@@ -39,8 +41,8 @@ So here are the scripts. The first is `sync_to_s3`:
 
 <% highlight :sh do %>
 #!/bin/sh
-rsync --recursive --size-only \\
-  --files-from ~/Documents/sync_files \\
+rsync --recursive --size-only \
+  --files-from ~/Documents/sync_files \
   ~/Documents/ /Volumes/JungleDisk/documents/
 <% end %>
 
@@ -64,7 +66,7 @@ Next is the `sync_from_s3` which goes the other way.
 
 <% highlight :sh do %>
 #!/bin/sh
-rsync  --recursive --size-only \\
+rsync  --recursive --size-only \
   /Volumes/JungleDisk/documents/ ~/Documents/
 <% end %>
 

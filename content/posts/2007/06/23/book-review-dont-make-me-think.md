@@ -2,7 +2,9 @@
 permalink: book-review-dont-make-me-think
 title: "Book Review: Don't Make Me Think"
 date: 2007-06-23 02:58:34 -07:00
-tags: ""
+tags:
+- book review
+- ux
 excerpt: ""
 original_post_id: 24
 toc: true

@@ -2,7 +2,9 @@
 permalink: proportional-code
 title: Proportional Code
 date: 2008-10-26 23:53:14 -07:00
-tags: ""
+tags:
+- software
+- philosophy
 excerpt: ""
 original_post_id: 118
 toc: true

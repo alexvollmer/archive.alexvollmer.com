@@ -2,7 +2,9 @@
 permalink: book-review-javascript-the-good-parts
 title: "Book Review: \"JavaScript: The Good Parts\""
 date: 2008-08-15 03:41:45 -07:00
-tags: ""
+tags:
+- book review
+- javascript
 excerpt: ""
 original_post_id: 109
 toc: true

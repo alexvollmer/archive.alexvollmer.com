@@ -2,7 +2,9 @@
 permalink: ruby-and-leopard
 title: Ruby and Leopard
 date: 2007-12-06 14:11:19 -08:00
-tags: ""
+tags:
+- ruby
+- mac
 excerpt: ""
 original_post_id: 36
 toc: true

@@ -2,7 +2,8 @@
 permalink: a-tale-of-sandwiches-and-happiness
 title: A Tale of Sandwiches and Happiness
 date: 2008-12-18 18:44:11 -08:00
-tags: ""
+tags:
+- philosophy
 excerpt: ""
 original_post_id: 191
 toc: true

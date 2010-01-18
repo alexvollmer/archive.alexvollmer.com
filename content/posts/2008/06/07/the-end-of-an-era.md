@@ -2,7 +2,8 @@
 permalink: the-end-of-an-era
 title: The End of an Era
 date: 2008-06-07 04:58:07 -07:00
-tags: ""
+tags:
+- geekery
 excerpt: ""
 original_post_id: 89
 toc: true

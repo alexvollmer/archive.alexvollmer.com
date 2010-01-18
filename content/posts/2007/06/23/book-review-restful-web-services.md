@@ -2,7 +2,9 @@
 permalink: book-review-restful-web-services
 title: "Book Review: RESTful Web Services"
 date: 2007-06-23 02:58:21 -07:00
-tags: ""
+tags:
+- book review
+- REST
 excerpt: ""
 original_post_id: 23
 toc: true

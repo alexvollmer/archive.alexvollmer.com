@@ -2,7 +2,9 @@
 permalink: evriverse-2-0
 title: EvriVerse 2.0
 date: 2009-08-19 16:27:18 -07:00
-tags: ""
+tags:
+- iphone
+- evri
 excerpt: ""
 original_post_id: 399
 toc: true

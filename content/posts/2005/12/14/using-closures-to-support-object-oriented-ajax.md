@@ -2,7 +2,9 @@
 permalink: using-closures-to-support-object-oriented-ajax
 title: Using Closures To Support Object-Oriented AJAX
 date: 2005-12-14 16:27:47 -08:00
-tags: ""
+tags:
+- javascript
+- AJAX
 excerpt: If you want object-oriented design in your JavaScript when using AJAX, you need to understand closures.
 original_post_id: 17
 toc: true
@@ -21,23 +23,25 @@ In our examples below we have a `User` object that has a reference to its HTML e
 
 The last line in the constructor calls the `retrieve()` method which fires off an AJAX request. When that request has returned, we want to populate our div element with the response text using the `load()` method.
 
-    function User(username, password, div) {
-      this.username = username;
-      this.password = password;
-      this.div = div;
-      this.retrieve();
-    }
-    
-    User.prototype.update = function(req) {
-      this.div.innerHTML += req.responseText;
-    }
-    
-    User.prototype.retrieve = function() {
-      var myAjax = new Ajax.Request('/users/demo',
-        { method:'get', 
-           onComplete:this.update
-        });
-    }
+<% highlight :javascript do %>
+function User(username, password, div) {
+  this.username = username;
+  this.password = password;
+  this.div = div;
+  this.retrieve();
+}
+
+User.prototype.update = function(req) {
+  this.div.innerHTML += req.responseText;
+}
+
+User.prototype.retrieve = function() {
+  var myAjax = new Ajax.Request('/users/demo',
+    { method:'get', 
+       onComplete:this.update
+    });
+}
+<% end %>
 
 Note the `'onComplete'` property of the anonymous object given as the last parameter to the `Ajax.Request`. This is a pointer to our function that will handle the response. Since this is all happening within our `User` instance, we should still have a reference to that all-important div element that ties our object to the UI.
 
@@ -47,13 +51,15 @@ How can that be? Because the response for the `Ajax.Request` is executing in a s
 
 OK, so if `'this'` changes meaning across contexts, perhaps we can fool the JS engine.
 
-    User.prototype.retrieve = function() {
-      var _this = this; // don't overload the meaning of 'this'
-      var myAjax = new Ajax.Request('/users/demo', 
-        { method:'get', 
-           onComplete: _this.update
-        });
-    }
+<% highlight :javascript do %>
+User.prototype.retrieve = function() {
+  var _this = this; // don't overload the meaning of 'this'
+  var myAjax = new Ajax.Request('/users/demo', 
+    { method:'get', 
+       onComplete: _this.update
+    });
+}
+<% end %>
 
 Instead of referring to `'this'` in our `'onComplete'` property we refer to a new variable `'_this'`. The `'_this'` variable that points to `'this'` which, in this particular context, refers to our `User` instance.
 
@@ -63,34 +69,40 @@ Now what's going on? Because of JavaScript's dynamic nature, even getting a refe
 
 Back in JavaScript, `'this'` changes meaning depending on the context in which it is used. So how can we get enough context around the reference to `update()` to make the instance method run properly?
 
-    User.prototype.retrieve = function() {
-      var _this = this; // don't overload the meaning of 'this'
-      var myAjax = new Ajax.Request('/users/demo',
-        { method:'get', 
-           onComplete:function(req) { _this.update(req); } 
-        });
-    }
+<% highlight :javascript do %>
+User.prototype.retrieve = function() {
+  var _this = this; // don't overload the meaning of 'this'
+  var myAjax = new Ajax.Request('/users/demo',
+    { method:'get', 
+       onComplete:function(req) { _this.update(req); } 
+    });
+}
+<% end %>
 
 Enter the Closure. Now the `'onComplete'` property refers to a little anonymous function that, when called by `Ajax.Request`, will have a reference to our `User` instance (`_this`) and will call the update method on it. Now we have built enough context around the entire `User` instance to get it's instance methods to run.
 
 Note that this is very different from doing something like this:
 
-    User.prototype.retrieve = function() {
-      var myAjax = new Ajax.Request('/users/demo',
-        { method:'get', 
-           onComplete:this.update(req) 
-        });
-    }
+<% highlight :javascript do %>
+User.prototype.retrieve = function() {
+  var myAjax = new Ajax.Request('/users/demo',
+    { method:'get', 
+       onComplete:this.update(req) 
+    });
+}
+<% end %>
 
 This won't work at all because the `update()` method will be called as JavaScript evaluates the `Ajax.Request` constructor.
 
 OK, now it's working, but having lots of little anonymous functions throughout your code is a little ugly. Fortunately, prototype provides an extension to the `Function` class in the form of the `bind()` method.The `bind()` returns a function that applies itself to the given parameter when invoked.
 
-    User.prototype.retrieve = function() {
-      var myAjax = new Ajax.Request('/users/demo',
-        { method:'get', 
-           onComplete:this.update.bind(this)
-        });
-    }
+<% highlight :javascript do %>
+User.prototype.retrieve = function() {
+  var myAjax = new Ajax.Request('/users/demo',
+    { method:'get', 
+       onComplete:this.update.bind(this)
+    });
+}
+<% end %>
 
 Closures are nifty ways of getting around the fact that the object on the other end of the `this` keyword changes depending scope. If you want write JavaScript objects like you write Java objects, you need be careful with  the `this` keyword.

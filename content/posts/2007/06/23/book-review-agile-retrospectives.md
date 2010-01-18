@@ -2,7 +2,9 @@
 permalink: book-review-agile-retrospectives
 title: "Book Review: Agile Retrospectives"
 date: 2007-06-23 02:58:45 -07:00
-tags: ""
+tags:
+- book review
+- agile
 excerpt: ""
 original_post_id: 25
 toc: true

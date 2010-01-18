@@ -2,7 +2,9 @@
 permalink: the-great-git-setup
 title: The Great Git Setup
 date: 2009-05-08 04:17:14 -07:00
-tags: ""
+tags:
+- git
+- ruby
 excerpt: ""
 original_post_id: 323
 toc: true
@@ -65,15 +67,21 @@ A developer starts by cloning an authoritative repo using the `git://` protocol 
 
 The next step is for them to create a developer repo in their directory for the same project on the central git machine. They also want to a remote reference to their developer repo so that they can push changes to that. That would looks something like:
 
-    git remote add alex ssh://git/opt/repos/alex/circus/clown-car
+<% highlight :sh do %>
+git remote add alex ssh://git/opt/repos/alex/circus/clown-car
+<% end %>
 
 If this user is also a maintainer, they need to add a _third_ remote reference which gives them read/write access to the authoritative repository. The way that gitosis works is by accepting SSH keys on behalf of the git user. So if you're properly configured, you can push changes over SSH by logging in as the `git` user. A maintainer would add a read/write reference like so:
 
-    git remote add main ssh://git@git/home/git/repositories/circus/clown-car
+<% highlight :sh do %>
+git remote add main ssh://git@git/home/git/repositories/circus/clown-car
+<% end %>
 
 Because of the way gitosis configures the SSH keys in `/home/git/.ssh/authorized_keys` and the fact that the default protocol is ssh, this remote reference could also be added like this:
 
-    git remote add main git@git:circus/clown-car
+<% highlight :sh do %>
+git remote add main git@git:circus/clown-car
+<% end %>
 
 Now because there are number of steps involved here, we wrote a little command-line tool (as a RubyGem) that takes care of these steps all in one go. Right now, it's _very_ specific to our setup at Evri, but I can see how we might extract a common tool (oh boy&hellip;another side-project&hellip;)
 

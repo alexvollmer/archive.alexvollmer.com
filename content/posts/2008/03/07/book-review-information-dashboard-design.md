@@ -2,7 +2,9 @@
 permalink: book-review-information-dashboard-design
 title: "Book Review: Information Dashboard Design"
 date: 2008-03-07 22:15:32 -08:00
-tags: ""
+tags:
+- book review
+- information design
 excerpt: ""
 original_post_id: 67
 toc: true

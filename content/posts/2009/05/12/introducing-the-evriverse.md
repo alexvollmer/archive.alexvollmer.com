@@ -2,7 +2,8 @@
 permalink: introducing-the-evriverse
 title: Introducing the EvriVerse
 date: 2009-05-12 17:28:15 -07:00
-tags: ""
+tags:
+- evri
 excerpt: ""
 original_post_id: 336
 toc: true

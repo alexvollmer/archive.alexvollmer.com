@@ -2,7 +2,10 @@
 permalink: activerecord-associations-and-counters
 title: ActiveRecord, Associations and Counters
 date: 2009-01-04 22:39:21 -08:00
-tags: ""
+tags:
+- ruby
+- rails
+- moochbot
 excerpt: ""
 original_post_id: 203
 toc: true

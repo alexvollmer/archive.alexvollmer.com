@@ -2,7 +2,9 @@
 permalink: asynchronous-mail-with-delayedjob-god-daemons
 title: Asynchronous Mail with DelayedJob, God &#38; Daemons
 date: 2008-11-06 05:14:42 -08:00
-tags: ""
+tags:
+- ruby
+- rails
 excerpt: ""
 original_post_id: 134
 toc: true

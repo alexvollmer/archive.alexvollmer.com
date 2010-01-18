@@ -2,7 +2,8 @@
 permalink: why-cant-web-apps-be-rest-ful
 title: Why Can't Web Apps Be REST-ful?
 date: 2007-06-27 02:55:14 -07:00
-tags: ""
+tags:
+- REST
 excerpt: ""
 original_post_id: 26
 toc: true

@@ -2,7 +2,8 @@
 permalink: close-the-laptop
 title: Close the Laptop, Dude
 date: 2007-12-10 03:11:11 -08:00
-tags: ""
+tags:
+- personal
 excerpt: ""
 original_post_id: 37
 toc: true

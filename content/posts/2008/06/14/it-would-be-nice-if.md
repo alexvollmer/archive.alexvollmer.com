@@ -2,7 +2,9 @@
 permalink: it-would-be-nice-if
 title: It Would Be Nice If...
 date: 2008-06-14 22:00:02 -07:00
-tags: ""
+tags:
+- software
+- philosophy
 excerpt: ""
 original_post_id: 91
 toc: true

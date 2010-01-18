@@ -2,7 +2,8 @@
 permalink: cleaning-out-the-closet
 title: Cleaning out the Closet
 date: 2009-11-07 22:12:45 -08:00
-tags: ""
+tags:
+- ruby
 excerpt: ""
 original_post_id: 414
 toc: true

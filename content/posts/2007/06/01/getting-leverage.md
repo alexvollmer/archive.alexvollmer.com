@@ -2,7 +2,8 @@
 permalink: getting-leverage
 title: Getting Leverage
 date: 2007-06-01 05:03:02 -07:00
-tags: ""
+tags:
+- philosophy
 excerpt: ""
 original_post_id: 9
 toc: true

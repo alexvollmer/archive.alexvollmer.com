@@ -1,4 +1,7 @@
 --- 
+base_url: "http://alexvollmer.com"
+author_name: "Alex Vollmer"
+author_email: "alex.vollmer@gmail.com"
 output_dir: output
 data_sources: 
 - items_root: /

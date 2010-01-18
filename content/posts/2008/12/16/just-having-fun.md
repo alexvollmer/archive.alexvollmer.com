@@ -2,7 +2,9 @@
 permalink: just-having-fun
 title: Just Having Fun
 date: 2008-12-16 06:04:28 -08:00
-tags: ""
+tags:
+- ruby
+- philosophy
 excerpt: ""
 original_post_id: 190
 toc: true

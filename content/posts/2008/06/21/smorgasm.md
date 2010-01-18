@@ -2,7 +2,8 @@
 permalink: smorgasm
 title: Smorgasm!
 date: 2008-06-21 04:13:31 -07:00
-tags: ""
+tags:
+- food
 excerpt: ""
 original_post_id: 97
 toc: true

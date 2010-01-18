@@ -2,7 +2,9 @@
 permalink: pci4r-update
 title: PCI4R Update
 date: 2008-03-23 18:13:24 -07:00
-tags: ""
+tags:
+- ruby
+- pci4r
 excerpt: ""
 original_post_id: 76
 toc: true

@@ -2,7 +2,8 @@
 permalink: fat-proxies-and-the-danger-of-reuse
 title: Fat Proxies and the Danger of Reuse
 date: 2008-02-19 01:50:25 -08:00
-tags: ""
+tags:
+- UX
 excerpt: ""
 original_post_id: 65
 toc: true

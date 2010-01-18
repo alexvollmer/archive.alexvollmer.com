@@ -2,7 +2,10 @@
 permalink: day-two-rails-conf-07-summary
 title: Day Two Rails Conf '07 -- Summary
 date: 2007-05-19 16:55:26 -07:00
-tags: ""
+tags:
+- ruby
+- rails
+- railsconf
 excerpt: ""
 original_post_id: 7
 toc: true

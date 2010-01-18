@@ -2,7 +2,8 @@
 permalink: passing-the-mom-test
 title: Passing The Mom Test
 date: 2008-05-24 05:07:26 -07:00
-tags: ""
+tags:
+- software
 excerpt: ""
 original_post_id: 82
 toc: true

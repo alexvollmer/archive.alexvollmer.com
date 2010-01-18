@@ -2,7 +2,8 @@
 permalink: high-resolution
 title: High Resolution
 date: 2008-02-02 19:44:26 -08:00
-tags: ""
+tags:
+- information design
 excerpt: ""
 original_post_id: 45
 toc: true

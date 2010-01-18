@@ -2,7 +2,9 @@
 permalink: flaccid-attitudes
 title: Flaccid Attitudes
 date: 2008-12-23 05:47:54 -08:00
-tags: ""
+tags:
+- philosophy
+- software
 excerpt: ""
 original_post_id: 197
 toc: true

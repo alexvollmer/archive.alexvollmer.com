@@ -2,7 +2,8 @@
 permalink: opening-the-gatesof-hell
 title: Opening The Gates&#8230;of Hell!!
 date: 2009-01-27 06:01:11 -08:00
-tags: ""
+tags:
+- ruby
 excerpt: ""
 original_post_id: 238
 toc: true

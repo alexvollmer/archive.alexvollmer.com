@@ -2,7 +2,10 @@
 permalink: this-evenings-moochbot-lessons
 title: This Evening's moochbot Lessons
 date: 2008-12-11 05:27:15 -08:00
-tags: ""
+tags:
+- ruby
+- moochbot
+- git
 excerpt: ""
 original_post_id: 189
 toc: true

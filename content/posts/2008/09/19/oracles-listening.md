@@ -3,7 +3,8 @@ permalink: oracles-listening%e2%80%a6
 title: "Oracle's Listening&hellip;"
 excerpt: ""
 date: 2008-09-19 16:17:51 -07:00
-tags: ""
+tags:
+- gripe
 toc: true
 -----
 Following a re-tweet of @timoreilly, I went to check out [Oracle's home pag](http://oracle.com)e today. Here's what I got:

@@ -8,13 +8,44 @@ compile '/css/*' do
   }
 end
 
-compile '*' do
+compile '/posts/*' do
   rep.filter :erb
   rep.filter :bluecloth
   rep.layout 'default'
 end
 
-route 'css/*' do
+compile /(rss|atom)/ do
+  rep.filter :erb
+end
+
+compile '/tags/*' do
+  rep.filter :erb
+  rep.filter :bluecloth
+  rep.layout 'default'
+end
+
+compile '/dates/*' do
+  rep.filter :erb
+  rep.filter :bluecloth
+  rep.layout 'default'
+end
+
+compile '*' do
+end
+
+route /\/tags\/.+?-(atom|rss)/ do
+  item.identifier.gsub(/(.+)-(rss|atom)\/$/, '\1/\2') + '.xml'
+end
+
+route /\/dates\/.+?-(atom|rss)/ do
+  item.identifier.gsub(/(.+)-(rss|atom)\/$/, '\1/\2') + '.xml'
+end
+
+route '/(atom|rss)/' do
+  item.identifier.gsub(/\/$/, '') + '.xml'
+end
+
+route '/css/*' do
   item.identifier.gsub(/\/$/, '') + '.css'
 end
 

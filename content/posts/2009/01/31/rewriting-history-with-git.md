@@ -2,7 +2,8 @@
 permalink: rewriting-history-with-git
 title: Rewriting History with Git
 date: 2009-01-31 20:04:13 -08:00
-tags: ""
+tags:
+- git
 excerpt: ""
 original_post_id: 269
 toc: true

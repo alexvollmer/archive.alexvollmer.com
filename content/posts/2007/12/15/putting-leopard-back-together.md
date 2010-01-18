@@ -2,7 +2,9 @@
 permalink: putting-leopard-back-together
 title: Putting Leopard Back Together
 date: 2007-12-15 05:50:01 -08:00
-tags: ""
+tags:
+- ruby
+- mac
 excerpt: ""
 original_post_id: 38
 toc: true

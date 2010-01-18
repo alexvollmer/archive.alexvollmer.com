@@ -2,7 +2,10 @@
 permalink: gemdoc-completion-in-zsh
 title: gemdoc completion in zsh
 date: 2008-06-25 16:30:24 -07:00
-tags: ""
+tags:
+- ruby
+- zsh
+- geekery
 excerpt: ""
 original_post_id: 101
 toc: true

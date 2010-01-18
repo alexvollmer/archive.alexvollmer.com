@@ -2,7 +2,9 @@
 permalink: back-to-myemacs
 title: Back To My...Emacs
 date: 2008-10-07 03:36:51 -07:00
-tags: ""
+tags:
+- emacs
+- geekery
 excerpt: ""
 original_post_id: 117
 toc: true

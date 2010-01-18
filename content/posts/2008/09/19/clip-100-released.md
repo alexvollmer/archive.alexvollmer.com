@@ -2,7 +2,9 @@
 permalink: clip-100-released
 title: Clip 1.0.0 Released!
 date: 2008-09-19 19:17:33 -07:00
-tags: ""
+tags:
+- clip
+- ruby
 excerpt: ""
 original_post_id: 114
 toc: true

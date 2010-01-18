@@ -2,7 +2,9 @@
 permalink: many-spinning-plates
 title: Many Spinning Plates
 date: 2007-12-01 05:12:42 -08:00
-tags: ""
+tags:
+- ruby
+- cocoa
 excerpt: ""
 original_post_id: 34
 toc: true

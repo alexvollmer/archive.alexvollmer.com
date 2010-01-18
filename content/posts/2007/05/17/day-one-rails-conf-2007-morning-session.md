@@ -2,7 +2,10 @@
 permalink: day-one-rails-conf-2007-morning-session
 title: Day One, Rails Conf 2007 -- Morning Session
 date: 2007-05-17 20:22:16 -07:00
-tags: ""
+tags:
+- ruby
+- rails
+- railsconf
 excerpt: ""
 original_post_id: 4
 toc: true

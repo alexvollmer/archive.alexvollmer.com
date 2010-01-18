@@ -2,7 +2,9 @@
 permalink: clip-version-1-0-2-has-been-released
 title: clip version 1.0.2 has been released!
 date: 2009-10-03 16:03:14 -07:00
-tags: ""
+tags:
+- ruby
+- clip
 excerpt: ""
 original_post_id: 408
 toc: true

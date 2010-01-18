@@ -2,7 +2,9 @@
 permalink: building-a-knowledge-base
 title: Building a Knowledge Base
 date: 2009-12-11 16:39:09 -08:00
-tags: ""
+tags:
+- philosophy
+- GTD
 excerpt: ""
 original_post_id: 416
 toc: true

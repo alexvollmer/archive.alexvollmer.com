@@ -2,7 +2,8 @@
 permalink: washington-caucuses
 title: Washington Caucuses
 date: 2008-02-10 18:53:04 -08:00
-tags: ""
+tags:
+- politics
 excerpt: ""
 original_post_id: 62
 toc: true
