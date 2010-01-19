@@ -18,12 +18,6 @@ compile '/feeds/*' do
   rep.filter :erb
 end
 
-compile '/tags/*' do
-  rep.filter :erb
-  rep.filter :rdiscount
-  rep.layout 'default'
-end
-
 compile '*' do
 end
 

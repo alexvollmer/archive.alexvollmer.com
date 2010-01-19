@@ -23,6 +23,10 @@ namespace :site do
     system "nanoc3 co"
   end
 
+  task :clean do
+    rm_rf "output"
+  end
+
   task :build => [ :compile, :copy_assets, :tags_and_dates ]
 end
 
