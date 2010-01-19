@@ -18,6 +18,12 @@ compile '/feeds/*' do
   rep.filter :erb
 end
 
+compile '/*' do
+  rep.filter :erb
+  rep.filter :rdiscount
+  rep.layout 'home'
+end
+
 compile '*' do
 end
 
