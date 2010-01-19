@@ -225,13 +225,8 @@ class Nanoc3::Item
   def method_missing(msg, *args, &block)
     attributes[msg.to_sym] || super
   end
-
-  def inspect
-    super.sub(">", "date=#{self.date}>")
-  end
 end
 
-include Nanoc3::Helpers::Tagging
 include Nanoc3::Helpers::Blogging
 include Nanoc3::Helpers::Rendering
 include Nanoc3::Helpers::XMLSitemap

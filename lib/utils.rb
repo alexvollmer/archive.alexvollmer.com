@@ -1,3 +1,5 @@
+require "nanoc3/cli"
+
 module SiteUtils
 
   def collect_posts_by_tags_and_year(site)
@@ -21,14 +23,17 @@ module SiteUtils
   def write_tags_pages(by_tag)
     # write tags
     tag_output = Pathname.new("output/tags")
-    if tag_output.directory?
-      rm_rf tag_output
-      mkdir_p tag_output
-    end
+    tag_output.mkdir unless tag_output.directory?
+    # if tag_output.directory?
+    #   rm_rf tag_output
+    #   mkdir_p tag_output
+    # end
 
     tag_content = ["<h1>All Tags</h1>"]
     tag_content << "<ul>"
+    tags_start = Time.now
     by_tag.keys.sort_by { |t| t.downcase }.each do |tag|
+      tag_start = Time.now
       posts = by_tag[tag]
       tag_content << list_item("/tags/#{tag}/", tag, "<em>(#{posts.size})</em>")
 
@@ -41,10 +46,10 @@ module SiteUtils
                               " (#{post.display_date})")
       end
       tag_page << "</ul>"
-      write_output(tag_output + "#{tag}/index.html", tag_page.join("\n"))
+      write_output(tag_output + "#{tag}/index.html", tag_page.join("\n"), tag_start)
     end
     tag_content << "</ul>"
-    write_output(tag_output + "index.html", tag_content.join("\n"))
+    write_output(tag_output + "index.html", tag_content.join("\n"), tags_start)
   end
 
   def write_dates_pages(by_date)
@@ -52,12 +57,14 @@ module SiteUtils
     year_index = ["Posts by year"]
     year_index << "<ul>"
     posts_output = Pathname.new("output/posts")
+    years_start = Time.now
     by_date.keys.sort.each do |year|
       count = by_date[year].keys.inject(0) { |m,o|  m += by_date[year][o].size }
       plural = count == 1 ? "post" : "posts"
       posts = "#{count} #{plural}"
       year_index << list_item("/posts/#{year}/", year, "<em>#{posts}</em>")
       content = ["#{count} #{plural} for #{year} | <a href='/posts/'>all posts</a>"]
+      year_start = Time.now
       by_date[year].keys.sort.each do |month|
         content << "<h2>#{Date::MONTHNAMES[month]}</h2>"
         content << "<ul>"
@@ -68,17 +75,18 @@ module SiteUtils
         end
         content << "</ul>"
       end
-      write_output(posts_output + "#{year}/index.html", content.join("\n"))
+      write_output(posts_output + "#{year}/index.html", content.join("\n"), year_start)
     end
     year_index << "</ul>"
-    write_output(posts_output + "index.html", year_index.join("\n"))
+    write_output(posts_output + "index.html", year_index.join("\n"), years_start)
   end
 
-  def write_output(path, contents)
+  def write_output(path, contents, start_time)
     path.parent.mkpath
     path.open("w+") do |f|
       f << contents
     end
+    Nanoc3::CLI::Logger.instance.file(:high, :create, path, Time.now - start_time)
   end
 
 end
