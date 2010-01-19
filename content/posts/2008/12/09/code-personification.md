@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: code-personification
+created_at: 2008-12-09 04:31:19 -08:00
 title: Code Personification
-date: 2008-12-09 04:31:19 -08:00
-tags:
-- software
-- philosophy
 excerpt: ""
 original_post_id: 184
+tags: 
+- software
+- philosophy
 toc: true
 -----
 Today I had a conversation with co-worker about the two software components we were trying to integrate in the system we work on. In that conversation I noticed that we both kept referring to the software components as "you" and "I". If you had been within earshot of this conversation you would have heard phrases like "&#8230;_you_ should send the dates in GMT so that _I_ can search correctly&#8230;" I don't think this conversational style is uncommon among developers. Clearly it's not logically correct&#8212;it's not _me_ sending dates, it's _my code_. It's not _him_ who is searching, it's _his code_. Why do we do this?

@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: book-reviews-designing-the-obviousdesigning-the-moment
+created_at: 2008-06-20 04:55:00 -07:00
 title: "Book Reviews: Designing the Obvious/Designing the Moment"
-date: 2008-06-20 04:55:00 -07:00
-tags:
+excerpt: ""
+original_post_id: 96
+tags: 
 - book review
 - UX
 - information design
-excerpt: ""
-original_post_id: 96
 toc: true
 -----
 I've been on a usability/design kick for about the last six months. Somehow I stumbled across a link to [Robert Hoekman Jr's site](http://rhjr.net) which was described as great design books for programmers. I fully recognize the fact that I really don't have that little spark that good designers have, but I'd like to be better at it than I am. So I've been eager to find usability and design books that work for visually-clumsy folks like me. Robert Hoekman's pair of books, _Designing the Obvious_ and _Designing the Moment_ were wonderful additions to my growing design-for-code-dorks library.

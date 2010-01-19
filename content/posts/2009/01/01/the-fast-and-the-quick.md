@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: the-fast-and-the-quick
+created_at: 2009-01-01 16:39:38 -08:00
 title: The Fast and the Quick
-date: 2009-01-01 16:39:38 -08:00
-tags:
+excerpt: ""
+original_post_id: 199
+tags: 
 - software
 - philosophy
 - sports
-excerpt: ""
-original_post_id: 199
 toc: true
 -----
 ![Walter Payton](http://media-2.web.britannica.com/eb-media/91/95591-004-36D62DDD.jpg)

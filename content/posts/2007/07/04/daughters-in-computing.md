@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: daughters-in-computing
+created_at: 2007-07-04 23:59:19 -07:00
 title: Daughters in Computing
-date: 2007-07-04 23:59:19 -07:00
-tags:
-- philosophy
 excerpt: ""
 original_post_id: 27
+tags: 
+- philosophy
 toc: true
 -----
 I'm a big podcast fan. There aren't many I listen to, but the few I enjoy accompany me and my dog on a near-daily basis. One of my favorites is Geoffrey Grossenbach's excellent [Ruby On Rails Podcast](http://podcast.rubyonrails.org/). In particular the last [two](http://podcast.rubyonrails.org/programs/1/episodes/roundtable-women-in-open-source) [episodes](http://podcast.rubyonrails.org/programs/1/episodes/roundtable-women-in-development-ii), about women in computing, really got me thinking about education and technology. If you haven't had a chance to check them out, they are worth listening to.

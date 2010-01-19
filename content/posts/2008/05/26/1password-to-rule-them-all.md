@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: 1password-to-rule-them-all
+created_at: 2008-05-26 23:31:21 -07:00
 title: 1Password To Rule Them All...
-date: 2008-05-26 23:31:21 -07:00
-tags:
-- software
-- mac
 excerpt: ""
 original_post_id: 85
+tags: 
+- software
+- mac
 toc: true
 -----
 I came across a fantastic piece of Mac software thanks to a [Merlin Mann tweet](http://twitter.com/hotdogsladies). The app is called [1Password](http://agilewebsolutions.com/products/1Password) and, to paraphrase Mr. Mann's original tweet, it solves a problem I didn't even realize I had. Well...that's not entirely true. I knew that the various passwords I have scattered across the net weren't as secure as they could be. I had heard of master-password apps but hadn't really done much research on them. Now I'm not going to bother because 1Password so completely blew me away that I went ahead and bought the license (more on that in a bit).

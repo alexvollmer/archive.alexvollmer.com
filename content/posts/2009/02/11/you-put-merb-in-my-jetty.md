@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: you-put-merb-in-my-jetty
+created_at: 2009-02-11 23:31:53 -08:00
 title: You Put Merb In My Jetty!
-date: 2009-02-11 23:31:53 -08:00
-tags:
-- java
-- ruby
 excerpt: In the latest update of The Chronicles of Stuff Alex Figures out at Work, our intrepid hero figures out how to run Merb inside an embedded Jetty instance!
 original_post_id: 287
+tags: 
+- java
+- ruby
 toc: true
 -----
 In the latest update of _The Chronicles of Stuff Alex Figures out at Work,_ our intrepid hero figures out how to run Merb inside an embedded Jetty instance!

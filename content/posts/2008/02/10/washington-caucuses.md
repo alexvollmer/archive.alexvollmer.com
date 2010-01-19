@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: washington-caucuses
+created_at: 2008-02-10 18:53:04 -08:00
 title: Washington Caucuses
-date: 2008-02-10 18:53:04 -08:00
-tags:
-- politics
 excerpt: ""
 original_post_id: 62
+tags: 
+- politics
 toc: true
 -----
 This past week has seen Washington State abuzz with the excitement over Saturday's Caucuses. For the Democrats especially, this is an exciting time since the two candidates are running neck and neck and in the Evergreen State the Caucus is for all the marbles. So Saturday we headed over the local church for our precinct Caucus which was an absolute madhouse. There was a record turnout for the Caucuses and my personal experience certainly validated that.

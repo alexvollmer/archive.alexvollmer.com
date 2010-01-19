@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: what-jersey-means-to-java
+created_at: 2009-03-04 18:42:49 -08:00
 title: What Jersey Means To Java
-date: 2009-03-04 18:42:49 -08:00
-tags:
-- java
 excerpt: ""
 original_post_id: 305
+tags: 
+- java
 toc: true
 -----
 In the last few days at [work](http://evri.com) I've been migrating a home-grown REST framework over to the [Jersey project](https://jersey.dev.java.net/) (the reference implementation of JSR-311 or, JAX-RS). Previously I had done some work moving JRuby into the VM and launching Merb. It was satisfying to figure out how to do that, but involved an awful lot of wiring and special-casing.

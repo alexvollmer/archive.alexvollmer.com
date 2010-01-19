@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: my-first-rubygem
+created_at: 2007-06-09 17:41:58 -07:00
 title: My first RubyGem!
-date: 2007-06-09 17:41:58 -07:00
-tags:
-- ruby
 excerpt: ""
 original_post_id: 18
+tags: 
+- ruby
 toc: true
 -----
 With a little help from Ryan Davis' Hoe and reading the actual documentation of the `rubyforge` command, I finally got a gem released for my little [Camping](http://redhanded.hobix.com/bits/campingAMicroframework.html) app, [Chikkin In A Bukket](http://chikkenbukket.rubyforge.org/). Yaaayyy!

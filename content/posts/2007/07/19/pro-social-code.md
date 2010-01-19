@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: pro-social-code
+created_at: 2007-07-19 03:48:29 -07:00
 title: Pro-Social Code
-date: 2007-07-19 03:48:29 -07:00
-tags:
-- software
-- philosophy
 excerpt: ""
 original_post_id: 29
+tags: 
+- software
+- philosophy
 toc: true
 -----
 There is a growing trend of geeks getting hip to the principles of usability and user experience design. The idea is that when developers start taking a more user-centric approach to their development, their design of their applications will be influenced more by the user's needs and less by the internal mechanisms or frameworks upon which it is built. As a kind of agile, post-modern, less-is-more kinda guy I think this is a wonderful approach.![Iceburg (courtesy of ae2005 via flickr.com)](http://farm1.static.flickr.com/5/9798019_bc86ac5653_m.jpg)

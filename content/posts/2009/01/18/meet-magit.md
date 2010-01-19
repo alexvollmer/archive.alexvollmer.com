@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: meet-magit
+created_at: 2009-01-18 20:58:06 -08:00
 title: Meet Magit!
-date: 2009-01-18 20:58:06 -08:00
-tags:
-- emacs
-- git
 excerpt: ""
 original_post_id: 215
+tags: 
+- emacs
+- git
 toc: true
 -----
 In the spirit of Geoffrey Grossenbach's [Meet Emacs Peepcode Screencast](http://peepcode.com/products/meet-emacs Meet Emacs), I put together my own humble little screencast this weekend on [magit](http://zagadka.vm.bytemark.co.uk/magit/magit.html Magit), a fantastic [git](http://git-scm.com Git) mode for Emacs.

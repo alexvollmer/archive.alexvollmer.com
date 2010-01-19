@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: ruby-and-leopard
+created_at: 2007-12-06 14:11:19 -08:00
 title: Ruby and Leopard
-date: 2007-12-06 14:11:19 -08:00
-tags:
-- ruby
-- mac
 excerpt: ""
 original_post_id: 36
+tags: 
+- ruby
+- mac
 toc: true
 -----
 I've spent the bulk of this week trying to dig myself out of Ruby/Leopard hell. I'm surprised that things were as borked as they were. So much so, that I'm inclined to believe that there was something special happening on my machine. I got my shiny new Leopard install the day after it came out. I did an upgrade (not a clean install) with no hiccups and was happy with all of my [shiny happy new Leopard features](http://www.apple.com/macosx/features/300.html Apple - Mac OS X Leopard - Features - 300+ New Features). I knew that first-class Ruby support was coming so I figured I would abandon my MacPorts install and go with what Mr. Jobs deigned to give me.

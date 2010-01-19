@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: poor-mans-mac
+created_at: 2008-01-21 20:47:32 -08:00
 title: Poor Man's .mac
-date: 2008-01-21 20:47:32 -08:00
-tags:
-- mac
-- apple
 excerpt: ""
 original_post_id: 41
+tags: 
+- mac
+- apple
 toc: true
 -----
 The discontent with Apple's .mac service seems to be [growing](http://www.43folders.com/2008/01/18/mac-future-sleeping-giant .Mac: Future of a sleeping giant? | 43 Folders) and [growing](http://www.43folders.com/2006/09/28/dot-mac-lameness LifeClever: Dot Mac needs more than a paint job | 43 Folders). I've looked at .mac a couple of times but couldn't really find a good reason to get on board. Oh sure it has some nice features like syncing contacts, but honestly most of the features .mac offers I don't or can get in other ways. In short it's hard to imagine ponying up $99 for this service when it can be beaten with other tools.

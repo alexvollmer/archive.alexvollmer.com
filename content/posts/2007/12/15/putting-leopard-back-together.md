@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: putting-leopard-back-together
+created_at: 2007-12-15 05:50:01 -08:00
 title: Putting Leopard Back Together
-date: 2007-12-15 05:50:01 -08:00
-tags:
-- ruby
-- mac
 excerpt: ""
 original_post_id: 38
+tags: 
+- ruby
+- mac
 toc: true
 -----
 ## RSpec and TextMate

@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: one-geeks-aesthetics
+created_at: 2008-03-13 15:36:01 -07:00
 title: One Geek's Aesthetics
-date: 2008-03-13 15:36:01 -07:00
-tags:
+excerpt: ""
+original_post_id: 73
+tags: 
 - geekery
 - information design
 - UX
-excerpt: ""
-original_post_id: 73
 toc: true
 -----
 I'm a fussy guy when it comes to fonts. I like them a certain way because I have strong opinions about which fonts look good and because I spend a lot of time throughout the day looking at them. I like being an avid reader, a software developer and a guy with 20/20 vision. As a result I spend more time than most fiddling with the fonts on my machine to get them just so.

@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: cocoas-ways-of-talking
+created_at: 2009-06-25 01:53:32 -07:00
 title: Cocoa's Ways of Talking
-date: 2009-06-25 01:53:32 -07:00
-tags:
-- cocoa
 excerpt: ""
 original_post_id: 386
+tags: 
+- cocoa
 toc: true
 -----
 Getting objects to talk to one another in Objective-C is a easy as passing a message from one to the other. These messages are typically passed through the message-invocation mechanism of using the square-braces to bind a message and arguments to a receiver. Most of the time this is a perfectly reasonable way to communicate. However there are times when you need objects to communicate _without having explicit knowledge of one another._

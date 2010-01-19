@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: book-review-about-face-3
+created_at: 2008-07-30 04:35:18 -07:00
 title: "Book Review: About Face 3"
-date: 2008-07-30 04:35:18 -07:00
-tags:
+excerpt: ""
+original_post_id: 108
+tags: 
 - book review
 - UX
 - information design
-excerpt: ""
-original_post_id: 108
 toc: true
 -----
 <a href="http://www.amazon.com/About-Face-Essentials-Interaction-Design/dp/0470084111%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470084111">![](http://ecx.images-amazon.com/images/I/41PoEitkH1L._SL160_.jpg)</a>Alan Cooper's _About Face_ is one of those pillars of UI/UX design, the reading of which is a rite of passage. I figured few books would be more appropriate as a capstone to my long list of design-oriented reads. It is nearly an institution in and of itself. Last night I turned the final page and ticked a pretty big 560-page book off of my reading list.

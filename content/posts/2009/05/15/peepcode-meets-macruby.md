@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: peepcode-meets-macruby
+created_at: 2009-05-15 21:38:30 -07:00
 title: Peepcode meets MacRuby
-date: 2009-05-15 21:38:30 -07:00
-tags:
+excerpt: ""
+original_post_id: 358
+tags: 
 - peepcode
 - ruby
 - mac
-excerpt: ""
-original_post_id: 358
 toc: true
 -----
 I am pleased to announce the release of Peepcode's latest screencast about MacRuby written by yours truly with Geoffrey Grossenbach and technical editing by Laurent Sansonetti. 

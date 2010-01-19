@@ -16,7 +16,7 @@ namespace :site do
   end
 
   task :copy_assets do
-    system "rsync -gprt --partial --delete assets/ output"
+    system "rsync -gprt --partial assets/ output"
   end
 
   task :compile do

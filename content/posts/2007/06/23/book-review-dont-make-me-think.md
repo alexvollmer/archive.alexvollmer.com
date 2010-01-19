@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: book-review-dont-make-me-think
+created_at: 2007-06-23 02:58:34 -07:00
 title: "Book Review: Don't Make Me Think"
-date: 2007-06-23 02:58:34 -07:00
-tags:
-- book review
-- ux
 excerpt: ""
 original_post_id: 24
+tags: 
+- book review
+- ux
 toc: true
 -----
 _Steve Krug_

@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: typeahead-search-on-the-iphone
+created_at: 2009-05-15 04:55:38 -07:00
 title: Incremental Find on the iPhone
-date: 2009-05-15 04:55:38 -07:00
-tags:
-- iphone
-- cocoa
 excerpt: ""
 original_post_id: 340
+tags: 
+- iphone
+- cocoa
 toc: true
 -----
 This is the first in a series of posts I'll be writing about my experiences developing the [EvriVerse iPhone application](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=312716560=8) for [work](http://evri.com). Since the end of 2008 I've been getting more and more into Cocoa for both the iPhone and Mac. The more I work on it, the more fun I have. I've got several side-projects in mind so I'll be spending a lot more time in Cocoa-land and, as a result, blogging and tweeting about it a lot more.

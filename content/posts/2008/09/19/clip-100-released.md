@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: clip-100-released
+created_at: 2008-09-19 19:17:33 -07:00
 title: Clip 1.0.0 Released!
-date: 2008-09-19 19:17:33 -07:00
-tags:
-- clip
-- ruby
 excerpt: ""
 original_post_id: 114
+tags: 
+- clip
+- ruby
 toc: true
 -----
 Command-line parsing made short and sweet.

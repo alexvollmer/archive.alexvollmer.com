@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: flaccid-attitudes
+created_at: 2008-12-23 05:47:54 -08:00
 title: Flaccid Attitudes
-date: 2008-12-23 05:47:54 -08:00
-tags:
-- philosophy
-- software
 excerpt: ""
 original_post_id: 197
+tags: 
+- philosophy
+- software
 toc: true
 -----
 Today I had an impromptu conversation with a total stranger at my local caf&#233; that got me thinking. He saw that I was working on some code and asked me what I was doing. I gave him the thirty-second whirlwind tour of Ruby and briefly explained what I was working on.

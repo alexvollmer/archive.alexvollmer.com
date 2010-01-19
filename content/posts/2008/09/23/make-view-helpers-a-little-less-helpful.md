@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: make-view-helpers-a-little-less-helpful
+created_at: 2008-09-23 15:41:27 -07:00
 title: Make View Helpers a Little Less "Helpful"
-date: 2008-09-23 15:41:27 -07:00
-tags:
-- ruby
-- rails
 excerpt: ""
 original_post_id: 115
+tags: 
+- ruby
+- rails
 toc: true
 -----
 I stumbled across a little bit of hidden Rails fun last night when I was trying to get the form_for method to _stop_ wrapping error fields with extra div tags. Did you know that? Maybe you never noticed, but when you use the field helper methods, like text_field, password_field, etc, Rails will wrap fields with errors in a `<div>` with the class 'fieldWithErrors'.

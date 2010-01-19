@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: how-to-make-urls
+created_at: 2007-10-26 22:05:18 -07:00
 title: How To Make URLs
-date: 2007-10-26 22:05:18 -07:00
-tags:
-- REST
 excerpt: ""
 original_post_id: 32
+tags: 
+- REST
 toc: true
 -----
 One of the things that makes a web application &#8220;look&#8221; RESTful is the type of URLs it presents. Like many things, whether or not these URLs really meet a particular criteria is a matter of degrees. But anyone who has some basic understanding of a resource-oriented view versus a functional view can tell the extremes apart (e.g. `/system?sport=football&amp;team=seahawks&amp;year=2006` vs. `/football/seattle_seahawks/2006`).

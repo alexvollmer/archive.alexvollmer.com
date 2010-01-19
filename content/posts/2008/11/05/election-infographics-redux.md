@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: election-infographics-redux
+created_at: 2008-11-05 05:43:36 -08:00
 title: Election Infographics Redux
-date: 2008-11-05 05:43:36 -08:00
-tags:
-- information design
 excerpt: ""
 original_post_id: 133
+tags: 
+- information design
 toc: true
 -----
 With Election Night coming to a close and Senator Barack Obama declared as President-elect, I figured I'd spend a little time [re-surveying the infographics](http://livollmers.net/index.php/2008/02/05/a-survey-of-super-tuesday-infographics/) of some of the major online publishers. This is by no means comprehensive, and doesn't consider a lot of the interesting visualizations that some folks are doing. I consciously stuck with the mainstream to see how design innovation was trickling down into conservative publishers.

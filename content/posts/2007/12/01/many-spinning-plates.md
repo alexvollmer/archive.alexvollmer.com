@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: many-spinning-plates
+created_at: 2007-12-01 05:12:42 -08:00
 title: Many Spinning Plates
-date: 2007-12-01 05:12:42 -08:00
-tags:
-- ruby
-- cocoa
 excerpt: ""
 original_post_id: 34
+tags: 
+- ruby
+- cocoa
 toc: true
 -----
 Like many folks in this age of immediacy and information overload, I've been a big fan of multi-tasking. We multi-taskers believe that by multi-tasking we are cutting out any "down-time" and making nearly every previously-idle second a productive one. However, lately I've come to realize that the amount time and effort spent on switching my brain from context to context is incurring an overhead that exceeds any gains I might get in multi-tasking.

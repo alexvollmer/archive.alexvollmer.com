@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: clip-version-006-has-been-released
+created_at: 2008-07-10 17:12:27 -07:00
 title: clip version 0.0.6 has been released!
-date: 2008-07-10 17:12:27 -07:00
-tags:
-- clip
-- ruby
 excerpt: ""
 original_post_id: 103
+tags: 
+- clip
+- ruby
 toc: true
 -----
 You like command-line parsing, but you hate all of the bloat. Why

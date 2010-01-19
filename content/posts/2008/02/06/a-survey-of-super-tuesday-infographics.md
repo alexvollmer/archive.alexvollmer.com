@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: a-survey-of-super-tuesday-infographics
+created_at: 2008-02-06 05:23:46 -08:00
 title: A Survey of Super Tuesday Infographics
-date: 2008-02-06 05:23:46 -08:00
-tags:
-- information design
 excerpt: ""
 original_post_id: 59
+tags: 
+- information design
 toc: true
 -----
 On Super Tuesday, I forwent attending the usual Seattle Ruby Brigade meeting and stayed at home glued to the radio and TV keeping up on the primary and caucus results across the nation. I love the Public Radio/TV talking heads, but I was really lacking the overall picture. So I warmed up the Internet tubes and started searching for some helpful at-a-glance snapshot of the state of Super Tuesday.

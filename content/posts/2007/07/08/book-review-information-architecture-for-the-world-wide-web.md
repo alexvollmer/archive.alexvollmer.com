@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: book-review-information-architecture-for-the-world-wide-web
+created_at: 2007-07-08 02:50:51 -07:00
 title: "Book Review: Information Architecture for the World Wide Web"
-date: 2007-07-08 02:50:51 -07:00
-tags:
-- book review
-- information architecture
 excerpt: ""
 original_post_id: 28
+tags: 
+- book review
+- information architecture
 toc: true
 -----
 _Peter Morville &amp; Louis Rosenfeld_

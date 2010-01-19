@@ -1,9 +1,10 @@
 ----- 
+kind: article
 permalink: oracles-listening%e2%80%a6
-title: "Oracle's Listening&hellip;"
+created_at: 2008-09-19 16:17:51 -07:00
+title: Oracle's Listening&hellip;
 excerpt: ""
-date: 2008-09-19 16:17:51 -07:00
-tags:
+tags: 
 - gripe
 toc: true
 -----

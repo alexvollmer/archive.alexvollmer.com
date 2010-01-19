@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: using-closures-to-support-object-oriented-ajax
+created_at: 2005-12-14 16:27:47 -08:00
 title: Using Closures To Support Object-Oriented AJAX
-date: 2005-12-14 16:27:47 -08:00
-tags:
-- javascript
-- AJAX
 excerpt: If you want object-oriented design in your JavaScript when using AJAX, you need to understand closures.
 original_post_id: 17
+tags: 
+- javascript
+- AJAX
 toc: true
 -----
 _updated 1/23/2006_

@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: day-three-railsconf-07-summary
+created_at: 2007-05-20 19:05:28 -07:00
 title: Day Three RailsConf '07 -- Summary
-date: 2007-05-20 19:05:28 -07:00
-tags:
+excerpt: ""
+original_post_id: 8
+tags: 
 - ruby
 - rails
 - railsconf
-excerpt: ""
-original_post_id: 8
 toc: true
 -----
 The day opened with a disappointing keynote speech from Tim Bray. He was upfront about the fact that Sun wrote a big check to big a sponsor and proceeded to launch, unapologetically, into a forty-five minute advertisement of Sun and just how great their servers and JRuby are.

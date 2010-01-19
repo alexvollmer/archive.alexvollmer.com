@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: passing-the-mom-test
+created_at: 2008-05-24 05:07:26 -07:00
 title: Passing The Mom Test
-date: 2008-05-24 05:07:26 -07:00
-tags:
-- software
 excerpt: ""
 original_post_id: 82
+tags: 
+- software
 toc: true
 -----
 How many times have you excitedly tried to show your parents some project you're working on and gotten a confused or indifferent response? My reaction has often been to dismiss this disconnect as the result of a generation-gap, but a recent experience has led me to rethink that.

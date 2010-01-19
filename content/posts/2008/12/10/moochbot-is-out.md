@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: moochbot-is-out
+created_at: 2008-12-10 06:29:02 -08:00
 title: moochbot is out
-date: 2008-12-10 06:29:02 -08:00
-tags:
-- moochbot
 excerpt: ""
 original_post_id: 185
+tags: 
+- moochbot
 toc: true
 -----
 ![localhost.png](http://moochbot.com/images/logo.png)

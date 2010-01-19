@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: activerecord-fun-thay-may-stump-only-me
+created_at: 2008-07-24 04:52:15 -07:00
 title: ActiveRecord Fun Thay May Stump Only Me
-date: 2008-07-24 04:52:15 -07:00
-tags:
-- ruby
-- rails
 excerpt: ""
 original_post_id: 106
+tags: 
+- ruby
+- rails
 toc: true
 -----
 I've just spent the last two hours pulling my hair out trying to get Single-Table Inheritance (STI) working with associations in `ActiveRecord`. After essentially walking through all of the possible `ActiveRecord` options in this setup, I finally stumbled upon a configuration that seems to work. So this post is an attempt to help the next poor bastard who is Googling in earnest for a solution to a similar problem.

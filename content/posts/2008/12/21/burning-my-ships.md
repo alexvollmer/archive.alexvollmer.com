@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: burning-my-ships
+created_at: 2008-12-21 03:40:56 -08:00
 title: Burning My Ships
-date: 2008-12-21 03:40:56 -08:00
-tags:
-- geekery
-- philosophy
 excerpt: ""
 original_post_id: 192
+tags: 
+- geekery
+- philosophy
 toc: true
 -----
 <blockquote>

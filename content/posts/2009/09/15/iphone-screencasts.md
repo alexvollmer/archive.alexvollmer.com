@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: iphone-screencasts
+created_at: 2009-09-15 04:13:03 -07:00
 title: iPhone Screencasts
-date: 2009-09-15 04:13:03 -07:00
-tags:
-- iphone
-- peepcode
 excerpt: ""
 original_post_id: 401
+tags: 
+- iphone
+- peepcode
 toc: true
 -----
 <a href="https://peepcode.com/products/iphone-view-controllers-part-i" target="_new"><img src="http://peepcode.com/system/uploads/2009/iphone-cover.png">

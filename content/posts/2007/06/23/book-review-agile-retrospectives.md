@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: book-review-agile-retrospectives
+created_at: 2007-06-23 02:58:45 -07:00
 title: "Book Review: Agile Retrospectives"
-date: 2007-06-23 02:58:45 -07:00
-tags:
-- book review
-- agile
 excerpt: ""
 original_post_id: 25
+tags: 
+- book review
+- agile
 toc: true
 -----
 _Esther Derby and Diana Larsen_

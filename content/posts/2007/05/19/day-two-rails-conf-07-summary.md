@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: day-two-rails-conf-07-summary
+created_at: 2007-05-19 16:55:26 -07:00
 title: Day Two Rails Conf '07 -- Summary
-date: 2007-05-19 16:55:26 -07:00
-tags:
+excerpt: ""
+original_post_id: 7
+tags: 
 - ruby
 - rails
 - railsconf
-excerpt: ""
-original_post_id: 7
 toc: true
 -----
 After the keynote speech by David Heinemeier Hansson, I attended several session that felt disparate at the time, but magically coalesced into a meaningful takeaway by day's end. In short the day was about testing, REST and Amazon's suite of Web Services.

@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: it-would-be-nice-if
+created_at: 2008-06-14 22:00:02 -07:00
 title: It Would Be Nice If...
-date: 2008-06-14 22:00:02 -07:00
-tags:
-- software
-- philosophy
 excerpt: ""
 original_post_id: 91
+tags: 
+- software
+- philosophy
 toc: true
 -----
 When talking about building software, few sentences set off more red flags than those beginning with "it would be nice if..". I don't mean some variation of this phrase, I mean exactly this phrase. It's like those words are a specific code-phrase for "speculative features coming your way!"

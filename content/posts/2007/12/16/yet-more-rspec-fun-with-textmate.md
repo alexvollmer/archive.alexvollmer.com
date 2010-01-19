@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: yet-more-rspec-fun-with-textmate
+created_at: 2007-12-16 03:08:38 -08:00
 title: Yet More RSpec Fun With TextMate!
-date: 2007-12-16 03:08:38 -08:00
-tags:
-- ruby
-- TDD
 excerpt: ""
 original_post_id: 39
+tags: 
+- ruby
+- TDD
 toc: true
 -----
 Why is it that I just can&#8217;t leave well enough alone? Here, after several weeks for forehead-impact conditioning, I _finally_ get a working setup with Ruby on Leopard with RSpec and TextMate. Life is good, I have my pretty spec runner window back, I&#8217;m a BDD&#8217;ing fool. But oh no, I have to keep fiddling with stuff.

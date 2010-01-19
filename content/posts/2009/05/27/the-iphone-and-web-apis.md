@@ -1,14 +1,15 @@
 ----- 
+kind: article
 permalink: the-iphone-and-web-apis
+created_at: 2009-05-27 03:57:39 -07:00
 title: The iPhone and Web APIs
-date: 2009-05-27 03:57:39 -07:00
-tags:
+excerpt: ""
+original_post_id: 366
+tags: 
 - iphone
 - cocoa
 - REST
 - evri
-excerpt: ""
-original_post_id: 366
 toc: true
 -----
 # The iPhone Ecosystem

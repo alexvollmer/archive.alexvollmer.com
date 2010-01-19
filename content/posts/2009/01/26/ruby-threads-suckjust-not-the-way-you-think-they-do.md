@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: ruby-threads-suckjust-not-the-way-you-think-they-do
+created_at: 2009-01-26 01:47:24 -08:00
 title: Ruby Threads Suck&#8230;Just Not The Way You Think They Do
-date: 2009-01-26 01:47:24 -08:00
-tags:
-- ruby
 excerpt: ""
 original_post_id: 219
+tags: 
+- ruby
 toc: true
 -----
 At [work](http://www.evri.com Evri!!), we do a lot of scheduled tasks in which we process a "chunk" of data within a particular time-period. For example, we may tail log files, parse the lines and publish summary statistics "up-stream" on a fixed schedule of, say, ten minutes. Similarly, last week we were working on a Ruby wrapper script that launches [memcached](http://www.danga.com/memcached/ memcached) and maintains a registration lease within a home-grown registration service we run. The script needs to launch memcached, then periodically check it and renew its registration lease.

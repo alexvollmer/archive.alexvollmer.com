@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: introducing-the-evriverse
+created_at: 2009-05-12 17:28:15 -07:00
 title: Introducing the EvriVerse
-date: 2009-05-12 17:28:15 -07:00
-tags:
-- evri
 excerpt: ""
 original_post_id: 336
+tags: 
+- evri
 toc: true
 -----
 ![graph.jpg](/images/2009/05/graph.jpg)After several months of work, I'm pleased to announce the release of Evri's EvriVerse for the iPhone. We've tried to capture the unique things we do at Evri into the awesomeness that is the iPhone. I won't spill all the details here, so check out out the "official" company [post](http://blog.evri.com/index.php/2009/05/11/welcome-to-the-evriverse-evris-iphone-app/).

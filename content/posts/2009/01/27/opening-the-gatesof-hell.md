@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: opening-the-gatesof-hell
+created_at: 2009-01-27 06:01:11 -08:00
 title: Opening The Gates&#8230;of Hell!!
-date: 2009-01-27 06:01:11 -08:00
-tags:
-- ruby
 excerpt: ""
 original_post_id: 238
+tags: 
+- ruby
 toc: true
 -----
 &hellip;umm, no, actually not so much.

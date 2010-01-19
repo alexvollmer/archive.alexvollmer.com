@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: book-review-restful-web-services
+created_at: 2007-06-23 02:58:21 -07:00
 title: "Book Review: RESTful Web Services"
-date: 2007-06-23 02:58:21 -07:00
-tags:
-- book review
-- REST
 excerpt: ""
 original_post_id: 23
+tags: 
+- book review
+- REST
 toc: true
 -----
 _Leonard Richardson &amp; Sam Ruby_

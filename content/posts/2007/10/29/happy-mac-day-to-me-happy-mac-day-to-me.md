@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: happy-mac-day-to-me-happy-mac-day-to-me
+created_at: 2007-10-29 04:30:54 -07:00
 title: Happy Mac Day To Me, Happy Mac Day To Me
-date: 2007-10-29 04:30:54 -07:00
-tags:
-- apple
 excerpt: ""
 original_post_id: 33
+tags: 
+- apple
 toc: true
 -----
 This weekend has been one of the best birthday weekends I've had in a while. First, I got to see my Oregon Ducks beat the USC Trojans to put themselves right in the hunt for the BCS. Second, I scored a couple of copies Leopard which I've installed on my laptop. And lastly, I joined the ranks of happy iPhone owners.

@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: clip-version-001-has-been-released
+created_at: 2008-04-12 03:41:45 -07:00
 title: clip version 0.0.1 has been released!
-date: 2008-04-12 03:41:45 -07:00
-tags:
-- ruby
-- clip
 excerpt: ""
 original_post_id: 78
+tags: 
+- ruby
+- clip
 toc: true
 -----
 You like command-line parsing, but you hate all of the bloat. Why should you have to create a Hash, then create a parser, fill the Hash out then throw the parser away (unless you want to print out a usage message) and deal with a Hash? Why, for Pete&#8217;s sake, should the parser and the parsed values be handled by two different objects?

@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: the-cleverest-git-maneuver-i-ever-pulled-off
+created_at: 2009-10-09 15:44:04 -07:00
 title: The Cleverest Git Maneuver I Ever Pulled Off
-date: 2009-10-09 15:44:04 -07:00
-tags:
-- git
 excerpt: ""
 original_post_id: 411
+tags: 
+- git
 toc: true
 -----
 So there I was, reviewing a series of commits, sucking air between my teeth and cringing when I came upon one of those lazy commits that has way too much stuff in it to reasonably digest. I needed a way to go back and split that commit into two or three separate commits. This is pretty easy to do with `git rebase`. You can just do a mixed reset of the last commit, stage the bits you want in one commit, stage the next bits and put that in a separate commit.

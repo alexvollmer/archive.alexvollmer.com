@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: the-end-of-an-era-2
+created_at: 2009-10-02 21:55:55 -07:00
 title: The End of an Era
-date: 2009-10-02 21:55:55 -07:00
-tags:
-- personal
 excerpt: ""
 original_post_id: 404
+tags: 
+- personal
 toc: true
 -----
 Well, this is it kids; the end of my time at [Evri](http://evri.com). While I have cultivated a long-standing antipathy towards the Grateful Dead, I'll co-opt one of their song titles and simply mutter, "what a long strange trip it's been". I started out at Evri when it was still just a twinkle in somebody's eye. Since then I've seen it grow and mutate in ways I would have never imagined. I got to work on a lot of cool stuff and learn a bunch of new things. The best part, like any good job, was having the opportunity to work with some really great people.

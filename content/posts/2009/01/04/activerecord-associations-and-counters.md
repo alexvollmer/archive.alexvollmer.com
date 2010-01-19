@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: activerecord-associations-and-counters
+created_at: 2009-01-04 22:39:21 -08:00
 title: ActiveRecord, Associations and Counters
-date: 2009-01-04 22:39:21 -08:00
-tags:
+excerpt: ""
+original_post_id: 203
+tags: 
 - ruby
 - rails
 - moochbot
-excerpt: ""
-original_post_id: 203
 toc: true
 -----
 Maybe this is old hat to all you grizzled vets out there, but today I thought I'd post about my experience with ActiveRecord's counter caches and the tricks I had to pull to get it working. Let me first set the stage with what I was trying to accomplish.

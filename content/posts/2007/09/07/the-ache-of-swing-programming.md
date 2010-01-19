@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: the-ache-of-swing-programming
+created_at: 2007-09-07 15:45:42 -07:00
 title: The Ache of Swing Programming
-date: 2007-09-07 15:45:42 -07:00
-tags:
-- java
 excerpt: ""
 original_post_id: 30
+tags: 
+- java
 toc: true
 -----
 As I type this post, I have to fight every urge to grab my hands in agony and cry out like a hurt child. This hand-ache is not unfamiliar. I realize that my hands have _always_ felt like this anytime I've had to do some [Swing](http://java.sun.com/products/jfc/tsc/index.html Java SE Desktop Articles) programming.

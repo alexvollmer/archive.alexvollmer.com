@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: asynchronous-mail-with-delayedjob-god-daemons
+created_at: 2008-11-06 05:14:42 -08:00
 title: Asynchronous Mail with DelayedJob, God &#38; Daemons
-date: 2008-11-06 05:14:42 -08:00
-tags:
-- ruby
-- rails
 excerpt: ""
 original_post_id: 134
+tags: 
+- ruby
+- rails
 toc: true
 -----
 Slowly but surely I've been pecking away at a little Rails-based side-project for the last four or five months. I'm _this close_ to flipping the _on_ switch&mdash;but in the meantime I've still got some "i"s to dot and "t"s to cross. One of those was switching from in-request mail delivery to asynchronous mail delivery. The app I've been working on involves two parties marching a particular transaction through a variety of state transitions, each of which usually sends an email to either or both parties.

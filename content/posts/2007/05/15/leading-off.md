@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: leading-off
+created_at: 2007-05-15 19:45:33 -07:00
 title: Leading Off
-date: 2007-05-15 19:45:33 -07:00
-tags:
-- blog
 excerpt: ""
 original_post_id: 3
+tags: 
+- blog
 toc: true
 -----
 Hi folks, and welcome to the new location of my blog. I've retired the old [feedbag blog](http://blog.feedbagnews.net The old feedbag blog) and started this one since the topics I want to write about have grown beyond the scope of working on feedbag. Working on feedbag was a great experience, but I have since started new side-projects and a fantastic new job, thereby putting feedbag on the back-burner.

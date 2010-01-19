@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: day-one-rails-conf-2007-morning-session
+created_at: 2007-05-17 20:22:16 -07:00
 title: Day One, Rails Conf 2007 -- Morning Session
-date: 2007-05-17 20:22:16 -07:00
-tags:
+excerpt: ""
+original_post_id: 4
+tags: 
 - ruby
 - rails
 - railsconf
-excerpt: ""
-original_post_id: 4
 toc: true
 -----
 Update: 2007-05-19 -- Jason posted a PDF of his presentation [here](http://media.joyent.com/JHoffmanRailsConf-May2007.pdf).

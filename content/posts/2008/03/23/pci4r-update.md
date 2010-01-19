@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: pci4r-update
+created_at: 2008-03-23 18:13:24 -07:00
 title: PCI4R Update
-date: 2008-03-23 18:13:24 -07:00
-tags:
-- ruby
-- pci4r
 excerpt: ""
 original_post_id: 76
+tags: 
+- ruby
+- pci4r
 toc: true
 -----
 We finally made some progress this week on the languishing [pci4r](http://github.com/alexvollmer/pci4r/tree/master pci4r on GitHub) project. First, congrats to [Sandro Paganotti](http://www.railsonwave.com/) for the first commit to pci4r--the prize is in the mail. This morning, after a bit of git-fiddling, I managed to get the second commit for the project in. It's code for document classification, which is the topic of Chapter 6 of Toby Segaran's ["Programming Collective Intelligence"](http://www.oreilly.com/catalog/9780596529321/). I deviated quite a bit from Toby's original code. In some cases this was simply a side-effect of porting from Python to idiomatic Ruby. In other cases though changes were made for simple aesthetic reasons.

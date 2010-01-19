@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: day-one-afternoon-railsconf-2007-patterns-to-dry-up-your-views
+created_at: 2007-05-18 04:20:35 -07:00
 title: Day One, Afternoon RailsConf 2007 -- Patterns to DRY Up Your Views
-date: 2007-05-18 04:20:35 -07:00
-tags:
+excerpt: ""
+original_post_id: 5
+tags: 
 - ruby
 - rails
 - railsconf
-excerpt: ""
-original_post_id: 5
 toc: true
 -----
 Update: 2007-05-19 -- Bruce and Marcel posted a PDF of their talk [here](http://codefluency.com/assets/2007/5/18/VisForVexing.pdf).

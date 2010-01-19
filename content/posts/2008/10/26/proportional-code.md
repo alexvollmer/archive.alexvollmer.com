@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: proportional-code
+created_at: 2008-10-26 23:53:14 -07:00
 title: Proportional Code
-date: 2008-10-26 23:53:14 -07:00
-tags:
-- software
-- philosophy
 excerpt: ""
 original_post_id: 118
+tags: 
+- software
+- philosophy
 toc: true
 -----
 Few things are less sexy than command-line parsing. It is one of the most mundane tasks a programmer has to execute in their career. But, it surprises just how much code is required to do basic command-line parsing in a lot of languages, including Ruby. So I got to thinking, _why does this bug me so much?_ I think the answer is that requiring so much code for such a relatively trivial task violates my sense of _proportionality_ in the code. I hate having to say so much more about this teeny little task than I do about the "theme" of my code. I think it distorts the narrative of the code.

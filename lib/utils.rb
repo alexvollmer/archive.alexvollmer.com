@@ -8,10 +8,10 @@ module SiteUtils
 
     # index all the posts
     site.items.select do |i|
-      i.identifier =~ /^\/posts\//
-    end.sort_by { |i| i.date }.each do |item|
+      i.attributes[:kind] == "article"
+    end.sort_by { |i| i.created_at }.each do |item|
       item.tags.each { |tag| by_tag[tag] << item }
-      by_date[item.date.year][item.date.month] << item
+      by_date[item.created_at.year][item.created_at.month] << item
     end
     { :tags => by_tag, :dates => by_date }
   end
@@ -24,10 +24,6 @@ module SiteUtils
     # write tags
     tag_output = Pathname.new("output/tags")
     tag_output.mkdir unless tag_output.directory?
-    # if tag_output.directory?
-    #   rm_rf tag_output
-    #   mkdir_p tag_output
-    # end
 
     tag_content = ["<h1>All Tags</h1>"]
     tag_content << "<ul>"

@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: getting-leverage
+created_at: 2007-06-01 05:03:02 -07:00
 title: Getting Leverage
-date: 2007-06-01 05:03:02 -07:00
-tags:
-- philosophy
 excerpt: ""
 original_post_id: 9
+tags: 
+- philosophy
 toc: true
 -----
 Right after getting back from [RailsConf](http://conferences.oreillynet.com/rails/) I headed off to a family trip to Southern California. I only just got back this weekend and I feel like I haven't quite had the time to fully digest the conference. As a result I've had a lot of odd thoughts rattling around in my head, most of which have failed to form into anything cogent. Well, except for one..

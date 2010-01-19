@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: high-resolution
+created_at: 2008-02-02 19:44:26 -08:00
 title: High Resolution
-date: 2008-02-02 19:44:26 -08:00
-tags:
-- information design
 excerpt: ""
 original_post_id: 45
+tags: 
+- information design
 toc: true
 -----
 ![IMG_0172.JPG](/images/2008/02/img-01721.jpg)

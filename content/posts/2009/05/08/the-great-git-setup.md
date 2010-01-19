@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: the-great-git-setup
+created_at: 2009-05-08 04:17:14 -07:00
 title: The Great Git Setup
-date: 2009-05-08 04:17:14 -07:00
-tags:
-- git
-- ruby
 excerpt: ""
 original_post_id: 323
+tags: 
+- git
+- ruby
 toc: true
 -----
 One of the best ways to really learn the ins and outs of anything is to immerse yourself in all the gory details. Not only do you learn what works, what doesn't, what's elegant and what sucks, but you also start to grok the inner-workings. I just spent the last two weeks getting our own internal Git infrastructure up and running at work and I feel like Git and I have a new level of intimacy that we previously lacked. What follows is a review of the process and the solution that we've implemented.

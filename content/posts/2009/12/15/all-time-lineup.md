@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: all-time-lineup
+created_at: 2009-12-15 06:14:09 -08:00
 title: All-Time Lineup
-date: 2009-12-15 06:14:09 -08:00
-tags:
-- sports
 excerpt: ""
 original_post_id: 418
+tags: 
+- sports
 toc: true
 -----
 A little while ago, I was encouraged to put together my "All-Time" baseball lineup. Now, personally I think the game is more difficult to compete in now than ever before. While the old-timers love to gripe about players in the Steroid Era, I don't think those guys had to play with such a uniformly strong level of competition under such high pressure. But that's just my gut feeling. I don't really have the evidence to back that up. I also think that baseball fans have a tendency to romanticize the players of baseball's so-called "Golden Era", making any rational debate even tougher.

@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: evriverse-2-0
+created_at: 2009-08-19 16:27:18 -07:00
 title: EvriVerse 2.0
-date: 2009-08-19 16:27:18 -07:00
-tags:
-- iphone
-- evri
 excerpt: ""
 original_post_id: 399
+tags: 
+- iphone
+- evri
 toc: true
 -----
 ![photo 5.jpg](/images/2009/08/photo-5.jpg)

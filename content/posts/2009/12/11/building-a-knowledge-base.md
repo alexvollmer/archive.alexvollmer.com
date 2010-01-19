@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: building-a-knowledge-base
+created_at: 2009-12-11 16:39:09 -08:00
 title: Building a Knowledge Base
-date: 2009-12-11 16:39:09 -08:00
-tags:
-- philosophy
-- GTD
 excerpt: ""
 original_post_id: 416
+tags: 
+- philosophy
+- GTD
 toc: true
 -----
 Many years ago, I had the fortune of working for a family friend who was a financial planner. Not only did I get to learn a lot about personal finances at an early age, but I also picked up some great professional habits too. One of the things she did was maintain a gigantic set of folders of things she found interesting or useful. She had a four-drawer filing cabinet filled with various tidbits of information she had collected. She had a pretty good index in her head of where these things were and was amazingly proficient in recalling where she had filed things.

@@ -1,0 +1,8 @@
+-----
+is_hidden:   "true"
+feed_url:    "http://alexvollmer.com/feeds/atom/"
+title:       "Recent posts @ alexvollmer.com"
+author_name: "Alex Vollmer"
+author_uri:  "http://alexvollmer.com/"
+-----
+<%= atom_feed(:articles => convert_items(articles)) %>

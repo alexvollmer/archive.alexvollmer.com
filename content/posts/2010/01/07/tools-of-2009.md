@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: tools-of-2009
+created_at: 2010-01-07 04:35:42 -08:00
 title: Tools of 2009
-date: 2010-01-07 04:35:42 -08:00
-tags:
-- mac
 excerpt: ""
 original_post_id: 424
+tags: 
+- mac
 toc: true
 -----
 I suppose if I were really on the ball I would have posted this right after New Year's Day, but I needed to ruminate a bit on what was worth summarizing for 2009. In the end I decided to talk about the tools I found in 2009 that really made a difference in my life.

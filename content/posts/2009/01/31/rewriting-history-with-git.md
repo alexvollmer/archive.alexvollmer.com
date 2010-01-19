@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: rewriting-history-with-git
+created_at: 2009-01-31 20:04:13 -08:00
 title: Rewriting History with Git
-date: 2009-01-31 20:04:13 -08:00
-tags:
-- git
 excerpt: ""
 original_post_id: 269
+tags: 
+- git
 toc: true
 -----
 This past week I spent some quality time with git's history-rewriting capabilities. Over the past few weeks I had been working on a rather long-lived branch full of JRuby and Merb patches. Some of the fixes and changes were ready to go in the next release, others were still a wee bit experimental and so my plan was to split the patches in two. The ones that were ready would get pushed upstream while the not-ready-for-primetime stuff stayed on a local branch.

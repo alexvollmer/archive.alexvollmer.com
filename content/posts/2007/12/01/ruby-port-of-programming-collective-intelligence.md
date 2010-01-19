@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: ruby-port-of-programming-collective-intelligence
+created_at: 2007-12-01 23:49:08 -08:00
 title: Ruby Port of "Programming Collective Intelligence"
-date: 2007-12-01 23:49:08 -08:00
-tags:
-- ruby
 excerpt: ""
 original_post_id: 35
+tags: 
+- ruby
 toc: true
 -----
 Thanks to a quick comment from Toby Seagaran, the author of ["Programming Collective Intelligence"](http://www.oreilly.com/catalog/9780596529321/ O'Reilly Media | Programming Collective Intelligence), my motivation finally exceeded my laziness in getting the porting code available in a public place. So I&#8217;m proud to announce that you can take a look at the ongoing porting effort at [my Ruby port of Programming Collective Intelligence](http://github.com/alexvollmer/pci4r). I'm in the midst of Chapter 4 right now, so I still have a long way to go.

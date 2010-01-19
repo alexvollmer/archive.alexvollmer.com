@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: military-history
+created_at: 2008-06-28 16:15:19 -07:00
 title: Military History
-date: 2008-06-28 16:15:19 -07:00
-tags:
-- philosophy
 excerpt: ""
 original_post_id: 102
+tags: 
+- philosophy
 toc: true
 -----
 In addition to technical geekery and social commentary, one of my favorite intellectual pursuits is the study of military history. It's one of my many interests that makes me so very thankful that I met my wife when I did or I would never have had a date in my adult life.

@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: geek-manners
+created_at: 2008-02-01 17:44:56 -08:00
 title: Geek Manners
-date: 2008-02-01 17:44:56 -08:00
-tags:
-- software
 excerpt: ""
 original_post_id: 42
+tags: 
+- software
 toc: true
 -----
 A couple of days ago I was fly-on-the-wall for what can only be described as a great example of Geek Manners. One definition of a "geek" is one whose intense interest in a specific topic is offset by a lack of standard social skills. That doesn't mean that all geeks are completely oblivious to social customs, just that they invent their own at times. Below is a transcript (from memory) of the conversation I heard.

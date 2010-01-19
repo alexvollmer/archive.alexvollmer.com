@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: why-cant-web-apps-be-rest-ful
+created_at: 2007-06-27 02:55:14 -07:00
 title: Why Can't Web Apps Be REST-ful?
-date: 2007-06-27 02:55:14 -07:00
-tags:
-- REST
 excerpt: ""
 original_post_id: 26
+tags: 
+- REST
 toc: true
 -----
 In case the recent posts haven&#8217;t made it obvious, I&#8217;ve been on a bit of a tear about REST lately. In large part this is due to [Leonard Richardson's and Sam Ruby's "RESTful Web Services"](http://www.oreilly.com/catalog/9780596529260/) book that I picked up at RailsConf. One of the thoughts that has been bouncing around in my head is how web service-oriented the book was and, besides a chapter about Ajax, said very little about how REST applied to user-facing _web applications_.

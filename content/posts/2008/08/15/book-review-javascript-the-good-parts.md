@@ -1,12 +1,13 @@
 ----- 
+kind: article
 permalink: book-review-javascript-the-good-parts
+created_at: 2008-08-15 03:41:45 -07:00
 title: "Book Review: \"JavaScript: The Good Parts\""
-date: 2008-08-15 03:41:45 -07:00
-tags:
-- book review
-- javascript
 excerpt: ""
 original_post_id: 109
+tags: 
+- book review
+- javascript
 toc: true
 -----
 ![DSC_0204.NEF](/images/2008/08/dsc-0204.jpg)

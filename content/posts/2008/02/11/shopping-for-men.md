@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: shopping-for-men
+created_at: 2008-02-11 17:37:15 -08:00
 title: Shopping for Men
-date: 2008-02-11 17:37:15 -08:00
-tags:
-- apple
 excerpt: ""
 original_post_id: 64
+tags: 
+- apple
 toc: true
 -----
 ![Photo 2](/images/2008/02/photo-2.jpg)

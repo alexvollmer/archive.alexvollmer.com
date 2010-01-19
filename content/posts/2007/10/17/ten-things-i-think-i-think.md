@@ -1,15 +1,16 @@
 ----- 
+kind: article
 permalink: ten-things-i-think-i-think
+created_at: 2007-10-17 04:24:41 -07:00
 title: Ten Things I Think I Think
-date: 2007-10-17 04:24:41 -07:00
-tags:
+excerpt: ""
+original_post_id: 31
+tags: 
 - software
 - java
 - ruby
 - erlang
 - cocoa
-excerpt: ""
-original_post_id: 31
 toc: true
 -----
 In the spirit of Peter King's [Monday Morning Quarterback](http://sportsillustrated.cnn.com/writers/peter_king/archive/index.html SI.com), here are ten things that I think I think:

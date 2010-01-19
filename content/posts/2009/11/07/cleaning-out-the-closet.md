@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: cleaning-out-the-closet
+created_at: 2009-11-07 22:12:45 -08:00
 title: Cleaning out the Closet
-date: 2009-11-07 22:12:45 -08:00
-tags:
-- ruby
 excerpt: ""
 original_post_id: 414
+tags: 
+- ruby
 toc: true
 -----
 I've had a couple of nascent Ruby gems lurking in my Github account for what seems like ages. So, on a rainy Saturday afternoon, I did a little cleanup and pushed a couple of new gems out to [Gemcutter](http://gemcutter.org).

@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: railsconf-08-wrapup
+created_at: 2008-06-03 16:56:46 -07:00
 title: RailsConf '08 Wrapup
-date: 2008-06-03 16:56:46 -07:00
-tags:
+excerpt: ""
+original_post_id: 86
+tags: 
 - ruby
 - rails
 - railsconf
-excerpt: ""
-original_post_id: 86
 toc: true
 -----
 RailsConf closed up last Sunday afternoon and after three-hour drive back and day of work to contemplate, here's what I've boiled it down to:

@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: why-rest-matters
+created_at: 2007-06-13 02:42:58 -07:00
 title: Why REST Matters
-date: 2007-06-13 02:42:58 -07:00
-tags:
-- REST
 excerpt: ""
 original_post_id: 21
+tags: 
+- REST
 toc: true
 -----
 I first ran across REST in my reading about a year and a half ago. While it took me some time to "get" what REST was, I quickly became a fan. However I've found that aside from pure aesthetics, I've had a hard time articulating why REST is not only beautiful, but effective. I've spent a little more time thinking about REST and I think I may have a couple of concrete arguments for REST that go beyond a simple appreciation of its beauty.

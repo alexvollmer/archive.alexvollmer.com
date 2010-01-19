@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: this-evenings-moochbot-lessons
+created_at: 2008-12-11 05:27:15 -08:00
 title: This Evening's moochbot Lessons
-date: 2008-12-11 05:27:15 -08:00
-tags:
+excerpt: ""
+original_post_id: 189
+tags: 
 - ruby
 - moochbot
 - git
-excerpt: ""
-original_post_id: 189
 toc: true
 -----
 Tonight's post-get-the-kid-to-bed hacking time was a mad dash to cleanup a handful of bugs that some of you fine folks found with [moochbot](http://moochbot.com). In no particular order is a list of this evening's "a-ha" moments:

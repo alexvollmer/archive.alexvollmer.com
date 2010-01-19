@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: the-java-conundrum
+created_at: 2007-12-30 20:41:22 -08:00
 title: The Java Conundrum
-date: 2007-12-30 20:41:22 -08:00
-tags:
-- java
 excerpt: ""
 original_post_id: 40
+tags: 
+- java
 toc: true
 -----
 [Steve Yegge's latest blog post](http://steve-yegge.blogspot.com/2007/12/codes-worst-enemy.html Stevey's Blog Rants: Code's Worst Enemy) was one that really struck a chord with me personally. I think he hit most of the nail right on the head in describing a common frustration with the Java language. It seems like every attempt to refine the language ends up as some controversial, inelegant hack that often reduces the readability of the code. The same day I read that post I came across [Josh Bloch's presentation on Java closures](http://www.javac.info/bloch-closures-controversy.ppt Josh's PowerPoint Presentation). This was my first introduction to closures in Java-land and my first reaction was one of horror. This is supposed to enhance the expressiveness of the language? Sheesh, not as far as I can tell&#8230;

@@ -1,13 +1,14 @@
 ----- 
+kind: article
 permalink: day-two-railsconf-07-dhhs-keynote-address
+created_at: 2007-05-18 21:43:06 -07:00
 title: Day Two RailsConf '07 -- DHH's Keynote Address
-date: 2007-05-18 21:43:06 -07:00
-tags:
+excerpt: ""
+original_post_id: 6
+tags: 
 - ruby
 - rails
 - railsconf
-excerpt: ""
-original_post_id: 6
 toc: true
 -----
 This is my first RailsConf so I can only say this given second-hand information. But it seems that I've arrive just as the interest and popularity in the framework has hit the bend in the hockey-stick. The enthusiasm at the morning keynote address by David Heinemeir Hanssson was equals parts technology preview, religious revival and idol worship.

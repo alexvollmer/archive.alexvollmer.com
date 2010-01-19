@@ -1,11 +1,12 @@
 ----- 
+kind: article
 permalink: green-fields
+created_at: 2008-03-04 15:44:07 -08:00
 title: Green Fields
-date: 2008-03-04 15:44:07 -08:00
-tags:
-- geekery
 excerpt: ""
 original_post_id: 66
+tags: 
+- geekery
 toc: true
 -----
 Ahhh...a fresh new server install. It's like getting the first squeeze of toothpaste or the first scoop of peanut butter. It feels especially good because it's all yours. It brims with potential and has no marks of anyone else's will upon it. Setting a server for yourself is liberating because there are no constraints, no corporate policies to adhere to. Right or wrong, you get to call all the shots and take all the responsibility. You finally get to do what you always dremed of when that sneering, omnipotent system administrator show down all your ideas. Petty bureacracy will not stand in your way!
