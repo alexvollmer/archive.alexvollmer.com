@@ -27,6 +27,10 @@ end
 compile '*' do
 end
 
+route '/feeds/rss_092.xml.erb' do
+  "/feeds/rss/"
+end
+
 route '/feeds/*' do
   "/feeds/" + item.name + ".xml"
 end

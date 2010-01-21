@@ -1,0 +1,21 @@
+-----
+title: posts @ alexvollmer.com
+-----
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="0.92">
+  <channel>
+    <title>posts @ alexvollmer.com</title>
+    <link>http://alexvollmer.com</link>
+    <description>Optimistic reflections based on hard-won pessimism</description>
+    <lastBuildDate>Mon, 11 Jan 2010 11:10:51 +0000</lastBuildDate>
+    <docs>http://backend.userland.com/rss092</docs>
+    <language>en</language>
+<% articles.reverse[0..5].each do |post| %>
+    <item>
+      <title><%= post.title %></title>
+      <description><![CDATA[<%= include_post_summary(post) %>]]></description>
+      <link>http://alexvollmer.com/<%= post.full_path %>/</link>
+    </item>
+  </channel>
+<% end %>
+</rss>
