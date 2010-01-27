@@ -27,6 +27,10 @@ class Nanoc3::Item
     self.created_at.strftime("%A, %d %B %Y")
   end
 
+  def short_date
+    self.created_at.strftime("%d %B %Y")
+  end
+
   def full_path
     [self.date_str, sprintf("%02d", self.day), self.permalink].join("/")
   end

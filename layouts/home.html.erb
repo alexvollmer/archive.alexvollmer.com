@@ -1,6 +1,4 @@
---- {}
-
-
+---
 ---
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,113 +17,18 @@
   <body>
     <div id="wrap">
       <div id="head">
-        <h1>Alex<br>Vollmer</h1>
+        <h1><a href="/">Alex<br>Vollmer</a></h1>
         <ul id="nav">
           <li class="hal">Blog</li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/contact/">Contact</a></li>
         </ul>
         <br class="clear"/> <!-- replace with self clear -->
       </div>
-      <div id="feature">
-        <ul>
-          <li id="feature1">
-            <a class="featured-link" href="#">
-              <span>Moochbot</span>
-            </a>
-          </li>
-          <li>
-            <a class="featured-link" href="#">
-              <span>Project Too</span>
-            </a>
-          </li>
-          <li class="last">
-            <a class="featured-link" href="#">
-              <span>Projecto Tres</span>
-            </a>
-          </li>
-        </ul>
-        <br class="clear"/>
-      </div>
-      <div><%= yield %></div>
-      <div id="blog">
-        <h2>Posts</h2>
-        <div class="post">
-          <div class="postmeta">
-            December 9, 2009
-          </div>
-          <div class="postbody">
-            <h4><a href="#">Cleaning out the Closet</a></h4>
-            <p>I’ve
-              had a couple of nascent Ruby gems lurking in my Github account for what
-              seems like ages. So, on a rainy Saturday afternoon, I did a little
-              cleanup and pushed a couple of new gems out to Gemcutter.</p>
-            <p>The
-              first, is a gem I started over a year ago, called word-salad. It uses
-              the built-in dictionary file to randomly pull words out. This is great
-              when you just need to generate a bunch of English-like text, but don’t
-              want to fall back on the boring old “lorem ipsum…” routine. </p>
-            <p><a href="#">Read More…</a></p>
-          </div>
-        </div>
-        <div class="post">
-          <div class="postmeta">
-            December 9, 2009
-          </div>
-          <div class="postbody">
-            <h4><a href="#">The Cleverest Git Maneuver Ever</a></h4>
-            <p>So
-              there I was, reviewing a series of commits, sucking air between my
-              teeth and cringing when I came upon one of those lazy commits that has
-              way too much stuff in it to reasonably digest. I needed a way to go
-              back and split that commit into two or three separate commits. This is
-              pretty easy to do with git rebase. You can just do a mixed reset of the
-              last commit, stage the bits you want in one commit, stage the next bits
-              and put that in a separate commit. </p>
-            <p><a href="#">Read More…</a></p>
-          </div>
-        </div>
-      </div>
-      <div id="else">
-        <div id="bookshelf">
-          <h2>Bookshelf</h2>
-          <p>The first</p>			
-        </div>
-        <div id="twats">
-          <h2><img src="alexvollmer-dot-com_files/avatar-sm_bigger.jpg" alt="Hello">I'm <a href="#">@alexvollmer</a> on twitter</h2>
-          <!-- I cut & pasted this from Twitter, maybe not such a good idea... -->
-          <ul>
-            <li class="hentry u-alexvollmer status">
-              <span class="status-body">
-                <span class="entry-content">Just remember, somewhere out there, someone hates having to deal with code you wrote.</span>
-                <span class="meta entry-meta">9:20 AM Dec 8th</span>
-              </span>
-            </li>
-            <li class="hentry u-alexvollmer status">
-              <span class="status-body">
-                <span class="entry-content">Is three cups of coffee in one morning too much?</span>
-                <span class="meta entry-meta">9:20 AM Dec 8th</span>
-              </span>
-            </li>
-            <li class="hentry u-alexvollmer status">
-              <span class="status-body">
-                <span class="entry-content">Just remember, somewhere out there, someone hates having to deal with code you wrote.</span>
-                <span class="meta entry-meta">9:20 AM Dec 8th</span>
-              </span>
-            </li>
-            
-          </ul>
-          <p><a href="#">Read More…</a></p>
-        </div>
-        
-        <br class="clear"/>
-      </div>
-      
-      
+      <%= yield %>
     </div>
     <div id="footertrim">&nbsp;</div>
     <div id="footer">
-      
       <div id="footercontent">
         <table>	
           <tbody><tr valign="top"><!-- how does TH work anyway? -->
@@ -133,7 +36,7 @@
               <td>
                 <a href="#">Coding Horror</a> | 		
                 <a href="#">Loud Thinking</a> | 
-                <a href="#">Martin Fowler’s Bliki</a> | 
+                <a href="#">Martin Fowler‚Äôs Bliki</a> | 
                 <a href="#">Nuby on Rails</a> | 
                 <a href="#">Reign of Error</a> | 
                 <a href="#">Technomancy</a> | 
@@ -141,17 +44,25 @@
               </td>
             </tr>
             <tr valign="top">
-              <th>Subscribe</th>
+              <th>Tags</th>
               <td>
-                <a href="#">Entries</a> | 
-                <a href="#">Comments</a> | 
-                <a href="#">I'm Just Making</a> | 
-                <a href="#">These Up</a> 
+                {% for tag in site.categories.keys %}
+                <a href="/tags/{{ tag }}/">{{ tag }}</a> | 
+                {% endfor %}
+              </td>
+            </tr>
+            <tr valign="top">
+              <th>Posts</th>
+              <td>
+                <a href="/posts/2010/">2010</a> |
+                <a href="/posts/2009/">2009</a> |
+                <a href="/posts/2008/">2008</a> |
+                <a href="/posts/2007/">2007</a> |
+                <a href="/posts/2005/">2005</a>
               </td>
             </tr>
         </tbody></table>
       </div>
     </div><div style="display: none;" id="tkloadung0eni"></div>
-    
   </body>
 </html>
