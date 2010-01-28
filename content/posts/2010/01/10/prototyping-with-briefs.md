@@ -1,8 +1,11 @@
 ----- 
+kind: article
 permalink: prototyping-with-briefs
 title: Prototyping with Briefs
-date: 2010-01-10 17:40:40 -08:00
-tags: ""
+created_at: 2010-01-10 17:40:40 -08:00
+tags:
+- iphone
+- UX
 excerpt: ""
 original_post_id: 435
 toc: true
