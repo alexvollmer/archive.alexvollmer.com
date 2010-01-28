@@ -7,7 +7,7 @@ excerpt: ""
 original_post_id: 24
 tags: 
 - book review
-- ux
+- UX
 toc: true
 -----
 _Steve Krug_
