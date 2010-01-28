@@ -1,3 +1,4 @@
+require "BlueCloth"
 require "nokogiri"
 
 module Nanoc3::Helpers::Blogging
@@ -15,7 +16,8 @@ def format_rfc822_date(date)
 end
 
 def get_post_body(post)
-  doc = Nokogiri(open("output/posts/#{post.full_path}/index.html").read)
+  html = BlueCloth.new(post.raw_content).to_html
+  doc = Nokogiri.HTML(html)
   (doc/"body")
 end
 
