@@ -11,7 +11,7 @@ end
 compile '/posts/*' do
   rep.filter :erb
   rep.filter :rdiscount
-  rep.layout 'default'
+  rep.layout 'post'
 end
 
 compile '/feeds/*' do
