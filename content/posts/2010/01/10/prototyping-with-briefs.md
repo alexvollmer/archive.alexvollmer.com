@@ -66,6 +66,7 @@ First we declare that our starting scene is the "Home" scene. Next, we define th
 
 When the user touches the "Hawaii" row, we'll transition the "Hawaii" scene (defined shortly) by executing a "push left" animation. This will mimic the standard animation of pushing a new view controller onto the navigation controller stack:
 
+<% highlight :sh do %>
 start:Home
 scene:Home
   image:home.png
@@ -73,10 +74,11 @@ scene:Home
     position:0,123 
     wh:320,53
     action:goto(Hawaii, push left)
-
+<% end %>
 
 Next, we'll define a scene that shows the thumbnail images for each photo in the Hawaii album. This scene will display the `hawaii.png` background image and has an actor for the return navigation button in the upper-left as well as for each thumbnail image. Note the differences in the direction of the push animation in the actors. The "back" button pushes right (like the normal return navigation animation), while the thumbnails push left.
     
+<% highlight :sh do %>
 scene:Hawaii
   image:hawaii.png
   actor:Home 
@@ -95,10 +97,11 @@ scene:Hawaii
     position:162,70
     wh:72,72
     action:goto(Image3, push left)
-
+<% end %>
 
 Now we'll define the scenes for each of the three images. Each image scene has an actor for the return navigation button in the top-left. The first image also has two actors to navigate to the next image. The `NextImage` actor is for the navigation button in the toolbar, whereas the `NextImageSwipe` actor covers the right side of the image itself. This is done to mimic the swiping motion normally used to navigate photos. Right now, Briefs only supports single-touch interactions so it won't behave _exactly_ like the real application in supporting swipes.
   
+<% highlight :sh do %>
 scene:Image1
   image:image1.png
   actor:NavigateBack 
@@ -113,10 +116,11 @@ scene:Image1
     position:156,60 
     wh:160,380 
     action:goto(Image2, push left)
-
+<% end %>
 
 The "Image2" scene is a lot like the "Image1" scene, except that it has button and swipe actors for both the previous and next images:
 
+<% highlight :sh do %>
 scene:Image2
   image:image2.png
   actor:NavigateBack 
@@ -139,10 +143,11 @@ scene:Image2
     position:156,60
     wh:160,380 
     action:goto(Image3, push left)
-
+<% end %>
 
 Finally, the last image scene. It only has "backward" navigation in the photo set since we've only put three photos in our album:
 
+<% highlight :sh do %>
 scene:Image3
   image:image3.png
   actor:NavigateBack 
@@ -157,7 +162,7 @@ scene:Image3
     position:0,60 
     wh:160,380 
     action:goto(Image2, push right)
-
+<% end %>
 
 We've just done simple scene-to-scene transitions in this Brief, but there are also several transitions you can perform directly on actors such as moving them, fading them in and out and others. I've created a [syntax cheatsheet](http://alexvollmer-public.s3.amazonaws.com/Briefs%20Cheatsheet.pdf) which you can use as a reference for your own Briefs.
 
@@ -171,9 +176,11 @@ However I find editing XML tiresome, whether it's by hand or with a tool. Briefs
 
 In the `Briefs-util` project (which you checked out earlier), you can find the Ruby script in `BS/bs`. I run these tools all at once in a script named `compile`:
 
+<% highlight :sh do %>
 #!/bin/bash
 ~/Development/Briefs-util/BS/bs photos.bs > photos-source.brieflist && \
 	~/bin/compact-briefs photos-source.brieflist ~/Development/Briefs/sample/photos.brieflist
+<% end %>
 
 ## Installing the Brief
 
@@ -195,6 +202,7 @@ The idea behind these prototypes is putting a tangible example in front of users
 
 Currently, there isn't a tool to easily create a Briefcast directly out of a list of Briefs. For now, the project web site recommends copying and modifying the RSS template below:
 
+<% highlight :xml do %>
 <?xml version="1.0"?>
 <rss version="2.0">
   <channel>
@@ -213,7 +221,7 @@ Currently, there isn't a tool to easily create a Briefcast directly out of a lis
     </item>
   </channel>
 </rss>
-
+<% end %>
 
 The bits marked *in bold* need to replaced with your particular details. In the example above I only have one Brief, but if you had more than one, you would just include additional <code><item></code> elements. You need to have this RSS file on disk as well as the brieflist file referred to in the <code><enclosure></code> tag.
 
@@ -242,6 +250,7 @@ Don't hesitate to dive into the code behind Briefs. There are occasions when Bri
 # Resources
 
 Here's a list of related resources:
+
 *  [Briefs Homepage](http://giveabrief.com/)
 *  [Briefs on GitHub](http://github.com/capttaco/Briefs)
 *  [Sample Brief of Photos.app](https://alexvollmer-public.s3.amazonaws.com/photos_app.tgz)
