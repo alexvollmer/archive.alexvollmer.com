@@ -1,0 +1,9 @@
+<%= @title %> | <%= @parent_link %>
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <a href="/posts/<%= post.full_path %>/"><%= post.title %></a>
+  (<%= post.display_date %>)
+  </li>
+<% end %>
+</ul>

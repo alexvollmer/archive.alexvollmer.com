@@ -1,4 +1,16 @@
+require "erb"
+require "pathname"
 require "nanoc3/cli"
+
+layouts = Pathname("layouts")
+home_erb = ERB.new(open(layouts + "home.html.erb").readlines[2..-1].join,
+                   nil, nil, "@home")
+
+eval <<-EOF
+def render_home_template
+  #{home_erb.src}
+end
+EOF
 
 module SiteUtils
 
@@ -28,12 +40,16 @@ module SiteUtils
     tag_content = ["<h1>All Tags</h1>"]
     tag_content << "<ul>"
     tags_start = Time.now
+
     by_tag.keys.sort_by { |t| t.downcase }.each do |tag|
       tag_start = Time.now
-      posts = by_tag[tag]
+      @posts = by_tag[tag]
+      plural = posts.size == 1 ? "post" : "posts"
+      @title = "#{@posts.size} #{plural} tagged with  <em>#{tag}</em>"
+      @parent_link = %Q{<a href="/tags/">all tags</a>}
+
       tag_content << list_item("/tags/#{tag}/", tag, "<em>(#{posts.size})</em>")
 
-      plural = posts.size == 1 ? "post" : "posts"
       tag_page = ["#{posts.size} #{plural} tagged with <em>#{tag}</em> | <a href='/tags/'>all tags</a>"]
       tag_page << "<ul>"
       posts.each do |post|
@@ -41,11 +57,16 @@ module SiteUtils
                               post.title,
                               " (#{post.display_date})")
       end
+
       tag_page << "</ul>"
-      write_output(tag_output + "#{tag}/index.html", tag_page.join("\n"), tag_start)
+      write_output(tag_output + "#{tag}/index.html",
+                   render_home_template { tag_page.join("\n") },
+                   tag_start)
     end
     tag_content << "</ul>"
-    write_output(tag_output + "index.html", tag_content.join("\n"), tags_start)
+    write_output(tag_output + "index.html",
+                 render_home_template { tag_content.join("\n") },
+                 tags_start)
   end
 
   def write_dates_pages(by_date)
@@ -71,10 +92,14 @@ module SiteUtils
         end
         content << "</ul>"
       end
-      write_output(posts_output + "#{year}/index.html", content.join("\n"), year_start)
+      write_output(posts_output + "#{year}/index.html",
+                   render_home_template { content.join("\n") },
+                   year_start)
     end
     year_index << "</ul>"
-    write_output(posts_output + "index.html", year_index.join("\n"), years_start)
+    write_output(posts_output + "index.html",
+                 render_home_template { year_index.join("\n") },
+                 years_start)
   end
 
   def write_output(path, contents, start_time)
@@ -85,4 +110,19 @@ module SiteUtils
     Nanoc3::CLI::Logger.instance.file(:high, :create, path, Time.now - start_time)
   end
 
+  def write(out_path, template)
+    out_path = Pathname("output") + out_path unless Pathname === out_path
+    start_time = Time.now
+    out_path.parent.mkpath
+
+    type = out_path.file? ? :update : :create
+    out_path.open("w") do |f|
+      f << render_home_template do
+        erb = ERB.new(open("templates/" + template).read, nil, nil, "@final_out")
+        erb.result(binding)
+      end
+    end
+
+    Nanoc3::CLI::Logger.instance.file(:high, type, out_path, Time.now - start_time)
+  end
 end

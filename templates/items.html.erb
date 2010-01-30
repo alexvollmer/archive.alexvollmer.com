@@ -1,0 +1,8 @@
+<%= @title %> | <%= @parent_link %>
+<ul>
+<% @items.each do |item| %>
+  <li>
+    <a href="<%= item.full_path %>"><%= item.title %></a> (<%= item.size %>)
+  </li>
+<% end %>
+</ul>
