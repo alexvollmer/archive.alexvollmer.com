@@ -1,5 +1,7 @@
 ----- 
------ 
+-----
+@import definitions
+
 *
   margin: 0
   padding: 0
@@ -121,12 +123,12 @@ h2
   font-family: "presicav-1","presicav-2"
 
 
-#blog h2
-  font-size: 20px
-  font-weight: 300
-  letter-spacing: 4px
-  text-transform: uppercase
-
+#blog 
+  h2
+    font-size: 20px
+    font-weight: 300
+    letter-spacing: 4px
+    text-transform: uppercase
 
 .post
   position: relative
@@ -137,7 +139,7 @@ h2
   position: absolute
   top: 0
   left: 0
-  color: #958c78
+  color = !gray
   font-weight: bold
   font-size: 11px
   line-height: 35px
@@ -184,7 +186,7 @@ h2
 
     a
       font-size: 12px
-      color: #958c78
+      color: !gray 
       display: block
 
     span a
@@ -242,7 +244,7 @@ td
 
   #date
     float: left
-    color: #958c78
+    color = !gray
     font-weight: bold
     font-size: 11px
     line-height: 35px
@@ -252,7 +254,7 @@ td
     margin-top: 18px
 
   #tags
-    color: #958c78
+    color = !gray
     font-weight: bold
     font-size: 11px
     line-height: 35px
@@ -281,7 +283,7 @@ td
 
 #archive abbr
   font-family: "presicav-1","presicav-2"
-  color: #958c78
+  color = !gray
   font-weight: bold
   font-size: 11px
   margin-left: 9px
@@ -290,3 +292,24 @@ td
 #static h2
   margin-top: 18px
   margin-left: 37px
+
+#items
+  padding-top: 18px
+
+  .title
+    float: left
+
+  .backlink
+    width: 100%
+    text-align: right
+
+  ul
+    font-size: 16px
+    list-style: none
+    li
+      padding-bottom: 6px
+      abbr
+        font-size: 14px
+        font-style: italic
+        color = !gray
+
