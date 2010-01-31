@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "irb"
+require "rubygems"
+require "nanoc3"
+load "lib/helpers.rb"
+
+@site = Nanoc3::Site.new(".")
+@site.load_data
+
+IRB.start
