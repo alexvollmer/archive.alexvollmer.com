@@ -9,17 +9,17 @@
 
 
 body
-  background-color: #dbd6cb
+  background-color = !background
   text-align: center
   font-family: Helvetica, Arial, Sans-Serif
 
 
 a
   text-decoration: none
-  color: #028eff
+  color = !link_color
 
   &:hover
-    color: #e0400b
+    color = !hover_color
 
 
 #wrap, #footercontent
@@ -29,7 +29,7 @@ a
 
 
 #head
-  color: #ffd8bf
+  color = !tan
   background-color: black
   background-image: url(/images/header.png)
   background-repeat: no-repeat
@@ -59,13 +59,13 @@ a
       font-family: "presicav-1","presicav-2"
 
   a
-    color: #ffd8bf
+    color = !tan
 
     &:hover
-      color: #e0400b
+      color = !hover_color
 
   ul li.hal
-    color: #e0400b
+    color = !hover_color
     background-image: url(/images/hal.png)
     background-repeat: no-repeat
     background-position: center 17px
@@ -152,7 +152,7 @@ h2
   h4
     font-family: "presicav-1","presicav-2"
     font-weight: normal
-    color: #028eff
+    color = !link_color
     font-size: 18px
 
   p
@@ -190,11 +190,11 @@ h2
       display: block
 
     span a
-      color: #028eff
+      color = !link_color
       display: inline
 
       &:hover
-        color: #e0400b
+        color = !hover_color
 
 
 #footertrim
@@ -216,7 +216,7 @@ h2
 
 th
   width: 120px
-  color: #ffd8bf
+  color = !tan
   font-family: "presicav-1","presicav-2"
   text-transform: uppercase
   font-size: 12px
@@ -231,7 +231,7 @@ td
   color: #c2aa9a
 
   &:hover
-    color: #e0400b
+    color = !hover_color
 
 
 #post
