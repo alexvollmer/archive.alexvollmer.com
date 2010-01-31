@@ -24,7 +24,7 @@ end
 def find_text_node(nodes)
   if nodes.empty?
     nil
-  elsif text = nodes.find{ |x| x.name == "text" && x.text !~ /\n+/ }
+  elsif text = nodes.find{ |x| x.name == "text" && x.text !~ /^\n+$/ }
     return text
   else
     find_text_node(nodes.children)
