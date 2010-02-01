@@ -1,7 +1,7 @@
 ---
 ---
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Alex Vollmer dot com</title>
@@ -9,13 +9,14 @@
     <script type="text/javascript" src="/js/ung0eni.js"></script>
     <style type="text/css">.tk-presicav{font-family:"presicav-1","presicav-2",sans-serif;}</style>
     <link href="/css/ung0eni-standards.css" type="text/css" rel="stylesheet"/>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>	
-    
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
     <!-- include YUI reset or similar -->
     <link href="/css/main.css" type="text/css" rel="stylesheet"/>
   </head>
   <body>
     <div id="wrap">
+      <div id="shim"></div>
       <div id="head">
         <h1><a href="/">Alex<br>Vollmer</a></h1>
         <ul id="nav">
@@ -26,35 +27,37 @@
         <br class="clear"/> <!-- replace with self clear -->
       </div>
       <%= yield %>
+      <div id="push"></div>
     </div>
     <div id="footertrim">&nbsp;</div>
     <div id="footer">
       <div id="footercontent">
-        <table>	
+        <table>
           <tbody><tr valign="top"><!-- how does TH work anyway? -->
-              <th scope="col">Blogroll</th>
-              <td>
-                <a href="#">Coding Horror</a> | 		
-                <a href="#">Loud Thinking</a> | 
-                <a href="#">Martin Fowler's Bliki</a> | 
-                <a href="#">Nuby on Rails</a> | 
-                <a href="#">Reign of Error</a> | 
-                <a href="#">Technomancy</a> | 
-                <a href="#">User Primary Blog</a>				 
-              </td>
-            </tr>
-            <tr valign="top">
-              <th>Posts</th>
-              <td>
-                <a href="/posts/2010/">2010</a> |
-                <a href="/posts/2009/">2009</a> |
-                <a href="/posts/2008/">2008</a> |
-                <a href="/posts/2007/">2007</a> |
-                <a href="/posts/2005/">2005</a>
-              </td>
-            </tr>
+            <th scope="col">Blogroll</th>
+            <td>
+              <a href="#">Coding Horror</a> |
+              <a href="#">Loud Thinking</a> |
+              <a href="#">Martin Fowler's Bliki</a> |
+              <a href="#">Nuby on Rails</a> |
+              <a href="#">Reign of Error</a> |
+              <a href="#">Technomancy</a> |
+              <a href="#">User Primary Blog</a>
+            </td>
+          </tr>
+          <tr valign="top">
+            <th>Posts</th>
+            <td>
+              <a href="/posts/2010/">2010</a> |
+              <a href="/posts/2009/">2009</a> |
+              <a href="/posts/2008/">2008</a> |
+              <a href="/posts/2007/">2007</a> |
+              <a href="/posts/2005/">2005</a>
+            </td>
+          </tr>
         </tbody></table>
       </div>
-    </div><div style="display: none;" id="tkloadung0eni"></div>
+      <div style="display: none;" id="tkloadung0eni"></div>
+    </div>
   </body>
 </html>
