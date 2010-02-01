@@ -33,29 +33,29 @@
     <div id="footer">
       <div id="footercontent">
         <table>
-          <tbody><tr valign="top"><!-- how does TH work anyway? -->
-            <th scope="col">Blogroll</th>
-            <td>
-              <a href="#">Coding Horror</a> |
-              <a href="#">Loud Thinking</a> |
-              <a href="#">Martin Fowler's Bliki</a> |
-              <a href="#">Nuby on Rails</a> |
-              <a href="#">Reign of Error</a> |
-              <a href="#">Technomancy</a> |
-              <a href="#">User Primary Blog</a>
-            </td>
-          </tr>
-          <tr valign="top">
-            <th>Posts</th>
-            <td>
-              <a href="/posts/2010/">2010</a> |
-              <a href="/posts/2009/">2009</a> |
-              <a href="/posts/2008/">2008</a> |
-              <a href="/posts/2007/">2007</a> |
-              <a href="/posts/2005/">2005</a>
-            </td>
-          </tr>
-        </tbody></table>
+          <tbody>
+            <tr valign="top"><!-- how does TH work anyway? -->
+              <th scope="col">Blogroll</th>
+              <td>
+                <a href="#">Coding Horror</a> |
+                <a href="#">Loud Thinking</a> |
+                <a href="#">Martin Fowler's Bliki</a> |
+                <a href="#">Nuby on Rails</a> |
+                <a href="#">Reign of Error</a> |
+                <a href="#">Technomancy</a> |
+                <a href="#">User Primary Blog</a>
+              </td>
+            </tr>
+            <tr valign="top">
+              <th>Posts</th>
+              <td>
+<%= articles.map { |a| a.created_at.year }.uniq.sort.map do |year|
+      %Q[<a href="/posts/#{year}/">#{year}</a>]
+    end.join(" | ") %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div style="display: none;" id="tkloadung0eni"></div>
     </div>
