@@ -70,6 +70,7 @@ Stepping back, the actors and interactions look something like this:
 
 In code (snippets) it might look something like this:
 
+<% highlight :objc do %>
     // our parent view controller
     @implementation ParentViewController
     - (void)didSelectEntity {
@@ -114,6 +115,6 @@ In code (snippets) it might look something like this:
     }
     
     @end
-
+<% end %>
 
 So there you have it, one developer's way of integrating the iPhone with web APIs. More to come. Stay tuned.
