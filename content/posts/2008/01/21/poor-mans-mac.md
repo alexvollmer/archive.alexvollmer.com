@@ -13,6 +13,7 @@ toc: true
 The discontent with Apple's .mac service seems to be [growing](http://www.43folders.com/2008/01/18/mac-future-sleeping-giant .Mac: Future of a sleeping giant? | 43 Folders) and [growing](http://www.43folders.com/2006/09/28/dot-mac-lameness LifeClever: Dot Mac needs more than a paint job | 43 Folders). I've looked at .mac a couple of times but couldn't really find a good reason to get on board. Oh sure it has some nice features like syncing contacts, but honestly most of the features .mac offers I don't or can get in other ways. In short it's hard to imagine ponying up $99 for this service when it can be beaten with other tools.
 
 Let's start by looking at what features .mac offers. According to the [.mac website](http://www.apple.com/dotmac/ Apple - .Mac) the features are:
+
 *  Web Gallery
 *  Website Hosting
 *  IMAP Mail

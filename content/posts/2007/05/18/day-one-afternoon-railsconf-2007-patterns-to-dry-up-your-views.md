@@ -11,7 +11,7 @@ tags:
 - railsconf
 toc: true
 -----
-Update: 2007-05-19 -- Bruce and Marcel posted a PDF of their talk [here](http://codefluency.com/assets/2007/5/18/VisForVexing.pdf).
+Update: 2007-05-19 &mdash; Bruce and Marcel posted a PDF of their talk [here](http://codefluency.com/assets/2007/5/18/VisForVexing.pdf).
 
 After knocking down lunch I was faced with a conundrum. I had signed up for a tutorial on view-layer patterns, but saw that Jamis Buck was doing a tutorial on [Capistrano](http://www.capify.org/ Capistrano). When I registered originally I had no idea that Cap 2.0 was coming out and I didn't really care to get any more familiar with Cap 1.0. But between then and now Cap 2.0 came out and it looks like there is some good stuff to learn. But the view tutorial looked good too. What to do? What to do?
 

@@ -12,8 +12,8 @@ toc: true
 -----
 Command-line parsing made short and sweet.
 
+### 1.0.0 / 2008-09-19
 
-1.0.0 / 2008-09-19
 *  Added support for mapping dashes to underscores for flags
 *  Define Clip.hash.remainder as a singleton method instead of reopening Hash
 *  remainder works with Clip.hash now

@@ -11,7 +11,9 @@ toc: true
 -----
 &hellip;umm, no, actually not so much.
 
-![hellboy.jpg](/images/2009/01/hellboy.jpg)Instead, this is just a humble little notice about a [humble little gem](http://github.com/alexvollmer/daemon-spawn/tree/master daemon-spawn) I put together today. It's called *daemon-spawn* and despite its simply terrifying name, it's really here to help all mankind. You see, I've been working like mad to stuff Merb smack-dab in the middle of an embedded Jetty project I've been working on. One of the last things I needed was a decent daemon-launcher/management gem-thingie to make it happen.
+<img src="/images/2009/01/hellboy.jpg" class="left"/>
+
+Instead, this is just a humble little notice about a [humble little gem](http://github.com/alexvollmer/daemon-spawn/tree/master daemon-spawn) I put together today. It's called *daemon-spawn* and despite its simply terrifying name, it's really here to help all mankind. You see, I've been working like mad to stuff Merb smack-dab in the middle of an embedded Jetty project I've been working on. One of the last things I needed was a decent daemon-launcher/management gem-thingie to make it happen.
 
 I cast about for an existing solution and found each a little lacking. The [daemons](http://daemons.rubyforge.org/ Ruby Daemons) gem had the executable name hard-wired to the output log name and didn't give me a clean way to specify additional arguments to JRuby (unless I wrote _another_ wrapper script, to which I say "boo, hiss"). Then I looked at [simple-daemon](http://simple-daemon.rubyforge.org/ simple-daemon) which seemed really promising. It was really really close to what I wanted but didn't extend very well as it required more and more class-methods. Yuck. I looked at [daemon_generator](http://kylemaxwell.typepad.com/everystudent/2006/08/after_writing_r.html daemon_generator), but it was very Rails-y and wanted to generate a bunch of code for me, which I didn't need. So I did what any honest, hard-working Ruby-dork does, and _made my own!_
 

@@ -10,14 +10,18 @@ tags:
 toc: true
 -----
 I first ran across REST in my reading about a year and a half ago. While it took me some time to "get" what REST was, I quickly became a fan. However I've found that aside from pure aesthetics, I've had a hard time articulating why REST is not only beautiful, but effective. I've spent a little more time thinking about REST and I think I may have a couple of concrete arguments for REST that go beyond a simple appreciation of its beauty.
-# ![uniform interface](http://farm2.static.flickr.com/1030/543372651_5e789e984d_t.jpg)
 
 # Uniformity of Interface
+
+<img src="http://farm2.static.flickr.com/1030/543372651_5e789e984d_t.jpg" alt="uniform interface" class="left"/>
 
 When resources present a uniform interface, we can take advantage of this simplifying assumption. We can focus more on what we can do with resource rather than _how_ we interact with them. This simple convention takes a lot of churn out of the development and integration process.
 
 Uniformity also constrains system design to the minimum required for distributed computing. Anything else is simply baroque elaboration that provides little to no value (think of SOAP's `SOAPAction` directive) and is nearly always at the cost of the uniformity.
-# ![works with http](http://farm2.static.flickr.com/1127/543397887_6a3775ded5_t.jpg)Works with HTTP
+
+# Works with HTTP
+
+<img src="http://farm2.static.flickr.com/1127/543397887_6a3775ded5_t.jpg" alt="works with HTTP" class="left"/>
 
 Assuming that you are going to provide data via the web, you are working within the constraints of HTTP. Since HTTP is an expression of the principles of REST, it is both foolish and counter-productive to go against the grain of HTTP's architecture. Unfortunately, HTTP is a very misunderstood protocol. It is sad that so few people who develop with HTTP understand it so very little.
 
@@ -28,12 +32,13 @@ When you express your resources as distinct URLs, you can take advantage of the 
 Similarly, the semantics of content negotiation are also rarely well-understood let alone used in the wild. HTTP's content negotiation mechanism separates the concerns of _what_ an underlying resource is from _how_ it will be represented. This is a _good_ separation of concerns&mdash;a user's account details are a user's account details regardless whether they are displayed in HTML, JSON or XML.
 # Connectivity
 
-# ![connectivity](http://farm2.static.flickr.com/1021/543273982_040b8addae_t.jpg)
+<img src="http://farm2.static.flickr.com/1021/543273982_040b8addae_t.jpg" alt="connectivity" class="left"/>
 
 Connectivity is the way a web application connects within itself. One of Roy Fielding's main assertions is that REST uses "hypermedia as the levers of application state". This is achieved by the linked hypermedia returned by a resource. Connectivity provides further simplifying assumptions about how a site is connected. Instead of relying on complicated specifications like WSDL, consumers of REST-ful applications can use a lot more of a web application based simple guidelines.
+
 # The Design Analogy
 
-# ![design](http://farm2.static.flickr.com/1065/543374965_8d8543c413_t.jpg)
+<img src="http://farm2.static.flickr.com/1065/543374965_8d8543c413_t.jpg" alt="design" class="left"/>
 
 Let's try to put resources in terms of object-oriented design. A classic symptom of poor object design is where the functional aspects of the system are the first-class attributes of the system and any "objects" are simply data structures passed from function to function. Good object-oriented design puts the behavior right next to the data with a healthy sprinkling of encapsulation.
 

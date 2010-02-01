@@ -17,7 +17,7 @@ OK, I haven't given up software to become a sous-chef or to take troubled kids o
 
 I've been with that language for a long time. Lately I've made a sport of complaining about it a lot, but honestly that's simply contempt bred from familiarity. There is a lot of good about the language and, despite my railings, the baby needn't be thrown out with the bath-water. What it comes down to is that I simply don't _enjoy_ it anymore. It used to be fun to put those pieces together, but not any longer. So I'm trading in my Java hat for my two new loves: Ruby and Objective-C.
 
-![IMG_1047.JPG](/images/2009/10/IMG_1047-150x150.JPG)
+<img src="/images/2009/10/IMG_1047-150x150.JPG" class="left"/>
 
 I may be stupid, but I'm not foolish enough to think that these languages will be the only remaining languages of my career. First of all, I'm not in the habit of defining my identity from the particular technologies I work with. Secondly, these are simply the environments I'm in love with now. I'm a dedicated family-man when it comes to people, but when it comes to programming languages, tools and environments I'm as bad as Liz Taylor. But jeez, why not embrace change? I don't do this for the paycheck. I do it because I love it. Why spend my time on things that aren't making me happy anymore?
 

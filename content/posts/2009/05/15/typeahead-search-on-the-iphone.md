@@ -18,9 +18,10 @@ I wanted to kick this off with a little appetizer. We're going to look at how we
 
 In the original implementation a user would type in the search field, then hit the "Search" button and then get their results back in the table view. This takes too many steps, and we wanted something that felt faster and more responsive.
 
-![Picture 6.png](/images/2009/05/picture-6.png)
+<img src="/images/2009/05/picture-6.png" class="right"/>
 
 So our incremental find solution needed the following properties:
+
 *  It should only send a search request when there is a measurable pause in input
 *  It should enable some kind of activity indicator while a search request is running
 *  A user should be able to modify the contents of the search field while a search request is in-progress

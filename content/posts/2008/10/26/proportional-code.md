@@ -14,7 +14,10 @@ Few things are less sexy than command-line parsing. It is one of the most mundan
 
 Let's say that the processing of writing your program is like launching spacecraft. Ideally you would like to get from launch to cruising around in space as quickly as possible. The Star Trek universe solves this quite elegantly with the transporter. We don't put you in a box and launch it, we break your atoms apart and transmit them to another location! That's pretty cool, but maybe we're just not quite that cool yet. Another solution is one proffered by the Star Wars universe. A ship like the Millenium Falcon can leave just about any planetary atmosphere any time it damn well pleases without the use of special equipment. It just flies away. Not bad.
 
-![Atlantis (STS-125)](http://farm4.static.flickr.com/3173/2958037544_26e7973f17_m.jpg)
+<img alt="Atlantis (STS-125)"
+src="http://farm4.static.flickr.com/3173/2958037544_26e7973f17_m.jpg"
+class="left"/>
+
 However, here on earth, our primitive space craft need a tremendous amount of disposable apparatus to reach escape-velocity. The proportion of useful vehicle (the shuttle) to the orbit-busting mechanism (the rocket boosters and fuel tanks) is a staggering 5.4:1 (based on liftoff weight).
 
 Command-line parsing in code exhibits a similar disproportion. The interesting part of your app isn't the command-line parsing. Why should it take up such a disproportionate amount of space in your code? Those boosters quickly become "space-junk", once the launch vehicle has left Earth; expensive trash that is never to be used again.

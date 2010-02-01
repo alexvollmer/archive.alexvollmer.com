@@ -14,7 +14,7 @@ toc: true
 
 It takes a brave author to give a book this title and keep it at 150 pages. The number of jokes about the proportionality of the "good parts" to the size of the book are endless. Be that as it may, when I saw this book at the [Powell's](http://www.powells.com/) stand at [RailsConf '08](http://en.oreilly.com/rails2008), I figured anything written by Crockford on the subject of JavaScript was probably worth taking a look at.
 
-![](http://ecx.images-amazon.com/images/I/41bum-QsrNL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg)
+<img src="/images/2008/08/javascript.jpg" class="left"/>
 
 Given the diminutive nature of the the book, I suspect the author was attempting to do for JavaScript what Kernighan and Richie did for C with their book. I found an abused first edition copy of that C book and it taught me more about C than any other book. It is a triumph of restrained, focused technical writing (for other examples check out any of Kent Beck's books). At times I felt that some chapters in "The Good Parts" were superfluous, but I imagine that they were included for completeness if nothing else. For example, the second-longest chapter in the book is about the grammar of the language. While important, it seems disproportionately large to rest of the contents.
 

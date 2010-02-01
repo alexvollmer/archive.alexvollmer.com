@@ -18,7 +18,7 @@ and the parsed values be handled by two different objects?
 
 Changes:
 
-0.0.6 / 2008-07-10
+### 0.0.6 / 2008-07-10
 
 * Fixed a bug with getting the 'remainder' when only flags are declared.
 

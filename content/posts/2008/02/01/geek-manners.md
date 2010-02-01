@@ -51,6 +51,3 @@ At this point our two devs have moved into the closing stage of their conversati
 To be sure, there was still the regular one-upsmanship in the story-telling phase, but the atmosphere had tangibly improved. What was fascinating about this final exchange was the need for the long ramp-down of story-swapping as way of expressing, "I'm sorry I was short with you. I think you're a smart guy and I hope you think I'm one too".
 
 Quite frankly, I amazed that any of us ever get married at all.
-
-
-[Geekery](http://technorati.com/tag/Geekery)

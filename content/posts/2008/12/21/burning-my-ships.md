@@ -10,10 +10,9 @@ tags:
 - philosophy
 toc: true
 -----
-<blockquote>
-  When Columbus reached the New World, he burned his ships. As a result his men were well-motivated.
-</blockquote>
-<a href="http://www.amazon.com/Hunt-Red-October-Blu-ray/dp/B001AII4SQ%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001AII4SQ">![](http://ecx.images-amazon.com/images/I/51x%2B1Yxrb9L._SL160_.jpg)</a>
+>  When Columbus reached the New World, he burned his ships. As a result his men were well-motivated.
+
+<a href="http://www.amazon.com/Hunt-Red-October-Blu-ray/dp/B001AII4SQ%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001AII4SQ"><img src="http://ecx.images-amazon.com/images/I/51x%2B1Yxrb9L._SL160_.jpg" class="left"/></a>
 
 This quote comes from the character of Marko Ramius, as played by Sean Connery, from one of my all-time favorite films, "The Hunt for Red October". I love that quote in particular because I always think of it whenever I decide to tweak my process, my work environment or my tools. For all but the most trivial changes, you usually have to immerse yourself in it. So I usually "burn my ships" by leaving behind the old way of doing things to really burn the new way into my brain.
 
@@ -37,7 +36,8 @@ So what's the point of all of this? Am I just thrashing? Am I desperately throwi
 
 So, from time to time, a little alarm goes off inside my brain to remind me that it's time for a change. Sometimes it's something as simple as changing my terminal or editing font. Other times it's things like learning a [new](http://erlang.org/ Erlang) [language](http://developer.apple.com/cocoa/ Cocoa). Regardless, all of these things keep me from getting mentally lazy. Once I get mentally complacent, it's game over. So consider if perhaps it's time to "burn some ships" just keep things interesting.
 
-![Changed my keys around to Dvorak](http://farm4.static.flickr.com/3006/3113807315_77d2aa278c_m.jpg)
+<img alt="Changed my keys around to Dvorak" src="http://farm4.static.flickr.com/3006/3113807315_77d2aa278c_m.jpg" class="right"/>
+
 Good heavens, some day I may even do something as crazy as switch to a Dvorak keyboard layout. That just might make my head explore&#8212;in a good way.
 
 <div style="clear: both;"></div>

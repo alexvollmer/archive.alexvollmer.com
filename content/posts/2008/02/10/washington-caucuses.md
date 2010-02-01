@@ -21,9 +21,8 @@ Like most of Washington State Democrats, our precinct was overwhelmingly for Bar
 
 The first was that the sense of change that Senator Obama would bring to the nation is one that is desperately needed. The second is that having Senator Clinton in the Whitehouse would lead to four years of fractious fighting with the Republicans which would prevent the nation from addressing the stack of dire issues we face.
 
-![IMG_0183.JPG](/images/2008/02/img-0183.jpg)
+<img src="/images/2008/02/img-0183.jpg" class="right"/>
 
 After we voted a couple of times, the final tally was held. We then split into the two camps. The Clinton camp needed to select one delegate to send to the city caucus and the Obama camp needed four delegates. At this point my wife and daughter left because Audrey, bless her heart, hung in like a trooper but was starting to fade. A Tootsie-pop can only take a kid so far. I stuck around for what I thought would be a lengthy delegate-selection process but what, in fact, only took about ninety seconds to decide. We selected four delegates and four backups in record time which sort of made up for the previous hour's worth of bumbling.
 
 We'll see how the race turns out as this primary/caucus season unfolds, but it was certainly exciting to participate in the process and feel like it mattered.
-[Personal](http://technorati.com/tag/Personal)

@@ -10,7 +10,7 @@ tags:
 - evri
 toc: true
 -----
-![photo 5.jpg](/images/2009/08/photo-5.jpg)
+<img src="/images/2009/08/photo-5.jpg" class="left"/>
 
 I just wanted to make a quick announcement that the [iPhone app](http://evriverse.evri.com) I've been building at [work](http://evri.com) just released a major update today. It's in the App Store and it's free. Check it out.
 

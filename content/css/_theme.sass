@@ -15,13 +15,24 @@ body
   text-align: center
   font-family: Helvetica, Arial, Sans-Serif
 
-
 a
   text-decoration: none
   color = !link_color
 
   &:hover
     color = !hover_color
+
+img
+  border: 1px solid #ababab
+  padding: 3px
+
+img.left
+  margin: 7px 7px 7px 0
+  float: left
+
+img.right
+  margin: 7px 0 7px 7px
+  float: right
 
 #wrap
   margin: 0 auto
@@ -32,7 +43,7 @@ a
   position: relative
 
 #wrap, #footercontent
-  width: 770px
+  width = !std_width
 
 #footercontent
   padding: 10px
@@ -256,12 +267,12 @@ td
 
 
 #post
-  margin-left: 37px
-  width: 700px
-
   p
     line-height: 160%
     margin: 0 0 .65em 0
+
+  ul, ol
+    margin-left: 37px
 
   #date
     float: left
@@ -280,7 +291,7 @@ td
     font-size: 11px
     line-height: 35px
     font-family: "presicav-1","presicav-2"
-    width: 100%
+    width = !std_width
     text-align: right
 
   br
@@ -288,7 +299,6 @@ td
 
 
 #archive, #tags
-  padding-left: 37px
   list-style-type: none
 
 

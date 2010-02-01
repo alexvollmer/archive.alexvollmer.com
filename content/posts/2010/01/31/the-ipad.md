@@ -7,7 +7,7 @@ tags:
 - apple
 - UX
 -----
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/IPad-01.jpg/250px-IPad-01.jpg" alt="iPad" style="float: left;">
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/IPad-01.jpg/250px-IPad-01.jpg" alt="iPad" class="left">
 After letting the dust settle around Apple's announcement of the iPad,
 I wanted to take a more measured, less reactionary look at the new
 device. The coverage that immediately followed the announcement was
@@ -40,7 +40,7 @@ where Apple controls every single thing that goes on a device.
 
 <img
 src="http://cache.gawker.com/assets/images/jalopnik/2009/02/obama-state-of-the-union.jpg"
-alt="The Prez" style="float: left; height: 162px; width: 293px;"/>
+alt="The Prez" class="left" style="height: 162px; width: 293px;"/>
 I'm not aware of anything in the President's address that said every
 man, woman and child in the U.S. was going to be forced to use an
 iPad. As far as I know, people are still free to choose whether or not
@@ -59,7 +59,7 @@ they would charge a lot less for their products.
 <a href="http://arstechnica.com/tech-policy/news/2010/01/protestors-ipad-is-nothing-more-than-a-golden-calf-of-drm.ars">
 <img
 src="http://static.arstechnica.com/01-27-2010/apple-ipad-protest.jpg"
-alt="iPad Protest" style="float: right; width: 132px; height: 202px;"/>
+alt="iPad Protest" class="right" style="width: 132px; height: 202px;"/>
 </a>
 Besides calling the iPad a freedom-killer, the other category of
 critiques were that the device was simply disappointing. This reaction
@@ -122,7 +122,7 @@ means to an end.
 This is a different enough device that people will have to change
 their thinking about their relationship with their computers. I don't
 think it means a comprimising relationship, but one that is different
-from today. Frasier Speirs eloquently called the inability to
+from today. Fraser Speirs eloquently called the inability to
 comprehend this shift as [Future
 Shock](http://speirs.org/blog/2010/1/29/future-shock.html).
 

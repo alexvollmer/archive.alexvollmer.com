@@ -21,5 +21,3 @@ Changes:
 ### 1.0.1 / 2009-01-06
 
 * Fixed a bug where generating help resulted in an infinite-loop
-
-*

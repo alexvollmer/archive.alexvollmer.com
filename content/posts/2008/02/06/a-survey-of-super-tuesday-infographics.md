@@ -57,7 +57,8 @@ This is the table from the front page of National Public Radio's page. This tabl
 This table was a nice compact little sidebar on NPR's Super Tuesday coverage page. This is probably the best delegate information I found out of any of the sites surveyed here.
 
 ![Picture 8.png](/images/2008/02/picture-8.png)
-*CNN*
+
+## CNN
 
 I have to come clean and admit that I simply can't stand CNN. It's always on and has so little useful content. The election coverage I've seen to-date has some of the glitziest, lowest-density graphics in their live broadcasts of any I've seen. The touch displays are merely a cover up for the fact that the content is empty and newscasters cannot improv. However, I have to give CNN credit with this tabular display. Not fantastic, but at least no wasted space on graphics.
 
@@ -90,4 +91,3 @@ Sigh...
 By now you've probably figured out that I think the inclusion of visual geographic information is superfluous. The state images take a third of each state's space for information. Other than the letter and color, which indicate the candidate and party, this space doesn't help me. I can tell that the box is about California because it is titled "California" at the top. The inclusion of state images seems like a weak attempt to "spice up" the presentation of the data.
 
 This graphic gives us the usual percentages, including the percentage of precincts reporting, and the total delegates which is helpful. However, since each state apportions delegates differently, we can't really tell how important a margin of victory is in a particular state. I can't really harp on MSNBC for this, nobody included that level of detail in the graphic summaries.
-[Information Design](http://technorati.com/tag/Information%20Design)

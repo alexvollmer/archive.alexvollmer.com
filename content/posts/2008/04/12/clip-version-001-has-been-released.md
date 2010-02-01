@@ -20,9 +20,5 @@ Changes:
 
 ### 0.0.1 / 2008-04-10
 
-
-  <li>
-    Initial release for y&#8217;all to throw rotten veggies at.
-
-  </li>
+* Initial release for y'all to throw rotten veggies at.
 

@@ -11,7 +11,7 @@ tags:
 - sports
 toc: true
 -----
-![Walter Payton](http://media-2.web.britannica.com/eb-media/91/95591-004-36D62DDD.jpg)
+<img alt="Walter Payton" src="http://media-2.web.britannica.com/eb-media/91/95591-004-36D62DDD.jpg" class="left"/>
 
 I've been a football fan since I was about five years old. I have studied this game for almost thirty years, so forgive me if I bore you all with a trite football analogy. This is the old saw known as "fast vs. quick". Players like Barry Sanders or Walter Payton were "quick", but not necessarily fast. In general, "fast" guys are wide receivers and corner-backs (the guys that cover the receivers). Receives generally have further to run than running backs, so they need what is called "breakaway speed" which is enough raw power to get away from the defender covering them.
 

@@ -21,7 +21,7 @@ Let me give you a quick 30,000 foot overview of things coming in Rails 2.0.
 
 # REST-ful Resources are the New World Order
 
->  "The world of resources is a better, greener place" -- DHH
+>  "The world of resources is a better, greener place" &mdash; DHH
 
 REST will be the default way things are done in 2.0, meaning that there will be more default notions built-in to support the style.
 

@@ -9,7 +9,8 @@ tags:
 - apple
 toc: true
 -----
-![Photo 2](/images/2008/02/photo-2.jpg)
+
+<img src="/images/2008/02/photo-2.jpg" class="left"/>
 
 This is all I walked out of the local Apple Store with today. No unnecessary bag. No receipt I have to dispose of securely. Just the product I wanted and a friendly little "Thank you" sticker. If all stores were like this, I might actually like to shop.
 

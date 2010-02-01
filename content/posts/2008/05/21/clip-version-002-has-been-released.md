@@ -18,7 +18,7 @@ and the parsed values be handled by two different objects?
 
 Changes:
 
-=== 0.0.2 / 2008-05-20
+### 0.0.2 / 2008-05-20
 
 * Cleaned up README
 * Added support for late-binding option processing with blocks

@@ -27,7 +27,9 @@ Note that last point. That there is what we in the biz call _pragmatism_. Yes ki
 Critics of automated testing like to point out that if developers write buggy code, how can they not write buggy tests? Assuming that it's as impossible to write perfect tests as it is to write perfect code, is there a point to writing the test? There is if the benefits you get from testing exceed the cost of developing and maintaing them.
 
 # Test-Driven Design/Behavior-Driven Design
-![Marysville Falls](http://farm4.static.flickr.com/3084/2906603525_eea04c7769_m.jpg)
+
+<img alt="Marysville Falls" src="http://farm4.static.flickr.com/3084/2906603525_eea04c7769_m.jpg" class="left"/> 
+
 The TDD/BDD philosophies are nearly as abstract and misunderstood as the entire concept of testing itself. So rather than parrot the original manifestos, let me break down the tangible benefits of driving your code with tests. The first misconception is the notion that you write all the tests first then you write all the code. This works almost as well as gathering all the requirements up front first and then writing all the code. I believe the technical term is "Waterfall". This is just dumb. Honestly folks, use your brains. Only a complete rookie would think that's a sensible practice to adopt.
 
 Putting testing before writing code provides no magical effect that radically increases the quality of your code. Where testing _does_ improve your code is when you use them as part of the code-building process. I like to use unit-tests as a form of mental scaffolding while I develop.

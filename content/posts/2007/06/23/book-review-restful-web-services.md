@@ -13,7 +13,7 @@ toc: true
 _Leonard Richardson &amp; Sam Ruby_
 
 
-<a href="http://www.amazon.com/RESTful-Web-Services-Leonard-Richardson/dp/0596529260%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596529260">![](http://ecx.images-amazon.com/images/I/51Nz4opT4RL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg)</a>I picked this book up from the [Powell's](http://www.powells.com/ A must-see site in Portland, OR) booth while at [RailsConf 2007](http://conferences.oreillynet.com/rails/ RailsConf 2007). I had been following the online manuscript for a while and as soon as I saw that the book was in print I snapped it right up. I wasn't the only one either. REST was a very hot topic at RailsConf and I saw a lot of other attendees with a copy under their arm.
+<a href="http://www.amazon.com/RESTful-Web-Services-Leonard-Richardson/dp/0596529260%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596529260"><img src="/images/2007/06/restful-web-services.jpg" class="left"/></a>I picked this book up from the [Powell's](http://www.powells.com/ A must-see site in Portland, OR) booth while at [RailsConf 2007](http://conferences.oreillynet.com/rails/ RailsConf 2007). I had been following the online manuscript for a while and as soon as I saw that the book was in print I snapped it right up. I wasn't the only one either. REST was a very hot topic at RailsConf and I saw a lot of other attendees with a copy under their arm.
 
 I've been keenly interested in REST for about the last year and a half. I've read
 

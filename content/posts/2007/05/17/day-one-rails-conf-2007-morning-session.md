@@ -11,7 +11,7 @@ tags:
 - railsconf
 toc: true
 -----
-Update: 2007-05-19 -- Jason posted a PDF of his presentation [here](http://media.joyent.com/JHoffmanRailsConf-May2007.pdf).
+Update: 2007-05-19 &mdash; Jason posted a PDF of his presentation [here](http://media.joyent.com/JHoffmanRailsConf-May2007.pdf).
 
 Jason Hoffman, CTO of Joyent, gave a (mostly) fascinating session on scalability of Ruby on Rails. Here's the news-flash: Rails is only a tiny part of a large scale deployment. He started off the talk with a couple of points I really take to heart: large-scale apps are not achieved in their first iteration. They are realized in the fifteenth to twentieth iterations. Put another way, he said that "...the road to a top site on the internet is not from one iteration". A premature decision to mold the architecture without a real pain point _and_ test data to back it up is as likely (if not more likely) to send you down the path to hell that solve any real problem.
 

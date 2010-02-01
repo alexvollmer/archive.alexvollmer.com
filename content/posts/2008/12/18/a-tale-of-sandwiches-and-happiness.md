@@ -9,7 +9,8 @@ tags:
 - philosophy
 toc: true
 -----
-![Seattle2008-87](http://farm4.static.flickr.com/3228/3096590905_8ccb3341e4_m.jpg)
+<img src="http://farm4.static.flickr.com/3228/3096590905_8ccb3341e4_m.jpg" class="left"/>
+
 Yesterday the city of Seattle was paralyzed by the fear of snow (which arrived today). As a result downtown was a ghost-town. That meant that we could get sandwiches from [Salumi](http://www.salumicuredmeats.com/ Salumi! Yum!) (one of Seattle's culinary gems) in less than the usual hour-long wait.
 
 Even on a "quiet" day, the process still took about thirty minutes to order, receive and pay for our sandwiches. As we walked back to the office we started chatting about ways they could be faster. They could make sure that people are paying as quickly as they are getting their sandwiches made. They could make sure that the full menu is displayed further back in the line so customers know what they want as they arrive.

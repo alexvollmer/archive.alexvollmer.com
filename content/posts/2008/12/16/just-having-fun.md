@@ -16,9 +16,8 @@ Anyway, one day it occurred to me that it would be funny (to me at least) to hav
 
 This leads to one of the pillars of my personal philosophy:
 
-<blockquote>
-  Amuse yourself first, worry about your audience later.
-</blockquote>
+> Amuse yourself first, worry about your audience later.
+
 I wrote this primarily because it make me laugh&#8230;a lot. I don't know why. It's dumb, it's juvenile and it's _totally_ worth the $10 I paid to register the domain-name.
 
 But stupid-hippy jokes don't make up the whole picture. The other half of this fun little excursion was figuring out how to do this with as little code as possible. At first I wrote this as a flat [Merb](http://merbivore.com/ Merb) application. Unfortunately I wanted to host this on Dreamhost and they are still on Ancient Ruby (read, 1.8.5) and the newest Merb wants 1.8.6. That was a deal-breaker. So then I took a look at [Sinatra](http://sinatra.rubyforge.org/ Sinatra!), and just like the bobby-soxers of the 40's I fell in love. Sigh&#8230;

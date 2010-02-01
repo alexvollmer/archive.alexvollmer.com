@@ -11,11 +11,11 @@ tags:
 - information design
 toc: true
 -----
-<a href="http://www.amazon.com/About-Face-Essentials-Interaction-Design/dp/0470084111%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470084111">![](http://ecx.images-amazon.com/images/I/41PoEitkH1L._SL160_.jpg)</a>Alan Cooper's _About Face_ is one of those pillars of UI/UX design, the reading of which is a rite of passage. I figured few books would be more appropriate as a capstone to my long list of design-oriented reads. It is nearly an institution in and of itself. Last night I turned the final page and ticked a pretty big 560-page book off of my reading list.
+<a href="http://www.amazon.com/About-Face-Essentials-Interaction-Design/dp/0470084111%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470084111"><img src="http://ecx.images-amazon.com/images/I/41PoEitkH1L._SL160_.jpg" class="left"/></a>
+
+Alan Cooper's _About Face_ is one of those pillars of UI/UX design, the reading of which is a rite of passage. I figured few books would be more appropriate as a capstone to my long list of design-oriented reads. It is nearly an institution in and of itself. Last night I turned the final page and ticked a pretty big 560-page book off of my reading list.
 
 There was enough material in this book that I adopted a new habit of using small post-its to mark important passages. This was helpful not only in referring back to earlier material in the book, but also in cementing some of the concepts in my head. This practice was so useful I've started doing it with other books too.
-
-
 
 ![DSC_0124.JPG](http://livollmers.net/wp-content/uploads/2008/07/dsc-0124.jpg)
 
@@ -28,7 +28,9 @@ Secondly this is a _long_ book. I'm not convinced it really needed to be this lo
 A big part of Cooper's philosophy is the focus on Goal-Oriented Design. The first part of the book spends a significant amount of ink describing the concepts of personas, goals and user research. As a developer I couldn't help but feel that a lot of this was [Big Design Up Front](http://c2.com/xp/BigDesignUpFront.html BDUF). "Just let the arch-priests of interaction design get it all working and _then_ hand it off to the developers", they say. Hmmm, my experience tells me otherwise. To be fair, the authors attempt to address in the afterword of the book. But still...
 
 Once goal-oriented design is out of the way, the book picks up significantly by covering such concepts as the "excise" (tax) that systems place on humans, how people get into "flow" and how bad software can remove them from it or prevent it. One of my favorite little gems is a discussion of possible vs. probable. While it's _possible_ that a user may want to choose one option over another, in cases where one option is disproportionately chosen over the other (the _probable_) use a default with an override. Think of how many times you've had to answer the same question over and over. It's pretty irritating, no?
-![](http://upload.wikimedia.org/wikipedia/en/thumb/6/69/Magic_Cap_OS.gif/300px-Magic_Cap_OS.gif)
+
+<img src="http://upload.wikimedia.org/wikipedia/en/thumb/6/69/Magic_Cap_OS.gif/300px-Magic_Cap_OS.gif" class="left"/>
+
 Another great section is the discussion of metaphor. Of the book's numerous examples, the ones demonstrating bad metaphor really shine. General Magic's Magic Cap interface is an absolute nightmare of conflicting messages and unnecessary navigation. What do these icons mean? If I rub the lamp do I get three wishes? If I push the rubber stamp am I getting notarized or checking out a book? Just what the hell is going on here?
 
 Cooper describes Magic Cap's failure as an over-reliance on _global metaphor_, where the system is essentially trapped in its slavish adherence to its metaphor. The rubber-stamp is there because real desks have rubber-stamps. But the need to be consistent with the desk metaphor weakens the interaction.
@@ -43,7 +45,9 @@ With this idea in mind the final eleven chapters of the book provide a fantastic
 
 Another important theme in the last section is just how far software really needs to come to meet users. The authors review example after example of "computer-first" design where the user seems be treated as a necessary irritant. One of my favorite passages in the entire book is on the topic of wizards: "Programmers like wizards because they get to treat users as peripheral devices."
 
-![S6300279](http://farm4.static.flickr.com/3108/2694787797_3c7d0ffb93_m.jpg)Another chapter is devoted just to disk storage and how most of our idioms around disk storage should really be the computer's problem, not the users. At first this kind of talk seems like the crazy guy in Hyde Park, but after some reflection I think he's right. There is an awful lot of software that couldn't care less about the user. We can do better than this. We _should_ do better than this.
+<img src="http://farm4.static.flickr.com/3108/2694787797_3c7d0ffb93_m.jpg" class="left"/>
+
+Another chapter is devoted just to disk storage and how most of our idioms around disk storage should really be the computer's problem, not the users. At first this kind of talk seems like the crazy guy in Hyde Park, but after some reflection I think he's right. There is an awful lot of software that couldn't care less about the user. We can do better than this. We _should_ do better than this.
 
 One technical detail of the book that I just love is how they integrate images with captions. A particular pet peeve of mine is when images and captions seemed to be dropped into the text in willy-nilly fashion with little regard to the reader's flow. When figures that are referred to in the text aren't placed close to the text, I have to context switch and try not to lose my place. I either have to remember to look at the figure soon, or I have to switch to the figure immediately and then find my place back in the text. It drives me nuts. Whoever did the layout for _About Face 3_ obviously thought about the usability of the text. God bless you, whoever you may be.
 

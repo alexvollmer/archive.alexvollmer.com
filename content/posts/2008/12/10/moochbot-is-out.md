@@ -9,7 +9,8 @@ tags:
 - moochbot
 toc: true
 -----
-![localhost.png](http://moochbot.com/images/logo.png)
+
+<img alt="moochbot" src="http://moochbot.com/images/logo.png" class="left"/>
 
 The secret side-project that I've been referring to in various posts finally reached its Version One milestone tonight. I closed out the remaining V1 issues off of my to-do list and suddenly realized that I could turn it loose on the world. So, without further ado, I present to you: [moochbot](http://moochbot.com moochbot  track what you lend and borrow). Check it out and see what I've been up to all this time.
 
