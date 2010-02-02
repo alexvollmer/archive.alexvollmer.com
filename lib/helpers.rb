@@ -39,3 +39,28 @@ end
 def include_post_body(post)
   get_post_body(post).children.map{ |x| x.to_s }.join(" ")
 end
+
+def blog_tab_link
+  link = "<li"
+  link << ' class="hal"' if @item.identifier.match(%r[^/($|posts/|tags/)]) rescue ''
+  link << "><a href=\"/\">Blog</a></li>"
+  link
+end
+
+def projects_tab_link
+  link = "<li"
+  link << ' class="hal"' if @item.identifier.match(%r[^/projects/]) rescue ''
+  link << ">"
+  link << '<a href="/projects/">Projects</a>'
+  link << "</li>"
+  link
+end
+
+def contact_tab_link
+  link = "<li"
+  link << ' class="hal"' if @item.identifier.match(%r[^/contact/]) rescue ''
+  link << ">"
+  link << '<a href="/contact/">Contact</a>'
+  link << "</li>"
+  link
+end
