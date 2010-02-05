@@ -1,11 +1,22 @@
 #!/usr/bin/env ruby
 
+preprocess do
+  system "rsync -gprt --partial assets/ output"
+  create_tag_pages
+  create_date_pages
+end
+
 compile '/css/*' do
   filter :sass, {
     :load_paths => [Dir.pwd + "/content/css"],
     :full_exception => true,
     :line_numbers => true
   }
+end
+
+compile %r[/posts/\d{4}(/\d{2})?/$] do
+  rep.filter :haml
+  rep.layout 'home'
 end
 
 compile '/posts/*' do
@@ -18,13 +29,20 @@ compile '/feeds/*' do
   rep.filter :erb
 end
 
-compile '/*' do
-  rep.filter :erb
-  rep.filter :rdiscount
-  rep.layout 'home'
-end
-
 compile '*' do
+  filter_map = {
+    '.erb' => :erb,
+    '.haml' => :haml,
+    '.md' => :rdiscount,
+    '.markdown' => :rdiscount,
+    nil => :haml
+  }
+
+  file_filter = filter_map[item.extension]
+  raise "Filter is not configured for file extension #{item.extension} in Rules file." if file_filter.nil?
+
+  filter file_filter
+  layout 'home' unless item[:layout] == "none"
 end
 
 route '/feeds/rss_092.xml.erb' do
@@ -43,4 +61,4 @@ route '*' do
   item.identifier + 'index.html'
 end
 
-layout '*', :erb
+layout '*', :haml

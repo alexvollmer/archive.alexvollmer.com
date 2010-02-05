@@ -1,0 +1,15 @@
+---
+---
+#items
+  %h2
+    .title
+      Posts tagged
+      "#{tag}"
+    .backlink
+      %a{ :href => "/tags/#{tag}/" } all tags
+  %ul
+    - items_with_tag(tag).each do |item|
+      %li
+        %a{:href => "/posts/#{item.full_path}" }
+          =item.title
+        %abbr= "(#{item.short_date})"

@@ -64,3 +64,36 @@ def contact_tab_link
   link << "</li>"
   link
 end
+
+def create_tag_pages
+  tags = []
+  tag_set(items).each do |tag|
+    items << Nanoc3::Item.new("= render('_tag_page', :tag => '#{tag}')",
+                              { :title => "Category: #{tag}" },
+                              "/tags/#{tag}/")
+  end
+
+  items << Nanoc3::Item.new("= render('_all_tags')",
+                            { :title => "All tags" },
+                            "/tags/")
+end
+
+def create_date_pages
+  post_years(items).each do |year|
+    items << Nanoc3::Item.new("= render('_posts_by_year', :year => #{year})",
+                              { :title => "All posts for #{year}" }, "/posts/#{year}/")
+
+    (1..12).each do |month|
+      title = "All posts for #{Date::MONTHNAMES[month]}"
+      backlink = "<a href='/posts/#{year}/'>all for #{year}</a>"
+      full_path = sprintf("/posts/%04d/%02d/", year, month)
+
+      items << Nanoc3::Item.new("= render('_posts_by_month', :year => #{year}, :month => #{month})",
+                                {
+                                  :title => title,
+                                  :backlink => backlink
+                                },
+                                full_path)
+    end
+  end
+end

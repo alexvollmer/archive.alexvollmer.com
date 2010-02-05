@@ -1,0 +1,19 @@
+-----
+-----
+- render 'home' do
+  #post
+    %h2
+      %a{ :href => "/posts/#{@item.full_path}/" }
+        = @item.title
+    #date
+      published
+      = @item.short_date
+    #tags
+      filed under:
+      - @item.tags.each do |tag|
+        %a{ :href => "/tags/#{tag}/" }
+          = tag
+          \&nbsp;
+    %br
+    #content
+      = yield

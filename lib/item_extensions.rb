@@ -35,6 +35,18 @@ class Nanoc3::Item
     [self.date_str, sprintf("%02d", self.day), self.permalink].join("/")
   end
 
+  def extension
+    self[:extension] ||= (File.extname(self[:file].path) rescue nil)
+  end
+
+  def article?
+    "article" == attributes[:kind]
+  end
+
+  def tags
+    attributes[:tags] || []
+  end
+
   # normally we'd implement respond_to?, but we want missing
   # attributes to just fallback to whatever is in the attributes
 

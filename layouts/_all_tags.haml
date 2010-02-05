@@ -1,0 +1,13 @@
+-----
+-----
+#items
+  %h2
+    .title All tags
+    .backlink &nbsp;
+  %ul
+    - tag_set(@items).sort_by {|t| t.downcase}.each do |tag|
+      %li
+        %a{ :href => "/tags/#{tag}/" }
+          = tag
+        %abbr
+          = "(#{items_with_tag(tag).size})"

@@ -1,0 +1,16 @@
+-----
+-----
+#items
+  %h2
+    .title= @item.title
+    .backlink
+      %a{ :href => "/posts/#{@year}/" }
+        all posts for
+        = @year
+  %ul
+    - posts_by_date(@year, @month).each do |post|
+      %li
+        %a{ :href => "#{post.full_path}/" }
+          = post.title
+        %abbr
+          = "(#{post.short_date})"

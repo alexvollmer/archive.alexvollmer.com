@@ -1,0 +1,67 @@
+---
+---
+!!! Strict
+%html{ "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+      Alex Vollmer dot com
+    %script{ :type => "text/javascript", :src => "/js/ung0eni.js" }
+    %style{ :type => "text/css" }
+      \.tk-presicav{font-family:"presicav-1","presicav-2",sans-serif;}
+    %link{ :href => "/css/ung0eni-standards.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      try{Typekit.load();}catch(e){}
+    %link{ :href => "/css/main.css", :rel => "stylesheet", :type => "text/css" }
+  %body
+    #wrap
+      #shim
+      #head
+        %h1
+          %a{ :href => "/" }
+            Alex
+            %br
+            Vollmer
+        %ul#nav
+          = blog_tab_link
+          = projects_tab_link
+          = contact_tab_link
+        %br.clear
+      = yield
+      #push
+    #footertrim
+      \&nbsp;
+    #footer
+      #footercontent
+        %table
+          %tbody
+            %tr{ :valign => "top" }
+              %th{ :scope => "col" }
+                Blogroll
+              %td
+                %a{ :href => "#" }
+                  Coding Horror
+                |
+                %a{ :href => "#" }
+                  Loud Thinking
+                |
+                %a{ :href => "#" }
+                  Martin Fowler's Bliki
+                |
+                %a{ :href => "#" }
+                  Nuby on Rails
+                |
+                %a{ :href => "#" }
+                  Reign of Error
+                |
+                %a{ :href => "#" }
+                  Technomancy
+                |
+                %a{ :href => "#" }
+                  User Primary Blog
+            %tr{ :valign => "top" }
+              %th
+                Posts
+              %td
+                = articles.map { |a| a.created_at.year }.uniq.sort.map do |year| %Q[<a href="/posts/#{year}/">#{year}</a>] end.join(" | ")
+      #tkloadung0eni{ :style => "display: none;" }
