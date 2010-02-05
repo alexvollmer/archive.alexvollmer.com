@@ -4,8 +4,6 @@ require "pathname"
 require "pp"
 require "lib/utils"
 
-include SiteUtils
-
 namespace :site do
 
   task :load_site do
