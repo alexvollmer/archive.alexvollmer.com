@@ -31,4 +31,7 @@ task :test do
   get "/posts/2010/"
   get "/posts/2010/01/"
   get "/posts/2010/01/31/the-ipad/"
+  get "/feeds/atom.xml"
+  get "/feeds/rss_2_0.xml"
+  get "/feeds/rss_0_9_2.xml"
 end

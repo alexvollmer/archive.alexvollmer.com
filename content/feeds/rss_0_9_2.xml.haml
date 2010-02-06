@@ -1,0 +1,28 @@
+---
+layout: none
+---
+!!! XML
+%rss{ :version => "0.92" }
+  %channel
+    %title
+      alexvollmer.com
+    %link
+      http://alexvollmer.com
+    %description
+      Latest posts from Alex Vollmer
+    %lastbuilddate
+      = format_rfc822_date @site.time
+    %docs
+      http://backend.userland.com/rss092
+    %language
+      en
+    - @site.articles.each do |post|
+      %item
+        %title
+          :cdata
+            #{post.title}
+        %description
+          :cdata
+            #{include_post_summary(post)}
+        %link
+          = "http://alexvollmer.com/posts/#{post.full_path}/"

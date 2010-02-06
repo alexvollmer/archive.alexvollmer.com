@@ -13,6 +13,9 @@
     %script{ :type => "text/javascript" }
       try{Typekit.load();}catch(e){}
     %link{ :href => "/css/main.css", :rel => "stylesheet", :type => "text/css" }
+    %link{ :rel => "alternate", :type => "application/rss+xml", :title => "RSS 2.0", :href => "http://alexvollmer.com/feeds/rss_2_0.xml" }
+    %link{ :rel => "alternate", :type => "text/xml", :title => "RSS .92", :href => "http://alexvollmer.com/feeds/rss_0_9_2.xml" }
+    %link{ :rel => "alternate", :type => "application/atom+xml", :title => "Atom 0.3", :href => "http://alexvollmer.com/feeds/atom.xml" }
   %body
     #wrap
       #shim

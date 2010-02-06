@@ -7,8 +7,7 @@ def format_rfc822_date(date)
 end
 
 def get_post_body(post)
-  html = BlueCloth.new(post.raw_content).to_html
-  doc = Nokogiri.HTML(html)
+  doc = Nokogiri.HTML(post.content)
   (doc/"body")
 end
 

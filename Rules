@@ -25,10 +25,6 @@ compile '/posts/*' do
   rep.layout 'post'
 end
 
-compile '/feeds/*' do
-  rep.filter :erb
-end
-
 compile '*' do
   filter_map = {
     '.erb' => :erb,
@@ -43,10 +39,6 @@ compile '*' do
 
   filter file_filter
   layout 'home' unless item[:layout] == "none"
-end
-
-route '/feeds/rss_092.xml.erb' do
-  "/feeds/rss/"
 end
 
 route '/feeds/*' do

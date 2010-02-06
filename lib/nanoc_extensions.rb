@@ -1,3 +1,12 @@
+class Nanoc3::Site
+  def articles
+    items.select { |i| i.article? }.sort_by { |a| a.created_at }.reverse
+  end
+
+  def time
+    self.articles.sort_by { |a| a.created_at }.last.created_at
+  end
+end
 
 class Nanoc3::Item
   def name
@@ -45,6 +54,10 @@ class Nanoc3::Item
 
   def tags
     attributes[:tags] || []
+  end
+
+  def content
+    self.reps[0].content_at_snapshot(:pre)
   end
 
   # normally we'd implement respond_to?, but we want missing

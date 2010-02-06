@@ -1,0 +1,44 @@
+---
+layout: none
+---
+!!! XML
+%rss{ "xmlns:wfw" => "http://wellformedweb.org/CommentAPI/", "xmlns:atom" => "http://www.w3.org/2005/Atom", "xmlns:sy" => "http://purl.org/rss/1.0/modules/syndication/", :version => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/", "xmlns:slash" => "http://purl.org/rss/1.0/modules/slash/" }
+  %channel
+    %title
+      Alex Vollmer
+    %atom:link{ :href => "http://alexvollmer.com/feed/", :rel => "self", :type => "application/rss+xml" }
+    %link
+      http://alexvollmer.com
+    %description
+      Latest posts from Alex Vollmer
+    %lastbuilddate
+      = format_rfc822_date(@site.time)
+    %language
+      en
+    %sy:updateperiod
+      hourly
+    %sy:updatefrequency
+      1
+    - @site.articles.each do |post|
+      %item
+        %title= post.title
+        %link
+          = "http://alexvollmer.com/posts/#{post.full_path}/"
+        %comments
+          = "http://alexvollmer.com/posts/{post.full_path}/#comments"
+        %pubdate
+          = format_rfc822_date(post.created_at)
+        %dc:creator
+          alex
+        - post.tags.each do |tag|
+          %category
+            :cdata
+              #{tag}
+        %guid{ :ispermalink => "false" }
+          = "http://alexvollmer.com/posts/#{post.full_path}/"
+        %description
+          :cdata
+            #{include_post_summary(post)}
+        %content:encoded
+          :cdata
+            #{post.content}
