@@ -1,0 +1,44 @@
+-----
+title: Projects
+layout: home
+-----
+#feature
+  %ul
+    %li#github.project
+      %a.featured-link{ :href => "http://github.com/alexvollmer", :target => "_new" }
+        %span &nbsp;
+      %ul
+    %li#peepcode.project
+      %a.featured-link{ :href => "http://peepcode.com", :target => "_new" }
+        %span &nbsp;
+      %ul
+        %li
+          %a{ :href => "http://peepcode.com/products/meet-macruby", :target => "_new" } MacRuby
+          %p
+            Learn to write "real" Mac OS X applications in Ruby
+        %li
+          %a{ :href => "http://peepcode.com/products/iphone-view-controllers-part-i", :target => "_new" } iPhone View Controllers Pt. I
+          %p
+            The first in a series, this screencast covers
+            view controllers in iPhone OS.
+        %li
+          %a{ :href => "http://peepcode.com/products/iphone-view-controllers-part-ii", :target => "_new" } iPhone View Controllers Pt. II
+          %p
+            The second part of our coverage of view controllers.
+        %li
+          %a{ :href => "http://peepcode.com/products/iphone-views-i", :target => "_new" } iPhone Views Pt. I
+          %p
+            This screencast introduces UIKit and the palette of 
+            built-in classes it provides.
+    %li#moochbot{ :class => "project last" }
+      %a.featured-link{ :href => "http://moochbot.com", :target => "_new" }
+        %span moochbot
+      %p
+        I built moochbot to help you keep track of things
+        you lend and borrow with friends, family and colleagues.
+      %p
+        To learn more, check it out at
+        %a{ :href => "http://moochbot.com", :target => "_new" } http://moochbot.com
+  %br.clear
+
+%script{ :type => "text/javascript", :src => "http://github.com/api/v2/json/repos/show/alexvollmer?callback=renderGitHub" }
