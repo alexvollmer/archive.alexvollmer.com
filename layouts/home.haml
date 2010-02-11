@@ -36,40 +36,4 @@
           = contact_tab_link
         %br.clear
       = yield
-      #push
-    #footertrim
-      \&nbsp;
-    #footer
-      #footercontent
-        %table
-          %tbody
-            %tr{ :valign => "top" }
-              %th{ :scope => "col" }
-                Blogroll
-              %td
-                %a{ :href => "#" }
-                  Coding Horror
-                |
-                %a{ :href => "#" }
-                  Loud Thinking
-                |
-                %a{ :href => "#" }
-                  Martin Fowler's Bliki
-                |
-                %a{ :href => "#" }
-                  Nuby on Rails
-                |
-                %a{ :href => "#" }
-                  Reign of Error
-                |
-                %a{ :href => "#" }
-                  Technomancy
-                |
-                %a{ :href => "#" }
-                  User Primary Blog
-            %tr{ :valign => "top" }
-              %th
-                Posts
-              %td
-                = articles.map { |a| a.created_at.year }.uniq.sort.map do |year| %Q[<a href="/posts/#{year}/">#{year}</a>] end.join(" | ")
-      #tkloadung0eni{ :style => "display: none;" }
+    #tkloadung0eni{ :style => "display: none;" }

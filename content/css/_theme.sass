@@ -36,18 +36,13 @@ img.right
 
 #wrap
   margin: 0 auto
-  margin-bottom = -(!footer_height + !footertrim_height)
   height: auto !important
   height: 100%
   min-height: 100%
   position: relative
 
-#wrap, #footercontent
+#wrap
   width = !std_width
-
-#footercontent
-  padding: 10px
-  margin: auto
 
 #shim
   height: 20px
@@ -238,32 +233,6 @@ h2
       &:hover
         color = !hover_color
 
-
-#footertrim
-  background-image: url(/images/footer-trim.png)
-  background-repeat: repeat-x
-  height = !footertrim_height
-  font-size: 5px
-
-#push
-  margin-top: 15px
-
-#footer, #push
-  height = !footer_height
-  clear: both
-
-#footer
-  background-image: url(/images/footer-bg.png)
-  background-repeat: repeat-x
-  background-color: black
-  padding: 0
-  margin: 0 auto
-  width: 100%
-  color: #795237
-  font-size: 13px
-  line-height: 140%
-  position: relative
-
 th
   width: 120px
   color = !tan
@@ -275,13 +244,6 @@ th
 
 td
   padding-bottom: 20px
-
-
-#footer a
-  color: #c2aa9a
-
-  &:hover
-    color = !hover_color
 
 
 #post
