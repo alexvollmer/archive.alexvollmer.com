@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 preprocess do
-  system "rsync -gprt --partial assets/ output"
+  system "rsync -gprt --partial public/ output"
   create_tag_pages
   create_date_pages
 end
