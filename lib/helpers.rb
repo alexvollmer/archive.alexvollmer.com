@@ -33,7 +33,7 @@ end
 def blog_tab_link
   link = "<li"
   link << ' class="hal"' if @item.identifier.match(%r[^/($|posts/|tags/)]) rescue ''
-  link << "><a href=\"/\">Blog</a></li>"
+  link << "><a href=\"/\">Writing</a></li>"
   link
 end
 
@@ -48,9 +48,9 @@ end
 
 def contact_tab_link
   link = "<li"
-  link << ' class="hal"' if @item.identifier.match(%r[^/contact/]) rescue ''
+  link << ' class="hal"' if @item.identifier.match(%r[^/about/]) rescue ''
   link << ">"
-  link << '<a href="/contact/">Contact</a>'
+  link << '<a href="/about/">About</a>'
   link << "</li>"
   link
 end

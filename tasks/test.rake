@@ -25,6 +25,8 @@ desc "Test that a representative sample of the site renders correctly"
 task :test do
   # should check to see if it's already running?
   get "/"
+  get "/projects/"
+  get "/about/"
   get "/tags/"
   get "/tags/ruby/"
   get "/posts/"
