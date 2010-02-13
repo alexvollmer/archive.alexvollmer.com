@@ -5,6 +5,8 @@
     %h2
       %a{ :href => "/posts/#{@item.full_path}/" }
         = @item.title
+      %a#comment_count{ :href => "/posts/#{@item.full_path}/\#disqus_thread" }
+        comments
     #date
       published
       = @item.short_date
@@ -17,3 +19,6 @@
     %br
     #content
       = yield
+
+  %a{ :name => "disqus_thread", :id => "disqus_thread_link" }
+    = render "_disqus"

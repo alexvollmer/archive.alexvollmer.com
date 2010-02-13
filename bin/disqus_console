@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require "irb"
+
+require "rubygems"
+require "disqus"
+require "disqus/api"
+require "disqus/forum"
+require "disqus/thread"
+
+class Disqus::Api
+  class << self
+    alias_method :old_post, :post
+    def post(path, *args)
+      unless path =~ /\/$/
+        path = "#{path}/"
+      end
+      old_post(path, *args)
+    end
+  end
+end
+
+Disqus::defaults[:api_key] = "UePGFAkhiTbJELXX1CO1j1SpPoA59H61RT74xvlBa3OC1ErM755mjUbz7WxHtChg"
+
+@blog = Disqus::Forum.list.first
+
+IRB.start

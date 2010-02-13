@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "disqus"
+require "disqus/api"
+require "disqus/forum"
+require "disqus/thread"
+
+require "sequel"
+
+class Disqus::Api
+  class << self
+    alias_method :old_post, :post
+    def post(path, *args)
+      unless path =~ /\/$/
+        path = "#{path}/"
+      end
+      old_post(path, *args)
+    end
+  end
+end
+
+def get_comments(db, post_id)
+  db[:wp_comments].where(:comment_post_ID => post_id,
+                         :comment_approved => 1).map do |c|
+    {
+      :id     => c[:id],
+      :author => c[:comment_author].to_s,
+      :body   => c[:comment_content].to_s,
+      :url    => c[:comment_author_url].to_s,
+      :email  => c[:comment_author_email].to_s,
+      :date   => c[:comment_date_gmt]
+    }
+  end
+end
+
+def post_date(datetime)
+  # 2009-03-30T15:41
+  datetime.utc.strftime('%Y-%m-%dT%H:%M')
+end
+
+db = Sequel.mysql("wordpress")
+
+dataset = db[:wp_posts].
+  where(:post_status => "publish",
+        :post_type => "post").
+  order(:ID)
+
+Disqus::defaults[:api_key] = "UePGFAkhiTbJELXX1CO1j1SpPoA59H61RT74xvlBa3OC1ErM755mjUbz7WxHtChg"
+
+blog = Disqus::Forum.list.first
+
+dataset.each do |post|
+  comments = get_comments(db, post[:ID])
+  unless comments.empty?
+    permalink =
+    puts "-" * 80
+    post_date = post[:post_date]
+    url = sprintf("http://alexvollmer.com/posts/%04d/%02d/%02d/%s/",
+                  post_date.year,
+                  post_date.month,
+                  post_date.day,
+                  post[:post_title].downcase.gsub(/\s/, '-'))
+    t = Disqus::Api.thread_by_identifier(:forum_api_key => blog.key,
+                                         :title => post[:post_title],
+                                         :identifier => url)
+
+    puts t.inspect
+
+    # print "Created comments for #{permalink} "
+    comments.each do |comment|
+      puts Disqus::Api.create_post(:forum_api_key => blog.key,
+                              :thread_id => t["message"]["thread"]["id"],
+                              :message => comment[:body],
+                              :author_name => comment[:author],
+                              :author_email => comment[:email],
+                              :created_at => post_date(comment[:date]),
+                              :author_url => comment[:url]).inspect
+      # print "."
+    end
+    # puts ""
+  end
+end
