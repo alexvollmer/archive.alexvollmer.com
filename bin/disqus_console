@@ -23,5 +23,10 @@ end
 Disqus::defaults[:api_key] = "UePGFAkhiTbJELXX1CO1j1SpPoA59H61RT74xvlBa3OC1ErM755mjUbz7WxHtChg"
 
 @blog = Disqus::Forum.list.first
+class << @blog
+  def reload
+    @blog = Disqus::Forum.list.first
+  end
+end
 
 IRB.start
