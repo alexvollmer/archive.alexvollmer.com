@@ -5,6 +5,9 @@ layout: home
 #blog
   %h2
     Recent Posts
+    .right
+      %a{ :href => "/posts/" } all posts
+      %a{ :href => "/tags/" } all tags
   - articles.reverse[0...3].each do |post|
     .post
       .postmeta

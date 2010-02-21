@@ -48,6 +48,10 @@ class Nanoc3::Item
     [self.date_str, sprintf("%02d", self.day), self.permalink.split("/").last].join("/")
   end
 
+  def parent_path
+    self.full_path.split("/")[0..-3].join("/")
+  end
+
   def extension
     self[:extension] ||= (File.extname(self[:file].path) rescue nil)
   end

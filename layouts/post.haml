@@ -9,7 +9,7 @@
         comments
     #date
       published
-      = @item.short_date
+      %a{ :href => "/posts/#{@item.parent_path}/" }= @item.short_date
     #tags
       filed under:
       - @item.tags.each do |tag|
