@@ -47,6 +47,10 @@ compile '*' do
   layout 'home' unless item[:layout] == "none"
 end
 
+route '/missing' do
+  "/missing.html"
+end
+
 route '/feeds/*' do
   "/feeds/" + item.name + ".xml"
 end
