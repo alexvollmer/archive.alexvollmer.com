@@ -6,6 +6,10 @@ class Nanoc3::Site
   def time
     self.articles.sort_by { |a| a.created_at }.last.created_at
   end
+
+  def article_count_for_year(year)
+    items.select { |i| i.article? && i.created_at.year == year }.size
+  end
 end
 
 class Nanoc3::Item
@@ -41,7 +45,7 @@ class Nanoc3::Item
   end
 
   def full_path
-    [self.date_str, sprintf("%02d", self.day), self.permalink].join("/")
+    [self.date_str, sprintf("%02d", self.day), self.permalink.split("/").last].join("/")
   end
 
   def extension

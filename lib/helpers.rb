@@ -69,7 +69,11 @@ def create_tag_pages
 end
 
 def create_date_pages
-  post_years(items).each do |year|
+  years = post_years(items)
+  items << Nanoc3::Item.new("= render('_all_post_years', :years => #{years.inspect})",
+                            { :title => "All years" }, "/posts/")
+
+  years.each do |year|
     items << Nanoc3::Item.new("= render('_posts_by_year', :year => #{year})",
                               { :title => "All posts for #{year}" }, "/posts/#{year}/")
 

@@ -15,6 +15,11 @@ compile '/css/*' do
   }
 end
 
+compile "/posts/" do
+  rep.filter :haml
+  rep.layout 'home'
+end
+
 compile %r[/posts/\d{4}(/\d{2})?/$] do
   rep.filter :haml
   rep.layout 'home'
