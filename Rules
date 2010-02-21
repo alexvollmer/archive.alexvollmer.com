@@ -2,6 +2,7 @@
 
 preprocess do
   system "rsync -gprt --partial public/ output"
+  system "cp #{File.join(File.dirname(__FILE__), ".htaccess")} output"
   create_tag_pages
   create_date_pages
 end

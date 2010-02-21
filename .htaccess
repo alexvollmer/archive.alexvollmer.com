@@ -1,2 +1,5 @@
 RewriteEngine ON
-RewriteRule ^index.php/(.*) /$1 [L]
+RewriteRule ^index.php/feed/ /feeds/rss_2_0.xml [R]
+RewriteRule ^index.php/feed/rss/ /feeds/rss_0_9_2.xml [R]
+RewriteRule ^index.php/feed/atom/ /feeds/atom.xml [R]
+RewriteRule ^index.php/(.*) /posts/$1 [R]
