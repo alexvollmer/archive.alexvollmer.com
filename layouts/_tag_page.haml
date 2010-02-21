@@ -6,7 +6,7 @@
       Posts tagged
       "#{tag}"
     .backlink
-      %a{ :href => "/tags/#{tag}/" } all tags
+      %a{ :href => "/tags/" } all tags
   %ul
     - items_with_tag(tag).each do |item|
       %li
