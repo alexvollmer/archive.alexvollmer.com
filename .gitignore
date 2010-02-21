@@ -3,3 +3,4 @@ tmp
 content/tags
 .sass-cache
 logs
+deploy.yaml
