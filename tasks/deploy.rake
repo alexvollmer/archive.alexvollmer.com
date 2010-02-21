@@ -8,7 +8,7 @@ task :deploy, :doit, :needs => ["site:build"] do |t, args|
   host = config["host"]
   root = config["root"]
   dry = args.doit ? "" : "--dry-run"
-  cmd = "rsync -av #{dry} #{output_dir}/ #{user}@#{host}:#{root}"
+  cmd = "rsync -av --delete #{dry} #{output_dir}/ #{user}@#{host}:#{root}"
   system "#{cmd}"
   msg = args.doit ? "sync complete" : "DRY RUN finished, rerun with rake deploy[true]"
   puts msg
