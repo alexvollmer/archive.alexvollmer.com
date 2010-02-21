@@ -5,6 +5,7 @@ require "disqus"
 require "disqus/api"
 require "disqus/forum"
 require "disqus/thread"
+require "nanoc3"
 
 require "sequel"
 
@@ -16,6 +17,18 @@ class Disqus::Api
         path = "#{path}/"
       end
       old_post(path, *args)
+    end
+
+    # original version would "raise" the given Hash. WTF??!
+    def update_thread(opts = {})
+      JSON.parse(post('update_thread',
+                      :forum_api_key  => opts[:forum_api_key],
+                      :thread_id      => opts[:thread_id],
+                      :title          => opts[:title],
+                      :slug           => opts[:slug],
+                      :url            => opts[:url],
+                      :allow_comments => opts[:allow_comments])
+                 )
     end
   end
 end
@@ -39,6 +52,12 @@ def post_date(datetime)
   datetime.utc.strftime('%Y-%m-%dT%H:%M')
 end
 
+def post_map
+  site = Nanoc3::Site.new(File.join(File.dirname(__FILE__), ".."))
+  site.load_data
+  Hash[*site.articles.map { |a| [a.title, a.identifier] }.flatten]
+end
+
 db = Sequel.mysql("wordpress")
 
 dataset = db[:wp_posts].
@@ -48,34 +67,47 @@ dataset = db[:wp_posts].
 
 Disqus::defaults[:api_key] = "UePGFAkhiTbJELXX1CO1j1SpPoA59H61RT74xvlBa3OC1ErM755mjUbz7WxHtChg"
 
-blog = Disqus::Forum.list.first
+blog = Disqus::Forum.list.find { |f| f.shortname == "alexvollmersite" }
 
+posts = post_map
 dataset.each do |post|
   comments = get_comments(db, post[:ID])
   unless comments.empty?
-    permalink =
     puts "-" * 80
-    post_date = post[:post_date]
-    url = sprintf("http://alexvollmer.com/posts/%04d/%02d/%02d/%s/",
-                  post_date.year,
-                  post_date.month,
-                  post_date.day,
-                  post[:post_title].downcase.gsub(/\s/, '-'))
+    uri = post_map[post[:post_title]]
+    if uri.nil?
+      STDERR.puts "No URI for '#{post[:post_title]}"
+      next
+    end
+
+    permalink = "http://alexvollmer.com#{uri}"
+    puts "Comments for #{permalink}:"
+
     t = Disqus::Api.thread_by_identifier(:forum_api_key => blog.key,
                                          :title => post[:post_title],
-                                         :identifier => url)
+                                         :identifier => permalink)
 
     puts t.inspect
+    if t["message"]["created"] == false
+      STDERR.puts "Thread already exists, moving on"
+      next
+    end
+
+    # TODO: this doesn't appear to be updating the thread's URL
+    Disqus::Api.update_thread(:forum_api_key => blog.key,
+                              :thread_id => t["message"]["thread"]["id"],
+                              :url => permalink)
 
     # print "Created comments for #{permalink} "
     comments.each do |comment|
+      puts "    #{comment[:email]} -- #{comment[:body][0..50]}"
       puts Disqus::Api.create_post(:forum_api_key => blog.key,
-                              :thread_id => t["message"]["thread"]["id"],
-                              :message => comment[:body],
-                              :author_name => comment[:author],
-                              :author_email => comment[:email],
-                              :created_at => post_date(comment[:date]),
-                              :author_url => comment[:url]).inspect
+                                   :thread_id => t["message"]["thread"]["id"],
+                                   :message => comment[:body],
+                                   :author_name => comment[:author],
+                                   :author_email => comment[:email],
+                                   :created_at => post_date(comment[:date]),
+                                   :author_url => comment[:url]).inspect
       # print "."
     end
     # puts ""

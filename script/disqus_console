@@ -1,32 +1,13 @@
 #!/usr/bin/env ruby
 
 require "irb"
+require File.join(File.dirname(__FILE__), "disqus")
 
-require "rubygems"
-require "disqus"
-require "disqus/api"
-require "disqus/forum"
-require "disqus/thread"
+API_KEY = "UePGFAkhiTbJELXX1CO1j1SpPoA59H61RT74xvlBa3OC1ErM755mjUbz7WxHtChg"
+FORUM_ID = 293790
 
-class Disqus::Api
-  class << self
-    alias_method :old_post, :post
-    def post(path, *args)
-      unless path =~ /\/$/
-        path = "#{path}/"
-      end
-      old_post(path, *args)
-    end
-  end
-end
+@blog = Disqus.new(API_KEY, FORUM_ID)
 
-Disqus::defaults[:api_key] = "UePGFAkhiTbJELXX1CO1j1SpPoA59H61RT74xvlBa3OC1ErM755mjUbz7WxHtChg"
-
-@blog = Disqus::Forum.list.first
-class << @blog
-  def reload
-    @blog = Disqus::Forum.list.first
-  end
-end
-
+puts "Blog object is @blog"
+puts @blog.inspect
 IRB.start
