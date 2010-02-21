@@ -18,9 +18,10 @@ The second-generation acolytes turned a very pragmatic set of principles and pra
 A real unfortunate side-effect of the backlash is the disregard some have for automated testing. Before I go any further, let me be the first to say that, like any other recommendation or practice, automated testing is _not_ a panacea. I shouldn't have to say this. It's painfully obvious, like explicitly stating up front that I am against beating up defenseless children. Who _is_?
 
 However, just because automated testing isn't a cure-all doesn't mean that:
-*  testing isn't worth doing
-*  testing isn't hard
-*  sometimes testing is so hard that it isn't worth doing
+
+  *  testing isn't worth doing
+  *  testing isn't hard
+  *  sometimes testing is so hard that it isn't worth doing
 
 Note that last point. That there is what we in the biz call _pragmatism_. Yes kids, there are times when the cost of getting sufficient test-coverage is enormously expensive. Assuming that economics are part of your project somehow, you need to pay attention to this (which is why code coverage metrics can be dangerous in the hands of the nuance-free thinker).
 
@@ -99,8 +100,7 @@ If I've written my tests well, I can get back into that focused frame of mind wh
 
 This kind of confidence has a real tangible benefit. Without it I'm easily distracted by small details and dead-ends. As soon as I have more I have to worry about at once, I have less of a chance of succeeding at the task at hand in that moment. When I have such a thing in place, I have an instant force-multiplier in my hand. I can get something done. I don't have to repeat the entire experience of developing the code the first time. Instead I can leverage that experience to be more productive the next time I come back to that part of the system.
 
-Conclusion
-
+# Conclusion
 
 So there you have it. That's where I stand.
 

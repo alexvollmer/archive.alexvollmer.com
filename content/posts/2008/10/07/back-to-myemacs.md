@@ -33,6 +33,7 @@ Before I dropped out of college, my brief career in academic computer science wa
 This time I've made a concentrated effort to learn more about how Emacs works. I've been racing through the [O'Reilly Emacs book](http://www.amazon.com/Learning-Elliot-Raymond-Rosenblatt-Cameron/dp/B001E3G45M%3FSubscriptionId%3D0PZ7TM66EXQCXFVTMTR2%26tag%3Dhttplivollmne-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB001E3G45M) and this time _it makes sense_. I don't know what the hang-up was before, but this time it all seems so logical! The entire editor is simply a collection of ELisp functions and variables built on top of other functions and variables. It's all self-documented and incredibly dynamic. Wanna try something out? Just put a little Lisp in your `*scratch*` buffer and evaluate that sucker. Hell, in Eclipse I'd have to download the freakin' source and compile it or swim in XML writing an extension. That's _incredibly_ powerful&#8212;the barrier to "trying stuff out" is mind-bogglingly low.
 
 So while I've definitely take a short-term hit by trading in TextMate for Emacs, but I'm reaching productivity-parity pretty quickly. A couple of modes/libraries I've found that I've really liked are:
+
 *  [Steve Yegge's JS2 mode](http://code.google.com/p/js2-mode/ js2 Mode)
 *  [Rinari,](http://rinari.rubyforge.org/ Rinari Is Not a Rails IDE) for Rails
 *  [Org-mode](http://orgmode.org/ Org-mode)
@@ -41,6 +42,7 @@ So while I've definitely take a short-term hit by trading in TextMate for Emacs,
 I plan on spending some quality time with some of the various snippets libraries too to port over some of the templates that TextMate uses. For something like Rails development, which is about the most idiomatic programming I can imagine, having short-hand snippets is a major productivity boost.
 
 So why go through this? After all, switching editors can be like converting from Catholicism to Judaism for some. Well, I think I'm doing this because:
+
 *  I've already overcome the initial steep-learning curve of basic editing in Emacs
 *  I get a nice, no-commitment introduction to functional programming
 *  I get a great environment to learn new stuff in

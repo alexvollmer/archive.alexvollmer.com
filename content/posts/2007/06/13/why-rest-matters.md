@@ -46,6 +46,7 @@ You wouldn't have a single function that took an arbitrary number of parameters 
 # Your Checklist for Winning REST Arguments Around the Watercooler
 
 So let's sum this up into something you can print out, cut down to pocket-size and laminate and keep in your wallet:
+
 - REST is about resources. There are an infinite number of these, but a very finite number of things you can do with them.
 - This simplifying assumption makes client consumption of data simpler.
 - This simplifying assumption makes for cleaner resource design.

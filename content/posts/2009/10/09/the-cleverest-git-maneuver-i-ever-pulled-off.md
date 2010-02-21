@@ -16,12 +16,13 @@ This all works great&mdash;until it doesn't. The ability to stage parts of a fil
 But yesterday I must have had too much coffee because I was _determined_ to figure out how to do this. The changes that I wanted to split out were pretty easy to find. It was easy to remove them by hand and commit those. But I didn't want to have to manually add them _back_&mdash;that was too mistake-prone. What I needed was a way to invert the commit that removed those lines. What I needed was `git revert`. If I could revert my subtractions (in effect, _adding_ the changes back), then I could squash the commits and rewrite history.
 
 So here's what I did:
-1.  Started an interactive rebase session (`git rebase -i`)
-2.  Marked the commit I wanted to split as an "edit"
-3.  Manually removed the code I didn't want in the first commit, staged the changes and made a new commit
-4.  Revert the subtraction with `git revert HEAD`
-5.  Complete that rebase with `git rebase --continue`
-6.  Start a new rebase and squash the original commit with the manual changes one
+
+  1.  Started an interactive rebase session (`git rebase -i`)
+  2.  Marked the commit I wanted to split as an "edit"
+  3.  Manually removed the code I didn't want in the first commit, staged the changes and made a new commit
+  4.  Revert the subtraction with `git revert HEAD`
+  5.  Complete that rebase with `git rebase --continue`
+  6.  Start a new rebase and squash the original commit with the manual changes one
 
 Note that I didn't use `git reset` after step 2. It wouldn't have helped me because interactive staging wasn't working for me. I also marked all the commits in the second rebase as "edits", so I could fix the commit messages.
 

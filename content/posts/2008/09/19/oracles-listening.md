@@ -1,6 +1,6 @@
 ----- 
 kind: article
-permalink: oracles-listening%e2%80%a6
+permalink: oracles-listening
 created_at: 2008-09-19 16:17:51 -07:00
 title: Oracle's Listening&hellip;
 excerpt: ""

@@ -42,6 +42,8 @@ Since I have another year of Ruby and Rails experience under my belt, many more 
 
 Apparently the black t-shirt is king in the Rails community. Something like 99% of all attendees had black t-shirts on. Of the free t-shifts to be had, the GitHub tees were the only ones that weren't black. All of the others were red on black. So apparently the new black is, well, black. I'm hoping that nuclear orange makes a comeback next year. All-black is just a little too Depeche Mode for me.
 
+<div style="clear: both;"></div>
+
 # Portland: #
 
 <a href="http://www.flickr.com/photos/75756154@N00/2549373887/"><img alt="Voodoo Doughnuts Parade" src="http://farm3.static.flickr.com/2332/2549373887_7b29066b2a_m.jpg class="left"/></a>

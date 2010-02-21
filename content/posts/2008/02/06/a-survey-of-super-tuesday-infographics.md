@@ -12,13 +12,14 @@ toc: true
 On Super Tuesday, I forwent attending the usual Seattle Ruby Brigade meeting and stayed at home glued to the radio and TV keeping up on the primary and caucus results across the nation. I love the Public Radio/TV talking heads, but I was really lacking the overall picture. So I warmed up the Internet tubes and started searching for some helpful at-a-glance snapshot of the state of Super Tuesday.
 
 Here then, is an amateur's critique of the various infographics I tripped across. What I was looking for was something that would tell me:
-*  Margin of victory for each candidate
-*  Percentage of precincts reporting
-*  The number of delegates available
-*  The number of delegates each candidate won
-*  Clear indication of races that have finished, and those that have not.
-*  I want as much information as I can get in a small space
-*  I don't want to navigate through data
+
+  *  Margin of victory for each candidate
+  *  Percentage of precincts reporting
+  *  The number of delegates available
+  *  The number of delegates each candidate won
+  *  Clear indication of races that have finished, and those that have not.
+  *  I want as much information as I can get in a small space
+  *  I don't want to navigate through data
 
 ## The New York Times
 
