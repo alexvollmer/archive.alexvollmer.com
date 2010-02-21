@@ -1,0 +1,80 @@
+#!/usr/bin/env ruby
+
+require "yaml"
+require "rubygems"
+require "clip"
+require "highline/import"
+require "nanoc3"
+
+def usage(cmd, msg)
+  puts "USAGE: #{$0} #{cmd} #{msg}"
+  exit 1
+end
+
+def nanoc3_blog
+  if @site.nil?
+    @site = Nanoc3::Site.new(".")
+    @site.load_data
+  end
+  @site
+end
+
+def available_tags
+  (nanoc3_blog.tag_set << "new" << "")
+end
+
+def create_post(args)
+  puts args.inspect
+  name = args.empty? ? ask("New post title?  ") : args.shift
+  tags = args
+  if args.empty?
+    loop do
+      tag = ask("Tag?  ", available_tags) do |q|
+        q.readline = true
+      end
+      if tag == ""
+        break
+      elsif tag == "new"
+        tag = ask("New tag name?  ")
+      end
+      tags << tag
+    end
+  end
+
+  created_at = Time.now
+  path = sprintf("/posts/%04d/%02d/%02d/",
+                 created_at.year,
+                 created_at.month,
+                 created_at.day)
+  permalink = "#{path}#{name.downcase.gsub(' ', '-')}"
+
+  meta = {
+    "kind"       => "article",
+    "permalink"  => permalink,
+    "title"      => name,
+    "created_at" => created_at
+  }
+
+  file_path = "content/#{path}.md"
+  open(file_path, "w") do |f|
+    f.puts meta.to_yaml
+    f.puts "---"
+    f.puts "Content goes here"
+  end
+
+  `open #{file_path}
+end
+
+opts = Clip do |c|
+  c.flag 'v', 'verbose', :desc => 'Spew debug output'
+end
+
+command = opts.remainder.shift
+case command
+when "post"
+  create_post(opts.remainder)
+when nil
+  puts "USAGE: #{$0} COMMAND [ARGS...]"
+else
+  puts "Unrecognized command: #{command}"
+end
