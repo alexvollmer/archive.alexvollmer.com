@@ -1,10 +1,13 @@
 #!/usr/bin/env ruby
 
+require "fileutils"
 require "yaml"
 require "rubygems"
 require "clip"
 require "highline/import"
 require "nanoc3"
+
+include FileUtils
 
 def usage(cmd, msg)
   puts "USAGE: #{$0} #{cmd} #{msg}"
@@ -24,7 +27,6 @@ def available_tags
 end
 
 def create_post(args)
-  puts args.inspect
   name = args.empty? ? ask("New post title?  ") : args.shift
   tags = args
   if args.empty?
@@ -41,31 +43,38 @@ def create_post(args)
     end
   end
 
-  created_at = Time.now
+  created_at = Date.today
   path = sprintf("/posts/%04d/%02d/%02d/",
                  created_at.year,
                  created_at.month,
                  created_at.day)
-  permalink = "#{path}#{name.downcase.gsub(' ', '-')}"
+
+  permalink = name.downcase.gsub(' ', '-')
 
   meta = {
     "kind"       => "article",
     "permalink"  => permalink,
     "title"      => name,
-    "created_at" => created_at
+    "created_at" => created_at,
+    "tags"       => tags
   }
 
-  file_path = "content/#{path}.md"
+  file_path = "content#{path}/#{permalink}.md"
+  parent_dir = File.dirname(file_path)
+  mkdir_p parent_dir unless File.directory? parent_dir
   open(file_path, "w") do |f|
     f.puts meta.to_yaml
     f.puts "---"
     f.puts "Content goes here"
   end
 
-  `open #{file_path}
+  puts "Wrote to #{file_path}"
+
+  `open #{file_path}`
 end
 
 opts = Clip do |c|
+  c.banner = "COMMAND is one of 'post'"
   c.flag 'v', 'verbose', :desc => 'Spew debug output'
 end
 
