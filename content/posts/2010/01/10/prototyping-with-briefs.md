@@ -22,11 +22,12 @@ Let's look at how it works. We're going to start with the goal of prototyping th
 
 Before we do anything, we need to get Briefs on our local machine. Briefs is distributed in source-only form via [GitHub](http://github.com/capttaco/Briefs). You'll need to find a nice place to check out the two main Briefs project, then do the following:
 
+<% highlight :sh do %>
 $ git clone git://github.com/capttaco/Briefs.git
 $ git clone git://github.com/capttaco/Briefs-util.git
 $ cd Briefs
 $ git submodule update -i
-
+<% end %>
 
 In order to put our first Brief together, we need to build a command-line tool that is part of the Briefs project. Open the Xcode project in the Briefs folder (`Briefs.xcodeproj`) and select the "Briefs Compactor" target and set the architecture to "Base SDK".
 

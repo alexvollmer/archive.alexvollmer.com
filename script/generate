@@ -43,7 +43,7 @@ def create_post(args)
     end
   end
 
-  created_at = Date.today
+  created_at = Time.now
   path = sprintf("/posts/%04d/%02d/%02d/",
                  created_at.year,
                  created_at.month,

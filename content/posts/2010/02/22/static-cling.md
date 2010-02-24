@@ -4,7 +4,7 @@ title: Static Cling
 kind: article
 tags: 
 - blog
-created_at: 2010-02-22
+created_at: 2010-02-22 17:40:40 -08:00
 ---
 Lord knows why, but in the last couple of months I felt compelled to
 move off of Wordpress and onto one of those new static content
