@@ -2,19 +2,22 @@
 ----- 
 @import definitions
 
-.highlight
-  +code_font
-  +default_border
-  padding: 5px
-  margin: 5px 0
-  overflow: auto
-
-
 code
   +code_font
 
-
 .highlight
+  color: #efefef
+  +code_font
+  border: solid 3px black
+  background-color: #262626
+  background-image: url(/images/scanlines.png) 
+  background-repeat: repeat-x repeat-y
+  padding: 10px
+  margin: 5px 0
+  overflow: auto
+  -moz-border-radius: 8px
+  -webkit-border-radius: 8px
+
   .hll
     background-color: #ffffcc 
 
@@ -24,8 +27,8 @@ code
   .err
     border: 1px solid #FF0000 
 
-  .k
-    color: #0000ff 
+  .k, .ow,   .kc, .kd, .kn, .kp, .kr
+    color: #4fabe2
 
   .cm
     color: #008000 
@@ -42,9 +45,6 @@ code
   .gh, .gp, .gs, .gu
     font-weight: bold 
 
-  .kc, .kd, .kn, .kp, .kr
-    color: #0000ff 
-
   .kt
     color: #2b91af 
 
@@ -54,8 +54,5 @@ code
   .nc
     color: #2b91af 
 
-  .ow
-    color: #0000ff 
-
   .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss
-    color: #a31515
+    color: #a82020
