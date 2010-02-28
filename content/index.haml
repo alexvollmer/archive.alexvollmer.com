@@ -18,8 +18,7 @@ layout: home
             = post.title
         %p
           = include_post_summary(post)
-        %p
-          %a{ :href => "/posts/#{post.full_path}/" }
+          %a{ :href => "/posts/#{post.full_path}/", :class => "read_more" }
             Read More
 #else
   #bookshelf

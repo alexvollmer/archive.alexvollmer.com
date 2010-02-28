@@ -22,8 +22,8 @@ def find_text_node(nodes)
 end
 
 def include_post_summary(post)
-  children = get_post_body(post).children
-  find_text_node(children)
+  p = get_post_body(post).css("body p:first")
+  p.inner_html
 end
 
 def include_post_body(post)
