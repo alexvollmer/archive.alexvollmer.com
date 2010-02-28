@@ -124,9 +124,11 @@ RAILS_ENV = ARGV.first
 require File.dirname(__FILE__) + '/../config/environment'
 
 Delayed::Worker.new.start
+<% end %>
 
-e "control" script looks like this:
+The "control" script looks like this:
 
+<% highlight :ruby do %>
 #!/usr/bin/env ruby
 
 require "rubygems"
@@ -142,7 +144,8 @@ def running?(pid)
     return true
   rescue Errno::ESRCH
     return false
-  rescue ::Exception   # for example on EPERM (process exists but does not belong to us)
+  rescue ::Exception
+    # for example on EPERM (process exists but does not belong to us)
     return true
   end
 end
