@@ -4,7 +4,7 @@ def get(uri)
   STDOUT.printf("GET %-50s", uri)
   STDOUT.flush
 
-  @http ||= Net::HTTP.new("localhost", 8080)
+  @http ||= Net::HTTP.new("alexvollmerlocal.com")
 
   result = begin
              response = @http.request(Net::HTTP::Get.new(uri))
