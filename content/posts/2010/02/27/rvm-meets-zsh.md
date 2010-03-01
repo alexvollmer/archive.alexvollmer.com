@@ -117,3 +117,16 @@ You may want to organize your functions differently. Just be aware
 that zsh needs to know about your functions before you can put them in
 the `chpwd_functions` array.
 
+_UPDATE (3/1/2010):_ Per comments below from RVM's creator, Wayne Seguin, RVM
+actually comes with it's own built-in way of handling this. Somehow I
+completely missed [the rvmrc
+documentation](http://rvm.beginrescueend.com/workflow/rvmrc/) for this
+feature (how embarassing!). I'm usually inclined to avoid re-inventing
+the wheel, but there are two small things I like about the way I
+implemented this. First, the solution proposed here doesn't redefine
+the `cd` command, which feels a bit like duck-punching the shell to
+me. I don't know if bash has the same kind of hooks that zsh does, so
+the implementation is understandable. As for me, I like the hooks
+better.  Second, the solution I show here works for any sub-directory
+within a project that has a specific RVM setting. That said, I'll
+probably just use what's already been implemented in RVM.
