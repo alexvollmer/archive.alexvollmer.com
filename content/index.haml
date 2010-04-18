@@ -1,3 +1,4 @@
+l11
 ---
 title: alexvollmer.com
 layout: home
@@ -8,7 +9,7 @@ layout: home
     .right
       %a{ :href => "/posts/" } all posts
       %a{ :href => "/tags/" } all tags
-  - articles.reverse[0...3].each do |post|
+  - @site.articles[0...3].each do |post|
     .post
       .postmeta
         = post.short_date

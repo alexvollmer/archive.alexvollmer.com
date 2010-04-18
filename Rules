@@ -36,11 +36,10 @@ compile '*' do
     '.erb' => :erb,
     '.haml' => :haml,
     '.md' => :rdiscount,
-    '.markdown' => :rdiscount,
-    nil => :haml
+    '.markdown' => :rdiscount
   }
 
-  file_filter = filter_map[item.extension]
+  file_filter = filter_map[item.extension] || :haml
   raise "Filter is not configured for file extension #{item.extension} in Rules file." if file_filter.nil?
 
   filter file_filter

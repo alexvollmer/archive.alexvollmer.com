@@ -18,7 +18,7 @@ def post_years(items=@items)
     i.attributes[:kind] == "article"
   end.map do |i|
     i.created_at.year
-  end.uniq
+  end.uniq.sort
 end
 
 
