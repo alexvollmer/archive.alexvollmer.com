@@ -8,5 +8,5 @@ include FileUtils
 root = Pathname(File.join(File.dirname(__FILE__), ".."))
 mkdir_p root + "logs"
 
-exec %Q[/opt/local/sbin/nginx -p #{root}/ -c #{root}/nginx.conf \
+exec %Q[/usr/local/sbin/nginx -p #{root}/ -c #{root}/nginx.conf \
 -g "error_log #{root}/logs/nginx.error.log; pid #{root}/logs/nginx.pid;"]
