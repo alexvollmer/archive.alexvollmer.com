@@ -6,6 +6,7 @@ created_at: 2010-01-31 08:12:05 -08:00
 tags:
 - apple
 - UX
+- ipad
 -----
 <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/IPad-01.jpg/250px-IPad-01.jpg" alt="iPad" class="left">
 After letting the dust settle around Apple's announcement of the iPad,
