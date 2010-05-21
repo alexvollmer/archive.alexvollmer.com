@@ -22,8 +22,7 @@ def find_text_node(nodes)
 end
 
 def include_post_summary(post)
-  p = get_post_body(post).css("body p:first")
-  p.inner_html
+  get_post_body(post).css("body p:first").first.inner_html
 end
 
 def include_post_body(post)
