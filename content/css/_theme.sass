@@ -1,5 +1,3 @@
------ 
------
 @import definitions
 
 *
@@ -11,19 +9,19 @@ html, body
   height: 100%
 
 body
-  background-color = !background
+  background-color: $background
   text-align: center
   +text-font
 
 h1, h2, h3, h4, h5
   +title-font
+  clear: both
 
 a
   text-decoration: none
-  color = !link_color
-
+  color: $link_color
   &:hover
-    color = !hover_color
+    color: $hover_color
 
 img
   border: 1px solid #ababab
@@ -48,19 +46,18 @@ img.right
   position: relative
 
 #wrap
-  width = !std_width
+  width: $std_width
 
 #shim
   height: 20px
 
 #head
-  color = !tan
+  color: $tan
   background-color: black
   background-image: url(/images/header.png)
   background-repeat: no-repeat
   height: 109px
   padding: 10px
-
   h1
     float: left
     font-size: 33px
@@ -68,12 +65,10 @@ img.right
     margin: 24px
     +title-font
     font-weight: 200
-
   ul
     float: right
     width: 350px
     margin: 40px 0 0 0
-
     li
       float: left
       margin: 0 40px 0 0
@@ -82,49 +77,37 @@ img.right
       text-transform: uppercase
       font-size: 12px
       +title-font
-
   a
-    color = !tan
-
+    color: $tan
     &:hover
-      color = !hover_color
-
+      color: $hover_color
   ul li.hal
-    color = !hover_color
+    color: $hover_color
     background-image: url(/images/hal.png)
     background-repeat: no-repeat
     background-position: center 17px
 
-
 #feature ul
   margin-top: 20px
-
   #github
     background: url(/images/github.png) no-repeat top
-
   #peepcode
     background: url(/images/peepcode.png) no-repeat top
-
   #moochbot
     background: url(/images/moochbot.png) no-repeat top
-
     p
       margin-top: 20px
-
   li.project
     float: left
     margin: 0 10px 0 0
     list-style-type: none
     height: 100%
     padding: 12px 0
-
     a
       +title-font
       font-size: 12px
-
     ul, p
       width: 245px
-
     ul
       li
         margin: 5px
@@ -142,10 +125,8 @@ img.right
   margin: 20px 0 0 20px
   font-size: 18px
 
-
 .last
   margin: 0 0 0 0 !important
-
 
 .clear
   clear: both
@@ -162,13 +143,12 @@ h2
   margin: 0 0 20px 0
   +title-font
 
-#blog 
+#blog
   h2
     font-size: 20px
     font-weight: 300
     letter-spacing: 4px
     text-transform: uppercase
-
     .right
       float: right
       a
@@ -176,18 +156,17 @@ h2
         text-transform: none
         text-spacing: none
         margin-left: 10px
-        color = !gray
+        color: $gray
 
 .post
   position: relative
   margin: 0 0 25px 0
 
-
 .postmeta
   position: absolute
   top: 0
   left: 0
-  color = !gray
+  color: $gray
   font-weight: bold
   font-size: 11px
   line-height: 35px
@@ -195,17 +174,14 @@ h2
 
 #about
   margin: 50px 0
-
   h3
     +title-font
     font-weight: normal
-    color = !link_color
+    color: $link_color
     font-size: 18px
     margin-top: 20px
-
   .section
     margin-bottom: 10px
-    
     p
       margin: 10px 0
 
@@ -222,17 +198,14 @@ h2
 
 .postbody
   margin: 0 0 0 267px
-
   h4
     +title-font
     font-weight: normal
-    color = !link_color
+    color: $link_color
     font-size: 18px
-
   p
     line-height: 160%
-    margin: 0 0 .65em 0
-
+    margin: 0 0 0.65em 0
   a.read_more
     margin-left: 10px
 
@@ -240,111 +213,90 @@ h2
   font-size: 18px
   font-weight: 300
 
-
 #bookshelf
   width: 250px
   float: left
 
-
 #twats
   margin: 0 0 0 260px
-
   h2 img
     float: right
     border: none
     margin: -10px 0 20px 20px
-
   ul li
     list-style-type: none
     margin: 0 0 10px 0
-
     a
-      color = !gray 
+      color: $gray
       display: block
-
     span a
-      color = !link_color
+      color: $link_color
       display: inline
-
       &:hover
-        color = !hover_color
+        color: $hover_color
 
 th
   width: 120px
-  color = !tan
+  color: $tan
   +title-font
   text-transform: uppercase
   font-size: 12px
   font-weight: 400
 
-
 td
   padding-bottom: 20px
 
-
 #post
   padding-bottom: 15px
-
   p
     line-height: 160%
-    margin: 0 0 .65em 0
-
+    margin: 0 0 0.65em 0
   ul, ol
     margin-left: 37px
-
   #date
     float: left
-    color = !gray
+    color: $gray
     font-weight: bold
     font-size: 11px
     line-height: 35px
     +title-font
     a
-      color = !gray
-
+      color: $gray
   h2
     margin-top: 18px
-
   #comment_count
     float: right
-    color = !gray
+    color: $gray
     font-size: 14px
     margin-top: 5px
-
   #tags
-    color = !gray
+    color: $gray
     font-weight: bold
     font-size: 11px
     line-height: 35px
     +title-font
-    width = !std_width
+    width: $std_width
     text-align: right
-
   br
     clear: both
 
-
 #archive, #tags
   list-style-type: none
-
 
 #archive li
   font-size: 18px
   padding-bottom: 9px
 
-
 #tags li
   font-size: 18px
   padding-bottom: 4px
 
-
 #archive abbr
   +title-font
-  color = !gray
+  color: $gray
   font-weight: bold
   font-size: 11px
   margin-left: 9px
-
 
 #static h2
   margin-top: 18px
@@ -352,14 +304,11 @@ td
 
 #items
   padding-top: 18px
-
   .title
     float: left
-
   .backlink
     width: 100%
     text-align: right
-
   ul
     font-size: 18px
     list-style: none
@@ -368,24 +317,34 @@ td
       abbr
         font-size: 14px
         font-style: italic
-        color = !gray
+        color: $gray
 
 #disqus_thread_link
   text-decoration: none
-  color = black
+  color: black
 
 #disqus_thread
   a:hover
     text-decoration: none
-    color = black
+    color: black
 
 a.attachment, a.attachment:hover
   background: url(/images/file.png) no-repeat top left
   padding-top: 42px
   font-weight: bold
-  color = gray
+  color: gray
   font-size: 12px
   float: right
   margin: 18px
   width: 160px
-  
+
+blockquote
+  margin-left: 18px
+  font-style: italic
+  +quote-font
+  border-top: 1px dashed #ddd
+  border-bottom: 1px dashed #ddd
+
+code
+  color: #444
+  font-weight: bold
