@@ -31,7 +31,7 @@ module TaggingExtra
   #restrict the search in the collection.
   def items_with_tag(tag, items=nil)
     items = @items if items.nil?
-    items.select { |item| has_tag?( item, tag ) }
+    items.select { |item| has_tag?( item, tag ) }.sort_by { |x| x.created_at }.reverse
   end
 
   #Count the tags in a given collection of items.
