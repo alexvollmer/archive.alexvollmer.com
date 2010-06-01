@@ -10,6 +10,6 @@
   %ul
     - items_with_tag(tag).each do |item|
       %li
-        %a{:href => "/posts/#{item.full_path}" }
+        %a{:href => "/posts/#{item.full_path}/" }
           =item.title
         %abbr= "(#{item.short_date})"
