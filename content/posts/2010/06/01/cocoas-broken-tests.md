@@ -131,33 +131,36 @@ garden to see what others have done. This is not something I've seen much,
 if any of, in the Cocoa community. Frankly, the dominant attitude seems to be
 one of snobbery and elitism. It's an unfortunate attitude that holds us all back.
 
-# Footnotes #
-
-<p>
+<h1 id="footnotes">Footnotes</h1>
+<ol>
+<li>
 <a name="note1"></a>
-1. Normally it wouldn't be fair to link to a five-year old post and call
+Normally it wouldn't be fair to link to a five-year old post and call
 it "representative" of a community's attitude, but I think for an insular
 group like Cocoa-nerds, this is totally reasonable.
 </p>
+</li>
 
-<p>
+<li>
 <a name="note2"></a>
-2. I'm not saying that I, personally, have encountered such a thing, but
+I'm not saying that I, personally, have encountered such a thing, but
 I don't think it's unreasonable to assume that the possibility <em>exists</em>.
-</p>
+</li>
 
-<p>
+<li>
 <a name="note3"></a>
-3. There is, of course, a pathological extreme to this line of thinking. That
+There is, of course, a pathological extreme to this line of thinking. That
 extreme is called <a href="http://www.springsource.org/" title="SpringSource.org |">Spring</a>.
-</p>
-<p>
-  
+</li>
+
+<li>  
 <a name="note4"></a>
-4. OK, I'll admit that iPhone development is a little different because of
+OK, I'll admit that iPhone development is a little different because of
 having to deal with the device vs. the simulator. Getting tests running on the
 device is a non-trivial exercise. But I'm not convinced that unit-tests have
 to run on the device. Yes, there are differences between the real and
 simulated environments, but those differences should be accounted for in
 <em>integration tests</em>&mdash;a topic I'm not going to address here.
-</p>
+</li>
+</ol>
+</div>
