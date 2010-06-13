@@ -22,7 +22,11 @@ def find_text_node(nodes)
 end
 
 def include_post_summary(post)
-  get_post_body(post).css("body p:first").first.inner_html
+  get_post_body(post).css("body p").find do |elem|
+    child = elem.children.first
+    grandchild = child.children.first
+    child.inner_html.strip !~ /\<img/
+  end.inner_html
 end
 
 def include_post_body(post)
