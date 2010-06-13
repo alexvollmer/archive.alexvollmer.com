@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+require "rubygems"
+require "highline/import"
+
+include FileUtils
+
+def publish_post(args)
+  drafts = File.join(File.dirname(__FILE__), "..", "drafts")
+  draft = if args.empty? 
+    File.join("drafts", choose(Dir["#{drafts}/*"].map{|d| File.basename(d)}))
+  else
+    args.shift
+  end
+  
+  puts "draft=#{draft}"
+  
+  dirname = File.join(File.dirname(__FILE__), "..", "content", "posts", 
+                      Date.today.strftime('%Y/%m/%d'))
+  puts "dirname=#{dirname}"
+                      
+  published = File.join(dirname, draft.sub(/^.*\/\d{4}-\d{2}-\d{2}-(.*)$/, "\1"))
+  
+  mkdir_p File.dirname(published)
+  mv draft, published
+  puts "Moved #{draft} to #{published}"
+end
+
+publish_post(ARGV)

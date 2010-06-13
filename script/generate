@@ -43,13 +43,13 @@ def create_post(args)
     end
   end
 
+  permalink = name.downcase.gsub(' ', '-')
   created_at = Time.now
-  path = sprintf("/posts/%04d/%02d/%02d/",
+  path = sprintf("%04d-%02d-%02d-%s",
                  created_at.year,
                  created_at.month,
-                 created_at.day)
-
-  permalink = name.downcase.gsub(' ', '-')
+                 created_at.day,
+                 permalink)
 
   meta = {
     "kind"       => "article",
@@ -59,7 +59,7 @@ def create_post(args)
     "tags"       => tags
   }
 
-  file_path = "content#{path}/#{permalink}.md"
+  file_path = "drafts/#{path}.md"
   parent_dir = File.dirname(file_path)
   mkdir_p parent_dir unless File.directory? parent_dir
   open(file_path, "w") do |f|
@@ -74,7 +74,7 @@ def create_post(args)
 end
 
 opts = Clip do |c|
-  c.banner = "COMMAND is one of 'post'"
+  c.banner = "COMMAND is one of: post"
   c.flag 'v', 'verbose', :desc => 'Spew debug output'
 end
 
