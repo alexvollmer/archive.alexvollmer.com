@@ -28,8 +28,15 @@ to the "Link Binary With Libraries" build phase of your unit tests. This
 [appears to have stopped working](http://www.mulle-kybernetik.com/forum/viewtopic.php?f=4&t=73 "Mulle kybernetiK &bull; Information"),
 so you have two options: you can include the OCMock source Xcode project
 and declare a build dependency on its static library target, or you can build
-the static library once and put the `OCMock.h` public header file somewhere
-accessible.
+the static library once and put the following header files somewhere accessible
+to your Xcode build:
+
+  * `NSNotificationCenter+OCMAdditions.h`
+  * `OCMArg.h`
+  * `OCMConstraint.h`
+  * `OCMock.h`
+  * `OCMockObject.h`
+  * `OCMockRecorder.h`
 
 I didn't want to rebuild the library over and over so I built the static 
 library once and put the `libOCMock.a` and `OCMock.h` files in a directory
