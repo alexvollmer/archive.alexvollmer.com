@@ -20,7 +20,7 @@ def publish_post(args)
                       Date.today.strftime('%Y/%m/%d'))
   puts "dirname=#{dirname}"
                       
-  published = File.join(dirname, draft.sub(/^.*\/\d{4}-\d{2}-\d{2}-(.*)$/, "\1"))
+  published = File.join(dirname, draft.sub(/^.*\/\d{4}-\d{2}-\d{2}-(.*)$/, $1))
   
   mkdir_p File.dirname(published)
   mv draft, published
