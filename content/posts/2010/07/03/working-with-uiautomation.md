@@ -375,13 +375,13 @@ definitely feels "first-class" compared to iCuke's implementation
 <sup><a href="#note5">5</a></sup>. Let's hope that we can bring the two
 approaches together to have one fantastic automation tool.
 
-One thing that none of these tools can really help you with is building
-reliable, repeatable test harnesses. One of the hardest parts of making good
-integration tests is setting up application state to test various modes of
-your application. This is one of the reasons why xUnit-style tests don't work
-well for automation. Too often people write fine-grained tests that have an
-implicit order, each test relying on the side-effects of the previous one. 
-This makes your tests highly-coupled and extremely brittle.
+One thing that <strike>none of these tools</strike> UI Automation can't really help you with
+is building reliable, repeatable test harnesses. One of the hardest parts of
+making good integration tests is setting up application state to test various
+modes of your application. This is one of the reasons why xUnit-style tests
+don't work well for automation. Too often people write fine-grained tests that
+have an implicit order, each test relying on the side-effects of the previous
+one. This makes your tests highly-coupled and extremely brittle.
 
 In my application I have a couple of initial application states to test. None
 of these tools provides much help for that. For now, I've chosen to sprinkle
