@@ -1,27 +1,60 @@
 #!/usr/bin/env ruby
 
 require "fileutils"
+require "yaml"
 require "rubygems"
 require "highline/import"
+require "nanoc3"
 
 include FileUtils
 
+def nanoc_site
+  @site = Nanoc3::Site.new(".")
+  @site.load_data
+  @site
+end
+
+def read_post(path)
+  attributes = {}
+  lines = File.readlines(path)
+  split_at = lines.find_index {|x| x =~ /^-+$/}
+  attributes = YAML.load(StringIO.new(lines[0..split_at].join("\n")))
+  content = lines[split_at + 1..-1]
+  [attributes, content]
+end
+
 def publish_post(args)
+  # choose the draft
   drafts = File.join(File.dirname(__FILE__), "..", "drafts")
   draft = if args.empty? 
-    choose(Dir["#{drafts}/*"]).first
+    choose(*Dir["#{drafts}/*"]).first
   else
     args.shift
   end
+
+  publish_date = Date.today
+
+  # now update the publish date
+  attrs, content = read_post(draft)
+  attrs["created_at"] = publish_date
   
+  # filesystem shenanigans
   dirname = File.join(File.dirname(__FILE__), "..", "content", "posts", 
-                      Date.today.strftime('%Y/%m/%d'))
+                      publish_date.strftime('%Y/%m/%d'))
                       
   published = File.join(dirname, 
                         draft.split('/').last.match(/^\d{4}-\d{2}-\d{2}-(.*)$/)[1])
   
   mkdir_p File.dirname(published)
-  mv draft, published
+  open(published, 'w') do |f|
+    f.puts attrs.to_yaml
+    f.puts '--- '
+    f.puts content
+  end
+  
+  rm draft
+
+  `touch #{File.join(File.dirname(__FILE__), '..', 'content', 'index.haml')}`
   puts "Moved #{draft} to #{published}"
 end
 
