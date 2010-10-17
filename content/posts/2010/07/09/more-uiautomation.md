@@ -5,6 +5,7 @@ kind: article
 tags: 
 - cocoa
 - TDD
+- uiautomation
 created_at: 2010-07-09 07:14:06.519853 -07:00
 ---
 

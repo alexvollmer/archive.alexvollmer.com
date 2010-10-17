@@ -7,6 +7,7 @@ tags:
 - iphone
 - TDD
 - cocoa
+- uiautomation
 --- 
 
 In my ongoing exploration of the UIAutomation tool, I've iterated several
