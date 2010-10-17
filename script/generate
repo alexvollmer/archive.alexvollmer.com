@@ -70,7 +70,7 @@ def create_post(args)
 
   puts "Wrote to #{file_path}"
 
-  `mate #{File.join(File.dirname(__FILE__), '..')}`
+  `$EDITOR #{File.join(File.dirname(__FILE__), '..')}`
 end
 
 opts = Clip do |c|
