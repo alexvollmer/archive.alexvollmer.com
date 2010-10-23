@@ -136,7 +136,7 @@ test("Initial screen", function(target, app) {
   });
   
   // more to come...
-}
+});
 <% end %>
 
 The `test`, `assertNotNull` and `assertEquals` functions are ones I wrote to
@@ -165,7 +165,7 @@ function test(title, f, options) {
     if (options.logTree) target.logElementTree();
     UIALogger.logFail(title);
   }
-}
+};
 <% end %>
 
 This handles the boilerplate of getting the target and application references.
