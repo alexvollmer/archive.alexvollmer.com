@@ -5,12 +5,10 @@ layout: none
 %feed{ :xmlns => "http://www.w3.org/2005/Atom" }
   %title
     Alex Vollmer
-  %link{ :href => "http://alexvollmer.com/atom.xml", :rel => "self" }
+  %link{ :href => "http://alexvollmer.com/feeds/atom.xml", :rel => "self" }
   %link{ :href => "http://alexvollmer.com/" }
-  %updated
-    = format_rfc822_date(@site.time)
-  %id
-    http://alexvollmer.com/
+  %updated= format_rfc3339_date(@site.time)
+  %id http://alexvollmer.com/
   %author
     %name
       Alex Vollmer
@@ -22,10 +20,8 @@ layout: none
         :cdata
           #{post.title}
       %link{ :href => "http://alexvollmer.com/posts/#{post.full_path}/" }
-      %updated
-        = format_rfc822_date(post.created_at)
-      %id
-        = "http://alexvollmer.com/posts/#{post.full_path}/"
+      %updated= format_rfc3339_date(post.created_at)
+      %id= "http://alexvollmer.com/posts/#{post.full_path}/"
       %content{ :type => "html" }
         :cdata
           #{post.content}

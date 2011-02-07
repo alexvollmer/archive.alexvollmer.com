@@ -3,7 +3,13 @@ require "nokogiri"
 
 
 def format_rfc822_date(date)
-  date.strftime("%Y-%m-%dT%H:%M:%S%Z")
+  date.strftime("%a, %d %b %Y %H:%M:%S %Z")
+end
+
+def format_rfc3339_date(date)
+  first = date.strftime("%Y-%m-%dT%H:%M:%S")
+  last = date.strftime("%z")
+  "#{first}#{last[0..2]}:#{last[3..4]}"
 end
 
 def get_post_body(post)

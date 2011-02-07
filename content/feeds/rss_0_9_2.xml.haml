@@ -10,19 +10,22 @@ layout: none
       http://alexvollmer.com
     %description
       Latest posts from Alex Vollmer
-    %lastbuilddate
+    %lastBuildDate
       = format_rfc822_date @site.time
     %docs
       http://backend.userland.com/rss092
     %language
       en
-    - @site.articles.each do |post|
-      %item
-        %title
-          :cdata
-            #{post.title}
-        %description
-          :cdata
-            #{include_post_summary(post)}
-        %link
-          = "http://alexvollmer.com/posts/#{post.full_path}/"
+    %item
+      %title
+        :cdata
+          Please update your feed readers!
+      %description
+        :cdata
+          Lord knows that I've tried to make this site work for as many people as possible,
+          but RSS 0.92 is just too much work. If you're still reading this feed, please please
+          please please update your reader to use either http://alexvollmer.com/feeds/rss_2_0.xml
+          or http://alexvollmer.com/feeds/atom.xml.
+      %link
+        = "http://alexvollmer.com/feeds/atom.xml"
+

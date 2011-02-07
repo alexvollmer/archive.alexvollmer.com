@@ -2,6 +2,7 @@
 layout: none
 ---
 !!! XML
+- require 'CGI'
 %rss{ "xmlns:wfw" => "http://wellformedweb.org/CommentAPI/", "xmlns:atom" => "http://www.w3.org/2005/Atom", "xmlns:sy" => "http://purl.org/rss/1.0/modules/syndication/", :version => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/", "xmlns:slash" => "http://purl.org/rss/1.0/modules/slash/" }
   %channel
     %title
@@ -11,22 +12,22 @@ layout: none
       http://alexvollmer.com
     %description
       Latest posts from Alex Vollmer
-    %lastbuilddate
+    %lastBuildDate
       = format_rfc822_date(@site.time)
     %language
       en
-    %sy:updateperiod
+    %sy:updatePeriod
       hourly
-    %sy:updatefrequency
+    %sy:updateFrequency
       1
     - @site.articles.each do |post|
       %item
-        %title= post.title
+        %title= CGI.escapeHTML(post.title)
         %link
           = "http://alexvollmer.com/posts/#{post.full_path}/"
         %comments
-          = "http://alexvollmer.com/posts/{post.full_path}/#comments"
-        %pubdate
+          = "http://alexvollmer.com/posts/#{post.full_path}/#comments"
+        %pubDate
           = format_rfc822_date(post.created_at)
         %dc:creator
           alex
@@ -34,7 +35,7 @@ layout: none
           %category
             :cdata
               #{tag}
-        %guid{ :ispermalink => "false" }
+        %guid{ :isPermaLink => "false" }
           = "http://alexvollmer.com/posts/#{post.full_path}/"
         %description
           :cdata
