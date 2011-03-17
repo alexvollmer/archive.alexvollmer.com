@@ -9,4 +9,5 @@ gem "clip", "~>1.0"
 gem "nokogiri", "~>1.4"
 gem "rack", "~>1.2"
 gem "mime-types", "~>1.16"
+gem "sinatra", "~>1.2"
 
