@@ -1,4 +1,5 @@
 ----- 
+sha1: ed04d4f3f6fd0ed21f21dd857bc36e7dbdd40af7
 kind: article
 permalink: you-put-merb-in-my-jetty
 created_at: 2009-02-11 23:31:53 -08:00

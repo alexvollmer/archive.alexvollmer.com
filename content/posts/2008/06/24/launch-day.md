@@ -1,4 +1,5 @@
 ----- 
+sha1: 018a902ecd7c87945b8d50682b8946736ef2bc58
 kind: article
 permalink: launch-day
 created_at: 2008-06-24 04:17:58 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: feb088e2056d0ea6883bd2508741d4fd424f7da1
 kind: article
 permalink: this-evenings-moochbot-lessons
 created_at: 2008-12-11 05:27:15 -08:00

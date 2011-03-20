@@ -1,4 +1,5 @@
 ----- 
+sha1: f6d2f19a547e5c7397a6f1b1e00c436f489bdbc5
 kind: article
 permalink: asynchronous-mail-with-delayedjob-god-daemons
 created_at: 2008-11-06 05:14:42 -08:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: f37d4b1b49b000a881f840020287e51d521b9869
 kind: article
 permalink: the-iphone-and-web-apis
 created_at: 2009-05-27 03:57:39 -07:00

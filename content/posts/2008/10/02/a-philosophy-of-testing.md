@@ -1,4 +1,5 @@
 ----- 
+sha1: e35925bdb743260e33d5a10e02075e62f211f022
 kind: article
 permalink: a-philosophy-of-testing
 created_at: 2008-10-02 16:44:27 -07:00

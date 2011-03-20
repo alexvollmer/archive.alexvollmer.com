@@ -1,4 +1,5 @@
 ----- 
+sha1: e598e373ca3408b570f9c7fe594a9386e094a533
 kind: article
 permalink: happy-mac-day-to-me-happy-mac-day-to-me
 created_at: 2007-10-29 04:30:54 -07:00

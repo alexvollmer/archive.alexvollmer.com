@@ -1,4 +1,5 @@
 --- 
+sha1: fb85bbc6e00d758e27fbc12ac00ec433b2498b4b
 permalink: working-with-uiautomation
 title: Working with UIAutomation
 kind: article

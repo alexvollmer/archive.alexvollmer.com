@@ -1,4 +1,5 @@
 ----- 
+sha1: 66dae82ba09221e609b5abf6c4433cfce86b9b64
 kind: article
 permalink: day-one-rails-conf-2007-morning-session
 created_at: 2007-05-17 20:22:16 -07:00

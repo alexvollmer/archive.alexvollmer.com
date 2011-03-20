@@ -1,4 +1,5 @@
 ----- 
+sha1: c45b20a35ef7b50a6e16fdefd2705041d17cc0f9
 kind: article
 permalink: green-fields
 created_at: 2008-03-04 15:44:07 -08:00

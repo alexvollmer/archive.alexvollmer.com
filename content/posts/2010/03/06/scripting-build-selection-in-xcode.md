@@ -1,4 +1,5 @@
 --- 
+sha1: 5fefd121b378d9acc2ef7d69761eb7c2518307e7
 permalink: scripting-build-selection-in-xcode
 title: Scripting Build Selection in Xcode
 kind: article

@@ -1,4 +1,5 @@
 ----- 
+sha1: 07b787ca114d2312887748df9c0e3da7985039be
 kind: article
 permalink: cocoas-ways-of-talking
 created_at: 2009-06-25 01:53:32 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 510b9b8f4db8a95a319552ec72b523eb09ef2976
 kind: article
 permalink: book-review-information-dashboard-design
 created_at: 2008-03-07 22:15:32 -08:00

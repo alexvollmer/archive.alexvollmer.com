@@ -1,4 +1,5 @@
 ----- 
+sha1: e573197b873a6c2473915f269aa2d8e6527e696d
 kind: article
 permalink: daughters-in-computing
 created_at: 2007-07-04 23:59:19 -07:00

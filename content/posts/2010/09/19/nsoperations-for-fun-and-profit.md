@@ -1,4 +1,5 @@
 --- 
+sha1: f32ff1b33dad962870c470d57a20ca8e494d18ba
 kind: article
 permalink: nsoperations-for-fun-and-profit
 created_at: 2010-09-19 16:54:43.913671 -07:00

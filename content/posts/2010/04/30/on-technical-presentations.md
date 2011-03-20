@@ -1,4 +1,5 @@
 --- 
+sha1: a9afd85f5b5d17d54143d13a6acb681e38e8255c
 permalink: on-technical-presentations
 kind: article
 title: On Technical Presentations

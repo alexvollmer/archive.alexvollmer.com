@@ -1,4 +1,5 @@
 ----- 
+sha1: b77873b8fa7917ddef107a577c03e19500fb3996
 kind: article
 permalink: what-jersey-means-to-java
 created_at: 2009-03-04 18:42:49 -08:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 488aba065d5d3e1935a1e13aa6977d1e2c2b9b08
 kind: article
 permalink: ruby-threads-suckjust-not-the-way-you-think-they-do
 created_at: 2009-01-26 01:47:24 -08:00

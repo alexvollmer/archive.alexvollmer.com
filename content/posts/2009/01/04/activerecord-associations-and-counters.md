@@ -1,4 +1,5 @@
 ----- 
+sha1: 5f5c866df1c5ad08d24e592bad2a57a1b7eb41ea
 kind: article
 permalink: activerecord-associations-and-counters
 created_at: 2009-01-04 22:39:21 -08:00

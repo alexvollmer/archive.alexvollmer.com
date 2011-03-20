@@ -1,4 +1,5 @@
 ----- 
+sha1: 0d110b90b8b71bad80ff177e67c90930860bf614
 kind: article
 permalink: just-having-fun
 created_at: 2008-12-16 06:04:28 -08:00

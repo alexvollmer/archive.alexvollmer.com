@@ -1,4 +1,5 @@
 ----- 
+sha1: 2685eb2524b08863dee67e47bba1eeef6c9d8c0b
 kind: article
 permalink: election-infographics-redux
 created_at: 2008-11-05 05:43:36 -08:00

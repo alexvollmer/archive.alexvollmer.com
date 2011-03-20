@@ -1,0 +1,10 @@
+!!!xml
+%methodResponse
+  %params
+    %param
+      %value
+        %array
+          %data
+            - recent_posts.each do |post|
+              %value
+                = haml :post, :layout => false, :locals => {:post => post}

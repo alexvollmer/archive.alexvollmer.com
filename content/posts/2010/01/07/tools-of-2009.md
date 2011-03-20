@@ -1,4 +1,5 @@
 ----- 
+sha1: c5b15014285865d9ec3d9844151015d75b28820a
 kind: article
 permalink: tools-of-2009
 created_at: 2010-01-07 04:35:42 -08:00

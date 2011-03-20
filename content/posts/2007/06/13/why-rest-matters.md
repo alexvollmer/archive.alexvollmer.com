@@ -1,4 +1,5 @@
 ----- 
+sha1: 5d53a00da4f4c7040eb49e89048acd010a29509e
 kind: article
 permalink: why-rest-matters
 created_at: 2007-06-13 02:42:58 -07:00

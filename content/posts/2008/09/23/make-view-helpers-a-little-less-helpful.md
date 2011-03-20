@@ -1,4 +1,5 @@
 ----- 
+sha1: fed0b37e6dd3739f4b8f7031f6cebfae4a44bbb7
 kind: article
 permalink: make-view-helpers-a-little-less-helpful
 created_at: 2008-09-23 15:41:27 -07:00

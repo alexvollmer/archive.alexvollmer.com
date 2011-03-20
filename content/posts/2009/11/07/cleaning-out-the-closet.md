@@ -1,4 +1,5 @@
 ----- 
+sha1: b4e0f49d68e996e0dff61659414a71204879fc17
 kind: article
 permalink: cleaning-out-the-closet
 created_at: 2009-11-07 22:12:45 -08:00

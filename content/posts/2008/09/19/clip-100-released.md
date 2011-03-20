@@ -1,4 +1,5 @@
 ----- 
+sha1: f2c816f056767f13f992c9b21b43dcba29b93072
 kind: article
 permalink: clip-100-released
 created_at: 2008-09-19 19:17:33 -07:00

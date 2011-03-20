@@ -1,4 +1,5 @@
 ----- 
+sha1: e94668edcb264affd2dcd833cc456f71656cd91d
 kind: article
 permalink: opening-the-gatesof-hell
 created_at: 2009-01-27 06:01:11 -08:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 0e4578f204bcf2a22618b98dcd6079fda11ffa55
 kind: article
 permalink: leading-off
 created_at: 2007-05-15 19:45:33 -07:00

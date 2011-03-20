@@ -13,7 +13,7 @@ module TaggingExtra
     tags = Set.new
     items.each do |item|
       next if item[:tags].nil?
-      item[:tags].each { |tag| tags << tag }
+      Array(item[:tags]).each { |tag| tags << tag }
     end
     tags.to_a
   end
@@ -41,7 +41,7 @@ module TaggingExtra
   def count_tags(items=nil)
     items = @items if items.nil?
     count = Hash.new( 0 )
-    @items.each do |item|
+    items.each do |item|
       if item[:tags]
         item[:tags].each do |tag|
           count[ tag ] += 1

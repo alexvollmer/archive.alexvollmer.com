@@ -1,4 +1,5 @@
 ----- 
+sha1: 23620ce202c435e8d032f67b84425f63ab1f17a9
 kind: article
 permalink: fat-proxies-and-the-danger-of-reuse
 created_at: 2008-02-19 01:50:25 -08:00

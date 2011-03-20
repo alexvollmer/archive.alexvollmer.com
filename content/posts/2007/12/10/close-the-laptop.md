@@ -1,4 +1,5 @@
 ----- 
+sha1: b16319bc2a405ad38b871ae4f99564d082a1b6cb
 kind: article
 permalink: close-the-laptop
 created_at: 2007-12-10 03:11:11 -08:00

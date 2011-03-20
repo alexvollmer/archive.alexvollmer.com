@@ -1,4 +1,5 @@
 -----
+sha1: 3493b1096e9c272ccd020a3e7803f0c9f7623404
 kind: article
 permalink: the-ipad
 title: The iPad

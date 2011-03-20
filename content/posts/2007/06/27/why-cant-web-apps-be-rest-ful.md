@@ -1,4 +1,5 @@
 ----- 
+sha1: 3b4298e5d0b7c97a8c402494b0df8d6b1eb59033
 kind: article
 permalink: why-cant-web-apps-be-rest-ful
 created_at: 2007-06-27 02:55:14 -07:00

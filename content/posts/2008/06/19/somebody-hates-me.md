@@ -1,4 +1,5 @@
 ----- 
+sha1: 483f5884a1af5fa10cd89173354d9174adaa568e
 kind: article
 permalink: somebody-hates-me
 created_at: 2008-06-19 22:43:49 -07:00

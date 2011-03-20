@@ -1,4 +1,5 @@
 ----- 
+sha1: 96af238695caa86844be9d8ac621b9782e246635
 kind: article
 permalink: building-a-knowledge-base
 created_at: 2009-12-11 16:39:09 -08:00

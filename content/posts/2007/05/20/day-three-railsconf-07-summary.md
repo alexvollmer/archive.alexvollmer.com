@@ -1,4 +1,5 @@
 ----- 
+sha1: bf0089f3a1c4b22046e324e18dbe9db853d7b5af
 kind: article
 permalink: day-three-railsconf-07-summary
 created_at: 2007-05-20 19:05:28 -07:00

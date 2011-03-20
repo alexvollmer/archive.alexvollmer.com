@@ -1,4 +1,5 @@
 ----- 
+sha1: dc7ae4031c9a9ae373a7d85e1db72fe32bd69721
 kind: article
 permalink: book-review-about-face-3
 created_at: 2008-07-30 04:35:18 -07:00

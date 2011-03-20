@@ -1,4 +1,5 @@
 ----- 
+sha1: 8de9629c8ae050936f773ab87e66371477925bd1
 kind: article
 permalink: burning-my-ships
 created_at: 2008-12-21 03:40:56 -08:00

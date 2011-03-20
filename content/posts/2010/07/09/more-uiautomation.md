@@ -1,4 +1,5 @@
 --- 
+sha1: 4aaa248670af3f1dc9da2b294880b7cc2159d151
 permalink: more-uiautomation
 title: More UIAutomation
 kind: article

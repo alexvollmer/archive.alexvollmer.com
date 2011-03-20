@@ -1,4 +1,5 @@
 ----- 
+sha1: bd4fd82e886e1ad7e7a4578d15f242534cec1be3
 kind: article
 permalink: ruby-and-leopard
 created_at: 2007-12-06 14:11:19 -08:00

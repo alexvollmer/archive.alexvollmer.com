@@ -1,4 +1,5 @@
 ----- 
+sha1: c91b0e1af67b1bce94e03457c08f17ed007ec51d
 kind: article
 permalink: how-to-make-urls
 created_at: 2007-10-26 22:05:18 -07:00

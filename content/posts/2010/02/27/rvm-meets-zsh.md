@@ -1,4 +1,5 @@
 --- 
+sha1: ae9318e9300b3398c5b2daeb76bbaaa39d719b01
 permalink: rvm-meets-zsh
 title: RVM meets zsh
 kind: article

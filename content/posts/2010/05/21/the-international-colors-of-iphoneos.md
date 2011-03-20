@@ -1,4 +1,5 @@
 --- 
+sha1: 7a956d1db9c6d155e851605d25155cf43a614140
 permalink: the-international-colors-of-iphoneos 
 title: The International Colors of iPhoneOS 
 kind: article 

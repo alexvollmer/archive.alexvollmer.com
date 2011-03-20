@@ -1,4 +1,5 @@
 ----- 
+sha1: bb02ba8bd87d89304a6e9788106ff55055097912
 kind: article
 permalink: flaccid-attitudes
 created_at: 2008-12-23 05:47:54 -08:00

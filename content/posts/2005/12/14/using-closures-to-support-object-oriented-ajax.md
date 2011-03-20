@@ -1,4 +1,5 @@
 ----- 
+sha1: a4724b65da2a0e0d8f04dae53eb624856d11961c
 kind: article
 permalink: using-closures-to-support-object-oriented-ajax
 created_at: 2005-12-14 16:27:47 -08:00

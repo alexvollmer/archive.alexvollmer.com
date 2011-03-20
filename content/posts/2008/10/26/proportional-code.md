@@ -1,4 +1,5 @@
 ----- 
+sha1: daa69025f96fc7ddbff6dbc525200c9520604331
 kind: article
 permalink: proportional-code
 created_at: 2008-10-26 23:53:14 -07:00

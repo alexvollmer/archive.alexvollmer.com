@@ -1,4 +1,5 @@
 ----- 
+sha1: 8ed35dd77436f5c0f865e95249d033ecb0d89927
 kind: article
 permalink: getting-leverage
 created_at: 2007-06-01 05:03:02 -07:00

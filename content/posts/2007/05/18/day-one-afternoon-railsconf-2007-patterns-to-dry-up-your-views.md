@@ -1,4 +1,5 @@
 ----- 
+sha1: ccd77ca9d193db13eab06cfa7707a6e9cc60c26c
 kind: article
 permalink: day-one-afternoon-railsconf-2007-patterns-to-dry-up-your-views
 created_at: 2007-05-18 04:20:35 -07:00

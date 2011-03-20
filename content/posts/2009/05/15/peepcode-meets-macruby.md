@@ -1,4 +1,5 @@
 ----- 
+sha1: ecff8a0f13839e83d6310a33297dd749b54a176f
 kind: article
 permalink: peepcode-meets-macruby
 created_at: 2009-05-15 21:38:30 -07:00

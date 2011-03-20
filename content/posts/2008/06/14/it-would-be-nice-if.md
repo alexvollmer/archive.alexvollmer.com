@@ -1,4 +1,5 @@
 ----- 
+sha1: 88f4ec50bdd85d9d9943f5f3bb0a3487e6159987
 kind: article
 permalink: it-would-be-nice-if
 created_at: 2008-06-14 22:00:02 -07:00

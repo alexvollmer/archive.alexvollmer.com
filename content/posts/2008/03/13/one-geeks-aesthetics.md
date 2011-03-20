@@ -1,4 +1,5 @@
 ----- 
+sha1: 5af8e2b351b9e45d7c3c7424b4b75b9dc662ca20
 kind: article
 permalink: one-geeks-aesthetics
 created_at: 2008-03-13 15:36:01 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 368501057593e0a92a5b127613dd30053da499a0
 kind: article
 permalink: rewriting-history-with-git
 created_at: 2009-01-31 20:04:13 -08:00

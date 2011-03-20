@@ -1,4 +1,5 @@
 ----- 
+sha1: fe2bc339e888d3ccf97fd8e6e340ea224a38bd7f
 kind: article
 permalink: the-fast-and-the-quick
 created_at: 2009-01-01 16:39:38 -08:00

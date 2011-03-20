@@ -1,4 +1,5 @@
 ----- 
+sha1: 634a1642c21d2df372781ebeddea2d74ed222024
 kind: article
 permalink: shopping-for-men
 created_at: 2008-02-11 17:37:15 -08:00

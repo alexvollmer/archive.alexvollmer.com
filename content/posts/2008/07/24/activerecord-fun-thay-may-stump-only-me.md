@@ -1,4 +1,5 @@
 ----- 
+sha1: d5612391cf981e90369bcb5a205c4efc78b63f9e
 kind: article
 permalink: activerecord-fun-thay-may-stump-only-me
 created_at: 2008-07-24 04:52:15 -07:00

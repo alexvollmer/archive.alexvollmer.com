@@ -1,4 +1,5 @@
 ----- 
+sha1: 38b5507cda9bab12ad32c207c724a1b529776550
 kind: article
 permalink: day-two-railsconf-07-dhhs-keynote-address
 created_at: 2007-05-18 21:43:06 -07:00

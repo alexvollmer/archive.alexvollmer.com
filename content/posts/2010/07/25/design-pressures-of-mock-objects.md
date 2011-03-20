@@ -1,4 +1,5 @@
 --- 
+sha1: e2d321e7c4bc1eac2d456753405bdea6f7339950
 kind: article
 permalink: design-pressures-of-mock-objects
 created_at: 2010-07-25 16:41:25 -07:00

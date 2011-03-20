@@ -1,4 +1,5 @@
 ----- 
+sha1: 7915f2d275d71f5097d05a7f3d6a059dd69a9992
 kind: article
 permalink: ruby-port-of-programming-collective-intelligence
 created_at: 2007-12-01 23:49:08 -08:00
