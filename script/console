@@ -7,5 +7,6 @@ load "lib/helpers.rb"
 
 @site = Nanoc3::Site.new(".")
 @site.load_data
+puts "The nanoc3 site is accessed via the @site variable"
 
 IRB.start
