@@ -12,6 +12,13 @@ GEM
     nokogiri (1.4.3.1)
     rack (1.2.1)
     rdiscount (1.6.5)
+    nokogiri (1.4.4)
+    rack (1.2.2)
+    rdiscount (1.6.8)
+    sinatra (1.2.1)
+      rack (~> 1.1)
+      tilt (< 2.0, >= 1.2.2)
+    tilt (1.2.2)
 
 PLATFORMS
   ruby
