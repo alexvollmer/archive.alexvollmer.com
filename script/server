@@ -9,11 +9,9 @@ require "nanoc3"
 require "sinatra"
 require "nokogiri"
 
-module Common
-  def local_server_name
-    "localhost:4567"
-  end
+LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
 
+module Common
   def data_to_xml
     builder = Nokogiri::XML::Builder.new do |xml|
       yield xml
@@ -67,7 +65,7 @@ module Common
       xml.member do
         xml.name "link"
         xml.value do
-          xml.string "http://#{local_server_name}#{post.path}"
+          xml.string "http://#{LOCAL_SERVER_NAME}#{post.path}"
         end
       end
 
@@ -75,7 +73,7 @@ module Common
       xml.member do
         xml.name "link"
         xml.value do
-          xml.string "http://#{local_server_name}#{post.path}"
+          xml.string "http://#{LOCAL_SERVER_NAME}#{post.path}"
         end
       end
 
@@ -285,11 +283,11 @@ class Wordpress
                       end
                       xml.member do
                         xml.name "htmlUrl"
-                        xml.value { xml.string "http://#{local_server_name}/category/uncategorized/" }
+                        xml.value { xml.string "http://#{LOCAL_SERVER_NAME}/category/uncategorized/" }
                       end
                       xml.member do
                         xml.name "rssUrl"
-                        xml.value { xml.string "http://#{local_server_name}/category/uncategorized/feed/" }
+                        xml.value { xml.string "http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/" }
                       end
                     end
                   end
@@ -400,7 +398,9 @@ configure do
   end
 
   BLOG_SITE.load_data
-  # BLOG_SITE.compiler.run
+  LOGGER.debug("Compiling nanoc3 site...")
+  BLOG_SITE.compiler.run
+  LOGGER.debug("nanoc3 compilation completed")
 
   set :static
   set :public, File.join(File.dirname(__FILE__), "..", "output")
@@ -450,12 +450,12 @@ helpers do
         x.service do
           x.engineName "WordPress"
           x.engineLink "http://wordpress.org/"
-          x.homePageLink "http://#{local_server_name}"
+          x.homePageLink "http://#{LOCAL_SERVER_NAME}"
           x.apis do
-            x.api(:name => "WordPress", :blogID => "1", :preferred => "true", :apiLink => "http://#{local_server_name}/xmlrpc.php")
-            x.api(:name => "Movable Type", :blogID => "1", :preferred => "false", :apiLink => "http://#{local_server_name}/xmlrpc.php")
-            x.api(:name => "MetaWeblog", :blogID => "1", :preferred => "false", :apiLink => "http://#{local_server_name}/xmlrpc.php")
-            x.api(:name => "Blogger", :blogID => "1", :preferred => "false", :apiLink => "http://#{local_server_name}/xmlrpc.php")
+            x.api(:name => "WordPress", :blogID => "1", :preferred => "true", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
+            x.api(:name => "Movable Type", :blogID => "1", :preferred => "false", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
+            x.api(:name => "MetaWeblog", :blogID => "1", :preferred => "false", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
+            x.api(:name => "Blogger", :blogID => "1", :preferred => "false", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
           end
         end
       end
@@ -468,8 +468,8 @@ get "/" do
   html = File.read(File.join(settings.public, "index.html"))
   # TODO: figure out our listener port dynamically
   html.sub("</head>", 
-           %Q[<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://#{local_server_name}/xmlrpc.php?rsd" />
-<link rel="pingback" href="http://#{local_server_name}/xmlrpc.php" /></head>]).gsub('alexvollmer.com', local_server_name)
+           %Q[<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://#{LOCAL_SERVER_NAME}/xmlrpc.php?rsd" />
+<link rel="pingback" href="http://#{LOCAL_SERVER_NAME}/xmlrpc.php" /></head>]).gsub('alexvollmer.com', LOCAL_SERVER_NAME)
 end
 
 get "/xmlrpc.php" do
