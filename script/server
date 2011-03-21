@@ -4,6 +4,7 @@ require "logger"
 require "time"
 
 require "rubygems"
+require "haml"
 require "nanoc3"
 require "sinatra"
 require "nokogiri"
@@ -18,20 +19,6 @@ module Common
       yield xml
     end
     builder.to_xml
-  end
-
-  def blog_site 
-    # TODO: I don't think this is memoizing the way I'd hoped 
-    @site ||= begin
-                Dir.chdir(File.join(File.dirname(__FILE__), "..")) do
-                  @site = Nanoc3::Site.new('.')
-                end
-
-                @site.load_data
-                @site.compiler.run
-                @site
-              end
-    @site
   end
 
   def post_xml(xml, post)
@@ -211,12 +198,15 @@ end
 class MetaWebLog
   include Common
 
+  def initialize(site)
+    @site = site
+  end
+
   def editPost(post_id, username, password, post, mystery)
   end
 
   def getPost(post_id, username, password)
-    site = blog_site
-    post = site.articles.find {|x| x.path == post_id}
+    post = @site.articles.find {|x| x.path == post_id}
     data_to_xml do |xml|
       xml.methodResponse do
         xml.params do
@@ -231,7 +221,6 @@ class MetaWebLog
   end
 
   def getRecentPosts(blog_id, username, password, max_posts)
-    site = blog_site
     data_to_xml do |xml|
       xml.methodResponse do
         xml.params do
@@ -240,7 +229,7 @@ class MetaWebLog
               xml.array do
                 xml.data do
                   xml.value do
-                    site.articles[0..max_posts].each do |post|
+                    @site.articles[0..max_posts].each do |post|
                       post_xml(xml, post)
                     end
                   end
@@ -259,6 +248,10 @@ end
 
 class Wordpress
   include Common
+
+  def initialize(site)
+    @site = site
+  end
 
   def getCategories(blog_id, username, password)
     data_to_xml do |xml|
@@ -310,7 +303,6 @@ class Wordpress
   end
 
   def getPages(blog_id, username, password, max_posts)
-    site = blog_site
     data_to_xml do |x|
       x.methodResponse do
         x.params do
@@ -319,7 +311,7 @@ class Wordpress
               x.array do
                 x.value do
                   x.array do
-                    site.articles.each do |post|
+                    @site.articles.each do |post|
                       post_xml(x, post) 
                     end
                   end
@@ -359,6 +351,11 @@ end
 
 class MoveableType
   include Common
+
+  def initialize(site)
+    @site = site
+  end
+
   def supportedTextFilters
     data_to_xml do |xml|
       xml.methodResponse do
@@ -398,6 +395,13 @@ end
 configure do
   LOGGER = Logger.new(STDOUT)
 
+  Dir.chdir(File.join(File.dirname(__FILE__), "..")) do
+    BLOG_SITE = Nanoc3::Site.new('.')
+  end
+
+  BLOG_SITE.load_data
+  # BLOG_SITE.compiler.run
+
   set :static
   set :public, File.join(File.dirname(__FILE__), "..", "output")
   set :views, File.join(File.dirname(__FILE__), "..", "server", "views")
@@ -409,15 +413,15 @@ helpers do
   end
 
   def metaWeblog
-    MetaWebLog.new
+    MetaWebLog.new(BLOG_SITE)
   end
 
   def wp
-    Wordpress.new
+    Wordpress.new(BLOG_SITE)
   end
 
   def mt
-    MoveableType.new
+    MoveableType.new(BLOG_SITE)
   end
 
   def parse_parameters(xml)
