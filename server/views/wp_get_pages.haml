@@ -1,0 +1,11 @@
+!!!xml
+%methodResponse
+  %params
+    %param
+      %value
+        %array
+          %value
+            %array
+              - BLOG_SITE.articles.each do |post|
+                = haml :post, :layout => false, :locals => {:post => post}
+

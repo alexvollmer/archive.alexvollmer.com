@@ -11,385 +11,6 @@ require "nokogiri"
 
 LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
 
-module Common
-  def data_to_xml
-    builder = Nokogiri::XML::Builder.new do |xml|
-      yield xml
-    end
-    builder.to_xml
-  end
-
-  def post_xml(xml, post)
-    xml.struct do
-      # dateCreated
-      xml.member do
-        xml.name "dateCreated"
-        xml.value do
-          xml.send("dateTime.iso8601", post.created_at.iso8601)
-        end
-      end
-
-      # userid
-      xml.member do
-        xml.name "userid"
-        xml.value do
-          xml.string "1"
-        end
-      end
-
-      # postid
-      xml.member do
-        xml.name "postid"
-        xml.value do
-          xml.string(post.path)
-        end
-      end
-
-      # description
-      xml.member do
-        xml.name "description"
-        xml.value do
-          xml.string(post.rep_named(:default).compiled_content)
-        end
-      end
-
-      # title
-      xml.member do
-        xml.name "title"
-        xml.value do
-          xml.string post.title
-        end
-      end
-
-      # link
-      xml.member do
-        xml.name "link"
-        xml.value do
-          xml.string "http://#{LOCAL_SERVER_NAME}#{post.path}"
-        end
-      end
-
-      # permaLink
-      xml.member do
-        xml.name "link"
-        xml.value do
-          xml.string "http://#{LOCAL_SERVER_NAME}#{post.path}"
-        end
-      end
-
-      # categories
-      xml.member do
-        xml.name "categories"
-        xml.value do
-          xml.string "Uncategorized"
-        end
-      end
-
-      # mt_excerpt
-      xml.member do
-        xml.name "mt_excerpt"
-        xml.value do
-          xml.string ""
-        end
-      end
-
-      # mt_text_more
-      xml.member do
-        xml.name "mt_text_more"
-        xml.value do
-          xml.string ""
-        end
-      end
-
-      # mt_allow_comments
-      xml.member do
-        xml.name "mt_allow_comments"
-        xml.value do
-          xml.int "1"
-        end
-      end
-
-      # mt_allow_pings
-      xml.member do
-        xml.name "mt_allow_pings"
-        xml.value do
-          xml.int "0"
-        end
-      end
-
-      # mt_keywords
-      xml.member do
-        xml.name "mt_keywords"
-        xml.value do
-          xml.string(Array(post.tags).join(','))
-        end
-      end
-
-      # wp_slug
-      xml.member do
-        xml.name "wp_slug"
-        xml.value do
-          xml.string(post.permalink)
-        end
-      end
-
-      # wp_password
-      xml.member do
-        xml.name "wp_password"
-        xml.value do
-          xml.string ""
-        end
-      end 
-
-      # wp_author_id
-      xml.member do
-        xml.name "wp_author_id"
-        xml.value do
-          xml.string "alexvollmer"
-        end
-      end
-
-      # wp_author_display
-      xml.member do
-        xml.name "wp_author_display"
-        xml.value do
-          xml.string "Alex Vollmer"
-        end
-      end
-
-      # date_created_gmt
-      xml.member do
-        xml.name "date_created_gmt"
-        xml.value do
-          xml.send("dateTime.iso8601", post.created_at.iso8601)
-        end
-      end
-
-      # post_status
-      # TODO: handle drafts here too
-      xml.member do
-        xml.name "post_status"
-        xml.value do
-          xml.string "publish"
-        end
-      end
-
-      # custom_fields
-      xml.member do
-        xml.name "custom_fields"
-        xml.value do
-          xml.array
-        end
-      end
-
-      # wp_post_format
-      xml.member do
-        xml.name "wp_post_format"
-        xml.value do
-          xml.string "standard"
-        end
-      end
-    end
-  end
-end
-
-class MetaWebLog
-  include Common
-
-  def initialize(site)
-    @site = site
-  end
-
-  def editPost(post_id, username, password, post, mystery)
-  end
-
-  def getPost(post_id, username, password)
-    post = @site.articles.find {|x| x.path == post_id}
-    data_to_xml do |xml|
-      xml.methodResponse do
-        xml.params do
-          xml.param do
-            xml.value do
-              post_xml(xml, post)
-            end
-          end
-        end
-      end
-    end
-  end
-
-  def getRecentPosts(blog_id, username, password, max_posts)
-    data_to_xml do |xml|
-      xml.methodResponse do
-        xml.params do
-          xml.param do
-            xml.value do
-              xml.array do
-                xml.data do
-                  xml.value do
-                    @site.articles[0..max_posts].each do |post|
-                      post_xml(xml, post)
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-
-  def newMediaObject(some_id, username, password, data)
-  end
-end
-
-class Wordpress
-  include Common
-
-  def initialize(site)
-    @site = site
-  end
-
-  def getCategories(blog_id, username, password)
-    data_to_xml do |xml|
-      xml.methodResponse do
-        xml.params do
-          xml.param do
-            xml.value do
-              xml.array do
-                xml.data do
-                  xml.value do
-                    xml.struct do
-                      xml.member do
-                        xml.name "categoryId"
-                        xml.value { xml.string "1" }
-                      end
-                      xml.member do
-                        xml.name "parentId"
-                        xml.value { xml.string "0" }
-                      end
-                      xml.member do
-                        xml.name "description"
-                        xml.value { xml.string "Uncategorized" }
-                      end
-                      xml.member do
-                        xml.name "categoryDescription"
-                        xml.value { xml.string "" }
-                      end
-                      xml.member do
-                        xml.name "categoryName"
-                        xml.value { xml.string "Uncategorized" }
-                      end
-                      xml.member do
-                        xml.name "htmlUrl"
-                        xml.value { xml.string "http://#{LOCAL_SERVER_NAME}/category/uncategorized/" }
-                      end
-                      xml.member do
-                        xml.name "rssUrl"
-                        xml.value { xml.string "http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/" }
-                      end
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-
-  def getPages(blog_id, username, password, max_posts)
-    data_to_xml do |x|
-      x.methodResponse do
-        x.params do
-          x.param do
-            x.value do
-              x.array do
-                x.value do
-                  x.array do
-                    @site.articles.each do |post|
-                      post_xml(x, post) 
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
-    end
-    # dateCreated
-    # userid
-    # page_id
-    # page_status
-    # description
-    # title
-    # link
-    # permaLink
-    # categories
-    # excerpt
-    # text_more
-    # mt_allow_comments
-    # mt_allow_pings
-    # wp_slug
-    # wp_password
-    # wp_author
-    # wp_page_parent_id
-    # wp_page_parent_title
-    # wp_page_order
-    # wp_author_id
-    # wp_author_display_name
-    # date_created_gmt
-    # custom_fields
-    # wp_page_template
-  end
-end
-
-class MoveableType
-  include Common
-
-  def initialize(site)
-    @site = site
-  end
-
-  def supportedTextFilters
-    data_to_xml do |xml|
-      xml.methodResponse do
-        xml.params do
-          xml.param do
-            xml.value do
-              xml.array do
-                xml.data ""
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-
-  def getPostCategories(post_id, username, password)
-    data_to_xml do |xml|
-      xml.methodResponse do
-        xml.params do
-          xml.param do
-            xml.value do
-              xml.array do
-                xml.data ""
-              end
-            end
-          end
-        end
-      end
-    end
-  end
-
-  def setPostCategories(post_id, username, password, categories)
-  end
-end
-
 configure do
   LOGGER = Logger.new(STDOUT)
 
@@ -412,18 +33,6 @@ helpers do
     LOGGER
   end
 
-  def metaWeblog
-    MetaWebLog.new(BLOG_SITE)
-  end
-
-  def wp
-    Wordpress.new(BLOG_SITE)
-  end
-
-  def mt
-    MoveableType.new(BLOG_SITE)
-  end
-
   def parse_parameters(xml)
     xml.xpath('/methodCall/params/param/value').map do |param|
       actual = param.children.find {|x| x.name != "text"}
@@ -438,29 +47,6 @@ helpers do
       # double, struct, nil (see http://en.wikipedia.org/wiki/XML-RPC)
     end
   end
-
-  def xml_to_data(xml)
-    xml.map do |elem|
-    end
-  end
-
-  def rsd
-    Nokogiri::XML::Builder.new do |x|
-      x.rsd(:version => "1.0", :xmlns => "http://archipelago.phrasewise.com/rsd") do
-        x.service do
-          x.engineName "WordPress"
-          x.engineLink "http://wordpress.org/"
-          x.homePageLink "http://#{LOCAL_SERVER_NAME}"
-          x.apis do
-            x.api(:name => "WordPress", :blogID => "1", :preferred => "true", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
-            x.api(:name => "Movable Type", :blogID => "1", :preferred => "false", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
-            x.api(:name => "MetaWeblog", :blogID => "1", :preferred => "false", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
-            x.api(:name => "Blogger", :blogID => "1", :preferred => "false", :apiLink => "http://#{LOCAL_SERVER_NAME}/xmlrpc.php")
-          end
-        end
-      end
-    end.to_xml
-  end
 end
 
 get "/" do
@@ -473,8 +59,7 @@ get "/" do
 end
 
 get "/xmlrpc.php" do
-  response['Content-Type'] = 'text/xml'
-  response.write(rsd)
+  haml :rsd
 end
 
 post "/xmlrpc.php" do
@@ -482,15 +67,31 @@ post "/xmlrpc.php" do
   method_call = xml.xpath("/methodCall/methodName").to_a[0].content
   api_name, method = method_call.split('.')
   logger.debug("api_name=#{api_name} method=#{method}")
-  begin
-    api = self.send(api_name)
-    params = parse_parameters(xml)
-    resp = api.send(method, *params)
-    response['Content-Type'] = 'text/xml'
-    response.write(resp)
-  rescue => e
-    logger.error e.message
-    logger.error e.backtrace.join("\n")
+  case api_name
+  when "mt"
+    case method
+    when "supportedTextFilters", "getPostCategories"
+      haml :empty
+    end
+  when "metaWeblog"
+    case method
+    when "getPost"
+      post_id, username, password = parse_parameters(xml)
+      post = BLOG_SITE.articles.find {|x| x.path == post_id}
+      haml :metaweblog_get_post, :locals => {:post => post}
+    when "getRecentPosts"
+      blog_id, username, password, max_posts = parse_parameters(xml)
+      haml :metaweblog_get_recent_posts, :locals => { :max_posts => max_posts }
+    end
+  when "wp"
+    case method
+    when "getCategories"
+      haml :wp_get_categories
+    when "getPages"
+      haml :wp_get_pages
+    end
+  else
+    # TODO: then what?
   end
 end
 

@@ -1,0 +1,91 @@
+%struct
+  %member
+    %name dateCreated
+    %value
+      = "<dateTime.iso8601>#{post.created_at.iso8601}</dateTime.iso8601>"
+  %member
+    %name userid
+    %value
+      %string 1
+  %member
+    %name postid
+    %value
+      %string
+        = post.path
+  %member
+    %name description
+    %value
+      %string
+        &= post.rep_named(:default).compiled_content
+  %member
+    %name title
+    %value
+      %string 
+        &= post.title
+  %member
+    %name link
+    %value
+      %string= "http://#{LOCAL_SERVER_NAME}#{post.path}"
+  %member
+    %name link
+    %value
+      %string= "http://#{LOCAL_SERVER_NAME}#{post.path}"
+  %member
+    %name categories
+    %value
+      %string Uncategorized
+  %member
+    %name mt_excerpt
+    %value
+      %string
+  %member
+    %name mt_text_more
+    %value
+      %string
+  %member
+    %name mt_allow_comments
+    %value
+      %int 1
+  %member
+    %name mt_allow_pings
+    %value
+      %int 0
+  %member
+    %name mt_keywords
+    %value
+      %string
+        = Array(post.tags).join(',')
+  %member
+    %name wp_slug
+    %value
+      %string
+        = post.permalink
+  %member
+    %name wp_password
+    %value
+      %string
+  %member
+    %name wp_author_id
+    %value
+      %string alexvollmer
+  %member
+    %name wp_author_display
+    %value
+      %string Alex Vollmer
+  %member
+    %name date_created_gmt
+    %value
+      = "<dateTime.iso8601>#{post.created_at.iso8601}</dateTime.iso8601>"
+  %member
+    %name post_status
+    %value
+      %string publish
+  %member
+    %name custom_fields
+    %value
+      %array
+  %member
+    %name wp_post_format
+    %value
+      %string standard
+
