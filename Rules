@@ -31,6 +31,12 @@ compile '/posts/*' do
   rep.layout 'post'
 end
 
+compile '/drafts/*' do
+  rep.filter :erb
+  rep.filter :rdiscount
+  rep.layout 'post'
+end
+
 compile '*' do
   filter_map = {
     '.erb' => :erb,
