@@ -1,8 +1,7 @@
 %struct
   %member
     %name dateCreated
-    %value
-      = "<dateTime.iso8601>#{post.created_at.iso8601}</dateTime.iso8601>"
+    %value="<dateTime.iso8601>#{post.created_at.iso8601}</dateTime.iso8601>"
   %member
     %name userid
     %value
@@ -10,26 +9,23 @@
   %member
     %name postid
     %value
-      %string
-        = post.path
+      %string=post.path
   %member
     %name description
     %value
-      %string
-        &= post.rep_named(:default).compiled_content
+      %string&=post.rep_named(:default).compiled_content
   %member
     %name title
     %value
-      %string 
-        &= post.title
+      %string&=post.title
   %member
     %name link
     %value
-      %string= "http://#{LOCAL_SERVER_NAME}#{post.path}"
+      %string="http://#{LOCAL_SERVER_NAME}#{post.path}"
   %member
     %name permaLink
     %value
-      %string= "http://#{LOCAL_SERVER_NAME}#{post.path}"
+      %string="http://#{LOCAL_SERVER_NAME}#{post.path}"
   %member
     %name categories
     %value
@@ -56,13 +52,11 @@
   %member
     %name mt_keywords
     %value
-      %string
-        = Array(post.tags).join(',')
+      %string=Array(post.tags).join(', ')
   %member
     %name wp_slug
     %value
-      %string
-        = post.permalink
+      %string=post.permalink
   %member
     %name wp_password
     %value
@@ -77,8 +71,7 @@
       %string Alex Vollmer
   %member
     %name date_created_gmt
-    %value
-      = "<dateTime.iso8601>#{post.created_at.iso8601}</dateTime.iso8601>"
+    %value="<dateTime.iso8601>#{post.created_at.iso8601}</dateTime.iso8601>"
   %member
     %name post_status
     %value
