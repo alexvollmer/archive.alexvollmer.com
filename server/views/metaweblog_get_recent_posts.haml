@@ -5,6 +5,6 @@
       %value
         %array
           %data
-            %value
-              - BLOG_SITE.articles[0..max_posts].each do |post|
+            - BLOG_SITE.articles[0..max_posts].each do |post|
+              %value
                 = haml :post, :layout => false, :locals => {:post => post}

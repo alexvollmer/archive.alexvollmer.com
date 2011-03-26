@@ -27,13 +27,16 @@
     %value
       %string= "http://#{LOCAL_SERVER_NAME}#{post.path}"
   %member
-    %name link
+    %name permaLink
     %value
       %string= "http://#{LOCAL_SERVER_NAME}#{post.path}"
   %member
     %name categories
     %value
-      %string Uncategorized
+      %array
+        %data
+          %value
+            %string Uncategorized
   %member
     %name mt_excerpt
     %value
@@ -84,6 +87,7 @@
     %name custom_fields
     %value
       %array
+        %data
   %member
     %name wp_post_format
     %value
