@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require "base64"
+require "fileutils"
 require "logger"
 require "time"
 
@@ -9,7 +11,15 @@ require "nanoc3"
 require "sinatra"
 require "nokogiri"
 
+include FileUtils
+
 LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
+
+class Nanoc3::Site
+  def article_by_identifier(identifier)
+    self.items.find {|x| x.article? && x.identifier == identifier}
+  end
+end
 
 configure do
   LOGGER = Logger.new(STDOUT)
@@ -33,19 +43,100 @@ helpers do
     LOGGER
   end
 
-  def parse_parameters(xml)
-    xml.xpath('/methodCall/params/param/value').map do |param|
-      actual = param.children.find {|x| x.name != "text"}
-      puts "type=#{actual.name}"
-      case actual.name
-      when "string"
-        param.content.strip
-      when "int"
-        param.content.strip.to_i
+  def value_for_node(node)
+    actual = node.children.find {|x| x.name != "text"}
+    case actual.name
+    when "array"
+      node['data'].first.children.map do |node|
+        value_for_node(value)
       end
-      # other types to handle: array, base64, boolean, date/time,
-      # double, struct, nil (see http://en.wikipedia.org/wiki/XML-RPC)
+    when "base64"
+      Base64.decode64(node.content.strip)
+    when "boolean"
+      node.content.strip == "1"
+    when "dateTime.iso8601"
+      Time.iso8601(node.content.strip)
+    when "double"
+      node.content.strip.to_f
+    when "int", "i4"
+      node.content.strip.to_i
+    when "string"
+      node.content.strip
+    when "struct"
+      hash = {}
+      (node / 'member').each do |member|
+        name = (member/'name').first.content.strip
+        value = value_for_node((member/'value').first)
+        hash[name] = value
+      end
+      hash
+    when "nil"
+      nil
     end
+  end
+
+  def parse_parameters(xml)
+    params = xml.xpath('/methodCall/params/param/value').map do |param|
+      value_for_node(param)
+    end
+    LOGGER.debug("Incoming parameters: #{params.inspect}")
+    params
+  end
+
+  def add_post(new_post, publish)
+    LOGGER.debug("new post: #{new_post.inspect} publish? #{publish}")
+    title = new_post["title"]
+    body = new_post["description"];
+    created_at = Time.now
+    permalink = title.gsub(" ", "-").downcase
+    identifier = sprintf("/posts/%04d/%02d/%02d/%s/",
+                         created_at.year,
+                         created_at.month,
+                         created_at.day,
+                         permalink)
+    attrs = {
+      "kind"       => "article",
+      "permalink"  => permalink,
+      "title"      => title,
+      "created_at" => created_at,
+      "tags"       => Array(new_post["mt_keywords"].split(",")),
+    }
+
+    BLOG_SITE.data_sources.first.create_item(body, attrs, identifier)
+    BLOG_SITE.load_data(true)
+    item = BLOG_SITE.items.find{|x| x.identifier == identifier}
+    BLOG_SITE.compiler.run(item)
+    # TODO: handle drafts
+
+    haml :new_post, :locals => {:new_post_id => identifier}
+  end
+
+  def edit_post(post_id, struct, publish)
+    # TODO: handle title changes
+    original_item = BLOG_SITE.article_by_identifier(post_id)
+    title = struct["title"]
+    body = struct["description"];
+    created_at = Time.now
+    attrs = original_item.attributes.merge({
+      "title"      => title,
+      "created_at" => created_at,
+      "tags"       => Array(struct["mt_keywords"].split(",")),
+    })
+
+    path = "content#{original_item.path}".sub(/\/$/, ".html")
+    File.open(path, 'w') do |io|
+      io.write(YAML.dump(attrs).strip + "\n")
+      io.write("---\n\n")
+      io.write(body)
+    end
+
+    BLOG_SITE.load_data(true)
+    item = BLOG_SITE.article_by_identifier(post_id)
+    BLOG_SITE.compiler.run(item)
+
+    # TODO: handle drafts
+
+    haml :okay
   end
 end
 
@@ -66,6 +157,7 @@ post "/xmlrpc.php" do
   xml = Nokogiri::XML.parse(request.body)
   method_call = xml.xpath("/methodCall/methodName").to_a[0].content
   api_name, method = method_call.split('.')
+  response["Content-Type"] = "text/xml"
   logger.debug("api_name=#{api_name} method=#{method}")
   case api_name
   when "mt"
@@ -75,13 +167,19 @@ post "/xmlrpc.php" do
     end
   when "metaWeblog"
     case method
+    when "editPost"
+      post_id, username, password, struct, publish = parse_parameters(xml)
+      edit_post(post_id, struct, publish == "1")
     when "getPost"
       post_id, username, password = parse_parameters(xml)
-      post = BLOG_SITE.articles.find {|x| x.path == post_id}
+      post = BLOG_SITE.articles.find {|x| x.identifier == post_id}
       haml :metaweblog_get_post, :locals => {:post => post}
     when "getRecentPosts"
       blog_id, username, password, max_posts = parse_parameters(xml)
       haml :metaweblog_get_recent_posts, :locals => { :max_posts => max_posts }
+    when "newPost"
+      blog_id, username, password, struct, publish = parse_parameters(xml)
+      add_post(struct, publish == "1")
     end
   when "wp"
     case method
