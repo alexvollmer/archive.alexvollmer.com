@@ -15,6 +15,17 @@ include FileUtils
 
 LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
 
+ALL_POSTS = Hash.new do |hash, post_id|
+  post = BLOG_SITE.article_by_identifier(post_id)
+  rep = post.rep_named(:default)
+  unless rep.compiled?
+    LOGGER.debug("Compiling item: #{post_id}...")
+    BLOG_SITE.compiler.run(post) 
+  end
+  content = rep.compiled_content
+  hash[post_id] = content
+end
+
 class Nanoc3::Site
   def article_by_identifier(identifier)
     self.items.find {|x| x.article? && x.identifier == identifier}
@@ -83,6 +94,11 @@ helpers do
     params
   end
 
+  def get_recent_posts(max_items)
+    recent_posts = BLOG_SITE.articles[0..max_items]
+    haml :metaweblog_get_recent_posts, :locals => { :recent_posts => recent_posts }
+  end
+
   def add_post(new_post, publish)
     LOGGER.debug("new post: #{new_post.inspect} publish? #{publish}")
     title = new_post["title"]
@@ -113,6 +129,7 @@ helpers do
 
   def edit_post(post_id, struct, publish)
     # TODO: handle title changes
+    BLOG_SITE.load_data(true)
     original_item = BLOG_SITE.article_by_identifier(post_id)
     title = struct["title"]
     body = struct["description"];
@@ -130,9 +147,7 @@ helpers do
       io.write(body)
     end
 
-    BLOG_SITE.load_data(true)
-    item = BLOG_SITE.article_by_identifier(post_id)
-    BLOG_SITE.compiler.run(item)
+    ALL_POSTS.delete(post_id)
 
     # TODO: handle drafts
 
@@ -141,7 +156,6 @@ helpers do
 end
 
 get "/" do
-  # %link{ :rel => "EditURI", :type => "application/rsd+xml", :title => "RSD", :href => "http://com/xmlrpc.php?rsd" }
   html = File.read(File.join(settings.public, "index.html"))
   # TODO: figure out our listener port dynamically
   html.sub("</head>", 
@@ -176,7 +190,7 @@ post "/xmlrpc.php" do
       haml :metaweblog_get_post, :locals => {:post => post}
     when "getRecentPosts"
       blog_id, username, password, max_posts = parse_parameters(xml)
-      haml :metaweblog_get_recent_posts, :locals => { :max_posts => max_posts }
+      get_recent_posts(max_posts)
     when "newPost"
       blog_id, username, password, struct, publish = parse_parameters(xml)
       add_post(struct, publish == "1")
