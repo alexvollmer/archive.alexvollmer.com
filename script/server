@@ -176,6 +176,16 @@ helpers do
     haml :okay
   end
 
+  def delete_post(post_id)
+    item = BLOG_SITE.article_by_sha1(post_id)
+    ALL_POSTS.delete(post_id)
+    BLOG_SITE.items.delete(item)
+    filename = item.path.sub(/\/$/, ".html")
+    path = Pathname.new(File.join(File.dirname(__FILE__), "..", "content", filename)).realpath
+    rm_f(path)
+    haml :okay
+  end
+
   def new_media_object(name, type, bits)
     now = Date.today
     path = now.strftime("public/images/%Y/%m/#{name}").gsub("//", "/")
@@ -211,6 +221,12 @@ post "/xmlrpc.php" do
   response["Content-Type"] = "text/xml"
   logger.debug("api_name=#{api_name} method=#{method}")
   case api_name
+  when "blogger"
+    case method
+    when "deletePost"
+      app_key, post_id, username, password, publish = parse_parameters(xml)
+      delete_post(post_id)
+    end
   when "mt"
     case method
     when "supportedTextFilters", "getPostCategories"
