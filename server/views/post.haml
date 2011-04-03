@@ -9,11 +9,11 @@
   %member
     %name postid
     %value
-      %string=post.path
+      %string=post[:sha1]
   %member
     %name description
     %value
-      %string&=ALL_POSTS[post.identifier]
+      %string&=ALL_POSTS[post[:sha1]]
   %member
     %name title
     %value
@@ -75,7 +75,7 @@
   %member
     %name post_status
     %value
-      %string publish
+      %string=post.wordpress_post_status
   %member
     %name custom_fields
     %value

@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "base64"
+require "digest/sha1"
 require "fileutils"
 require "logger"
 require "time"
@@ -15,20 +16,30 @@ include FileUtils
 
 LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
 
-ALL_POSTS = Hash.new do |hash, post_id|
-  post = BLOG_SITE.article_by_identifier(post_id)
+ALL_POSTS = Hash.new do |hash, sha1|
+  post = BLOG_SITE.article_by_sha1(sha1)
   rep = post.rep_named(:default)
   unless rep.compiled?
-    LOGGER.debug("Compiling item: #{post_id}...")
-    BLOG_SITE.compiler.run(post) 
+    BLOG_SITE.compiler.run(post, :force => true)
   end
   content = rep.compiled_content
-  hash[post_id] = content
+  hash[sha1] = content
 end
 
 class Nanoc3::Site
-  def article_by_identifier(identifier)
-    self.items.find {|x| x.article? && x.identifier == identifier}
+  def article_by_sha1(sha1)
+    self.items.find {|x| x.article? && x[:sha1] == sha1}
+  end
+end
+
+class Nanoc3::Item
+  def wordpress_post_status
+    case self.identifier
+    when /^\/posts\//
+      "publish"
+    when /^\/drafts\//
+      "draft"
+    end
   end
 end
 
@@ -99,13 +110,14 @@ helpers do
     haml :metaweblog_get_recent_posts, :locals => { :recent_posts => recent_posts }
   end
 
-  def add_post(new_post, publish)
+  def add_post(new_post, publish, respond=true)
     LOGGER.debug("new post: #{new_post.inspect} publish? #{publish}")
     title = new_post["title"]
     body = new_post["description"];
+    sha1 = new_post["sha1"] || Digest::SHA1.hexdigest(body)
     created_at = Time.now
     permalink = title.gsub(" ", "-").downcase
-    identifier = sprintf("/posts/%04d/%02d/%02d/%s/",
+    identifier = sprintf("/#{publish ? "posts" : "drafts"}/%04d/%02d/%02d/%s/",
                          created_at.year,
                          created_at.month,
                          created_at.day,
@@ -116,21 +128,22 @@ helpers do
       "title"      => title,
       "created_at" => created_at,
       "tags"       => Array(new_post["mt_keywords"].split(",")),
+      "sha1"       => sha1
     }
 
     BLOG_SITE.data_sources.first.create_item(body, attrs, identifier)
     BLOG_SITE.load_data(true)
-    item = BLOG_SITE.items.find{|x| x.identifier == identifier}
+    item = BLOG_SITE.article_by_sha1(sha1)
     BLOG_SITE.compiler.run(item)
-    # TODO: handle drafts
 
-    haml :new_post, :locals => {:new_post_id => identifier}
+    if respond
+      haml :new_post, :locals => {:new_post_id => sha1}
+    end
   end
 
   def edit_post(post_id, struct, publish)
+    original_item = BLOG_SITE.article_by_sha1(post_id)
     # TODO: handle title changes
-    BLOG_SITE.load_data(true)
-    original_item = BLOG_SITE.article_by_identifier(post_id)
     title = struct["title"]
     body = struct["description"];
     created_at = Time.now
@@ -141,15 +154,23 @@ helpers do
     })
 
     path = "content#{original_item.path}".sub(/\/$/, ".html")
-    File.open(path, 'w') do |io|
-      io.write(YAML.dump(attrs).strip + "\n")
-      io.write("---\n\n")
-      io.write(body)
+
+    LOGGER.debug("publish? #{publish} status: #{original_item.wordpress_post_status}")
+    if (publish && original_item.wordpress_post_status == "draft") ||
+       (!publish && original_item.wordpress_post_status == "publish")
+      file_path = File.join(File.dirname(__FILE__), "..", "content", original_item.path).sub(/\/$/, ".html")
+      rm(file_path)
+      add_post(struct.merge({"sha1" => attrs["sha1"]}), publish, false)
+      BLOG_SITE.load_data(true)
+    else
+      File.open(path, 'w') do |io|
+        io.write(YAML.dump(attrs).strip + "\n")
+        io.write("---\n\n")
+        io.write(body)
+      end
     end
 
     ALL_POSTS.delete(post_id)
-
-    # TODO: handle drafts
 
     haml :okay
   end
@@ -183,10 +204,10 @@ post "/xmlrpc.php" do
     case method
     when "editPost"
       post_id, username, password, struct, publish = parse_parameters(xml)
-      edit_post(post_id, struct, publish == "1")
+      edit_post(post_id, struct, publish)
     when "getPost"
       post_id, username, password = parse_parameters(xml)
-      post = BLOG_SITE.articles.find {|x| x.identifier == post_id}
+      post = BLOG_SITE.articles.find {|x| x[:sha1] == post_id}
       haml :metaweblog_get_post, :locals => {:post => post}
     when "getRecentPosts"
       blog_id, username, password, max_posts = parse_parameters(xml)
