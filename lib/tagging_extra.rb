@@ -13,7 +13,7 @@ module TaggingExtra
     tags = Set.new
     items.each do |item|
       next if item[:tags].nil?
-      item[:tags].each { |tag| tags << tag }
+      Array(item[:tags]).each { |tag| tags << tag }
     end
     tags.to_a
   end
