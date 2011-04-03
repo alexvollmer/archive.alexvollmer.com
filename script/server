@@ -4,6 +4,7 @@ require "base64"
 require "digest/sha1"
 require "fileutils"
 require "logger"
+require "pathname"
 require "time"
 
 require "rubygems"
@@ -89,7 +90,7 @@ helpers do
       (node / 'member').each do |member|
         name = (member/'name').first.content.strip
         value = value_for_node((member/'value').first)
-        hash[name] = value
+        hash[name.to_sym] = value
       end
       hash
     when "nil"
@@ -112,9 +113,9 @@ helpers do
 
   def add_post(new_post, publish, respond=true)
     LOGGER.debug("new post: #{new_post.inspect} publish? #{publish}")
-    title = new_post["title"]
-    body = new_post["description"];
-    sha1 = new_post["sha1"] || Digest::SHA1.hexdigest(body)
+    title = new_post[:title]
+    body = new_post[:description];
+    sha1 = new_post[:sha1] || Digest::SHA1.hexdigest(body)
     created_at = Time.now
     permalink = title.gsub(" ", "-").downcase
     identifier = sprintf("/#{publish ? "posts" : "drafts"}/%04d/%02d/%02d/%s/",
@@ -123,12 +124,12 @@ helpers do
                          created_at.day,
                          permalink)
     attrs = {
-      "kind"       => "article",
-      "permalink"  => permalink,
-      "title"      => title,
-      "created_at" => created_at,
-      "tags"       => Array(new_post["mt_keywords"].split(",")),
-      "sha1"       => sha1
+      :kind       => "article",
+      :permalink  => permalink,
+      :title      => title,
+      :created_at => created_at,
+      :tags       => Array(new_post[:mt_keywords].split(",")),
+      :sha1       => sha1
     }
 
     BLOG_SITE.data_sources.first.create_item(body, attrs, identifier)
@@ -144,13 +145,13 @@ helpers do
   def edit_post(post_id, struct, publish)
     original_item = BLOG_SITE.article_by_sha1(post_id)
     # TODO: handle title changes
-    title = struct["title"]
-    body = struct["description"];
+    title = struct[:title]
+    body = struct[:description];
     created_at = Time.now
     attrs = original_item.attributes.merge({
-      "title"      => title,
-      "created_at" => created_at,
-      "tags"       => Array(struct["mt_keywords"].split(",")),
+      :title      => title,
+      :created_at => created_at,
+      :tags       => Array(struct[:mt_keywords].split(",")),
     })
 
     path = "content#{original_item.path}".sub(/\/$/, ".html")
@@ -160,7 +161,7 @@ helpers do
        (!publish && original_item.wordpress_post_status == "publish")
       file_path = File.join(File.dirname(__FILE__), "..", "content", original_item.path).sub(/\/$/, ".html")
       rm(file_path)
-      add_post(struct.merge({"sha1" => attrs["sha1"]}), publish, false)
+      add_post(struct.merge({:sha1 => attrs[:sha1]}), publish, false)
       BLOG_SITE.load_data(true)
     else
       File.open(path, 'w') do |io|
@@ -173,6 +174,21 @@ helpers do
     ALL_POSTS.delete(post_id)
 
     haml :okay
+  end
+
+  def new_media_object(name, type, bits)
+    now = Date.today
+    path = now.strftime("public/images/%Y/%m/#{name}").gsub("//", "/")
+    url = path.sub(/^public/, '')
+    final_path = Pathname.new(File.join(File.dirname(__FILE__), "..", path))
+    mkdir_p(final_path.parent) unless final_path.parent.directory?
+    open(final_path, "w") {|f| f.write(bits) }
+
+    # need to sync our public directory to the output directory where we serve
+    # static content from
+    system "rsync -gprt --partial public/ output"
+
+    haml :new_media_object, :locals => { :file => final_path.realpath, :url => url, :type => type}
   end
 end
 
@@ -212,6 +228,9 @@ post "/xmlrpc.php" do
     when "getRecentPosts"
       blog_id, username, password, max_posts = parse_parameters(xml)
       get_recent_posts(max_posts)
+    when "newMediaObject"
+      blog_id, username, password, struct = parse_parameters(xml)
+      new_media_object(struct[:name], struct[:type], struct[:bits])
     when "newPost"
       blog_id, username, password, struct, publish = parse_parameters(xml)
       add_post(struct, publish == "1")
