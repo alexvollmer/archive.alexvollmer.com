@@ -1,4 +1,5 @@
 ----- 
+sha1: 1d55b13f327c597644a340e71a132dcbd6fc87a7
 kind: article
 permalink: my-first-rubygem
 created_at: 2007-06-09 17:41:58 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 6f35f9302b77592a41895a25c339aeefbef1df96
 kind: article
 permalink: 1password-to-rule-them-all
 created_at: 2008-05-26 23:31:21 -07:00

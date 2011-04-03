@@ -1,4 +1,5 @@
 ----- 
+sha1: 05575bf0ba6ca20455ac04d4ee8d2f38eb8e83ac
 kind: article
 permalink: a-survey-of-super-tuesday-infographics
 created_at: 2008-02-06 05:23:46 -08:00

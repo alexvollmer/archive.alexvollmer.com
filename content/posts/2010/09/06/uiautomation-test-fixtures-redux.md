@@ -1,4 +1,5 @@
 --- 
+sha1: 071fa3ea4ceeccc3f09427a827b5f4e8eebdcddf
 kind: article
 permalink: uiautomation-test-fixtures-redux
 created_at: 2010-09-06 14:41:13 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: b57221807d6d5c7b1b3debfad0f789e1a17adc20
 kind: article
 permalink: military-history
 created_at: 2008-06-28 16:15:19 -07:00

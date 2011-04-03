@@ -1,4 +1,5 @@
 ----- 
+sha1: 92256036fd9c2b07411ed9641f82df466dfc7b71
 kind: article
 permalink: clip-version-1-0-2-has-been-released
 created_at: 2009-10-03 16:03:14 -07:00

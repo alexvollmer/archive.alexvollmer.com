@@ -1,4 +1,5 @@
 ----- 
+sha1: 1b81c5f4e043ffc3b3f376dc1d1350e6ef4cb2d4
 kind: article
 permalink: the-java-conundrum
 created_at: 2007-12-30 20:41:22 -08:00

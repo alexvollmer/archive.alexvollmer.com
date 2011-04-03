@@ -1,4 +1,5 @@
 ----- 
+sha1: ff8185833ef6d553073df20400d7fb4a7a3da288
 kind: article
 permalink: back-to-myemacs
 created_at: 2008-10-07 03:36:51 -07:00

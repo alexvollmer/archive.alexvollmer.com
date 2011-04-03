@@ -1,4 +1,5 @@
 ----- 
+sha1: 7e2e0f2dbf884081de15e228d5de274248fe8496
 kind: article
 permalink: introducing-the-evriverse
 created_at: 2009-05-12 17:28:15 -07:00

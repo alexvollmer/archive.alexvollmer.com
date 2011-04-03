@@ -1,4 +1,5 @@
 ----- 
+sha1: d835972308b3571eeae7284b822d300f74072789
 kind: article
 permalink: gemdoc-completion-in-zsh
 created_at: 2008-06-25 16:30:24 -07:00

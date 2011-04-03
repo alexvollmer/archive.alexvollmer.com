@@ -1,4 +1,5 @@
 --- 
+sha1: b57d15279074ad72d73887ebdd2a95c59ff8c329
 kind: article
 permalink: launching-the-radiant-capsule
 created_at: 2010-09-12 12:26:30.906559 -07:00

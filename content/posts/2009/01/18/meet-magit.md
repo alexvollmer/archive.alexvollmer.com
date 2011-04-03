@@ -1,4 +1,5 @@
 ----- 
+sha1: 88e95ed7042e00929cfb48aed51755c243095909
 kind: article
 permalink: meet-magit
 created_at: 2009-01-18 20:58:06 -08:00

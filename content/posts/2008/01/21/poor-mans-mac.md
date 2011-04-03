@@ -1,4 +1,5 @@
 ----- 
+sha1: ca71746eb0cef49de9e8454e589a2be134d56417
 kind: article
 permalink: poor-mans-mac
 created_at: 2008-01-21 20:47:32 -08:00

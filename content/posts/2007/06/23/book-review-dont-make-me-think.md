@@ -1,4 +1,5 @@
 ----- 
+sha1: 9aded0b2f157cd89a7a0af887fc899d9661b9c24
 kind: article
 permalink: book-review-dont-make-me-think
 created_at: 2007-06-23 02:58:34 -07:00

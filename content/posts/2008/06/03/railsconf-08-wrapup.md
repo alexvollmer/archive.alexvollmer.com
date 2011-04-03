@@ -1,4 +1,5 @@
 ----- 
+sha1: 05dd1aebcafaa00506cd029347f92dbe2d2140fa
 kind: article
 permalink: railsconf-08-wrapup
 created_at: 2008-06-03 16:56:46 -07:00

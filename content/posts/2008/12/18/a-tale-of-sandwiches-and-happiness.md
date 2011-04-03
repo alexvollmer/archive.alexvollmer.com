@@ -1,4 +1,5 @@
 ----- 
+sha1: 45eb5fe286c5c0e683745800fe1c8f0308ccb1e9
 kind: article
 permalink: a-tale-of-sandwiches-and-happiness
 created_at: 2008-12-18 18:44:11 -08:00

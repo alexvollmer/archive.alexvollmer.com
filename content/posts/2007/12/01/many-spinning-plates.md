@@ -1,4 +1,5 @@
 ----- 
+sha1: fb9acb3a61364864aee3a473556cf31c10c382ef
 kind: article
 permalink: many-spinning-plates
 created_at: 2007-12-01 05:12:42 -08:00

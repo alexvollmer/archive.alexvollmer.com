@@ -1,4 +1,5 @@
 ----- 
+sha1: be3775b0d653058cd8f2b300bbc4f061a680650d
 kind: article
 permalink: moochbot-is-out
 created_at: 2008-12-10 06:29:02 -08:00

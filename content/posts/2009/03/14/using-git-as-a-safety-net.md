@@ -1,4 +1,5 @@
 ----- 
+sha1: 43c567eee8d7b7ed1604005384b030754833d799
 kind: article
 permalink: using-git-as-a-safety-net
 created_at: 2009-03-14 18:11:32 -07:00

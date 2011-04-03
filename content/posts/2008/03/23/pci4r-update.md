@@ -1,4 +1,5 @@
 ----- 
+sha1: 2937ebc24e2f3e6680929d1de958d317bf324cd1
 kind: article
 permalink: pci4r-update
 created_at: 2008-03-23 18:13:24 -07:00

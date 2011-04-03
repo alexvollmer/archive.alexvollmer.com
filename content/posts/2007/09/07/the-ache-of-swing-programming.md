@@ -1,4 +1,5 @@
 ----- 
+sha1: 45827e6c90aca7939451c0a847ac0030b89034db
 kind: article
 permalink: the-ache-of-swing-programming
 created_at: 2007-09-07 15:45:42 -07:00

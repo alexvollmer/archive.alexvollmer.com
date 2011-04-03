@@ -1,4 +1,5 @@
 --- 
+sha1: 16410a75815fb7962a12b4d3542c6fb28602980f
 kind: article
 permalink: tools-of-the-estate
 created_at: 2011-01-30 19:15:19.599972 -08:00

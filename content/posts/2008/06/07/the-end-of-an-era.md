@@ -1,4 +1,5 @@
 ----- 
+sha1: 72e5872b044cf85730d0eb56a6ca9745d7b04aa7
 kind: article
 permalink: the-end-of-an-era
 created_at: 2008-06-07 04:58:07 -07:00

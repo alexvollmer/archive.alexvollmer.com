@@ -1,4 +1,5 @@
 ----- 
+sha1: 217d74a4da3df5e1ea8bf3a903fc05731db01a52
 kind: article
 permalink: geek-manners
 created_at: 2008-02-01 17:44:56 -08:00

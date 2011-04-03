@@ -1,4 +1,5 @@
 ----- 
+sha1: 1dec79493027638c0e310d97073a4939b49fea16
 kind: article
 permalink: typeahead-search-on-the-iphone
 created_at: 2009-05-15 04:55:38 -07:00

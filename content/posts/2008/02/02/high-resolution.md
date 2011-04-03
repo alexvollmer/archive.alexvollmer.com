@@ -1,4 +1,5 @@
 ----- 
+sha1: 19cfa36d0c0076c364e48748fc31693f7d71eb73
 kind: article
 permalink: high-resolution
 created_at: 2008-02-02 19:44:26 -08:00

@@ -1,4 +1,5 @@
 --- 
+sha1: 152d49d5720f89fd6216a294fc23e1fad3958288
 permalink: making-fun-of-things-with-ocmock
 title: Making Fun of Things with OCMock
 kind: article

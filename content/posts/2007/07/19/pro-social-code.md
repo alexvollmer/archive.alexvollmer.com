@@ -1,4 +1,5 @@
 ----- 
+sha1: b4dd4e3d28597122457506d06882e97fef6de073
 kind: article
 permalink: pro-social-code
 created_at: 2007-07-19 03:48:29 -07:00

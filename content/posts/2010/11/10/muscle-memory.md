@@ -1,4 +1,5 @@
 --- 
+sha1: e22ef8493137869c8ac557292f1ad63f1d215e26
 kind: article
 permalink: muscle-memory
 created_at: 2010-11-10 12:50:48.921221 -08:00

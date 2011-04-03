@@ -1,4 +1,5 @@
 ----- 
+sha1: e9b0c1ffaf769c78bb7e425832b759de6937862a
 kind: article
 permalink: yet-more-rspec-fun-with-textmate
 created_at: 2007-12-16 03:08:38 -08:00

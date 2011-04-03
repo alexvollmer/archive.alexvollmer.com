@@ -1,4 +1,5 @@
 --- 
+sha1: 71161345b7e5856c23b007a6012df781d2f19dac
 permalink: cocoas-broken-tests
 title: Cocoa's Broken Tests
 kind: article

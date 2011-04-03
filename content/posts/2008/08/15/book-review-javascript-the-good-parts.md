@@ -1,4 +1,5 @@
 ----- 
+sha1: 7e9b26608315fad2684cd740b02a865e773cf813
 kind: article
 permalink: book-review-javascript-the-good-parts
 created_at: 2008-08-15 03:41:45 -07:00

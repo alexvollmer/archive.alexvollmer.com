@@ -1,4 +1,5 @@
 ----- 
+sha1: eabac81819bfe25a3ce340268dcfb835be657e5c
 kind: article
 permalink: book-reviews-designing-the-obviousdesigning-the-moment
 created_at: 2008-06-20 04:55:00 -07:00

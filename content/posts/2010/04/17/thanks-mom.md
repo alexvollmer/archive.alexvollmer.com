@@ -1,4 +1,5 @@
 --- 
+sha1: 452cf705ee6850ed1adb397f1e67f02662f5e65a
 permalink: thanks-mom
 title: Thanks, mom
 kind: article

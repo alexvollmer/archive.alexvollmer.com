@@ -1,4 +1,5 @@
 --- 
+sha1: 51f705066ba69000d8243a95d1f2ceb5c4616733
 permalink: a-tale-of-two-cultures
 title: A Tale of Two Cultures
 kind: article

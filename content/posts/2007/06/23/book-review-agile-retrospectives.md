@@ -1,4 +1,5 @@
 ----- 
+sha1: 8e42905e233ee53b709a272470ae1b2881802e37
 kind: article
 permalink: book-review-agile-retrospectives
 created_at: 2007-06-23 02:58:45 -07:00

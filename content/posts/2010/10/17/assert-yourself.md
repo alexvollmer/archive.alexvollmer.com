@@ -1,4 +1,5 @@
 --- 
+sha1: 289305d924de156ff41b0c7644f18da28de8e60a
 kind: article
 permalink: assert-yourself
 created_at: 2010-10-17 09:46:11.116886 -07:00

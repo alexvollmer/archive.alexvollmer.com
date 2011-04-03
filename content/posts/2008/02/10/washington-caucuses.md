@@ -1,4 +1,5 @@
 ----- 
+sha1: b1cb1b51a0153899a7c346f42bdac804ceff03b6
 kind: article
 permalink: washington-caucuses
 created_at: 2008-02-10 18:53:04 -08:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 4154cf25fc9a9bd350327c37fc69d11fc2ba438b
 kind: article
 permalink: the-cleverest-git-maneuver-i-ever-pulled-off
 created_at: 2009-10-09 15:44:04 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: 9a65b0da0451932b964df29eecc41a7fde30e7d3
 kind: article
 permalink: passing-the-mom-test
 created_at: 2008-05-24 05:07:26 -07:00

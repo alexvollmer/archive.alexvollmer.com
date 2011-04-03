@@ -1,4 +1,5 @@
 --- 
+sha1: 0cb0c69da1ff3755d482feb1644c72871492cc3a
 permalink: visual-affordance-in-a-touch-enabled-world
 title: Visual Affordance in a Touch-Enabled World
 kind: article

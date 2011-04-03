@@ -1,4 +1,5 @@
 ----- 
+sha1: d3dcc20a550343bdab347d7c2dd9772279118ff5
 kind: article
 permalink: day-two-rails-conf-07-summary
 created_at: 2007-05-19 16:55:26 -07:00

@@ -1,4 +1,5 @@
 ----- 
+sha1: c24fbb938bf53b93990626ed67b97615eee8e7ab
 kind: article
 permalink: ten-things-i-think-i-think
 created_at: 2007-10-17 04:24:41 -07:00

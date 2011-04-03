@@ -1,4 +1,5 @@
 --- 
+sha1: ff54f6c9a0821662582cd28f78f8c086214022af
 permalink: static-cling
 title: Static Cling
 kind: article

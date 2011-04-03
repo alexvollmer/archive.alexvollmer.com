@@ -1,4 +1,5 @@
 ----- 
+sha1: 7e275de9940c63d4ec78e62311fe47e977fb1974
 kind: article
 permalink: oracles-listening
 created_at: 2008-09-19 16:17:51 -07:00

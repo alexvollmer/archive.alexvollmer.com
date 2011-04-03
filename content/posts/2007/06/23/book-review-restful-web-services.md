@@ -1,4 +1,5 @@
 ----- 
+sha1: bc2d63a08247b139d797ebbf507f0fb98563643f
 kind: article
 permalink: book-review-restful-web-services
 created_at: 2007-06-23 02:58:21 -07:00

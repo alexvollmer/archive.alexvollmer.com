@@ -1,4 +1,5 @@
 ----- 
+sha1: 9eac41ef858174570a8e43304b76c2ca769af1eb
 kind: article
 permalink: smorgasm
 created_at: 2008-06-21 04:13:31 -07:00

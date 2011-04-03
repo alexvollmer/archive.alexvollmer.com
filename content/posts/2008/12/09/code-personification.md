@@ -1,4 +1,5 @@
 ----- 
+sha1: 6fd60d8d849a76287e65b6d6b30ef3a51a4992a7
 kind: article
 permalink: code-personification
 created_at: 2008-12-09 04:31:19 -08:00

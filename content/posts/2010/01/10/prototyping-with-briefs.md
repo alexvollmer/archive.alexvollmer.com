@@ -1,4 +1,5 @@
 ----- 
+sha1: ccb5a1c429753d75e9fa08030431f62f508cead1
 kind: article
 permalink: prototyping-with-briefs
 title: Prototyping with Briefs

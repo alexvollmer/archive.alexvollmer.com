@@ -1,4 +1,5 @@
 ----- 
+sha1: d555e8773db179003a7ddce757d9bca8cb605fba
 kind: article
 permalink: s3-sync-update
 created_at: 2008-04-05 15:49:18 -07:00

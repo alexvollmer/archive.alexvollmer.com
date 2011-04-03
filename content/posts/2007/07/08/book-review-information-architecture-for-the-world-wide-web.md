@@ -1,4 +1,5 @@
 ----- 
+sha1: 2f7aed2f07f9e8e05525cda6f0618962d0a08afb
 kind: article
 permalink: book-review-information-architecture-for-the-world-wide-web
 created_at: 2007-07-08 02:50:51 -07:00

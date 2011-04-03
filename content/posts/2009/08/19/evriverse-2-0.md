@@ -1,4 +1,5 @@
 ----- 
+sha1: 684b493630f9ce4ce2e455665e3b8e61e9e60485
 kind: article
 permalink: evriverse-2-0
 created_at: 2009-08-19 16:27:18 -07:00

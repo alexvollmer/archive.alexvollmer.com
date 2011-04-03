@@ -1,4 +1,5 @@
 ----- 
+sha1: 160eeb6597e71c837fbb3e1741a6d9c563e37236
 kind: article
 permalink: the-great-git-setup
 created_at: 2009-05-08 04:17:14 -07:00

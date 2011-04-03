@@ -1,4 +1,5 @@
 --- 
+sha1: 571460781b83003b605b075ff07449368db6ab1e
 permalink: menubar-ghetto
 title: Menu Bar Ghetto
 kind: article
