@@ -47,23 +47,26 @@ class Nanoc3::Item
 
   def xmlrpc_hash
     {
-      :dateCreated       => self.created_at.iso8601,
-      :userid            => 1,
+      :dateCreated       => self.created_at,
+      :userid            => "1",
       :postid            => self[:sha1],
       :description       => ALL_POSTS[self[:sha1]],
       :title             => self.title,
       :link              => "http://#{LOCAL_SERVER_NAME}#{self.path}",
       :permaLink         => "http://#{LOCAL_SERVER_NAME}#{self.path}",
       :categories        => ["Uncategorized"],
-      :mt_allow_comments => true,
+      :mt_excerpt        => "",
+      :mt_text_more      => "",
+      :mt_allow_comments => 1,
       :mt_allow_pings    => 0,
       :mt_keywords       => Array(self.tags).join(', '),
       :wp_slug           => self.permalink,
       :wp_password       => "",
       :wp_author_id      => "alexvollmer",
       :wp_author_display => "Alex Vollmer",
-      :date_created_gmt  => self.created_at.iso8601,
+      :date_created_gmt  => self.created_at,
       :post_status       => self.wordpress_post_status,
+      :custom_fields     => [],
       :wp_post_format    => "standard"
     }
   end
@@ -89,11 +92,11 @@ configure do
   SERVER.add_handler("wp.getCategories") do |blog_id, username, password|
     [
       {
-        :categoryId => "1", 
-        :parentId => "0",
-        :description => "Uncategorized",
-        :htmlUrl => "http://#{LOCAL_SERVER_NAME}/category/uncategorized/",
-        :rssUrl => "http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"
+        '"categoryId"'  => '"1"',
+        '"parentId"'    => '"0"',
+        '"description"' => '"Uncategorized"',
+        '"htmlUrl"'     => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/"],
+        '"rssUrl"'      => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"]
       }
     ]
   end
@@ -138,7 +141,16 @@ configure do
   end
 
   SERVER.add_handler("wp.getTags") do |blog_id, username, password|
-    tag_set(BLOG_SITE.articles)
+    count_tags(BLOG_SITE.articles).map do |tag, count|
+      {
+        :tag_id   => tag,
+        :name     => tag,
+        :count    => count,
+        :slug     => tag,
+        :html_url => "http://alexvollmer.com/tags/#{tag}/"
+        #:rss_url?
+      }
+    end
   end
 end
 
