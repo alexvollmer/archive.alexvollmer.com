@@ -6,6 +6,8 @@ require "fileutils"
 require "logger"
 require "pathname"
 require "time"
+require "xmlrpc/marshal"
+require "xmlrpc/server"
 
 require "rubygems"
 require "haml"
@@ -42,6 +44,29 @@ class Nanoc3::Item
       "draft"
     end
   end
+
+  def xmlrpc_hash
+    {
+      :dateCreated       => self.created_at.iso8601,
+      :userid            => 1,
+      :postid            => self[:sha1],
+      :description       => ALL_POSTS[self[:sha1]],
+      :title             => self.title,
+      :link              => "http://#{LOCAL_SERVER_NAME}#{self.path}",
+      :permaLink         => "http://#{LOCAL_SERVER_NAME}#{self.path}",
+      :categories        => ["Uncategorized"],
+      :mt_allow_comments => true,
+      :mt_allow_pings    => 0,
+      :mt_keywords       => Array(self.tags).join(', '),
+      :wp_slug           => self.permalink,
+      :wp_password       => "",
+      :wp_author_id      => "alexvollmer",
+      :wp_author_display => "Alex Vollmer",
+      :date_created_gmt  => self.created_at.iso8601,
+      :post_status       => self.wordpress_post_status,
+      :wp_post_format    => "standard"
+    }
+  end
 end
 
 configure do
@@ -59,6 +84,62 @@ configure do
   set :static
   set :public, File.join(File.dirname(__FILE__), "..", "output")
   set :views, File.join(File.dirname(__FILE__), "..", "server", "views")
+
+  SERVER = XMLRPC::BasicServer.new
+  SERVER.add_handler("wp.getCategories") do |blog_id, username, password|
+    [
+      {
+        :categoryId => "1", 
+        :parentId => "0",
+        :description => "Uncategorized",
+        :htmlUrl => "http://#{LOCAL_SERVER_NAME}/category/uncategorized/",
+        :rssUrl => "http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"
+      }
+    ]
+  end
+
+  SERVER.add_handler("blogger.deletePost") do |app_key, post_id, username, password, publish|
+    delete_post(post_id)
+    1
+  end
+
+  SERVER.add_handler("mt.supportedTextFilters") do
+    []
+  end
+
+  SERVER.add_handler("metaWeblog.editPost") do |post_id, username, password, struct, publish|
+    edit_post(post_id, struct, publish)
+    1
+  end
+
+  SERVER.add_handler("metaWeblog.getPost") do |post_id, username, password|
+    BLOG_SITE.articles.find {|x| x[:sha1] == post_id}.xmlrpc_hash
+  end
+
+  SERVER.add_handler("metaWeblog.getRecentPosts") do |blog_id, username, password, max|
+    BLOG_SITE.articles[0..max].map {|i| i.xmlrpc_hash}
+  end
+
+  SERVER.add_handler("metaWeblog.newMediaObject") do |blog_id, username, password, struct|
+    new_media_object(name, type, struct["bits"])
+    1
+  end
+
+  SERVER.add_handler("metaWeblog.newPost") do |blog_id, username, password, struct, publish|
+    add_post(struct, publish)
+  end
+
+  SERVER.add_handler("mt.getPostCategories") do
+    []
+  end
+
+  SERVER.add_handler("wp.getPages") do |blog_id, username, password, max|
+    BLOG_SITE.articles[0..max].map {|i| i.xmlrpc_hash}
+  end
+
+  SERVER.add_handler("wp.getTags") do |blog_id, username, password|
+    tag_set(BLOG_SITE.articles)
+  end
 end
 
 helpers do
@@ -66,52 +147,12 @@ helpers do
     LOGGER
   end
 
-  def value_for_node(node)
-    actual = node.children.find {|x| x.name != "text"}
-    case actual.name
-    when "array"
-      node['data'].first.children.map do |node|
-        value_for_node(value)
-      end
-    when "base64"
-      Base64.decode64(node.content.strip)
-    when "boolean"
-      node.content.strip == "1"
-    when "dateTime.iso8601"
-      Time.iso8601(node.content.strip)
-    when "double"
-      node.content.strip.to_f
-    when "int", "i4"
-      node.content.strip.to_i
-    when "string"
-      node.content.strip
-    when "struct"
-      hash = {}
-      (node / 'member').each do |member|
-        name = (member/'name').first.content.strip
-        value = value_for_node((member/'value').first)
-        hash[name.to_sym] = value
-      end
-      hash
-    when "nil"
-      nil
-    end
-  end
-
-  def parse_parameters(xml)
-    params = xml.xpath('/methodCall/params/param/value').map do |param|
-      value_for_node(param)
-    end
-    LOGGER.debug("Incoming parameters: #{params.inspect}")
-    params
-  end
-
   def get_recent_posts(max_items)
     recent_posts = BLOG_SITE.articles[0..max_items]
     haml :metaweblog_get_recent_posts, :locals => { :recent_posts => recent_posts }
   end
 
-  def add_post(new_post, publish, respond=true)
+  def add_post(new_post, publish)
     LOGGER.debug("new post: #{new_post.inspect} publish? #{publish}")
     title = new_post[:title]
     body = new_post[:description];
@@ -137,9 +178,7 @@ helpers do
     item = BLOG_SITE.article_by_sha1(sha1)
     BLOG_SITE.compiler.run(item)
 
-    if respond
-      haml :new_post, :locals => {:new_post_id => sha1}
-    end
+    sha1
   end
 
   def edit_post(post_id, struct, publish)
@@ -172,8 +211,6 @@ helpers do
     end
 
     ALL_POSTS.delete(post_id)
-
-    haml :okay
   end
 
   def delete_post(post_id)
@@ -183,7 +220,6 @@ helpers do
     filename = item.path.sub(/\/$/, ".html")
     path = Pathname.new(File.join(File.dirname(__FILE__), "..", "content", filename)).realpath
     rm_f(path)
-    haml :okay
   end
 
   def new_media_object(name, type, bits)
@@ -198,7 +234,11 @@ helpers do
     # static content from
     system "rsync -gprt --partial public/ output"
 
-    haml :new_media_object, :locals => { :file => final_path.realpath, :url => url, :type => type}
+    {
+      :file => file,
+      :url  => url,
+      :type => type
+    }
   end
 end
 
@@ -215,51 +255,50 @@ get "/xmlrpc.php" do
 end
 
 post "/xmlrpc.php" do
-  xml = Nokogiri::XML.parse(request.body)
-  method_call = xml.xpath("/methodCall/methodName").to_a[0].content
-  api_name, method = method_call.split('.')
+  method_call, args = XMLRPC::Marshal.load_call(request.body)
+  api_name, method = method_call.split(".")
   response["Content-Type"] = "text/xml"
-  logger.debug("api_name=#{api_name} method=#{method}")
-  case api_name
-  when "blogger"
-    case method
-    when "deletePost"
-      app_key, post_id, username, password, publish = parse_parameters(xml)
-      delete_post(post_id)
-    end
-  when "mt"
-    case method
-    when "supportedTextFilters", "getPostCategories"
-      haml :empty
-    end
-  when "metaWeblog"
-    case method
-    when "editPost"
-      post_id, username, password, struct, publish = parse_parameters(xml)
-      edit_post(post_id, struct, publish)
-    when "getPost"
-      post_id, username, password = parse_parameters(xml)
-      post = BLOG_SITE.articles.find {|x| x[:sha1] == post_id}
-      haml :metaweblog_get_post, :locals => {:post => post}
-    when "getRecentPosts"
-      blog_id, username, password, max_posts = parse_parameters(xml)
-      get_recent_posts(max_posts)
-    when "newMediaObject"
-      blog_id, username, password, struct = parse_parameters(xml)
-      new_media_object(struct[:name], struct[:type], struct[:bits])
-    when "newPost"
-      blog_id, username, password, struct, publish = parse_parameters(xml)
-      add_post(struct, publish == "1")
-    end
-  when "wp"
-    case method
-    when "getCategories"
-      haml :wp_get_categories
-    when "getPages"
-      haml :wp_get_pages
-    end
-  else
-    # TODO: then what?
-  end
+  logger.debug("api_name=#{api_name} method=#{method} args=#{args.inspect}")
+
+  request.body.rewind
+  SERVER.process(request.body)
+  # case api_name
+  # when "blogger"
+  #   case method
+  #   when "deletePost"
+  #     delete_post(args[1])
+  #   end
+  # when "mt"
+  #   case method
+  #   when "supportedTextFilters", "getPostCategories"
+  #     haml :empty
+  #   end
+  # when "metaWeblog"
+  #   case method
+  #   when "editPost"
+  #     edit_post(args[0], args[3].symbolize_keys, args[4])
+  #   when "getPost"
+  #     post = BLOG_SITE.articles.find {|x| x[:sha1] == args[0]}
+  #     haml :metaweblog_get_post, :locals => {:post => post}
+  #   when "getRecentPosts"
+  #     get_recent_posts(args[3])
+  #   when "newMediaObject"
+  #     struct = args[3].symbolize_keys
+  #     new_media_object(struct[:name], struct[:type], struct[:bits])
+  #   when "newPost"
+  #     add_post(args[3].symbolize_keys, args[4])
+  #   end
+  # when "wp"
+  #   case method
+  #   when "getCategories"
+  #     request.body.rewind
+  #     SERVER.process(request.body)
+  #     # haml :wp_get_categories
+  #   when "getPages"
+  #     haml :wp_get_pages
+  #   end
+  # else
+  #   # TODO: then what?
+  # end
 end
 
