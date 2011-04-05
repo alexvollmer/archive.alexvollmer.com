@@ -133,7 +133,15 @@ configure do
   end
 
   SERVER.add_handler("mt.getPostCategories") do
-    []
+    [
+      {
+        '"categoryId"'  => '"1"',
+        '"parentId"'    => '"0"',
+        '"description"' => '"Uncategorized"',
+        '"htmlUrl"'     => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/"],
+        '"rssUrl"'      => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"]
+      }
+    ]
   end
 
   SERVER.add_handler("wp.getPages") do |blog_id, username, password, max|
