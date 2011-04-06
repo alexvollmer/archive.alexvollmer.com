@@ -10,14 +10,15 @@ require "xmlrpc/marshal"
 require "xmlrpc/server"
 
 require "rubygems"
+require "grit"
 require "haml"
 require "nanoc3"
 require "sinatra"
-require "nokogiri"
 
 include FileUtils
 
 LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
+ROOT_DIR = Pathname.new(File.join(File.dirname(__FILE__), "..")).realpath
 
 ALL_POSTS = Hash.new do |hash, sha1|
   post = BLOG_SITE.article_by_sha1(sha1)
@@ -79,11 +80,13 @@ class Hash
 end
 
 class Nanoc3Server < XMLRPC::BasicServer
-  attr_accessor :site
+  attr_accessor :site, :repo
 
   def initialize(site)
     super
+
     self.site = site
+    self.repo = Grit::Repo.new(ROOT_DIR)
 
     add_handler("wp.getCategories") do |blog_id, username, password|
       [
@@ -175,6 +178,9 @@ class Nanoc3Server < XMLRPC::BasicServer
     item = site.article_by_sha1(sha1)
     site.compiler.run(item)
 
+    self.repo.add(ROOT_DIR + "content", ROOT_DIR + "public")
+    self.repo.commit_all("Added post '#{title}'")
+
     sha1
   end
 
@@ -196,8 +202,9 @@ class Nanoc3Server < XMLRPC::BasicServer
     LOGGER.debug("publish? #{publish} status: #{original_item.wordpress_post_status}")
     if (publish && original_item.wordpress_post_status == "draft") ||
        (!publish && original_item.wordpress_post_status == "publish")
-      file_path = File.join(File.dirname(__FILE__), "..", "content", original_item.path).sub(/\/$/, ".html")
+      file_path = (ROOT_DIR + "content" + original_item.path).sub(/\/$/, ".html")
       rm(file_path)
+      self.repo.remove(file_path)
       struct[:sha1] = attrs[:sha1]
       add_post(struct, publish)
       site.load_data(true)
@@ -207,6 +214,9 @@ class Nanoc3Server < XMLRPC::BasicServer
         io.write("---\n\n")
         io.write(body)
       end
+
+      self.repo.add(ROOT_DIR + "content", ROOT_DIR + "public")
+      self.repo.commit_all("Updated post '#{title}'")
     end
 
     ALL_POSTS.delete(post_id)
@@ -217,15 +227,18 @@ class Nanoc3Server < XMLRPC::BasicServer
     ALL_POSTS.delete(post_id)
     site.items.delete(item)
     filename = item.path.sub(/\/$/, ".html")
-    path = Pathname.new(File.join(File.dirname(__FILE__), "..", "content", filename)).realpath
+    path = (ROOT_DIR + "content" + filename.sub(/^\//, "")).realpath
     rm_f(path)
+
+    self.repo.remove(path)
+    self.repo.commit_all("Removed post '#{item[:title]}")
   end
 
   def new_media_object(name, file_type, bits)
     now = Date.today
     path = now.strftime("public/images/%Y/%m/#{name}").gsub("//", "/")
     url = path.sub(/^public/, '')
-    final_path = Pathname.new(File.join(File.dirname(__FILE__), "..", path))
+    final_path = ROOT_DIR + path
     mkdir_p(final_path.parent) unless final_path.parent.directory?
     open(final_path, "w") {|f| f.write(bits) }
 
