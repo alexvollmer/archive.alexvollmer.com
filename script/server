@@ -72,104 +72,81 @@ class Nanoc3::Item
   end
 end
 
-configure do
-  LOGGER = Logger.new(STDOUT)
-
-  Dir.chdir(File.join(File.dirname(__FILE__), "..")) do
-    BLOG_SITE = Nanoc3::Site.new('.')
-  end
-
-  BLOG_SITE.load_data
-  LOGGER.debug("Compiling nanoc3 site...")
-  BLOG_SITE.compiler.run
-  LOGGER.debug("nanoc3 compilation completed")
-
-  set :static
-  set :public, File.join(File.dirname(__FILE__), "..", "output")
-  set :views, File.join(File.dirname(__FILE__), "..", "server", "views")
-
-  SERVER = XMLRPC::BasicServer.new
-  SERVER.add_handler("wp.getCategories") do |blog_id, username, password|
-    [
-      {
-        '"categoryId"'  => '"1"',
-        '"parentId"'    => '"0"',
-        '"description"' => '"Uncategorized"',
-        '"htmlUrl"'     => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/"],
-        '"rssUrl"'      => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"]
-      }
-    ]
-  end
-
-  SERVER.add_handler("blogger.deletePost") do |app_key, post_id, username, password, publish|
-    delete_post(post_id)
-    1
-  end
-
-  SERVER.add_handler("mt.supportedTextFilters") do
-    []
-  end
-
-  SERVER.add_handler("metaWeblog.editPost") do |post_id, username, password, struct, publish|
-    edit_post(post_id, struct, publish)
-    1
-  end
-
-  SERVER.add_handler("metaWeblog.getPost") do |post_id, username, password|
-    BLOG_SITE.articles.find {|x| x[:sha1] == post_id}.xmlrpc_hash
-  end
-
-  SERVER.add_handler("metaWeblog.getRecentPosts") do |blog_id, username, password, max|
-    BLOG_SITE.articles[0..max].map {|i| i.xmlrpc_hash}
-  end
-
-  SERVER.add_handler("metaWeblog.newMediaObject") do |blog_id, username, password, struct|
-    new_media_object(name, type, struct["bits"])
-    1
-  end
-
-  SERVER.add_handler("metaWeblog.newPost") do |blog_id, username, password, struct, publish|
-    add_post(struct, publish)
-  end
-
-  SERVER.add_handler("mt.getPostCategories") do
-    [
-      {
-        '"categoryId"'  => '"1"',
-        '"parentId"'    => '"0"',
-        '"description"' => '"Uncategorized"',
-        '"htmlUrl"'     => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/"],
-        '"rssUrl"'      => %Q["http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"]
-      }
-    ]
-  end
-
-  SERVER.add_handler("wp.getPages") do |blog_id, username, password, max|
-    BLOG_SITE.articles[0..max].map {|i| i.xmlrpc_hash}
-  end
-
-  SERVER.add_handler("wp.getTags") do |blog_id, username, password|
-    count_tags(BLOG_SITE.articles).map do |tag, count|
-      {
-        :tag_id   => tag,
-        :name     => tag,
-        :count    => count,
-        :slug     => tag,
-        :html_url => "http://alexvollmer.com/tags/#{tag}/"
-        #:rss_url?
-      }
-    end
+class Hash
+  def symbolize_keys
+    self.inject({}) {|h,kv| h[kv[0].to_sym] = kv[1]; h}
   end
 end
 
-helpers do
-  def logger
-    LOGGER
-  end
+class Nanoc3Server < XMLRPC::BasicServer
+  attr_accessor :site
 
-  def get_recent_posts(max_items)
-    recent_posts = BLOG_SITE.articles[0..max_items]
-    haml :metaweblog_get_recent_posts, :locals => { :recent_posts => recent_posts }
+  def initialize(site)
+    super
+    self.site = site
+
+    add_handler("wp.getCategories") do |blog_id, username, password|
+      [
+        {
+          :categoryId  => 1,
+          :parentId    => 0,
+          :description => "Uncategorized",
+          :htmlUrl     => "http://#{LOCAL_SERVER_NAME}/category/uncategorized/",
+          :rssUrl      => "http://#{LOCAL_SERVER_NAME}/category/uncategorized/feed/"
+        }
+      ]
+    end
+
+    add_handler("blogger.deletePost") do |app_key, post_id, username, password, publish|
+      delete_post(post_id)
+      1
+    end
+
+    add_handler("mt.supportedTextFilters") do
+      []
+    end
+
+    add_handler("metaWeblog.editPost") do |post_id, username, password, struct, publish|
+      edit_post(post_id, struct.symbolize_keys, publish)
+      1
+    end
+
+    add_handler("metaWeblog.getPost") do |post_id, username, password|
+      BLOG_SITE.articles.find {|x| x[:sha1] == post_id}.xmlrpc_hash
+    end
+
+    add_handler("metaWeblog.getRecentPosts") do |blog_id, username, password, max|
+      BLOG_SITE.articles[0..max].map {|i| i.xmlrpc_hash}
+    end
+
+    add_handler("metaWeblog.newMediaObject") do |blog_id, username, password, struct|
+      new_media_object(struct["name"], struct["type"], struct["bits"])
+    end
+
+    add_handler("metaWeblog.newPost") do |blog_id, username, password, struct, publish|
+      add_post(struct.symbolize_keys, publish)
+    end
+
+    add_handler("mt.getPostCategories") do
+      []
+    end
+
+    add_handler("wp.getPages") do |blog_id, username, password, max|
+      []
+    end
+
+    add_handler("wp.getTags") do |blog_id, username, password|
+      count_tags(BLOG_SITE.articles).map do |tag, count|
+        {
+          :tag_id   => tag,
+          :name     => tag,
+          :count    => count,
+          :slug     => tag,
+          :html_url => "http://alexvollmer.com/tags/#{tag}/"
+          #:rss_url?
+        }
+      end
+    end
   end
 
   def add_post(new_post, publish)
@@ -193,16 +170,16 @@ helpers do
       :sha1       => sha1
     }
 
-    BLOG_SITE.data_sources.first.create_item(body, attrs, identifier)
-    BLOG_SITE.load_data(true)
-    item = BLOG_SITE.article_by_sha1(sha1)
-    BLOG_SITE.compiler.run(item)
+    site.data_sources.first.create_item(body, attrs, identifier)
+    site.load_data(true)
+    item = site.article_by_sha1(sha1)
+    site.compiler.run(item)
 
     sha1
   end
 
   def edit_post(post_id, struct, publish)
-    original_item = BLOG_SITE.article_by_sha1(post_id)
+    original_item = site.article_by_sha1(post_id)
     # TODO: handle title changes
     title = struct[:title]
     body = struct[:description];
@@ -212,6 +189,7 @@ helpers do
       :created_at => created_at,
       :tags       => Array(struct[:mt_keywords].split(",")),
     })
+    attrs.delete(:file)  # avoid a warning from nanoc3
 
     path = "content#{original_item.path}".sub(/\/$/, ".html")
 
@@ -220,8 +198,9 @@ helpers do
        (!publish && original_item.wordpress_post_status == "publish")
       file_path = File.join(File.dirname(__FILE__), "..", "content", original_item.path).sub(/\/$/, ".html")
       rm(file_path)
-      add_post(struct.merge({:sha1 => attrs[:sha1]}), publish, false)
-      BLOG_SITE.load_data(true)
+      struct[:sha1] = attrs[:sha1]
+      add_post(struct, publish)
+      site.load_data(true)
     else
       File.open(path, 'w') do |io|
         io.write(YAML.dump(attrs).strip + "\n")
@@ -234,15 +213,15 @@ helpers do
   end
 
   def delete_post(post_id)
-    item = BLOG_SITE.article_by_sha1(post_id)
+    item = site.article_by_sha1(post_id)
     ALL_POSTS.delete(post_id)
-    BLOG_SITE.items.delete(item)
+    site.items.delete(item)
     filename = item.path.sub(/\/$/, ".html")
     path = Pathname.new(File.join(File.dirname(__FILE__), "..", "content", filename)).realpath
     rm_f(path)
   end
 
-  def new_media_object(name, type, bits)
+  def new_media_object(name, file_type, bits)
     now = Date.today
     path = now.strftime("public/images/%Y/%m/#{name}").gsub("//", "/")
     url = path.sub(/^public/, '')
@@ -255,10 +234,35 @@ helpers do
     system "rsync -gprt --partial public/ output"
 
     {
-      :file => file,
+      :file => final_path.to_s,
       :url  => url,
-      :type => type
+      :type => file_type
     }
+  end
+end
+
+configure do
+  LOGGER = Logger.new(STDOUT)
+
+  Dir.chdir(File.join(File.dirname(__FILE__), "..")) do
+    BLOG_SITE = Nanoc3::Site.new('.')
+  end
+
+  BLOG_SITE.load_data
+  LOGGER.debug("Compiling nanoc3 site...")
+  BLOG_SITE.compiler.run
+  LOGGER.debug("nanoc3 compilation completed")
+
+  set :static
+  set :public, File.join(File.dirname(__FILE__), "..", "output")
+  set :views, File.join(File.dirname(__FILE__), "..", "server", "views")
+
+  SERVER = Nanoc3Server.new(BLOG_SITE)
+end
+
+helpers do
+  def logger
+    LOGGER
   end
 end
 
@@ -278,47 +282,9 @@ post "/xmlrpc.php" do
   method_call, args = XMLRPC::Marshal.load_call(request.body)
   api_name, method = method_call.split(".")
   response["Content-Type"] = "text/xml"
-  logger.debug("api_name=#{api_name} method=#{method} args=#{args.inspect}")
+  # logger.debug("api_name=#{api_name} method=#{method} args=#{args.inspect}")
 
   request.body.rewind
   SERVER.process(request.body)
-  # case api_name
-  # when "blogger"
-  #   case method
-  #   when "deletePost"
-  #     delete_post(args[1])
-  #   end
-  # when "mt"
-  #   case method
-  #   when "supportedTextFilters", "getPostCategories"
-  #     haml :empty
-  #   end
-  # when "metaWeblog"
-  #   case method
-  #   when "editPost"
-  #     edit_post(args[0], args[3].symbolize_keys, args[4])
-  #   when "getPost"
-  #     post = BLOG_SITE.articles.find {|x| x[:sha1] == args[0]}
-  #     haml :metaweblog_get_post, :locals => {:post => post}
-  #   when "getRecentPosts"
-  #     get_recent_posts(args[3])
-  #   when "newMediaObject"
-  #     struct = args[3].symbolize_keys
-  #     new_media_object(struct[:name], struct[:type], struct[:bits])
-  #   when "newPost"
-  #     add_post(args[3].symbolize_keys, args[4])
-  #   end
-  # when "wp"
-  #   case method
-  #   when "getCategories"
-  #     request.body.rewind
-  #     SERVER.process(request.body)
-  #     # haml :wp_get_categories
-  #   when "getPages"
-  #     haml :wp_get_pages
-  #   end
-  # else
-  #   # TODO: then what?
-  # end
 end
 
