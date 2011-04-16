@@ -1,6 +1,8 @@
 class Nanoc3::Site
-  def articles
-    self.items.select { |i| i.article? }.sort_by { |a| a.created_at }.reverse
+  def articles(include_drafts=false)
+    self.items.select do |i|
+      i.article? && (include_drafts ? true : !i.draft?)
+    end.sort_by { |a| a.created_at }.reverse
   end
 
   def time
@@ -15,6 +17,10 @@ end
 class Nanoc3::Item
   def name
     self.identifier.split("/").last
+  end
+
+  def draft?
+    self.filename =~ %r[^content/drafts]
   end
 
   def date_str
