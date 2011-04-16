@@ -127,11 +127,11 @@ class Nanoc3Server < XMLRPC::BasicServer
     end
 
     add_handler("metaWeblog.getPost") do |post_id, username, password|
-      BLOG_SITE.articles.find {|x| x[:sha1] == post_id}.xmlrpc_hash
+      BLOG_SITE.articles(true).find {|x| x[:sha1] == post_id}.xmlrpc_hash
     end
 
     add_handler("metaWeblog.getRecentPosts") do |blog_id, username, password, max|
-      BLOG_SITE.articles[0..max].map {|i| i.xmlrpc_hash}
+      BLOG_SITE.articles(true)[0..max].map {|i| i.xmlrpc_hash}
     end
 
     add_handler("metaWeblog.newMediaObject") do |blog_id, username, password, struct|
@@ -151,7 +151,7 @@ class Nanoc3Server < XMLRPC::BasicServer
     end
 
     add_handler("wp.getTags") do |blog_id, username, password|
-      count_tags(BLOG_SITE.articles).map do |tag, count|
+      count_tags(BLOG_SITE.articles(true)).map do |tag, count|
         {
           :tag_id   => tag,
           :name     => tag,
