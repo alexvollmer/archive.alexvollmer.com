@@ -1,4 +1,5 @@
 require "erb"
+require "nanoc3"
 require "ostruct"
 require "pathname"
 require "pp"

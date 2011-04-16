@@ -69,6 +69,10 @@ route '/css/*' do
   item.identifier.gsub(/\/$/, '') + '.css'
 end
 
+route "/drafts/*" do
+  # no-op
+end
+
 route '*' do
   item.identifier + 'index.html'
 end
