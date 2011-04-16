@@ -166,17 +166,7 @@ class Nanoc3Server < XMLRPC::BasicServer
 
   def compile_and_sync
     Dir.chdir(File.join(File.dirname(__FILE__), "..")) do
-      begin
-        site = Nanoc3::Site.new('.')
-        site.rules_file = "Rules"
-        site.load_data
-        site.compiler.run
-        # TODO: rsync me!
-      rescue => e
-        LOGGER.error("Error compiling site for publishing: #{e.message}")
-        LOGGER.error(e.backtrace.map{|l| "\t#{l}"}.join("\n"))
-        raise e
-      end
+      system("rake clean deploy[true]")
     end
   end
 
@@ -207,8 +197,8 @@ class Nanoc3Server < XMLRPC::BasicServer
     site.compiler.run(item)
 
     compile_and_sync
-    `git add '#{ROOT_DIR + "content"}' '#{ROOT_DIR + "public"}'`
-    `git commit -m "Added post '#{title}'"`
+    system(%[git add '#{ROOT_DIR + "content"}' '#{ROOT_DIR + "public"}'])
+    system(%[git commit -m "Added post '#{title}'"])
 
     sha1
   end
@@ -233,7 +223,7 @@ class Nanoc3Server < XMLRPC::BasicServer
        (!publish && original_item.wordpress_post_status == "publish")
       file_path = (ROOT_DIR + original_item.filename)
       rm(file_path)
-      `git rm -f #{file_path}`
+      system(%[git rm -f #{file_path}])
       struct[:sha1] = attrs[:sha1]
       add_post(struct, publish)
       site.load_data(true)
@@ -245,8 +235,8 @@ class Nanoc3Server < XMLRPC::BasicServer
       end
 
       compile_and_sync
-      `git add '#{ROOT_DIR + "content"}' '#{ROOT_DIR + "public"}'`
-      `git commit -m "Updated post '#{title}'"`
+      system(%[git add '#{ROOT_DIR + "content"}' '#{ROOT_DIR + "public"}'])
+      system(%[git commit -m "Updated post '#{title}'"])
     end
 
     BLOG_SITE.load_data(true)
@@ -262,8 +252,8 @@ class Nanoc3Server < XMLRPC::BasicServer
     rm_f(path)
 
     compile_and_sync
-    `git rm -f '#{path}'`
-    `git commit -m "Removed post '#{item[:title]}'"`
+    system(%[git rm -f '#{path}'])
+    system(%[git commit -m "Removed post '#{item[:title]}'"])
   end
 
   def new_media_object(name, file_type, bits)
