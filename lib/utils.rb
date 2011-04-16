@@ -2,7 +2,7 @@ require "erb"
 require "pathname"
 require "nanoc3/cli"
 
-def posts_by_date(items=@items)
+def posts_by_date(items=@site.articles)
   by_date = Hash.new { |h,k| h[k] = Hash.new { |h1,k1| h1[k1] = [] } }
 
   items.select do |i|
@@ -13,7 +13,7 @@ def posts_by_date(items=@items)
   by_date
 end
 
-def post_years(items=@items)
+def post_years(items=@site.articles)
   items.select do |i|
     i.attributes[:kind] == "article"
   end.map do |i|
@@ -21,8 +21,7 @@ def post_years(items=@items)
   end.uniq.sort
 end
 
-
-def posts_by_month(year, items=@items)
+def posts_by_month(year, items=@site.articles)
   posts = Hash.new { |h,k| h[k] = [] }
   items.each do |i|
     if i.article? && i.created_at.year == year
@@ -32,8 +31,7 @@ def posts_by_month(year, items=@items)
   posts
 end
 
-
-def posts_by_date(year, month, items=@items)
+def posts_by_date(year, month, items=@site.articles)
   items.select do |i|
     i.article? && i.created_at.year == year && i.created_at.month == month
   end

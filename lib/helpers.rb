@@ -66,7 +66,7 @@ end
 
 def create_tag_pages
   tags = []
-  tag_set(items).each do |tag|
+  tag_set(@site.articles).each do |tag|
     items << Nanoc3::Item.new("= render('_tag_page', :tag => '#{tag}')",
                               { :title => "Category: #{tag}" },
                               "/tags/#{tag}/")
@@ -78,7 +78,7 @@ def create_tag_pages
 end
 
 def create_date_pages
-  years = post_years(items)
+  years = post_years(@site.articles)
   items << Nanoc3::Item.new("= render('_all_post_years', :years => #{years.inspect})",
                             { :title => "All years" }, "/posts/")
 
@@ -86,17 +86,20 @@ def create_date_pages
     items << Nanoc3::Item.new("= render('_posts_by_year', :year => #{year})",
                               { :title => "All posts for #{year}" }, "/posts/#{year}/")
 
+    posts = posts_by_month(year, @site.articles)
     (1..12).each do |month|
       title = "All posts for #{Date::MONTHNAMES[month]}"
       backlink = "<a href='/posts/#{year}/'>all for #{year}</a>"
       full_path = sprintf("/posts/%04d/%02d/", year, month)
 
-      items << Nanoc3::Item.new("= render('_posts_by_month', :year => #{year}, :month => #{month})",
-                                {
-                                  :title => title,
-                                  :backlink => backlink
-                                },
-                                full_path)
+      unless posts[month].empty?
+        items << Nanoc3::Item.new("= render('_posts_by_month', :year => #{year}, :month => #{month})",
+                                  {
+                                    :title => title,
+                                    :backlink => backlink
+                                  },
+                                  full_path)
+      end
     end
   end
 end

@@ -7,7 +7,7 @@
       = @year
     .backlink &nbsp;
   %ul
-    - posts_by_month(@year, @items).sort_by {|k,v| k}.each do |month, posts|
+    - posts_by_month(@year, @site.articles).sort_by {|k,v| k}.each do |month, posts|
       %li
         %a{ :href => sprintf("/posts/%04d/%02d/", @year, month) }
           = Date::MONTHNAMES[month]

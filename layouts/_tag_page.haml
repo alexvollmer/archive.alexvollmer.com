@@ -8,7 +8,7 @@
     .backlink
       %a{ :href => "/tags/" } all tags
   %ul
-    - items_with_tag(tag).each do |item|
+    - items_with_tag(tag, @site.articles).each do |item|
       %li
         %a{:href => "/posts/#{item.full_path}/" }
           =item.title

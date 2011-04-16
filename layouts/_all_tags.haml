@@ -5,7 +5,7 @@
     .title All tags
     .backlink &nbsp;
   %ul
-    - tag_set(@items).sort_by {|t| t.downcase}.each do |tag|
+    - tag_set(@site.articles).sort_by {|t| t.downcase}.each do |tag|
       %li
         %a{ :href => "/tags/#{tag}/" }
           = tag
