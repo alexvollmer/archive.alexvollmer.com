@@ -10,7 +10,6 @@ require "xmlrpc/marshal"
 require "xmlrpc/server"
 
 require "rubygems"
-require "grit"
 require "haml"
 require "nanoc3"
 require "sinatra"
@@ -94,13 +93,12 @@ class Hash
 end
 
 class Nanoc3Server < XMLRPC::BasicServer
-  attr_accessor :site, :repo
+  attr_accessor :site
 
   def initialize(site)
     super
 
     self.site = site
-    self.repo = Grit::Repo.new(ROOT_DIR)
 
     add_handler("wp.getCategories") do |blog_id, username, password|
       [
@@ -192,8 +190,8 @@ class Nanoc3Server < XMLRPC::BasicServer
     item = site.article_by_sha1(sha1)
     site.compiler.run(item)
 
-    self.repo.add(ROOT_DIR + "content", ROOT_DIR + "public")
-    self.repo.index.commit("Added post '#{title}'")
+    `git add '#{ROOT_DIR + "content"}' '#{ROOT_DIR + "public"}'`
+    `git commit -m "Added post '#{title}'"`
 
     sha1
   end
@@ -218,7 +216,7 @@ class Nanoc3Server < XMLRPC::BasicServer
        (!publish && original_item.wordpress_post_status == "publish")
       file_path = (ROOT_DIR + original_item.filename)
       rm(file_path)
-      self.repo.remove(file_path)
+      `git rm -f #{file_path}`
       struct[:sha1] = attrs[:sha1]
       add_post(struct, publish)
       site.load_data(true)
@@ -229,8 +227,8 @@ class Nanoc3Server < XMLRPC::BasicServer
         io.write(body)
       end
 
-      self.repo.add(ROOT_DIR + "content", ROOT_DIR + "public")
-      self.repo.index.commit("Updated post '#{title}'")
+      `git add '#{ROOT_DIR + "content"}' '#{ROOT_DIR + "public"}'`
+      `git commit -m "Updated post '#{title}'"`
     end
 
     BLOG_SITE.load_data(true)
@@ -245,8 +243,8 @@ class Nanoc3Server < XMLRPC::BasicServer
     path = (ROOT_DIR + "content" + filename.sub(/^\//, "")).realpath
     rm_f(path)
 
-    self.repo.remove(path)
-    self.repo.index.commit("Removed post '#{item[:title]}")
+    `git rm -f '#{path}'`
+    `git commit -m "Removed post '#{item[:title]}'"`
   end
 
   def new_media_object(name, file_type, bits)

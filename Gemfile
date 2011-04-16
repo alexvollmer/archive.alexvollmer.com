@@ -11,5 +11,4 @@ gem "rack", "~>1.2"
 gem "mime-types", "~>1.16"
 gem "sinatra", "~>1.2"
 gem "shotgun", "~>0.9"
-gem "grit", "~>2.4"
 

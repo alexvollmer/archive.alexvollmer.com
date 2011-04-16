@@ -4,10 +4,6 @@ GEM
     BlueCloth (1.0.1)
     clip (1.0.2)
     cri (1.0.1)
-    diff-lcs (1.1.2)
-    grit (2.4.1)
-      diff-lcs (~> 1.1)
-      mime-types (~> 1.15)
     haml (3.0.25)
     highline (1.6.1)
     mime-types (1.16)
@@ -29,7 +25,6 @@ PLATFORMS
 DEPENDENCIES
   BlueCloth (~> 1.0)
   clip (~> 1.0)
-  grit (~> 2.4)
   haml (~> 3.0.21)
   highline (~> 1.5)
   mime-types (~> 1.16)
