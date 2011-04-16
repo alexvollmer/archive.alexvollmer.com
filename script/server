@@ -21,18 +21,32 @@ LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
 ROOT_DIR = Pathname.new(File.join(File.dirname(__FILE__), "..")).realpath
 
 ALL_POSTS = Hash.new do |hash, sha1|
-  post = BLOG_SITE.article_by_sha1(sha1)
-  rep = post.rep_named(:default)
-  unless rep.compiled?
+  begin
+    post = BLOG_SITE.article_by_sha1(sha1)
+    rep = post.rep_named(:default)
     BLOG_SITE.compiler.run(post, :force => true)
+    content = rep.compiled_content
+    hash[sha1] = content
+  rescue => e
+    LOGGER.error("Error compiling '#{post.identifier}': #{e.message}")
+    raise e
   end
-  content = rep.compiled_content
-  hash[sha1] = content
 end
 
 class Nanoc3::Site
+  attr_accessor :rules_file
+
   def article_by_sha1(sha1)
     self.items.find {|x| x.article? && x[:sha1] == sha1}
+  end
+
+  def load_rules(rules_file=nil)
+    # Get rule data
+    @rules       = File.read(@rules_file)
+    @rules_mtime = File.stat(@rules_file).mtime
+
+    # Load DSL
+    dsl.instance_eval(@rules, "./#{@rules_file}")
   end
 end
 
@@ -179,7 +193,7 @@ class Nanoc3Server < XMLRPC::BasicServer
     site.compiler.run(item)
 
     self.repo.add(ROOT_DIR + "content", ROOT_DIR + "public")
-    self.repo.commit_all("Added post '#{title}'")
+    self.repo.index.commit("Added post '#{title}'")
 
     sha1
   end
@@ -197,12 +211,12 @@ class Nanoc3Server < XMLRPC::BasicServer
     })
     attrs.delete(:file)  # avoid a warning from nanoc3
 
-    path = "content#{original_item.path}".sub(/\/$/, ".html")
+    path = original_item.filename
 
     LOGGER.debug("publish? #{publish} status: #{original_item.wordpress_post_status}")
     if (publish && original_item.wordpress_post_status == "draft") ||
        (!publish && original_item.wordpress_post_status == "publish")
-      file_path = (ROOT_DIR + "content" + original_item.path).sub(/\/$/, ".html")
+      file_path = (ROOT_DIR + original_item.filename)
       rm(file_path)
       self.repo.remove(file_path)
       struct[:sha1] = attrs[:sha1]
@@ -216,9 +230,10 @@ class Nanoc3Server < XMLRPC::BasicServer
       end
 
       self.repo.add(ROOT_DIR + "content", ROOT_DIR + "public")
-      self.repo.commit_all("Updated post '#{title}'")
+      self.repo.index.commit("Updated post '#{title}'")
     end
 
+    BLOG_SITE.load_data(true)
     ALL_POSTS.delete(post_id)
   end
 
@@ -226,12 +241,12 @@ class Nanoc3Server < XMLRPC::BasicServer
     item = site.article_by_sha1(post_id)
     ALL_POSTS.delete(post_id)
     site.items.delete(item)
-    filename = item.path.sub(/\/$/, ".html")
+    filename = item.filename
     path = (ROOT_DIR + "content" + filename.sub(/^\//, "")).realpath
     rm_f(path)
 
     self.repo.remove(path)
-    self.repo.commit_all("Removed post '#{item[:title]}")
+    self.repo.index.commit("Removed post '#{item[:title]}")
   end
 
   def new_media_object(name, file_type, bits)
@@ -261,10 +276,11 @@ configure do
     BLOG_SITE = Nanoc3::Site.new('.')
   end
 
+  BLOG_SITE.rules_file = "server-Rules"
   BLOG_SITE.load_data
-  LOGGER.debug("Compiling nanoc3 site...")
-  BLOG_SITE.compiler.run
-  LOGGER.debug("nanoc3 compilation completed")
+  # LOGGER.debug("Compiling nanoc3 site...")
+  # BLOG_SITE.compiler.run
+  # LOGGER.debug("nanoc3 compilation completed")
 
   set :static
   set :public, File.join(File.dirname(__FILE__), "..", "output")

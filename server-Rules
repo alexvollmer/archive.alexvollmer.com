@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+compile '*' do
+  rep.filter :erb
+  rep.filter :rdiscount
+  rep.layout "default"
+end
+
+route '*' do
+	"/raw" + item.identifier + "index.txt"
+end
+
+layout "default", :erb
+

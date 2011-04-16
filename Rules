@@ -31,26 +31,43 @@ compile '/posts/*' do
   rep.layout 'post'
 end
 
-compile '/drafts/*' do
-  rep.filter :erb
-  rep.filter :rdiscount
-  rep.layout 'post'
+compile "/feeds/*" do
+	rep.filter :haml
 end
 
-compile '*' do
-  filter_map = {
-    '.erb' => :erb,
-    '.haml' => :haml,
-    '.md' => :rdiscount,
-    '.markdown' => :rdiscount
-  }
-
-  file_filter = filter_map[item.extension] || :haml
-  raise "Filter is not configured for file extension #{item.extension} in Rules file." if file_filter.nil?
-
-  filter file_filter
-  layout 'home' unless item[:layout] == "none"
+compile "/(about|missing|projects)/" do
+	rep.filter :haml
+  rep.layout 'home'
 end
+
+compile "/" do
+  rep.filter :haml
+  rep.layout "home"
+end
+
+compile "/tags/*" do
+  rep.filter :haml
+  rep.layout "home"
+end
+# compile '*' do
+#   filter_map = {
+#     'html' => :erb,
+#     'erb' => :erb,
+#     'haml' => :haml,
+#     'html.haml' => :haml,
+#     'xml.haml' => :haml,
+#     '' => :haml,
+#     nil => :haml,
+#     'md' => :rdiscount,
+#     'markdown' => :rdiscount
+#   }
+
+#   file_filter = filter_map[item.extension] #|| :haml
+#   raise "Filter is not configured for file extension #{item.extension} in Rules file." if file_filter.nil?
+
+#   filter file_filter
+#   layout 'home' unless item[:layout] == "none"
+# end
 
 route '/missing' do
   "/missing.html"
@@ -69,3 +86,4 @@ route '*' do
 end
 
 layout '*', :haml
+
