@@ -25,7 +25,7 @@ compile %r[/posts/\d{4}(/\d{2})?/$] do
   rep.layout 'home'
 end
 
-compile '/posts/*' do
+compile '/(drafts|posts)/*' do
   rep.filter :erb
   rep.filter :rdiscount
   rep.layout 'post'
@@ -49,18 +49,6 @@ compile "/tags/*" do
   rep.filter :haml
   rep.layout "home"
 end
-# compile '*' do
-#   filter_map = {
-#     'html' => :erb,
-#     'erb' => :erb,
-#     'haml' => :haml,
-#     'html.haml' => :haml,
-#     'xml.haml' => :haml,
-#     '' => :haml,
-#     nil => :haml,
-#     'md' => :rdiscount,
-#     'markdown' => :rdiscount
-#   }
 
 #   file_filter = filter_map[item.extension] #|| :haml
 #   raise "Filter is not configured for file extension #{item.extension} in Rules file." if file_filter.nil?
