@@ -17,8 +17,8 @@ require "sinatra"
 
 include FileUtils
 
-LOCAL_SERVER_NAME = `hostname`.strip + ":4567"
-ROOT_DIR = Pathname.new(File.join(File.dirname(__FILE__), "..")).realpath
+LOCAL_SERVER_NAME = "alexvollmer.local"
+ROOT_DIR = Pathname.new(File.dirname(__FILE__)).realpath
 
 ALL_POSTS = Hash.new do |hash, sha1|
   begin
@@ -247,7 +247,7 @@ class Nanoc3Server < XMLRPC::BasicServer
     ALL_POSTS.delete(post_id)
     site.items.delete(item)
     filename = item.filename
-    path = (ROOT_DIR + "content" + filename.sub(/^\//, "")).realpath
+    path = (ROOT_DIR + filename.sub(/^\//, "")).realpath
     rm_f(path)
 
     compile_and_sync
