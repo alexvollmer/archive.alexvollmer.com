@@ -5,11 +5,19 @@ layout: home
 - @title = "Alex Vollmer &mdash; Projects"
 #feature
   %ul
+    %li#radiantcapsule.project
+      %a.featured-link{ :href => "http://radiantcapsule.com", :target => "_new" }
+        %span &nbsp;
+      %p
+        Radiant Capsule is my one-man consulting firm. If you need experienced
+        development help with your web or mobile app, give me a call!
+        To learn more, check it out at
+        %a{ :href => "http://radiantcapsule.com", :target => "_new" } http://radiantcapsule.com
     %li#github.project
       %a.featured-link{ :href => "http://github.com/alexvollmer", :target => "_new" }
         %span &nbsp;
       %ul
-    %li#peepcode.project
+    %li#peepcode.project{ :class => "project last" }
       %a.featured-link{ :href => "http://peepcode.com", :target => "_new" }
         %span &nbsp;
       %ul
@@ -31,15 +39,6 @@ layout: home
           %p
             This screencast introduces UIKit and the palette of 
             built-in classes it provides.
-    %li#moochbot{ :class => "project last" }
-      %a.featured-link{ :href => "http://moochbot.com", :target => "_new" }
-        %span moochbot
-      %p
-        I built moochbot to help you keep track of things
-        you lend and borrow with friends, family and colleagues.
-      %p
-        To learn more, check it out at
-        %a{ :href => "http://moochbot.com", :target => "_new" } http://moochbot.com
   %br.clear
 
 %script{ :type => "text/javascript", :src => "http://github.com/api/v2/json/repos/show/alexvollmer?callback=renderGitHub" }
