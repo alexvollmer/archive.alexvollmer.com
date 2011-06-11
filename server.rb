@@ -166,6 +166,7 @@ class Nanoc3Server < XMLRPC::BasicServer
   end
 
   def compile_and_sync
+    system("touch content/index.haml")
     system("rake clean deploy[true]")
   end
 
