@@ -2,6 +2,7 @@
 layout: none
 ---
 !!! XML
+- require 'cgi'
 %rss{ "xmlns:wfw" => "http://wellformedweb.org/CommentAPI/", "xmlns:atom" => "http://www.w3.org/2005/Atom", "xmlns:sy" => "http://purl.org/rss/1.0/modules/syndication/", :version => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/", "xmlns:slash" => "http://purl.org/rss/1.0/modules/slash/" }
   %channel
     %title
@@ -21,7 +22,7 @@ layout: none
       1
     - @site.articles.each do |post|
       %item
-        %title= CGI.escapeHTML(post.title)
+        %title= ::CGI.escapeHTML(post.title)
         %link
           = "http://alexvollmer.com/posts/#{post.full_path}/"
         %comments
