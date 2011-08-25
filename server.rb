@@ -176,7 +176,7 @@ class Nanoc3Server < XMLRPC::BasicServer
     body = new_post[:description];
     sha1 = new_post[:sha1] || Digest::SHA1.hexdigest(body)
     created_at = Time.now
-    permalink = title.gsub(" ", "-").downcase
+    permalink = title.gsub(" ", "-").downcase.gsub(".", "")
     identifier = sprintf("/#{publish ? "posts" : "drafts"}/%04d/%02d/%02d/%s/",
                          created_at.year,
                          created_at.month,
