@@ -1,0 +1,64 @@
+--- 
+kind: article
+permalink: meaningless-meechu-metrics
+created_at: 2012-01-21 14:03:59.284083 -08:00
+title: Meaningless Meechu Metrics
+sha1: 2abf1d2ad8aea6777c2a022a8486e20fe0f32591
+tags: 
+- meechu
+---
+
+<p>Just for kicks I thought I'd total up some metrics for <a href="http://meechuapp.com">Meechu</a>. Anyone in software who worth a damn, knows that nearly all software metrics are to be viewed with great suspicion, especially when freed from any meaningful context. That said, here's how it all fell out:</p>
+<h2>Commits</h2>
+<p>I just counted commits on my mainline branch. I typically make lots of little feature branches with several incremental commits that get rewritten into more sensible larger ones. So the count of commits isn't entirely reflective of overall project history. Plus a "commit" isn't a universally-recognized, ISO-approved unit of measurement. Boy and howdy I've seen entire releases stuffed into a single commit and I've seen commits that look like someone's undo stack. I, of course, only make "sensible" commits (insert guffaw here).</p>
+<p>Number of commits: 705</p>
+<h2>Lines of Code</h2>
+<p>This is perhaps the most Dilbert-y of software metrics. Sheer raw, dumb volume. It's hard to believe that there was a time when developer productivity was ever measured this way. This is a very easy metric to game if one is so inclined. However for a single developer, generally they don't want to write any more than they have to. I counted up lines of Objective-C source with:</p>
+<pre> wc -l Classes/**/*.(m|h)</pre>
+<p>Total lines of code: 26,184</p>
+<h2>Number of Builds</h2>
+<p>I use <a href="http://testflightapp.com">TestFlight</a> to deploy test builds to my faithful testers. I generally don't put out a build unless I have a specific feature or set of features, or I have a fix for a specific bug in a previous release that prevents testing.</p>
+<p>I have a rake task I use to check the build, add a git tag and whatnot. I need to add a little AppleScript pixie-dust to nuke Xcode first and bring it back after this (it gets so grumpy when you fiddle with the git repository under its nose!) Or perhaps an even more ambitious approach would be to use something like <a href="http://www.keyboardmaestro.com/main/">Keyboard Maestro</a> to script a build to TestFlight from end-to-end. Anyway, here's my rake task:</p>
+<pre lang="ruby">task :build, :override, :needs =&gt; :tests do |t, args|
+  args.with_defaults(:override =&gt; false)
+  branch = `git status -sb | head -1`.strip.split[1]
+  if branch != "master" &amp;&amp; !args.override
+    STDERR.puts "ERROR: You're not on the master branch (currently on #{branch})!!"
+    exit 1
+  end
+
+ puts "Cleaning and building release..."
+ x "xcodebuild -configuration 'Release' -target 'Meechu' -sdk iphoneos5.0 clean build"
+ puts "Bumping version number…"
+ prev_build_num = `agvtool vers -terse`.strip
+ `agvtool bump -all`
+ build_num = `agvtool vers -terse`.strip
+
+ # TODO: integration dSYM copying
+
+ puts "Updating git..."
+ x "git add ."
+ x "git commit -m 'Build #{build_num}'"
+ x "git tag -f BUILD_#{build_num}"
+
+ puts "Changelog:"
+ puts `git log BUILD_#{prev_build_num}..BUILD_#{build_num}`
+end</pre>
+<p>The 'x' function is just a little wrapper I wrote for executing system processes that looks like this:</p>
+<pre lang="ruby">def x(cmd)
+  out = `#{cmd}`
+  if $? != 0
+    raise "'#{cmd}' failed: #{out}"
+  else
+    out
+  end
+end</pre>
+<p>Total number of builds: 25</p>
+<h2>Unit Tests</h2>
+<p>This one makes me the saddest. I'll come totally clean and admit that Meechu doesn't have as many unit-tests as I'm used to writing. Part of that is that the unit-testing tools are primitive and buggy (though they've improved greatly). The other part is that I find it difficult to write any meaningful unit-tests in an iOS app. It's very easy to write a test that simply re-asserts the implementation. In my opinion, these are worthless. They don't test anything meaningful and take twice the effort.</p>
+<p>I want to spend some more time on this topic, but for now I'll live with the paltry number of tests I have to-date.</p>
+<p>Number of test classes: 3</p>
+<p>Number of test cases: 29</p>
+<h2>Other Records and Metrics</h2>
+<p>One thing I wish I had done on this project was track my hours like I do for clients. If for no other reason than to have some sense of the effort put into Meechu vis-à-vis other projects I've worked on. This may be a habit I'll pick up in future releases.</p>
+<p>At the beginning of this project I started keeping a developer journal of the day's activities. I didn't stick to this but I wish I had. While my tools weren't ideal, that's really a poor excuse for just lacking the discipline. I started out with a Tumblr blog, but I'm thinking of using something like <a href="http://dayoneapp.com/">Day One</a>. Native apps for stuff like this just feel more immediate. I like to take lots of screenshots and image-uploading is one of the crappier parts of the web-experience.</p>
